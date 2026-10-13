@@ -2,7 +2,7 @@
 
 Errores que ya aparecieron, para no repetirlos.
 
-| Fecha | Error | Causa | SoluciÃ³n |
+| Fecha | Error | Causa | Solución |
 |---|---|---|---|
-| (vacÃ­o) | | | |
+| (vacío) | | | |
 

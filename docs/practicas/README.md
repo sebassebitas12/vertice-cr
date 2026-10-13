@@ -1,33 +1,33 @@
-# PrÃ¡cticas de clase
+# Prácticas de clase
 
-Una nota por prÃ¡ctica: `NN-nombre.md`. La rama de trabajo es `practica/NN-nombre`.
+Una nota por práctica: `NN-nombre.md`. La rama de trabajo es `practica/NN-nombre`.
 
 ## Plantilla
 
 ```markdown
-# NN â€” Nombre de la prÃ¡ctica
+# NN — Nombre de la práctica
 
 ## Enunciado
 (pegado tal cual)
 
-## CÃ³mo se adaptÃ³ a VÃ©rtice
-Entidad o funcionalidad de VÃ©rtice con la que se hizo.
+## Cómo se adaptó a Vértice
+Entidad o funcionalidad de Vértice con la que se hizo.
 
-## QuÃ© se hizo
+## Qué se hizo
 - ...
 
 ## Archivos tocados
 - ...
 
-## CÃ³mo probarlo
+## Cómo probarlo
 1. ...
 
-## QuÃ© sirve al startup y quÃ© es solo de la prÃ¡ctica
+## Qué sirve al startup y qué es solo de la práctica
 
 ## Pendientes
 ```
 
-## Ãndice
+## Índice
 
-(vacÃ­o)
+(vacío)
 

@@ -1,13 +1,13 @@
 # Aprendizaje
 
-AquÃ­ queda lo que SebastiÃ¡n aprende mientras construye VÃ©rtice CR.
+Aquí queda lo que Sebastián aprende mientras construye Vértice CR.
 
-- Una nota por sesiÃ³n o tema: `AAAA-MM-DD-tema.md` (plantilla en `.agents/skills/aprender-vertice/references/plantilla-nota.md`).
-- `glosario.md`: tÃ©rminos nuevos, definidos con palabras propias.
-- `errores-comunes.md`: errores que ya ocurrieron, su causa y su soluciÃ³n.
-- El progreso por tema estÃ¡ en `.agents/skills/aprender-vertice/references/ruta-frontend.md`.
+- Una nota por sesión o tema: `AAAA-MM-DD-tema.md` (plantilla en `.agents/skills/aprender-vertice/references/plantilla-nota.md`).
+- `glosario.md`: términos nuevos, definidos con palabras propias.
+- `errores-comunes.md`: errores que ya ocurrieron, su causa y su solución.
+- El progreso por tema está en `.agents/skills/aprender-vertice/references/ruta-frontend.md`.
 
-## Ãndice de notas
+## Índice de notas
 
-(vacÃ­o)
+(vacío)
 

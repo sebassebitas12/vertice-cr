@@ -3,22 +3,22 @@
 Copiar a `docs/aprendizaje/AAAA-MM-DD-tema.md` y completar.
 
 ```markdown
-# AAAA-MM-DD â€” Tema
+# AAAA-MM-DD — Tema
 
 ## Contexto
-QuÃ© estÃ¡bamos construyendo o quÃ© prÃ¡ctica era (enlazar a `docs/practicas/NN-nombre.md` si aplica).
+Qué estábamos construyendo o qué práctica era (enlazar a `docs/practicas/NN-nombre.md` si aplica).
 
-## QuÃ© aprendÃ­
+## Qué aprendí
 - Concepto 1, explicado con mis palabras
 - Concepto 2
 
-## CÃ³mo se aplicÃ³ en VÃ©rtice
-QuÃ© archivos o funcionalidades salieron de esto.
+## Cómo se aplicó en Vértice
+Qué archivos o funcionalidades salieron de esto.
 
-## Errores y cÃ³mo se resolvieron
-- Error â†’ causa â†’ soluciÃ³n
+## Errores y cómo se resolvieron
+- Error → causa → solución
 
-## Lo que todavÃ­a no me queda claro
+## Lo que todavía no me queda claro
 - Duda 1
 
 ## Preguntas de repaso
@@ -26,6 +26,6 @@ QuÃ© archivos o funcionalidades salieron de esto.
 2. Pregunta corta
 
 ## Siguiente paso
-QuÃ© sigue y por quÃ©.
+Qué sigue y por qué.
 ```
 

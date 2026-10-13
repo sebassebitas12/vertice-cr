@@ -1,8 +1,8 @@
 # Glosario
 
-TÃ©rminos nuevos con definiciÃ³n breve y en palabras propias. Orden alfabÃ©tico.
+Términos nuevos con definición breve y en palabras propias. Orden alfabético.
 
-| TÃ©rmino | QuÃ© significa | DÃ³nde lo usÃ© |
+| Término | Qué significa | Dónde lo usé |
 |---|---|---|
-| (vacÃ­o) | | |
+| (vacío) | | |
 
