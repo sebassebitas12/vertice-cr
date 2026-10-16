@@ -1,56 +1,51 @@
 # AGENTS.md — Vértice CR
 
-Instrucciones para cualquier agente (Codex, Antigravity u otro) que trabaje en este repo.
+Instrucciones para agentes que trabajen en este repositorio.
 
-## 1. Antes de tocar nada
+## Naturaleza y prioridad
 
-Lee, en este orden:
+Vértice CR es un startup de impresión 3D a largo plazo **y** un registro del aprendizaje del curso de backend. En las etapas iniciales no forzar cada clase o ejercicio a una implementación de negocio; primero conservar el conocimiento, luego decidir qué se aplica.
 
-1. Este archivo.
-2. `docs/negocio/` (producto, estados, reglas).
-3. `docs/decisiones/` (qué ya está decidido y por qué).
-4. Si la tarea es visual: `docs/diseno/direccion-de-arte.md`.
-5. Si la tarea es una práctica de clase: la skill `aprender-vertice`.
-6. El archivo exacto que vas a modificar.
+## Antes de editar
 
-No edites por intuición. Inspecciona el estado real del repo primero.
+1. Leer este archivo.
+2. Leer `docs/aprendizaje/` y la ruta de aprendizaje pertinente si se trata de clases.
+3. Leer la skill `.agents/skills/aprender-vertice/SKILL.md` cuando se trate de aprendizaje.
+4. Solo si se va a desarrollar producto, leer `docs/negocio/` y `docs/decisiones/`; para interfaz, también `docs/diseno/`.
+5. Inspeccionar archivos concretos antes de modificarlos.
 
-## 2. Naturaleza del proyecto
+## Trabajo con material académico
 
-- Es un startup real y a la vez el medio de aprendizaje de Sebastián. **Entender importa tanto como terminar.**
-- Sebastián es quien va a mantener este código. Prefiere aprender a recibir todo hecho, sobre todo en el front end.
-- No inventes reglas de negocio. Si falta una, pregunta o márcala como pendiente en `docs/negocio/`.
+- Si Sebastián comparte una práctica y dice haberla realizado, registrar **estudiada y practicada según su declaración**. No exigir soluciones locales ni volver a examinarlo.
+- Los PDFs, enunciados y apuntes sirven para documentar conceptos, no para inventar código, capturas, calificaciones o resultados.
+- Distinguir notas de aprendizaje (`docs/aprendizaje/`) de registros de prácticas (`docs/practicas/`) y de código de la aplicación.
+- No generar soluciones de entregas cuando el enunciado prohíba IA.
+- Mantener `.agents/skills/aprender-vertice/references/ruta-backend.md` al día con las clases.
+- No forzar equivalencias con Vértice antes de que haya una necesidad concreta.
 
-## 3. Reglas de negocio que no se rompen
+## Reglas del negocio, cuando se implemente
 
-- Capacidad de fabricación: solo **FDM**; filamentos **ASA, PLA, PETG, ABS y TPU**.
-- No prometer plazos, tolerancias ni disponibilidad inmediata hasta tener datos de operación aprobados.
-- Una solicitud personalizada sin cotizar es `PENDING_QUOTE`, nunca un precio de `0`.
-- Sin secretos en Git. Variables sensibles en `.env` (ignorado) y un `.env.example` documentado.
+- Solo fabricación FDM, con ASA, PLA, PETG, ABS y TPU.
+- El catálogo se fabrica bajo pedido; no asumir stock inmediato de modelos.
+- No prometer plazos, tolerancias ni disponibilidad sin datos aprobados.
+- Una solicitud personalizada sin cotizar permanece `PENDING_QUOTE`, nunca a precio cero.
+- No subir secretos; usar `.env` ignorado y `.env.example` cuando corresponda.
 
-## 4. Forma de trabajar
+## Forma de trabajar
 
-**Entender → Inspeccionar → Planificar → Implementar → Verificar → Documentar.**
+Entender → inspeccionar → planificar → implementar → verificar → documentar.
 
-- Una tarea pequeña por sesión; commit al terminar.
-- Cada práctica de clase va en su rama `practica/NN-nombre`; no se toca `main` directamente.
-- Cambios definitivos, no parches temporales ni código de prueba dentro del producto.
-- En autenticación, subida de archivos y pagos: señala los riesgos de seguridad explícitamente.
+- Crear ramas para cambios, sin editar `main` directamente. Para prácticas implementadas usar `practica/NN-nombre`; para documentación, ramas `docs/...`.
+- Cambios pequeños y revisables.
+- Al documentar una clase, crear nota fechada, actualizar índice, glosario y ruta correspondiente.
+- Registrar decisiones relevantes en `docs/decisiones/`, no suponer decisiones de stack pendientes.
+- En autenticación, subida de archivos y pagos, señalar riesgos de seguridad.
 
-## 5. Documentación obligatoria
-
-Al terminar cada sesión de trabajo:
-
-- Deja una nota en `docs/aprendizaje/` (plantilla en la skill).
-- Si hubo una decisión importante, un archivo nuevo en `docs/decisiones/`.
-- Si fue una práctica de clase, `docs/practicas/NN-nombre.md`.
-
-## 6. Autoridad en caso de conflicto
+## Autoridad
 
 1. Instrucción explícita y actual de Sebastián.
 2. Este archivo.
-3. `docs/decisiones/` y `docs/negocio/`.
-4. `docs/negocio/heredado/` es material de origen: útil, pero puede estar desactualizado o atado al stack anterior. Si choca con una decisión nueva, gana la decisión nueva.
+3. Documentos vigentes de decisiones y negocio.
+4. Documentación heredada de la entrega académica, que puede estar desactualizada.
 
-Si un conflicto no se resuelve con esta jerarquía, detente y señálalo; no lo normalices en silencio.
-
+Ante un conflicto importante, señalarlo sin normalizarlo.

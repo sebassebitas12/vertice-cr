@@ -1,13 +1,15 @@
 # Aprendizaje
 
-Aquí queda lo que Sebastián aprende mientras construye Vértice CR.
+Registro de lo estudiado durante el curso y de lo aprendido mientras se construye Vértice CR. **No es un depósito de soluciones ni un examen.**
 
-- Una nota por sesión o tema: `AAAA-MM-DD-tema.md` (plantilla en `.agents/skills/aprender-vertice/references/plantilla-nota.md`).
-- `glosario.md`: términos nuevos, definidos con palabras propias.
-- `errores-comunes.md`: errores que ya ocurrieron, su causa y su solución.
-- El progreso por tema está en `.agents/skills/aprender-vertice/references/ruta-frontend.md`.
+- Una nota por sesión o tema, idealmente `AAAA-MM-DD-tema.md`.
+- [Glosario](glosario.md): conceptos y vocabulario.
+- [Errores comunes](errores-comunes.md): registrar solo errores realmente observados.
+- [Ruta backend](../../.agents/skills/aprender-vertice/references/ruta-backend.md): progreso informado en las clases.
+- [Ruta frontend](../../.agents/skills/aprender-vertice/references/ruta-frontend.md): seguimiento independiente.
+- [Prácticas](../practicas/README.md): referencia a los enunciados, sin obligación de importar proyectos locales.
 
 ## Índice de notas
 
-(vacío)
-
+- [2026-10-13 — Publicación del repositorio](2026-10-13-repositorio.md).
+- [2026-10-16 — Fundamentos de POO en JavaScript](2026-10-16-poo-javascript.md).
