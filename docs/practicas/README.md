@@ -1,33 +1,12 @@
 # Prácticas de clase
 
-Una nota por práctica: `NN-nombre.md`. La rama de trabajo es `practica/NN-nombre`.
-
-## Plantilla
-
-```markdown
-# NN — Nombre de la práctica
-
-## Enunciado
-(pegado tal cual)
-
-## Cómo se adaptó a Vértice
-Entidad o funcionalidad de Vértice con la que se hizo.
-
-## Qué se hizo
-- ...
-
-## Archivos tocados
-- ...
-
-## Cómo probarlo
-1. ...
-
-## Qué sirve al startup y qué es solo de la práctica
-
-## Pendientes
-```
+Aquí se **registran** las prácticas realizadas, su objetivo y los conceptos aprendidos. No es obligatorio subir las soluciones locales. Si una práctica futura se implementa en el repo, respetar las restricciones del enunciado y trabajar en su rama; si solo se documenta, no se necesita reproducir el código.
 
 ## Índice
 
-(vacío)
+- [Práctica #2 — Los cuatro pilares de POO](02-cuatro-pilares-poo.md) — registrada como realizada.
+- [Práctica #3 — Carrito de compras con POO](03-carrito-compras-poo.md) — registrada como realizada.
 
+## Para nuevos registros
+
+Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cuando sea útil. No inventar capturas, archivos o resultados que no se hayan compartido. No forzar equivalencias con Vértice.
