@@ -6,6 +6,7 @@ Aquí se **registran** las prácticas realizadas, su objetivo y los conceptos ap
 
 - [Práctica #2 — Los cuatro pilares de POO](02-cuatro-pilares-poo.md) — registrada como realizada.
 - [Práctica #3 — Carrito de compras con POO](03-carrito-compras-poo.md) — registrada como realizada.
+- [LAB1 — Gestión de solicitudes de cotización con n8n](lab1-gestion-cotizaciones-n8n.md) — demostrada y aprobada, según informó el estudiante.
 
 ## Para nuevos registros
 
