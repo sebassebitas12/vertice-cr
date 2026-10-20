@@ -13,3 +13,4 @@ Registro de lo estudiado durante el curso y de lo aprendido mientras se construy
 
 - [2026-10-13 — Publicación del repositorio](2026-10-13-repositorio.md).
 - [2026-10-16 — Fundamentos de POO en JavaScript](2026-10-16-poo-javascript.md).
+- [2026-10-20 — Agente orquestador, POO y Data Tables en n8n](2026-10-20-agente-orquestador-n8n.md).
