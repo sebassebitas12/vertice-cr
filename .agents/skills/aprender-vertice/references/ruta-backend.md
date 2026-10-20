@@ -24,10 +24,24 @@ El estado describe el aprendizaje reportado; no pretende certificar el nivel de 
 
 Consulta [nota de POO](../../../docs/aprendizaje/2026-10-16-poo-javascript.md).
 
+## 02 — Orquestación IA, n8n y persistencia
+
+**Estado: estudiado y practicado** · Registro: 2026-10-20
+
+- Trigger → AI Agent (Chat Model, Memory, Tools) → respuesta.
+- Orquestación supervisor/especialistas; contratos `{ok,data,error}` y analogías POO.
+- n8n Data Tables: catálogo de tarifas y cotizaciones persistidas.
+- Consultas, validación, cálculo determinista, escritura `upsert` y control de duplicados de la misma solicitud/sesión.
+- Errores observados: material inexistente, datos incompletos, repetición de filas por múltiples ítems; medidas de corrección.
+- Práctica aplicada a una **simulación académica** de impresión 3D, sin adoptar ese backend como stack del startup.
+
+Consulta [nota de orquestación](../../../docs/aprendizaje/2026-10-20-agente-orquestador-n8n.md) y [registro de práctica](../../../docs/practicas/2026-10-20-orquestador-cotizaciones-n8n.md).
+
 ## Próximos temas
 
-No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso. Cuando se estudien bases de datos, APIs, autenticación u otros temas, crear una nota fechada y ampliar la ruta.
+No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso.
 
 ## Registro
 
-- **2026-10-16:** se documentaron la teoría y las prácticas ya realizadas de POO; sin importar soluciones locales al repo.
+- **2026-10-16:** teoría y prácticas de POO documentadas; sin importar soluciones locales.
+- **2026-10-20:** orquestación IA y Data Tables documentadas con resultados observados; sin convertir el laboratorio en aplicación del startup.
