@@ -19,7 +19,9 @@ Se realizó el Laboratorio #2, Caso 5: una tienda online con inventario, cupones
 
 ## Cómo se aplicó en este laboratorio
 
-Se implementó una API con productos, clientes, cupones, tarifas, órdenes y artículos de orden. El frontend consumió esa API mediante una capa de servicios, mostró errores del servidor y presentó catálogo, carrito, órdenes y métricas. n8n recibió una solicitud por webhook y devolvió `{ ok, data, error }`.
+Se implementó una API con productos, clientes, cupones, tarifas, órdenes y artículos de orden. El frontend consumió esa API mediante una capa de servicios, mostró errores del servidor y presentó catálogo, carrito, órdenes y métricas. n8n recibió solicitudes por webhook y devolvió `{ ok, data, error }`.
+
+La descripción de una pieza se solicitó desde el botón del catálogo: la ejecución n8n #123 terminó correctamente y devolvió texto para “Clip para cables en TPU”. En el checkout se observaron recomendaciones relacionadas con el carrito.
 
 El trabajo fue realizado en `Laboratorio2/`. Esta nota no copia la solución ni convierte el laboratorio en código del startup.
 
@@ -29,11 +31,19 @@ La aplicación de impresión 3D de `Tienda-de-Impresion3D`, rama `Pruebas`, fue 
 
 El patrón de transacciones, validación en servidor, servicios, métricas y contrato JSON puede servir más adelante. El modelo de inventario del caso no se copia: Vértice trabaja con fabricación bajo pedido y una solicitud personalizada sin cotizar no debe convertirse en un precio cero.
 
+Como dirección futura de acceso, el catálogo puede ser público; las herramientas de gestión deben protegerse con autenticación y autorización. El laboratorio no implementa login y no debe publicarse como sistema de producción.
+
 Para una futura integración de IA en Vértice se mantiene como dirección el workflow n8n unificado. El workflow simple del laboratorio queda como evidencia de aprendizaje, no como integración definitiva.
 
 ## Errores y límites registrados
 
 La práctica incluyó casos negativos con `400`, `404` y `409`, además de pruebas de conflictos de negocio. No se agregan aquí fallos que no hayan sido observados o comunicados. Los prompts y correcciones del desarrollo permanecen en la bitácora del Laboratorio 2.
+
+## Revisión visual acotada
+
+Al revisar una interfaz, no basta con comprobar que los colores combinen: también hay que revisar si las imágenes y adornos comunican algo reconocible, si los controles y textos conservan legibilidad en claro y oscuro, y si el mismo componente se entiende en su contexto. Para un laboratorio, limitar los cambios a un problema concreto ayuda a aprender sin convertir cada práctica en un rediseño completo.
+
+En este cierre se quitó una ilustración decorativa ambigua del hero y se conservó una tarjeta solo de texto (“Fabricación aditiva · Una capa sobre otra”), con la paleta existente. Se revisó la legibilidad del catálogo en ambos temas.
 
 ## Lo que todavía no me queda claro
 
