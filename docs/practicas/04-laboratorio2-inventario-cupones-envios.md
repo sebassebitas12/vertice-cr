@@ -29,28 +29,32 @@ Construir una aplicación full stack con una API REST propia, PostgreSQL, un fro
 - Historial, detalle y cambio de estado de órdenes.
 - Dashboard conectado al endpoint de resumen.
 - Capa de servicios y hook reutilizable para estados de carga, datos y error.
+- Gestión de piezas para completar el CRUD de la práctica; sin autenticación, por lo que no es apta para publicación como sistema real.
 
 ### Agente de IA
 
-- Workflow local con `Webhook → AI Agent → Respond to Webhook`.
-- Generación de descripción comercial y recomendaciones relacionadas con el carrito.
+- Workflow local con `Webhook → Validar solicitud → AI Agent → Respond to Webhook`.
+- Generación de descripción y recomendaciones relacionadas con el carrito.
 - Respuesta normalizada mediante `{ ok, data, error }`.
-- Prueba compartida en Postman con respuesta exitosa y sin credenciales exportadas.
+- Prueba inicial con respuesta exitosa en Postman; al cierre también se confirmó una descripción desde el catálogo web (ejecución n8n #123 exitosa) y se observaron recomendaciones en el checkout.
 
-## Evidencia informada
+## Verificación de cierre
 
-- Checkpoint del Día 1 completado.
-- Colección de Postman con casos válidos y negativos.
-- Frontend levantado localmente y conectado a la API.
-- Workflow n8n publicado en la instancia local.
+- Backend: `npm run test:smoke` pasó; comprobó errores, rollback, métricas y limpieza de la ficha temporal.
+- Frontend: `npm test` pasó con 3 pruebas y `npm run build` terminó correctamente.
+- Lint: sin errores; quedan 3 advertencias en `useFetch`, `CartContext` y `OrderDetailPage`.
+- Catálogo: se revisó la tarjeta textual del hero y la legibilidad del tema claro y oscuro; se conservaron las fotos que corresponden como referencias académicas.
+- n8n: la instancia local muestra el workflow como `Published`; el archivo exportado conserva `active: false`, por lo que su estado debe comprobarse después de importarlo. No se modificó el workflow publicado.
 
-Este registro no certifica el dominio individual de cada tema ni reemplaza la defensa académica. Solo conserva lo realizado y comunicado por el estudiante.
+Este registro no certifica el dominio individual de cada tema ni reemplaza la defensa académica. Solo conserva lo realizado y comprobado durante la práctica.
 
 ## Relación con Vértice CR
 
-El laboratorio aporta práctica reutilizable sobre APIs, validación en servidor, transacciones, servicios React, métricas y contratos de automatización. No se traslada literalmente el modelo de inventario: Vértice fabrica modelos bajo pedido y no debe presentar stock inmediato sin datos aprobados.
+El laboratorio aporta práctica reutilizable sobre APIs, validación en servidor, transacciones, servicios React, métricas, revisión visual enfocada y contratos de automatización. No se traslada literalmente el modelo de inventario: Vértice fabrica modelos bajo pedido y no debe presentar stock inmediato sin datos aprobados.
 
 La rama `Pruebas` de `Tienda-de-Impresion3D` se revisó como referencia histórica del frontend, pero no se modifica ni se usa como base de código para esta práctica. El workflow simple de este laboratorio se conserva como ejercicio; una futura integración de Vértice deberá seguir un workflow n8n unificado y sus contratos propios.
+
+Como criterio para una futura aplicación, catálogo público y gestión protegida son necesidades distintas. Este laboratorio no incluye login; la autenticación y autorización de administración siguen pendientes para cualquier sistema real.
 
 ## Límites
 
