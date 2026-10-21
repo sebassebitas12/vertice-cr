@@ -10,6 +10,19 @@ Cómo marcar el progreso (solo cuando Sebastián lo demuestre):
 
 Base que ya tiene: React, componentes, hooks, React Router, pruebas con Jest y Testing Library.
 
+## Registro del Laboratorio 2
+
+**Estado: estudiado y practicado según declaración** · Registro: 2026-10-21
+
+- React con Vite y React Router para separar catálogo, órdenes y dashboard.
+- Capa de servicios para centralizar peticiones HTTP.
+- Hook reutilizable para carga, datos, errores y recarga.
+- Formularios controlados y presentación de errores `400` y `409` del backend.
+- Consumo de métricas calculadas por SQL.
+- Integración de React con un webhook n8n mediante `{ ok, data, error }`.
+
+Este registro corresponde a un laboratorio académico con React + Vite. No cambia el stack frontend objetivo de Vértice hasta que exista una decisión posterior.
+
 ## 1. TypeScript básico
 - [ ] Tipos primitivos, uniones y `null`/`undefined`
 - [ ] `interface` y `type` para objetos
@@ -60,5 +73,5 @@ Base que ya tiene: React, componentes, hooks, React Router, pruebas con Jest y T
 
 Anota aquí, con fecha, cada vez que un tema cambie de estado:
 
-- (vacío)
+- **2026-10-21:** gestión de piezas FDM con formularios controlados y errores de API; corrección de IDs BIGINT de texto a enteros seguros en órdenes. Se practicó con ayuda; no se marca dominio independiente ni avance en Next.js/TypeScript.
 

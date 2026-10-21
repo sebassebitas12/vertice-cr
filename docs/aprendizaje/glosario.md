@@ -25,3 +25,13 @@ Conceptos vistos en clase, explicados de forma breve.
 | `super` | Permite usar constructor o métodos de la clase padre. | POO |
 | `this` | Referencia al objeto actual dentro de métodos de instancia. | POO |
 | Upsert | Insertar si no existe un registro coincidente, o actualizarlo si existe. | n8n, 2026-10-20 |
+| API REST | Interfaz HTTP que expone recursos mediante rutas y métodos como GET, POST, PATCH y DELETE. | Laboratorio 2, 2026-10-21 |
+| BIGINT de PostgreSQL | Entero de 64 bits; el driver `pg` puede entregarlo como texto para evitar pérdida de precisión en JavaScript. | Laboratorio 2, 2026-10-21 |
+| Entero seguro | Entero que JavaScript representa exactamente; validar con `Number.isSafeInteger` antes de usarlo como ID numérico. | Laboratorio 2, 2026-10-21 |
+| Migración conservadora | Cambio de esquema o datos que conserva registros históricos en lugar de reemplazar o borrar el estado existente. | Laboratorio 2, 2026-10-21 |
+| Snapshot de orden | Copia de los datos relevantes del artículo al momento de comprar, para que el historial no dependa del catálogo actual. | Laboratorio 2, 2026-10-21 |
+| Código HTTP 409 | Respuesta que indica un conflicto con el estado o una regla de negocio. | Laboratorio 2, 2026-10-21 |
+| `FOR UPDATE` | Cláusula SQL que bloquea filas seleccionadas durante una transacción. | Laboratorio 2, 2026-10-21 |
+| Hook personalizado | Función de React que reutiliza lógica de estado o efectos entre componentes. | Laboratorio 2, 2026-10-21 |
+| Transacción | Grupo de operaciones de base de datos que se confirma completo o se revierte. | Laboratorio 2, 2026-10-21 |
+| Webhook | URL que recibe una solicitud de otro sistema para iniciar o continuar un flujo. | Laboratorio 2, 2026-10-21 |

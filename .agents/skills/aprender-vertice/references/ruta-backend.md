@@ -22,7 +22,7 @@ El estado describe el aprendizaje reportado; no pretende certificar el nivel de 
 - Prácticas informadas como realizadas: #2 (zoológico) y #3 (carrito).
 - Buenas prácticas: composición cuando conviene; evitar herencia profunda y clases demasiado grandes.
 
-Consulta [nota de POO](../../../docs/aprendizaje/2026-10-16-poo-javascript.md).
+Consulta [nota de POO](../../../../docs/aprendizaje/2026-10-16-poo-javascript.md).
 
 ## 02 — Orquestación IA, n8n y persistencia
 
@@ -35,7 +35,20 @@ Consulta [nota de POO](../../../docs/aprendizaje/2026-10-16-poo-javascript.md).
 - Errores observados: material inexistente, datos incompletos, repetición de filas por múltiples ítems; medidas de corrección.
 - Práctica aplicada a una **simulación académica** de impresión 3D, sin adoptar ese backend como stack del startup.
 
-Consulta [nota de orquestación](../../../docs/aprendizaje/2026-10-20-agente-orquestador-n8n.md) y [registro de práctica](../../../docs/practicas/2026-10-20-orquestador-cotizaciones-n8n.md).
+Consulta [nota de orquestación](../../../../docs/aprendizaje/2026-10-20-agente-orquestador-n8n.md) y [registro de práctica](../../../../docs/practicas/2026-10-20-orquestador-cotizaciones-n8n.md).
+
+## 03 — API REST, PostgreSQL y transacciones
+
+**Estado: estudiado y practicado según declaración** · Registro: 2026-10-21
+
+- Modelo relacional con llaves foráneas, restricciones y datos de ejemplo.
+- API REST con Express, servicios, códigos HTTP y errores de negocio.
+- Transacciones `BEGIN`/`COMMIT`/`ROLLBACK` para operaciones que afectan varias tablas.
+- Bloqueo de filas con `FOR UPDATE` y validación de stock, cupones, envíos y estados.
+- Métricas SQL con agregaciones y agrupaciones.
+- Migración no destructiva de catálogo y snapshots para preservar el historial de órdenes.
+
+Consulta la [nota del Laboratorio 2](../../../../docs/aprendizaje/2026-10-21-laboratorio2-fullstack.md) y el [registro de práctica](../../../../docs/practicas/04-laboratorio2-inventario-cupones-envios.md).
 
 ## Próximos temas
 
@@ -45,3 +58,4 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 
 - **2026-10-16:** teoría y prácticas de POO documentadas; sin importar soluciones locales.
 - **2026-10-20:** orquestación IA y Data Tables documentadas con resultados observados; sin convertir el laboratorio en aplicación del startup.
+- **2026-10-21:** API full stack, transacciones, migración FDM y snapshots practicados; inventario y precios del caso siguen siendo simulados.

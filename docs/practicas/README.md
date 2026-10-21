@@ -4,6 +4,8 @@ Aquí se **registran** las prácticas realizadas, su objetivo y los conceptos ap
 
 ## Índice
 
+- [Laboratorio #2 — Tienda online con inventario, cupones y envíos](04-laboratorio2-inventario-cupones-envios.md) — registrado como realizado según declaración.
+
 - [Práctica #2 — Los cuatro pilares de POO](02-cuatro-pilares-poo.md) — registrada como realizada.
 - [Práctica #3 — Carrito de compras con POO](03-carrito-compras-poo.md) — registrada como realizada.
 - [2026-10-20 — Orquestador IA y cotizaciones en n8n](2026-10-20-orquestador-cotizaciones-n8n.md) — practicada en clase; no es entrega formal.
