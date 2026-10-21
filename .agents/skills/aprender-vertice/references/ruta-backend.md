@@ -22,26 +22,54 @@ El estado describe el aprendizaje reportado; no pretende certificar el nivel de 
 - Prácticas informadas como realizadas: #2 (zoológico) y #3 (carrito).
 - Buenas prácticas: composición cuando conviene; evitar herencia profunda y clases demasiado grandes.
 
-Consulta [nota de POO](../../../docs/aprendizaje/2026-10-16-poo-javascript.md).
+Consulta [nota de POO](../../../../docs/aprendizaje/2026-10-16-poo-javascript.md).
 
-## LAB1 — Integración de servicios y workflows con n8n
+## 02 — Integración de servicios y workflows con n8n (LAB1)
 
-**Estado: práctica realizada y demostrada; aprobación del profesor informada por el estudiante** · Registro: 2026-10-19
+**Estado: práctica realizada y demostrada; aprobación informada por el estudiante** · Registro: 2026-10-19
 
 - Integración de Gmail con OAuth 2.0 y un trigger de revisión periódica.
 - Consumo de una API REST con nodos HTTP Request para consultar catálogo e historial y persistir solicitudes.
-- Separación entre JavaScript local, lógica dentro de nodos Code y workflow exportable/importable.
-- Extracción y validación de datos desde correos cotidianos.
-- Reglas deterministas de stock, precios y totales; uso de DeepSeek solo para sugerencias internas.
-- Persistencia de solicitudes y comparación descriptiva de disponibilidad en el historial.
+- Separación entre JavaScript local, lógica de nodos Code y workflow exportable/importable.
+- Extracción y validación de datos desde correos cotidianos; solicitar aclaración ante datos incompletos o ambiguos.
+- Reglas deterministas para disponibilidad y totales; DeepSeek se usó solo para sugerencias internas.
+- Consulta del historial para describir tendencias, sin alterar el precio ni el estado de una solicitud.
 
-Consulta la [nota de aprendizaje](../../../docs/aprendizaje/2026-10-19-automatizacion-cotizaciones-n8n.md) y el [registro de LAB1](../../../docs/practicas/lab1-gestion-cotizaciones-n8n.md). El material del ejercicio no se convierte automáticamente en funcionalidades de Vértice.
+Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-10-19-automatizacion-cotizaciones-n8n.md) y el [registro de LAB1](../../../../docs/practicas/lab1-gestion-cotizaciones-n8n.md). Es una práctica académica, no una funcionalidad de Vértice.
+
+## 03 — Orquestación IA, n8n y persistencia
+
+**Estado: estudiado y practicado** · Registro: 2026-10-20
+
+- Trigger → AI Agent (Chat Model, Memory, Tools) → respuesta.
+- Orquestación supervisor/especialistas; contratos `{ok,data,error}` y analogías POO.
+- n8n Data Tables: catálogo de tarifas y cotizaciones persistidas.
+- Consultas, validación, cálculo determinista, escritura `upsert` y control de duplicados de la misma solicitud/sesión.
+- Errores observados: material inexistente, datos incompletos, repetición de filas por múltiples ítems; medidas de corrección.
+- Práctica aplicada a una **simulación académica** de impresión 3D, sin adoptar ese backend como stack del startup.
+
+Consulta [nota de orquestación](../../../../docs/aprendizaje/2026-10-20-agente-orquestador-n8n.md) y [registro de práctica](../../../../docs/practicas/2026-10-20-orquestador-cotizaciones-n8n.md).
+
+## 04 — API REST, PostgreSQL y transacciones
+
+**Estado: estudiado y practicado según declaración** · Registro: 2026-10-21
+
+- Modelo relacional con llaves foráneas, restricciones y datos de ejemplo.
+- API REST con Express, servicios, códigos HTTP y errores de negocio.
+- Transacciones `BEGIN`/`COMMIT`/`ROLLBACK` para operaciones que afectan varias tablas.
+- Bloqueo de filas con `FOR UPDATE` y validación de stock, cupones, envíos y estados.
+- Métricas SQL con agregaciones y agrupaciones.
+- Migración no destructiva de catálogo y snapshots para preservar el historial de órdenes.
+
+Consulta la [nota del Laboratorio 2](../../../../docs/aprendizaje/2026-10-21-laboratorio2-fullstack.md) y el [registro de práctica](../../../../docs/practicas/04-laboratorio2-inventario-cupones-envios.md).
 
 ## Próximos temas
 
-No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso. La práctica LAB1 ofrece experiencia introductoria con APIs y automatización; los siguientes temas se registran cuando el estudiante los comparte.
+No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso.
 
 ## Registro
 
-- **2026-10-16:** se documentaron la teoría y las prácticas ya realizadas de POO; sin importar soluciones locales al repo.
-- **2026-10-19:** se registró LAB1 y su extensión de n8n a partir del workflow, las pruebas compartidas y la aprobación informada por el estudiante.
+- **2026-10-16:** teoría y prácticas de POO documentadas; sin importar soluciones locales.
+- **2026-10-19:** integración de servicios, parsing, persistencia e historial documentados desde LAB1; aprobación informada por el estudiante.
+- **2026-10-20:** orquestación IA y Data Tables documentadas con resultados observados; sin convertir el laboratorio en aplicación del startup.
+- **2026-10-21:** API full stack, transacciones, migración FDM y snapshots practicados; inventario y precios del caso siguen siendo simulados.
