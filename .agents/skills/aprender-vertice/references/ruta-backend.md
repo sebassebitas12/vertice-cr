@@ -24,7 +24,20 @@ El estado describe el aprendizaje reportado; no pretende certificar el nivel de 
 
 Consulta [nota de POO](../../../../docs/aprendizaje/2026-10-16-poo-javascript.md).
 
-## 02 — Orquestación IA, n8n y persistencia
+## 02 — Integración de servicios y workflows con n8n (LAB1)
+
+**Estado: práctica realizada y demostrada; aprobación informada por el estudiante** · Registro: 2026-10-19
+
+- Integración de Gmail con OAuth 2.0 y un trigger de revisión periódica.
+- Consumo de una API REST con nodos HTTP Request para consultar catálogo e historial y persistir solicitudes.
+- Separación entre JavaScript local, lógica de nodos Code y workflow exportable/importable.
+- Extracción y validación de datos desde correos cotidianos; solicitar aclaración ante datos incompletos o ambiguos.
+- Reglas deterministas para disponibilidad y totales; DeepSeek se usó solo para sugerencias internas.
+- Consulta del historial para describir tendencias, sin alterar el precio ni el estado de una solicitud.
+
+Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-10-19-automatizacion-cotizaciones-n8n.md) y el [registro de LAB1](../../../../docs/practicas/lab1-gestion-cotizaciones-n8n.md). Es una práctica académica, no una funcionalidad de Vértice.
+
+## 03 — Orquestación IA, n8n y persistencia
 
 **Estado: estudiado y practicado** · Registro: 2026-10-20
 
@@ -37,7 +50,7 @@ Consulta [nota de POO](../../../../docs/aprendizaje/2026-10-16-poo-javascript.md
 
 Consulta [nota de orquestación](../../../../docs/aprendizaje/2026-10-20-agente-orquestador-n8n.md) y [registro de práctica](../../../../docs/practicas/2026-10-20-orquestador-cotizaciones-n8n.md).
 
-## 03 — API REST, PostgreSQL y transacciones
+## 04 — API REST, PostgreSQL y transacciones
 
 **Estado: estudiado y practicado según declaración** · Registro: 2026-10-21
 
@@ -57,5 +70,6 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 ## Registro
 
 - **2026-10-16:** teoría y prácticas de POO documentadas; sin importar soluciones locales.
+- **2026-10-19:** integración de servicios, parsing, persistencia e historial documentados desde LAB1; aprobación informada por el estudiante.
 - **2026-10-20:** orquestación IA y Data Tables documentadas con resultados observados; sin convertir el laboratorio en aplicación del startup.
 - **2026-10-21:** API full stack, transacciones, migración FDM y snapshots practicados; inventario y precios del caso siguen siendo simulados.
