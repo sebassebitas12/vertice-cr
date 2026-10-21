@@ -25,6 +25,22 @@ La descripción de una pieza se solicitó desde el botón del catálogo: la ejec
 
 El trabajo fue realizado en `Laboratorio2/`. Esta nota no copia la solución ni convierte el laboratorio en código del startup.
 
+## Adaptación técnica y errores observados
+
+El catálogo genérico del ejercicio se adaptó mediante una migración a ocho piezas
+FDM sintéticas: archivó nueve fichas genéricas conocidas y conservó IDs, órdenes
+e importes. Se añadieron snapshots de nombre y categoría a los artículos para
+que editar el catálogo no reescriba el historial. Esta migración no destructiva
+es reutilizable como aprendizaje; los precios y existencias simulados no son
+inventario ni oferta comercial de Vértice.
+
+Al crear una orden desde React apareció un `400`: `pg` entrega los IDs PostgreSQL
+`BIGINT` como texto y la API valida enteros seguros. El frontend normaliza los
+IDs en el límite del payload y las pruebas rechazan valores inseguros o
+cantidades inválidas; la validación de negocio permanece en el servidor. La
+orden académica #4, de ₡8.300, se canceló desde React y repuso el soporte de
+celular de 11 a 12 unidades.
+
 ## Relación con Vértice CR
 
 La aplicación de impresión 3D de `Tienda-de-Impresion3D`, rama `Pruebas`, fue revisada únicamente como referencia de un MVP anterior y no se modificó. El repositorio `vertice-cr` conserva el aprendizaje y las decisiones futuras; todavía no contiene la aplicación `app/`.

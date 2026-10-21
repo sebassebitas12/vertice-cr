@@ -73,5 +73,5 @@ Este registro corresponde a un laboratorio académico con React + Vite. No cambi
 
 Anota aquí, con fecha, cada vez que un tema cambie de estado:
 
-- (vacío)
+- **2026-10-21:** gestión de piezas FDM con formularios controlados y errores de API; corrección de IDs BIGINT de texto a enteros seguros en órdenes. Se practicó con ayuda; no se marca dominio independiente ni avance en Next.js/TypeScript.
 

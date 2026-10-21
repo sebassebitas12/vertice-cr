@@ -37,8 +37,6 @@ Consulta [nota de POO](../../../../docs/aprendizaje/2026-10-16-poo-javascript.md
 
 Consulta [nota de orquestación](../../../../docs/aprendizaje/2026-10-20-agente-orquestador-n8n.md) y [registro de práctica](../../../../docs/practicas/2026-10-20-orquestador-cotizaciones-n8n.md).
 
-## Próximos temas
-
 ## 03 — API REST, PostgreSQL y transacciones
 
 **Estado: estudiado y practicado según declaración** · Registro: 2026-10-21
@@ -48,8 +46,11 @@ Consulta [nota de orquestación](../../../../docs/aprendizaje/2026-10-20-agente-
 - Transacciones `BEGIN`/`COMMIT`/`ROLLBACK` para operaciones que afectan varias tablas.
 - Bloqueo de filas con `FOR UPDATE` y validación de stock, cupones, envíos y estados.
 - Métricas SQL con agregaciones y agrupaciones.
+- Migración no destructiva de catálogo y snapshots para preservar el historial de órdenes.
 
 Consulta la [nota del Laboratorio 2](../../../../docs/aprendizaje/2026-10-21-laboratorio2-fullstack.md) y el [registro de práctica](../../../../docs/practicas/04-laboratorio2-inventario-cupones-envios.md).
+
+## Próximos temas
 
 No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso.
 
@@ -57,3 +58,4 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 
 - **2026-10-16:** teoría y prácticas de POO documentadas; sin importar soluciones locales.
 - **2026-10-20:** orquestación IA y Data Tables documentadas con resultados observados; sin convertir el laboratorio en aplicación del startup.
+- **2026-10-21:** API full stack, transacciones, migración FDM y snapshots practicados; inventario y precios del caso siguen siendo simulados.

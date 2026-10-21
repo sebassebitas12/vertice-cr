@@ -48,6 +48,15 @@ Construir una aplicación full stack con una API REST propia, PostgreSQL, un fro
 
 Este registro no certifica el dominio individual de cada tema ni reemplaza la defensa académica. Solo conserva lo realizado y comprobado durante la práctica.
 
+## Adaptación técnica del catálogo
+
+La migración de la base existente archivó nueve fichas genéricas conocidas y
+añadió ocho piezas FDM de práctica. Conservó IDs, órdenes e importes y agregó
+snapshots de nombre y categoría a cada artículo para mantener el historial.
+La orden #4 (₡8.300) se creó desde React y, al cancelarla, el stock de práctica
+del soporte pasó de 11 a 12. Son resultados del entorno académico, no datos del
+negocio.
+
 ## Relación con Vértice CR
 
 El laboratorio aporta práctica reutilizable sobre APIs, validación en servidor, transacciones, servicios React, métricas, revisión visual enfocada y contratos de automatización. No se traslada literalmente el modelo de inventario: Vértice fabrica modelos bajo pedido y no debe presentar stock inmediato sin datos aprobados.
