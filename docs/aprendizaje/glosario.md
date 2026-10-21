@@ -25,3 +25,9 @@ Conceptos vistos en clase, explicados de forma breve.
 | `super` | Permite usar constructor o métodos de la clase padre. | POO |
 | `this` | Referencia al objeto actual dentro de métodos de instancia. | POO |
 | Upsert | Insertar si no existe un registro coincidente, o actualizarlo si existe. | n8n, 2026-10-20 |
+| API REST | Interfaz HTTP que expone recursos mediante rutas y métodos como GET, POST, PATCH y DELETE. | Laboratorio 2, 2026-10-21 |
+| Código HTTP 409 | Respuesta que indica un conflicto con el estado o una regla de negocio. | Laboratorio 2, 2026-10-21 |
+| `FOR UPDATE` | Cláusula SQL que bloquea filas seleccionadas durante una transacción. | Laboratorio 2, 2026-10-21 |
+| Hook personalizado | Función de React que reutiliza lógica de estado o efectos entre componentes. | Laboratorio 2, 2026-10-21 |
+| Transacción | Grupo de operaciones de base de datos que se confirma completo o se revierte. | Laboratorio 2, 2026-10-21 |
+| Webhook | URL que recibe una solicitud de otro sistema para iniciar o continuar un flujo. | Laboratorio 2, 2026-10-21 |
