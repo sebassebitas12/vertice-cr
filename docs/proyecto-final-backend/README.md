@@ -1,129 +1,118 @@
-> **Prioridad actual:** revisar [N3D y la demo IA](referencia-n3d-y-demo-ia.md) antes de elegir el frontend. Las propuestas de stack que siguen son alternativas históricas del borrador, no una selección aprobada.
+# Anteproyecto — MVP profesional de Vértice CR
 
-> **Actualización de dirección — 2026-10-22:** Sebastián confirmó Supabase para la base de datos y exige IA con n8n como parte central del MVP. La recomendación anterior de React + Vite + JavaScript y la IA opcional quedan en revisión. Las secciones siguientes conservan el borrador previo y deben leerse con esta actualización como prioridad.
->
-> **Frontend en evaluación:** Next.js + TypeScript + Tailwind CSS + componentes shadcn/ui personalizados. Next.js sigue usando React; su elección aporta estructura y herramientas, pero el atractivo visual requiere dirección de arte, fotografías, tipografía, composición y componentes diseñados para Vértice. Comparar contra Vite antes de fijar la decisión; no prometer que cambiar de framework corrige por sí solo problemas visuales.
->
-> **IA propuesta para investigar:** un asesor de piezas que busque en el catálogo real, explique coincidencias y, cuando no exista una opción adecuada, prepare y guarde una solicitud personalizada tras confirmación del cliente. n8n coordina consulta del catálogo, recuperación de información técnica aprobada, detección de datos faltantes y preparación del expediente para el taller. La API valida permisos, datos y cambios de estado. Precio firme y viabilidad requieren datos técnicos verificables y revisión del taller.
->
-> **Revisión directa de N3D completada:** se inspeccionaron portada, catálogo, ficha y calculadora en el navegador conectado. La evaluación visual se hizo en una vista estrecha. Consulta [hallazgos y propuesta de demo IA](referencia-n3d-y-demo-ia.md). El frontend sigue sin elegirse; Supabase está confirmado y la IA con n8n es parte central del alcance.
+Registro de trabajo: 2026-10-22. Proyecto final de backend y posible demo de hackathon. Se prepara el problema, alcance, interfaz y arquitectura antes de programar.
 
-# Anteproyecto académico — MVP de Vértice CR
+## Decisiones de trabajo vigentes
 
-> Este documento define una propuesta para el proyecto final del curso de backend y una posible demo de hackathon. No reemplaza la visión del startup ni aprueba su lanzamiento comercial.
+- Aplicación nueva, con backend primero y Supabase como base de datos PostgreSQL administrada.
+- IA con n8n como función central: consulta datos reales, propone campos del formulario y ayuda a completar una solicitud confirmada por el cliente.
+- Frontend recomendado: **Next.js App Router + TypeScript + Tailwind CSS + componentes propios sobre shadcn/ui**. Formularios con React Hook Form y Zod; movimiento acotado con CSS y Motion cuando haga falta. Motivos, costos y reglas de componentes en [ADR 0002](../decisiones/0002-frontend-mvp.md).
+- Dirección visual confirmada: combinar la claridad y protagonismo de producto de N3D con una reinterpretación de la identidad industrial anterior de Vértice. Se rehace la composición para el alcance actual; no hay pantallas nuevas aprobadas.
+- Sebastián trabaja esencialmente mediante vibe coding y dirige a las IAs como orquestador. Los agentes deben producir cambios localizados, revisar el resultado y preguntar por vacíos de visión que afecten decisiones importantes.
 
-## Dos horizontes, dos decisiones
+La selección de frontend no promete cambios sin regresiones. La facilidad de añadir un botón depende de la composición de componentes, contratos de datos y estilos encapsulados. El ADR define cómo hacerlo.
 
-| Horizonte | Propósito | Estado |
-|---|---|---|
-| **MVP académico profesional** | Resolver un flujo real y demostrable con el backend del curso, dentro del calendario del proyecto final/hackathon. | En investigación; falta validar el problema y confirmar requisitos del curso. |
-| **Startup Vértice CR** | Evolucionar a un negocio lanzable después de graduarse, con procesos, precios, fabricación, atención y operación reales. | Visión de largo plazo; fuera de las decisiones de este anteproyecto. |
+## Dos horizontes
 
-La decisión de stack del startup en [ADR 0001](../decisiones/0001-stack.md) permanece independiente y abierta. Este anteproyecto no la modifica. Tampoco convierte Supabase, el laboratorio del gimnasio, la interfaz de la referencia australiana ni la aplicación académica anterior en decisiones del startup.
+| Horizonte | Propósito |
+|---|---|
+| MVP académico profesional | Resolver un flujo real, demostrable y alcanzable en el calendario del curso/hackathon. |
+| Startup comercial después de graduarse | Validar lanzamiento, operación, precios, producción, pagos, logística y soporte reales. |
 
-## Punto de partida y fuentes
+El [ADR 0001](../decisiones/0001-stack.md) corresponde al startup futuro. El MVP es una base de aprendizaje y validación; sus datos de demo no prueban demanda ni resultados comerciales.
 
-- La guía **Proyecto Final Full Stack — Ideas / Business Solutions** pide partir de un problema real, observar el proceso actual, realizar 3–5 entrevistas sobre hechos, cuantificar el problema, comparar 2–3 alternativas y seleccionar 3–5 funciones mínimas. La propuesta debe cubrir problema, usuarios, alternativas, solución, MVP, stack, arquitectura, datos, métricas, cronograma y riesgos.
-- Sebastián describe como hipótesis que una persona o negocio puede necesitar una pieza o repuesto que no logra encontrar fácilmente y requiere una forma clara de pedirlo y dar seguimiento al pedido. La investigación debe confirmar si ese caso sucede, a quién y con qué impacto.
-- [N3D Melbourne](https://www.n3dmelbourne.com/) es una referencia visual elegida por Sebastián, no un diseño que se copiará. La revisión directa de portada, catálogo, ficha y calculadora está documentada en [referencia N3D y demo IA](referencia-n3d-y-demo-ia.md).
-- [Tienda-de-Impresion3D, rama Pruebas](https://github.com/sebassebitas12/Tienda-de-Impresion3D/tree/Pruebas) sirve como referencia de experiencia, reglas e historial de aprendizaje. Su README describe React 19, Vite 8 y JavaScript/JSX. La rama predeterminada no representa esa aplicación. La nueva app del curso se construirá desde cero; no copiará su interfaz ni código.
-- Los documentos heredados de [producto y alcance](../negocio/heredado/01-PRODUCTO-Y-ALCANCE.md), [reglas y estados](../negocio/heredado/02-NEGOCIO-Y-ESTADOS.md) y [flujos](../negocio/heredado/03-UX-Y-FLUJOS.md) aportan antecedentes, pero advierten que varios requisitos nacieron de una entrega académica anterior. No se asumirán como evidencia de demanda, precios o capacidad operativa.
-- El PDF **FWD — Temas Complementarios IA** es un banco de temas para investigar y exponer, no una lista de funcionalidades obligatorias. Sus afirmaciones de actualidad deben verificarse con fuentes primarias antes de incluirlas en una propuesta.
+## Problema y usuario objetivo
 
-## Hipótesis de problema
+**Hipótesis por validar:** una persona o pequeño negocio necesita una pieza funcional, repuesto o prototipo que no encuentra con facilidad; no sabe cómo especificarlo ni dónde seguir la revisión y cotización de una impresión FDM.
 
-> **Hipótesis, aún no validada:** cuando una persona o un pequeño negocio necesita una pieza funcional, repuesto o prototipo que no encuentra con facilidad, no tiene un canal claro para explicar qué necesita, saber qué información aportar y dar seguimiento a la revisión y cotización de una posible impresión 3D.
+Usuario inicial candidato: quien tiene una necesidad concreta de pieza y puede explicar su uso, aunque no conozca terminología de impresión 3D. Usuario operativo: quien revisa y cotiza en el taller. Las entrevistas deben definir un segmento más preciso y comprobar si FDM resulta una solución adecuada.
 
-La hipótesis todavía no decide si el mejor segmento son negocios, talleres, emprendedores o consumidores. Las entrevistas deben identificar quién tiene el problema con mayor frecuencia y si la impresión FDM es viable para esos casos.
+No afirmar que este problema ocurre con cierta frecuencia, costo o gravedad sin evidencia.
 
-### Investigación que falta
+## Investigación y fuentes
 
-1. Entrevistar a 3–5 usuarios potenciales y, si es posible, a quien atiende solicitudes en Vértice.
-2. Preguntar por casos recientes: qué pieza necesitaban, dónde la buscaron, cómo resolvieron el problema, cuánto tardaron, qué información tenían y qué ocurrió al pedir ayuda.
-3. Registrar frecuencia, tiempo de atención, solicitudes incompletas, cotizaciones que no avanzaron y costos solo cuando la persona pueda aportar datos reales.
-4. Comparar 2–3 alternativas usadas hoy, incluyendo proveedores, catálogos/modelos descargables y el proceso manual existente. No asumir que una alternativa falla sin evidencia.
-5. Elegir un segmento concreto y reformular el problema con la evidencia antes de congelar el MVP.
+- [Revisión directa de N3D y propuesta verificable de IA](referencia-n3d-y-demo-ia.md): portada, catálogo, ficha y calculadora. Inspección visual en viewport estrecho; herramientas de miembros y compras no verificadas.
+- [Documento 04 anterior](https://github.com/sebassebitas12/Tienda-de-Impresion3D/blob/Pruebas/docs/04-DISENO-VISUAL-Y-ACCESIBILIDAD.md): referencias de componentes y dirección visual, evaluadas en el ADR 0002. Sus contratos académicos y mockups congelados no se heredan automáticamente al producto nuevo.
+- [Repositorio anterior, rama Pruebas](https://github.com/sebassebitas12/Tienda-de-Impresion3D/tree/Pruebas): experiencia y antecedentes; no se copia el código.
+- [Negocio heredado](../negocio/README.md): contexto del catálogo bajo pedido y cotización técnica; debe revisarse al migrar reglas.
+- Guía compartida de Proyecto Final Full Stack / Business Solutions: investigación, entrevistas, alternativas, MVP y propuesta de 2–4 páginas con once secciones.
+- PDF compartido FWD Temas Complementarios IA: banco de investigación. No impone features ni valida por sí mismo afirmaciones de actualidad.
 
-No preguntar si alguien “usaría una app” como prueba de demanda. Buscar hechos y comportamiento pasado.
+Antes de cerrar la propuesta: realizar 3–5 entrevistas sobre casos recientes, dibujar el proceso actual, cuantificar problemas con datos aportados y comparar 2–3 alternativas. Separar el hallazgo del supuesto. No usar “¿usarías mi app?” como prueba de demanda.
 
-## Alcance candidato para el MVP del curso
+## Recorrido central y alcance
 
-Si las entrevistas confirman la hipótesis, demostrar un solo flujo vertical: **encontrar una opción o pedir una pieza no listada → enviar la solicitud → revisión del taller → recibir y responder a una cotización → consultar el estado del pedido resultante**.
+**Cliente describe necesidad → IA busca opciones del catálogo → cliente elige una opción o revisa una solicitud personalizada → confirma → el taller recibe el registro.**
 
-Funciones candidatas, dentro del límite de 3–5:
+Cinco capacidades del MVP:
 
-1. Catálogo pequeño y buscable de modelos fabricados bajo pedido, sin prometer stock inmediato.
-2. Solicitud personalizada con descripción, uso, cantidad y referencias disponibles.
-3. Bandeja de administración para revisar solicitudes, pedir aclaraciones y preparar una cotización manual.
-4. Vista del cliente para consultar la cotización, aceptarla o rechazarla y seguir el estado correspondiente.
+1. Catálogo pequeño, publicado y buscable de modelos fabricados bajo pedido.
+2. Asistente con n8n que consulta ese catálogo y explica coincidencias respaldadas por datos.
+3. Formulario editable coordinado con el asistente, con campos sugeridos y confirmados diferenciados.
+4. Confirmación y guardado de la solicitud por la API en Supabase, con propietario y prevención de duplicados.
+5. Bandeja del taller para revisar, pedir aclaraciones y preparar una cotización manual; cliente consulta su respuesta.
 
-La autenticación cliente/admin y el registro de estados respaldan este flujo. Solo se crea un pedido después de que el cliente acepta una cotización válida. El proyecto puede usar datos demostrativos etiquetados; no publicará precios, plazos o capacidades como si estuvieran aprobados.
+Autenticación cliente/admin y autorización respaldan el flujo. Una solicitud sin precio se conserva como pendiente de cotización. Aceptar una cotización es una decisión explícita del cliente; cualquier creación de pedido posterior debe validar la oferta y su versión.
 
-### Fuera del primer alcance
+Las capacidades del taller siguen limitadas a FDM con materiales confirmados. No prometer tolerancias, plazos, disponibilidad ni compatibilidad técnica que no estén respaldados.
 
-- Cobros reales, facturación fiscal y logística.
-- Cotización automática o promesa de precio/entrega generada por IA.
-- Análisis automático de fabricabilidad desde una foto o cálculo de precio desde un STL sin herramienta técnica validada.
-- Marketplace, chat omnicanal, dashboard avanzado y agentes autónomos.
-- Funciones del gimnasio de la extensión académica.
+## Pantallas previstas
 
-La carga de STL o imágenes aporta valor a una solicitud real, pero aumenta el trabajo y los riesgos de almacenamiento y acceso. Se incluirá solo si el curso y el tiempo permiten hacerla con validación de formato/tamaño y acceso privado. De lo contrario, la demo podrá registrar una descripción y referencias no sensibles, dejando la carga para una etapa posterior.
+| Pantalla | Tarea |
+|---|---|
+| Portada | Explicar la propuesta y dar acceso a catálogo o solicitud. |
+| Catálogo y ficha | Encontrar opciones y entender sus datos aprobados. |
+| Solicitud asistida | Describir, comparar sugerencias, editar y confirmar. |
+| Acceso y cuenta | Identificar al cliente y recuperar sus solicitudes. |
+| Bandeja y detalle del taller | Revisar el expediente y preparar la respuesta/cotización. |
 
-## Propuesta inicial de stack para el MVP
+En escritorio, conversación y formulario pueden convivir; en móvil deben conservar continuidad sin tapar campos ni acciones. Esta disposición aún debe diseñarse y revisarse.
 
-| Capa | Propuesta académica | Motivo / condición |
-|---|---|---|
-| Frontend | **React + Vite + JavaScript** | Es la opción más familiar por el repositorio anterior, permite avanzar rápido y consume una API REST. Se programa desde cero. |
-| Navegación | React Router, si el flujo requiere varias pantallas | Ya se conoce; mantener rutas mínimas para catálogo, solicitud, cuenta y administración. |
-| Backend | **Node.js + Express**, si coincide con el stack del curso | Mantiene reglas y validaciones en una API separada para que el backend sea evaluable y reutilizable. |
-| Base de datos | **PostgreSQL** | Adecuada para usuarios, solicitudes, cotizaciones, pedidos y sus relaciones. |
-| Alojamiento de BD | Supabase puede considerarse como PostgreSQL administrado, si el profesor lo permite | Usar un proyecto nuevo para Vértice; no conectar la base del gimnasio. Las credenciales quedan solo en el servidor y fuera de Git. |
-| Archivos | Pendiente del alcance | Si se implementa carga, usar almacenamiento privado y acceso autorizado; no exponer archivos de clientes en un bucket público. |
+## Contrato de autocompletado IA
 
-Esta propuesta es para el curso, no una decisión del producto real. Antes de fijar Express, PostgreSQL, Supabase o el despliegue, confirmar qué tecnologías exige el curso y qué entorno puede usarse en el hackathon. El cliente web se mantiene separado de la API; no se ponen secretos ni reglas de precios en el navegador.
+- La IA devuelve datos estructurados y referencias a productos. No ejecuta código arbitrario en la página.
+- Cada campo conserva su valor y procedencia: cliente, sugerencia IA o aceptación del cliente.
+- Una respuesta tardía no sobreescribe una edición posterior. Una sugerencia conflictiva se presenta para revisión.
+- El cliente puede editar y deshacer propuestas antes de confirmar.
+- Las incógnitas quedan sin completar y se preguntan; no se infieren medidas o material con certeza falsa.
+- La API valida permisos y datos antes de guardar. La conversación no equivale a autorización.
+- Ante errores se conserva el borrador y se ofrece recuperación.
+- El cálculo de precios requiere entradas verificables y código determinista. La cotización firme queda bajo revisión del taller.
 
-## Uso prudente de IA
+n8n coordina herramientas acotadas de catálogo, información técnica y preparación de solicitud mediante la API. Las claves de Supabase y proveedores permanecen en servidor. Contratos concretos de endpoints y autenticación se definirán con el backend del curso.
 
-La IA puede ser una mejora demostrable cuando el flujo manual básico ya funcione: convertir una descripción cotidiana en un borrador estructurado de solicitud y señalar datos faltantes. El cliente revisa y confirma ese borrador; la IA no define el precio, acepta la cotización ni promete fabricación.
+## Arquitectura de referencia
 
-Del PDF complementario:
+Frontend Next.js → API de negocio → Supabase.
+La API coordina n8n y valida cualquier escritura solicitada por el flujo.
+El resultado estructurado de n8n vuelve a la página para presentar tarjetas y sugerencias de campos.
 
-- **Spec-driven development** es útil como método de trabajo: especificaciones verificables, criterios de aceptación y documentación antes de implementar.
-- **Seguridad y contención de agentes** sirve como criterio transversal si después se conecta IA a archivos o herramientas.
-- Los modelos de decisión podrían ayudar a clasificar o enrutar solicitudes cuando existan categorías y casos reales.
-- MCP, agentes persistentes, headless AI, voz, modelos autoalojados/en dispositivo y WhatsApp con IA quedan para investigación futura; no son requisitos del MVP por aparecer en el banco temático.
+La implementación exacta de backend se ajustará a los requisitos del curso. La elección de Supabase ya está confirmada; se usará un proyecto del MVP, separado de la extensión de gimnasio.
 
-## Métricas a definir con evidencia
+## Exclusiones iniciales
 
-No asignar metas inventadas. Tras investigar, escoger métricas posibles como:
+Cobros reales, facturación fiscal, logística integrada, marketplace, agentes autónomos, generación de geometría imprimible y cotización precisa de piezas nuevas desde una foto. La carga privada de archivos es una ampliación a decidir según la necesidad validada; no es indispensable para demostrar el primer recorrido.
 
-- tiempo entre recibir una solicitud y enviar una respuesta/cotización;
-- proporción de solicitudes que llegan con información suficiente;
-- solicitudes que reciben cotización y que el cliente acepta;
-- puntos del proceso donde se abandona o se necesita aclaración.
+## Criterios de aceptación
 
-Primero se necesita una línea base del proceso actual. La demo puede mostrar métricas derivadas de datos de prueba, etiquetados como demostrativos, pero no presentarlas como resultados de negocio.
+1. Las recomendaciones remiten a IDs existentes y datos publicados; la ausencia de coincidencia se comunica.
+2. Las sugerencias se reflejan en campos revisables sin perder texto ni ediciones confirmadas del cliente.
+3. La solicitud solo se envía con confirmación explícita y conserva su registro al recargar.
+4. Repetir la confirmación no crea duplicados.
+5. El taller ve el mismo expediente; otro cliente no puede leerlo.
+6. Un fallo del modelo/n8n no informa un guardado inexistente ni destruye el borrador.
+7. Se completa el recorrido en móvil y con teclado; estados de carga, vacío, error y éxito son comprensibles.
+8. Añadir una acción a una tarjeta modifica el componente y su acción, sin reestructurar páginas ajenas.
 
-## Orden de trabajo
+Son condiciones propuestas; aún no se implementó ni verificó la aplicación nueva.
 
-1. **Validar problema y permisos:** entrevistas, mapa del proceso actual, alternativas y confirmación con el profesor del backend permitido y del uso de Vértice.
-2. **Cerrar propuesta:** usuario objetivo, problema probado, 3–5 funciones, exclusiones, datos, métricas, riesgos y cronograma.
-3. **Diseñar el backend:** modelo relacional preliminar, roles, estados, endpoints y errores; criterios de aceptación por flujo.
-4. **Construir una rebanada vertical:** solicitud → revisión admin → cotización → decisión del cliente.
-5. **Añadir frontend sencillo:** React + Vite consume la API; priorizar claridad y accesibilidad. Revisar N3D directamente cuando sea posible.
-6. **Preparar hackathon:** demo guiada con datos demostrativos, caso validado, límites honestos y documentación para ejecutar.
-7. **Reevaluar después:** un lanzamiento real requiere validar operación, precios, materiales, tiempos, seguridad de archivos, privacidad, pagos y soporte. Eso pertenece al horizonte del startup.
+## Plan y preguntas pendientes
 
-## Decisiones y preguntas pendientes
+1. Completar entrevistas y validar el problema, segmento, alternativas y métricas de base.
+2. Traducir la dirección visual combinada a unas pocas composiciones y componentes; revisar con Sebastián.
+3. Definir datos, estados, permisos y contrato API/n8n; confirmar requisitos del profesor y hackathon.
+4. Implementar primero el backend del recorrido con un catálogo de demo curado.
+5. Construir el frontend modular y conectar el autocompletado.
+6. Preparar una demo con coincidencia, datos faltantes, solicitud confirmada y recuperación de fallo.
 
-- [ ] ¿Qué problema y segmento confirman las entrevistas?
-- [ ] ¿Quién puede facilitar acceso a solicitudes reales sin divulgar datos privados?
-- [ ] ¿Qué backend, base de datos y despliegue exige o permite el curso?
-- [ ] ¿El profesor acepta este producto como proyecto final y qué debe mostrar la demo/hackathon?
-- [ ] ¿La carga de archivos es esencial para el caso validado o puede esperar?
-- [ ] ¿Qué pantallas y patrones concretos de N3D son los que Sebastián quiere tomar como inspiración visual?
-- [ ] ¿React + Vite + JavaScript es el frontend que resulta más cómodo tras un prototipo pequeño?
-
-## Límite entre este anteproyecto y el startup
-
-Este documento solo organiza el proyecto académico profesional. No cambia [ADR 0001 del startup](../decisiones/0001-stack.md), no actualiza promesas de negocio, no declara a Vértice listo para producción y no toma las métricas demostrativas de la aplicación anterior como evidencia comercial.
+Pendiente: segmento validado, backend exigido por el curso, requisitos de entrega/hackathon, recursos visuales autorizados y diseño concreto de pantallas. El stack recomendado y el criterio de trabajo con IA están documentados; no se requiere que Sebastián revise código manualmente para dirigir decisiones de producto.
