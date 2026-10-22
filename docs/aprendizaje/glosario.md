@@ -1,6 +1,6 @@
 # Glosario de aprendizaje
 
-Conceptos vistos en clase, explicados de forma breve. Referencias: [automatización con n8n](2026-10-19-automatizacion-cotizaciones-n8n.md) y [Laboratorio 2](2026-10-21-laboratorio2-fullstack.md).
+Conceptos vistos en clase, explicados de forma breve. Referencias: [automatización con n8n](2026-10-19-automatizacion-cotizaciones-n8n.md), [Laboratorio 2](2026-10-21-laboratorio2-fullstack.md) y [extensión de base de datos para un gimnasio](2026-10-22-extension-base-datos-gimnasio.md).
 
 | Término | Significado | Dónde se estudió |
 |---|---|---|
@@ -38,6 +38,7 @@ Conceptos vistos en clase, explicados de forma breve. Referencias: [automatizaci
 | Setter | Forma controlada de cambiar una propiedad, con posible validación. | POO |
 | Snapshot de orden | Copia de los datos relevantes del artículo al momento de comprar, para que el historial no dependa del catálogo actual. | Laboratorio 2, 2026-10-21 |
 | Subagente | Especialista que el orquestador invoca para una responsabilidad concreta. | n8n, 2026-10-20 |
+| Supabase | Plataforma que ofrece proyectos administrados con base de datos PostgreSQL y herramientas como Table Editor y SQL Editor. | Extensión de base de datos, 2026-10-22 |
 | `super` | Permite usar constructor o métodos de la clase padre. | POO |
 | `this` | Referencia al objeto actual dentro de métodos de instancia. | POO |
 | Tool | Herramienta que permite al agente ejecutar acciones o recuperar/verificar datos. | n8n, 2026-10-20 |
