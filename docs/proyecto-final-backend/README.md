@@ -1,10 +1,12 @@
+> **Prioridad actual:** revisar [N3D y la demo IA](referencia-n3d-y-demo-ia.md) antes de elegir el frontend. Las propuestas de stack que siguen son alternativas históricas del borrador, no una selección aprobada.
+
 > **Actualización de dirección — 2026-10-22:** Sebastián confirmó Supabase para la base de datos y exige IA con n8n como parte central del MVP. La recomendación anterior de React + Vite + JavaScript y la IA opcional quedan en revisión. Las secciones siguientes conservan el borrador previo y deben leerse con esta actualización como prioridad.
 >
 > **Frontend en evaluación:** Next.js + TypeScript + Tailwind CSS + componentes shadcn/ui personalizados. Next.js sigue usando React; su elección aporta estructura y herramientas, pero el atractivo visual requiere dirección de arte, fotografías, tipografía, composición y componentes diseñados para Vértice. Comparar contra Vite antes de fijar la decisión; no prometer que cambiar de framework corrige por sí solo problemas visuales.
 >
 > **IA propuesta para investigar:** un asesor de piezas que busque en el catálogo real, explique coincidencias y, cuando no exista una opción adecuada, prepare y guarde una solicitud personalizada tras confirmación del cliente. n8n coordina consulta del catálogo, recuperación de información técnica aprobada, detección de datos faltantes y preparación del expediente para el taller. La API valida permisos, datos y cambios de estado. Precio firme y viabilidad requieren datos técnicos verificables y revisión del taller.
 >
-> **N3D:** la revisión visual continúa pendiente: acceso web 403 y navegadores ego-browser/BrowserAct no instalados en este entorno. No se han observado sus pantallas; no atribuirle características inferidas.
+> **Revisión directa de N3D completada:** se inspeccionaron portada, catálogo, ficha y calculadora en el navegador conectado. La evaluación visual se hizo en una vista estrecha. Consulta [hallazgos y propuesta de demo IA](referencia-n3d-y-demo-ia.md). El frontend sigue sin elegirse; Supabase está confirmado y la IA con n8n es parte central del alcance.
 
 # Anteproyecto académico — MVP de Vértice CR
 
@@ -23,7 +25,7 @@ La decisión de stack del startup en [ADR 0001](../decisiones/0001-stack.md) per
 
 - La guía **Proyecto Final Full Stack — Ideas / Business Solutions** pide partir de un problema real, observar el proceso actual, realizar 3–5 entrevistas sobre hechos, cuantificar el problema, comparar 2–3 alternativas y seleccionar 3–5 funciones mínimas. La propuesta debe cubrir problema, usuarios, alternativas, solución, MVP, stack, arquitectura, datos, métricas, cronograma y riesgos.
 - Sebastián describe como hipótesis que una persona o negocio puede necesitar una pieza o repuesto que no logra encontrar fácilmente y requiere una forma clara de pedirlo y dar seguimiento al pedido. La investigación debe confirmar si ese caso sucede, a quién y con qué impacto.
-- [N3D Melbourne](https://www.n3dmelbourne.com/) es una referencia visual elegida por Sebastián, no un diseño que se copiará. La página devolvió acceso 403 al navegador de investigación; no afirmo haber revisado sus pantallas o flujos. La referencia visual queda pendiente de inspección directa.
+- [N3D Melbourne](https://www.n3dmelbourne.com/) es una referencia visual elegida por Sebastián, no un diseño que se copiará. La revisión directa de portada, catálogo, ficha y calculadora está documentada en [referencia N3D y demo IA](referencia-n3d-y-demo-ia.md).
 - [Tienda-de-Impresion3D, rama Pruebas](https://github.com/sebassebitas12/Tienda-de-Impresion3D/tree/Pruebas) sirve como referencia de experiencia, reglas e historial de aprendizaje. Su README describe React 19, Vite 8 y JavaScript/JSX. La rama predeterminada no representa esa aplicación. La nueva app del curso se construirá desde cero; no copiará su interfaz ni código.
 - Los documentos heredados de [producto y alcance](../negocio/heredado/01-PRODUCTO-Y-ALCANCE.md), [reglas y estados](../negocio/heredado/02-NEGOCIO-Y-ESTADOS.md) y [flujos](../negocio/heredado/03-UX-Y-FLUJOS.md) aportan antecedentes, pero advierten que varios requisitos nacieron de una entrega académica anterior. No se asumirán como evidencia de demanda, precios o capacidad operativa.
 - El PDF **FWD — Temas Complementarios IA** es un banco de temas para investigar y exponer, no una lista de funcionalidades obligatorias. Sus afirmaciones de actualidad deben verificarse con fuentes primarias antes de incluirlas en una propuesta.
