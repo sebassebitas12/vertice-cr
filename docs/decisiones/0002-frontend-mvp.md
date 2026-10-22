@@ -35,7 +35,7 @@ Fuente inspeccionada: [04-DISENO-VISUAL-Y-ACCESIBILIDAD.md, rama Pruebas](https:
 - Incluye React Bits, Motion, Radix, shadcn, Magic UI, Aceternity y galerías como Godly, Awwwards y Refero. No todas son paquetes: varias son fuentes de criterio y ejemplos visuales.
 - Conserva contratos de un mockup congelado, JavaScript/JSX y restricciones sobre nuevas dependencias. Esas reglas acotaban cómo se trasladaban referencias al proyecto anterior; no demuestran una incompatibilidad técnica de Vite.
 - Describe una identidad industrial de superficies cálidas oscuras, naranja selectivo, Space Grotesk y JetBrains Mono. Se conserva como antecedente; la nueva composición necesita confirmación.
-- No se auditó el código CSS/React anterior en esta revisión: no se atribuye una causa exacta a sus problemas de diseño.
+- Se completó después una [revisión estática del frontend anterior](../proyecto-final-backend/rescate-funcional-frontend-pruebas.md). Identifica preferencias, continuidad y revisión humana recuperables, junto con pantallas de múltiples responsabilidades, estilos extensos y riesgos de sobrescritura de borrador. No prueba que Vite causara los problemas visuales.
 - Las comparaciones antiguas sobre competidores no se reutilizan como hallazgos actuales sin comprobarlas.
 
 React Bits ofrece variantes JavaScript/TypeScript y CSS/Tailwind. Muchas referencias ya son compatibles con React. Un componente concreto requiere revisar su licencia, dependencias, comportamiento y estilos; una referencia HTML, Vue o de otro stack exige adaptación.
@@ -82,7 +82,7 @@ Por cada cambio: localizar el componente, identificar qué comportamiento se con
 
 Las instrucciones del repositorio y los criterios de aceptación deben permitir que otro agente continúe sin reconstruir la intención desde conversaciones pasadas. Cuando falte contexto de diseño que cambie el resultado, preguntar a Sebastián en lugar de inventarlo.
 
-El próximo paso visual será un tablero pequeño de dirección y composición de portada/catálogo/solicitud. El desarrollo de producto sigue empezando por el backend una vez concretado el alcance. No hay pantallas nuevas aprobadas todavía.
+Se generaron mockups conceptuales de inicio y Mis solicitudes que gustaron como dirección. La vista de solicitudes debe ganar espacio y separar resumen/detalle; el encuadre de la imagen no obliga a mostrar toda la página a la vez. El próximo paso es concretar navbar/footer y sus variantes, preferencias, estados y fichas de movimiento en un prototipo navegable. Las imágenes no validan comportamiento ni accesibilidad. El desarrollo de producto sigue empezando por el backend una vez concretado el alcance.
 
 ## Criterios de aceptación de esta arquitectura
 
