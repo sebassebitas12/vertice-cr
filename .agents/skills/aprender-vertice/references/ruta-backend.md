@@ -63,6 +63,19 @@ Consulta [nota de orquestación](../../../../docs/aprendizaje/2026-10-20-agente-
 
 Consulta la [nota del Laboratorio 2](../../../../docs/aprendizaje/2026-10-21-laboratorio2-fullstack.md) y el [registro de práctica](../../../../docs/practicas/04-laboratorio2-inventario-cupones-envios.md).
 
+## 05 — Extensión de modelado de datos con Supabase
+
+**Estado: práctica realizada y artefactos preparados según declaración y capturas** · Registro: 2026-10-22
+
+- Caso académico independiente: gestión de un gimnasio.
+- Supabase proporciona el proyecto administrado y herramientas de gestión; PostgreSQL sigue siendo el motor de base de datos.
+- Preparación de un modelo relacional con nueve tablas, diagrama ER y script SQL.
+- Inspección de registros de ejemplo con Table Editor y revisión de resultados en SQL Editor.
+- Evidencia organizada en investigación, diagrama, script y captura de ejecución.
+- Se documenta como aprendizaje, sin agregar el dominio del gimnasio ni sus datos a Vértice CR.
+
+Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-10-22-extension-base-datos-gimnasio.md) y el [registro de práctica](../../../../docs/practicas/05-extension-base-datos-gimnasio.md).
+
 ## Próximos temas
 
 No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso.
@@ -73,3 +86,4 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 - **2026-10-19:** integración de servicios, parsing, persistencia e historial documentados desde LAB1; aprobación informada por el estudiante.
 - **2026-10-20:** orquestación IA y Data Tables documentadas con resultados observados; sin convertir el laboratorio en aplicación del startup.
 - **2026-10-21:** API full stack, transacciones, migración FDM y snapshots practicados; inventario y precios del caso siguen siendo simulados.
+- **2026-10-22:** se registró la extensión de gimnasio en Supabase como práctica académica independiente; no se incorporó al producto Vértice.
