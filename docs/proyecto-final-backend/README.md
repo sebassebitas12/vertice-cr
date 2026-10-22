@@ -1,3 +1,11 @@
+> **Actualización de dirección — 2026-10-22:** Sebastián confirmó Supabase para la base de datos y exige IA con n8n como parte central del MVP. La recomendación anterior de React + Vite + JavaScript y la IA opcional quedan en revisión. Las secciones siguientes conservan el borrador previo y deben leerse con esta actualización como prioridad.
+>
+> **Frontend en evaluación:** Next.js + TypeScript + Tailwind CSS + componentes shadcn/ui personalizados. Next.js sigue usando React; su elección aporta estructura y herramientas, pero el atractivo visual requiere dirección de arte, fotografías, tipografía, composición y componentes diseñados para Vértice. Comparar contra Vite antes de fijar la decisión; no prometer que cambiar de framework corrige por sí solo problemas visuales.
+>
+> **IA propuesta para investigar:** un asesor de piezas que busque en el catálogo real, explique coincidencias y, cuando no exista una opción adecuada, prepare y guarde una solicitud personalizada tras confirmación del cliente. n8n coordina consulta del catálogo, recuperación de información técnica aprobada, detección de datos faltantes y preparación del expediente para el taller. La API valida permisos, datos y cambios de estado. Precio firme y viabilidad requieren datos técnicos verificables y revisión del taller.
+>
+> **N3D:** la revisión visual continúa pendiente: acceso web 403 y navegadores ego-browser/BrowserAct no instalados en este entorno. No se han observado sus pantallas; no atribuirle características inferidas.
+
 # Anteproyecto académico — MVP de Vértice CR
 
 > Este documento define una propuesta para el proyecto final del curso de backend y una posible demo de hackathon. No reemplaza la visión del startup ni aprueba su lanzamiento comercial.
