@@ -7,7 +7,7 @@ Registro de trabajo: 2026-10-22. Proyecto final de backend y posible demo de hac
 - Aplicación nueva, con backend primero y Supabase como base de datos PostgreSQL administrada.
 - IA con n8n como función central: consulta datos reales, propone campos del formulario y ayuda a completar una solicitud confirmada por el cliente.
 - Frontend recomendado: **Next.js App Router + TypeScript + Tailwind CSS + componentes propios sobre shadcn/ui**. Formularios con React Hook Form y Zod; movimiento acotado con CSS y Motion cuando haga falta. Motivos, costos y reglas de componentes en [ADR 0002](../decisiones/0002-frontend-mvp.md).
-- Dirección visual confirmada: combinar la claridad y protagonismo de producto de N3D con una reinterpretación de la identidad industrial anterior de Vértice. Se rehace la composición para el alcance actual; no hay pantallas nuevas aprobadas.
+- Dirección visual confirmada: combinar la claridad y protagonismo de producto de N3D con una reinterpretación de la identidad industrial anterior de Vértice. Se rehace la composición para el alcance actual. Los mockups de inicio y Mis solicitudes gustaron como dirección; no constituyen aún una especificación funcional ni una validación responsive.
 - Sebastián trabaja esencialmente mediante vibe coding y dirige a las IAs como orquestador. Los agentes deben producir cambios localizados, revisar el resultado y preguntar por vacíos de visión que afecten decisiones importantes.
 
 La selección de frontend no promete cambios sin regresiones. La facilidad de añadir un botón depende de la composición de componentes, contratos de datos y estilos encapsulados. El ADR define cómo hacerlo.
@@ -31,8 +31,9 @@ No afirmar que este problema ocurre con cierta frecuencia, costo o gravedad sin 
 
 ## Investigación y fuentes
 
-- [Revisión directa de N3D y propuesta verificable de IA](referencia-n3d-y-demo-ia.md): portada, catálogo, ficha y calculadora. Inspección visual en viewport estrecho; herramientas de miembros y compras no verificadas.
+- [Revisión directa de N3D y propuesta verificable de IA](referencia-n3d-y-demo-ia.md): portada, catálogo, ficha y calculadora. Inspección inicial en viewport estrecho y revisión posterior del desplazamiento de About en escritorio; herramientas de miembros y compras no verificadas.
 - [Documento 04 anterior](https://github.com/sebassebitas12/Tienda-de-Impresion3D/blob/Pruebas/docs/04-DISENO-VISUAL-Y-ACCESIBILIDAD.md): referencias de componentes y dirección visual, evaluadas en el ADR 0002. Sus contratos académicos y mockups congelados no se heredan automáticamente al producto nuevo.
+- [Rescate funcional del frontend anterior](rescate-funcional-frontend-pruebas.md): revisión estática del código de Pruebas, preferencias, idiomas, temas, continuidad, IA y taller; recomendaciones y límites para el MVP.
 - [Repositorio anterior, rama Pruebas](https://github.com/sebassebitas12/Tienda-de-Impresion3D/tree/Pruebas): experiencia y antecedentes; no se copia el código.
 - [Negocio heredado](../negocio/README.md): contexto del catálogo bajo pedido y cotización técnica; debe revisarse al migrar reglas.
 - Guía compartida de Proyecto Final Full Stack / Business Solutions: investigación, entrevistas, alternativas, MVP y propuesta de 2–4 páginas con once secciones.
