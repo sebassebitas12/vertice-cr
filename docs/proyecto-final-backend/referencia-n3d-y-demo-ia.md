@@ -1,10 +1,10 @@
 # Referencia N3D y propuesta demostrable de IA
 
-Fecha de revisión: 2026-10-22. Investigación para el MVP académico de backend/hackathon. El stack de frontend permanece pendiente hasta evaluar esta referencia y el alcance.
+Fecha de revisión: 2026-10-22. Investigación para el MVP académico de backend/hackathon. La recomendación de trabajo de frontend y sus razones están en el [ADR 0002](../decisiones/0002-frontend-mvp.md); esta investigación no demuestra por sí sola que un framework sea necesario.
 
 ## Evidencia y límites
 
-Se recorrieron en el navegador conectado la [portada](https://www.n3dmelbourne.com/), el [catálogo](https://www.n3dmelbourne.com/designs), la [ficha de Bulbasaur](https://www.n3dmelbourne.com/design/0001-bulbasaur) y la [calculadora de precios](https://www.n3dmelbourne.com/tools/print-price-calculator). Se inspeccionaron visualmente portada, catálogo y ficha en el viewport estrecho disponible. No se comprobó el diseño de escritorio, compras, descargas ni herramientas de miembros. No se dedujo su framework ni su arquitectura a partir del aspecto.
+Se recorrieron en el navegador conectado la [portada](https://www.n3dmelbourne.com/), el [catálogo](https://www.n3dmelbourne.com/designs), la [ficha de Bulbasaur](https://www.n3dmelbourne.com/design/0001-bulbasaur) y la [calculadora de precios](https://www.n3dmelbourne.com/tools/print-price-calculator). Se inspeccionaron inicialmente portada, catálogo y ficha en un viewport estrecho. Después se revisaron la portada y el desplazamiento de la sección About en escritorio, con viewport de 1365 × 768. No se comprobaron compras, descargas ni herramientas de miembros. No se dedujo su framework ni su arquitectura a partir del aspecto.
 
 La revisión directa sustituye la limitación anterior de HTTP 403: el sitio ya pudo observarse con el navegador conectado.
 
@@ -17,6 +17,12 @@ La revisión directa sustituye la limitación anterior de HTTP 403: el sitio ya 
 - N3D ofrece diseños digitales y membresías para aficionados y vendedores; Vértice plantea piezas físicas FDM y solicitudes personalizadas. Los flujos comerciales requieren adaptación.
 - La calculadora pide peso del modelo y purga, tiempo de impresión, material, energía, desgaste, trabajo, empaque, costos de licencia, comisiones y margen. Explica los cálculos y etiqueta el ejemplo como datos de muestra. Los pesos y tiempos proceden del laminador según las instrucciones de la página.
 - El sitio presenta herramientas como PrintIt!, Build-a-Ball, Storefront y una API. Son descripciones públicas; no se ejecutaron ni verificaron sus capacidades.
+
+## Desplazamiento observado en escritorio
+
+En una revisión posterior solicitada por Sebastián se avanzó y retrocedió por About. El encabezado permanece visible y About se destaca en la navegación. La pieza representada en un canvas pasa de una composición casi ensamblada a componentes separados al avanzar por la sección. La orientación también varía; no se aisló qué parte de la rotación depende del tiempo frente al desplazamiento. No se dedujo biblioteca 3D ni se comprobó que la sección esté fijada.
+
+Esto añade una referencia de movimiento a la referencia de composición. Para Vértice se propone una sección que explique pieza, detalles y uso antes de iniciar la solicitud, con alternativa estática y reducción de movimiento. No se ha implementado. Los mockups generados son estáticos y no permiten evaluar este comportamiento.
 
 ## Qué conviene trasladar a Vértice
 
@@ -32,7 +38,7 @@ Los colores, la composición exacta y las fotografías de N3D no constituyen rec
 
 Lo observado requiere buen diseño responsive, fotografía, tipografía, componentes coherentes, filtros y estados claros. No prueba que un framework específico sea necesario ni que cambiar React/Vite resuelva por sí solo problemas visuales.
 
-Comparar opciones mediante una única pantalla de catálogo/ficha inspirada en estos principios y con marca Vértice. Evaluar facilidad para modificar el diseño, rendimiento de imágenes, accesibilidad, mantenimiento y tiempo de implementación. Next.js con Tailwind y componentes propios es una opción a comparar; no queda elegido por esta revisión. Supabase permanece como elección del usuario para base de datos.
+Validar la recomendación de Next.js con Tailwind y componentes propios del ADR 0002 mediante un prototipo pequeño con marca Vértice. Evaluar facilidad de modificar componentes, imágenes, accesibilidad, mantenimiento y tiempo de implementación. Supabase permanece como elección del usuario para base de datos.
 
 ## Una función central de IA para el MVP
 
@@ -87,8 +93,8 @@ Medir en un conjunto pequeño de solicitudes preparadas la correspondencia con c
 
 ## Próximos pasos
 
-1. Confirmar con Sebastián qué aspectos observados de N3D quiere priorizar en Vértice.
+1. Concretar la dirección combinada confirmada por Sebastián y el desplazamiento solicitado en componentes y una ficha de movimiento.
 2. Seleccionar un catálogo de demo y redactar los casos de uso.
 3. Definir contrato API/n8n, esquema de solicitud y criterios de aceptación.
 4. Probar el recorrido IA con persistencia antes de expandir funcionalidades.
-5. Elegir el frontend mediante la pantalla de referencia y los requisitos del proyecto.
+5. Validar la recomendación de frontend mediante el prototipo y los requisitos del proyecto.
