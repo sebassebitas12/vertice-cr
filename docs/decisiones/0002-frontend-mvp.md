@@ -2,7 +2,7 @@
 
 - Fecha: 2026-10-22
 - Alcance: proyecto final de backend y demo de hackathon.
-- Estado: recomendación de trabajo del asesor, a revisar con un prototipo pequeño; no es aprobación visual de Sebastián ni decisión del startup comercial.
+- Estado: selección de trabajo recomendada para el MVP; validar integración con un prototipo pequeño. La preferencia visual y el trabajo dirigido por IA fueron confirmados por Sebastián; las pantallas concretas aún requieren revisión.
 - Relación: [anteproyecto](../proyecto-final-backend/README.md), [N3D y demo IA](../proyecto-final-backend/referencia-n3d-y-demo-ia.md). El ADR 0001 trata el startup futuro.
 
 ## Necesidad
@@ -26,7 +26,7 @@ La API de negocio permanece separada y se implementa con el stack de backend del
 
 Vite + React también permite estas composiciones y bibliotecas; shadcn publica instalación para ambos. Vite implica menos conceptos cuando se construye una SPA. Next aporta páginas/layouts y herramientas de catálogo dentro de una convención común, a cambio de aprender la separación servidor/cliente. Elegir Next no garantiza mayor calidad visual ni cambios sin regresiones.
 
-SvelteKit/Vue requerirían otra tecnología y adaptar referencias React. Para este MVP se prioriza continuidad con ese ecosistema. Un editor visual tipo arrastrar y soltar es una decisión distinta: esta recomendación contempla código modular editable con ayuda de agentes. Sebastián aún debe confirmar si espera edición visual directa.
+SvelteKit/Vue requerirían otra tecnología y adaptar referencias React. Para este MVP se prioriza continuidad con ese ecosistema. Sebastián confirmó que trabaja esencialmente mediante vibe coding: dirige a las IAs como orquestador. Esta selección contempla código modular modificado por agentes, con revisiones visuales y funcionales que pueda entender y dirigir.
 
 ## Qué mostró el documento 04 anterior
 
@@ -66,9 +66,23 @@ El cliente revisa una vista previa antes de confirmar el envío. Guardar y cambi
 
 ## Dirección visual por confirmar
 
-N3D fue revisado en viewport estrecho: fotografía protagonista, superficies oscuras, acento naranja y jerarquía sencilla. El documento 04 aporta una dirección industrial más expresiva. Se preguntó a Sebastián si prefiere limpieza de N3D, identidad industrial simplificada o combinación por áreas; la respuesta no se presume.
+Sebastián eligió combinar la claridad de N3D con una reinterpretación de la identidad industrial anterior. Le gusta esa identidad como punto de partida, pero quiere rehacerla para el alcance actual. No trasladar literalmente la Home congelada del repositorio viejo.
 
-El siguiente prototipo debe comparar composición de portada/catálogo y un formulario asistido con datos de muestra. Antes de programarlo se aprueban disposición, tipografía, fotografía y un conjunto pequeño de componentes. No se exige montar una aplicación completa para decidir cómo debe verse.
+- Tienda y catálogo: productos protagonistas, lectura directa, filtros agrupados y pocas acciones bien jerarquizadas.
+- Portada: expresión industrial selectiva, luz cálida y composición distintiva; evitar decoración que compita con el producto.
+- Solicitud asistida: conversación y formulario coordinados, campos editables y diferencias de IA visibles; debe sentirse un espacio de trabajo.
+- Administración: densidad funcional y estados claros, con la misma familia visual.
+- Color, tipografía, geometría y recursos de marca anteriores son antecedentes a revisar: no se consideran automáticamente aprobados para el rediseño.
+
+## Trabajo dirigido por agentes
+
+El usuario define intención, prioridades y aceptación. El agente convierte cada petición en cambios de componentes acotados, inspecciona dependencias y verifica el resultado. No se espera que Sebastián arregle manualmente estilos o código generado.
+
+Por cada cambio: localizar el componente, identificar qué comportamiento se conserva, adaptar la referencia a los tokens de Vértice y mostrar el resultado. Para un control nuevo, comprobar acción, foco, respuesta al teclado y composición móvil. Si el cambio toca tokens compartidos, revisar dónde se usan antes de modificarlos. No copiar páginas enteras para añadir un botón.
+
+Las instrucciones del repositorio y los criterios de aceptación deben permitir que otro agente continúe sin reconstruir la intención desde conversaciones pasadas. Cuando falte contexto de diseño que cambie el resultado, preguntar a Sebastián en lugar de inventarlo.
+
+El próximo paso visual será un tablero pequeño de dirección y composición de portada/catálogo/solicitud. El desarrollo de producto sigue empezando por el backend una vez concretado el alcance. No hay pantallas nuevas aprobadas todavía.
 
 ## Criterios de aceptación de esta arquitectura
 
