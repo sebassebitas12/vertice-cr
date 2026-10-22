@@ -20,6 +20,7 @@ Este repo cumple dos funciones a la vez:
 | `docs/decisiones/` | Por qué se eligió cada cosa (una decisión por archivo) |
 | `docs/aprendizaje/` | Lo aprendido, por tema y fecha; glosario; errores comunes |
 | `docs/practicas/` | Una nota por práctica de clase |
+| `docs/proyecto-final-backend/` | Investigación y alcance del MVP académico de backend; separado de la visión del startup |
 
 ## Estado
 
@@ -29,4 +30,3 @@ Este repo cumple dos funciones a la vez:
 ## Origen
 
 Este proyecto nace de la entrega académica `Tienda-de-Impresion3D` (React + Vite + JSON Server). De ella se heredó la documentación de negocio y la marca; el diseño y el código se rehacen.
-
