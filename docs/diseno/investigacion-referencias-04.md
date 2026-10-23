@@ -10,7 +10,11 @@ Se revisó su directorio maestro y sus apartados de microinteracciones, acceso, 
 
 La prueba en curso elegida por Sebastián es **SvelteKit**, en otro chat. Next.js sigue como alternativa recomendada anterior, no como implementación definitiva. Esta investigación no cambia archivos de esa prueba ni instala skills o paquetes.
 
-## Selección principal
+## Selección principal vigente
+
+La [selección ampliada por pantalla](seleccion-ampliada-por-pantalla.md) reemplaza el orden de prioridades de esta primera pasada: Aceternity para navegación/proceso, Codrops y Magic UI para comparar botones, Motion Primitives para continuidad de fotografía/paneles, ScrollX en 21st para footer y Fume/Woodid para composición. React Bits queda como reserva específica.
+
+## Selección de la primera pasada
 
 1. **shadcn-svelte / Bits UI**: comportamiento y controles de la prueba Svelte.
 2. **React Bits**: referencias concretas de identidad y movimiento; requiere adaptación, no pegar JSX.
@@ -50,10 +54,10 @@ No se instaló ni ejecutó ninguno de esos repositorios. La recomendación eval�
 | [Bits UI](https://www.bits-ui.com/docs/introduction) | Primitivas Svelte sin imponer el estilo. | No es una biblioteca React. | Base del ecosistema shadcn-svelte; no confundir con React Bits. |
 | [React Bits](https://reactbits.dev/get-started/introduction) | Referencia visual o adaptación explícita. | Variantes JS/TS y CSS/Tailwind disponibles. | Pill Nav, Specular Button, Spotlight Card y Tilted Card como candidatos. |
 | [Magic UI](https://magicui.design/docs/components/interactive-hover-button) | Rehacer el patrón en Svelte conservando comportamiento y atribuciones si se adapta código. | Sus ejemplos son React. | CTA con relleno que crece y flecha que entra. |
-| [Motion Primitives](https://github.com/ibelick/motion-primitives) | No importar componentes React. | Referencia/implementación React según versión. | Selección animada en listas. Documentación web devolvió 403; se consultó README/licencia del repo. |
+| [Motion Primitives](https://github.com/ibelick/motion-primitives) | No importar componentes React. | Referencia/implementación React según versión. | Ampliación: ejemplos y código de Morphing Dialog y Transition Panel leídos; documentación web devolvió 403. |
 | [Aceternity UI](https://ui.aceternity.com/components/stateful-button) | Patrón y adaptación, no copia directa. | Componentes React; verificar dependencias del seleccionado. | Estados de envío y una sección narrativa como exploración posterior. |
 | [Radix](https://www.radix-ui.com/primitives/docs/overview/introduction), [Base UI](https://base-ui.com/react/overview/about), [React Aria](https://react-aria.adobe.com/) | Referencias de comportamiento, no dependencias de Svelte. | Elegir una base coherente por componente, sin mezclar primitivas innecesariamente. | Diálogos, foco, menús y selección. |
-| [21st.dev](https://21st.dev/) | Catálogo para descubrir; validar cada autor y stack. | También requiere validar cada pieza. | Reserva para huecos concretos; no elegí aún una pieza verificable para Vértice. |
+| [21st.dev](https://21st.dev/) | Catálogo para descubrir; validar cada autor y stack. | También requiere validar cada pieza. | Ampliación: Footer With Minimal Outline de ScrollX observado en preview; detalles y límites en la selección ampliada. |
 | [Vercel AI Elements](https://github.com/vercel/ai-elements) | No asumir integración directa. | Evaluar si el frontend y contrato de IA lo justifican. | Referencia de estados de conversación; no añadir SDK ni cambiar n8n por una galería. |
 
 Corrección importante: compartir Tailwind o TypeScript no hace que un componente React sea compatible con Svelte.
