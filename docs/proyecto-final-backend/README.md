@@ -32,6 +32,8 @@ No afirmar que este problema ocurre con cierta frecuencia, costo o gravedad sin 
 
 ## Investigación y fuentes
 
+- [Selección ampliada por pantalla](../diseno/seleccion-ampliada-por-pantalla.md): propuestas de Aceternity, Codrops, Magic UI, Motion Primitives y ScrollX/21st; composición de Fume/Woodid, observación de la prueba local y límites de evidencia.
+
 - [Selección actual de referencias del documento 04](../diseno/investigacion-referencias-04.md) y [candidatos concretos de componentes](../diseno/componentes-candidatos-mvp.md): compatibilidad Svelte/React, rasgos que preservar, prioridades y criterios para el trabajo con agentes. Son candidatos, no componentes aprobados.
 
 - [Revisión directa de N3D y propuesta verificable de IA](referencia-n3d-y-demo-ia.md): portada, catálogo, ficha y calculadora. Inspección inicial en viewport estrecho y revisión posterior del desplazamiento de About en escritorio; herramientas de miembros y compras no verificadas.
