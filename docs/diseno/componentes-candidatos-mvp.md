@@ -6,14 +6,18 @@ Contexto y fuentes generales: [investigación del documento 04](investigacion-re
 
 SvelteKit se está probando en otro chat. Next/React queda como alternativa. “Reutilizable” significa técnicamente apropiado para estudiar/adaptar; todavía hay que comprobar la implementación local, licencia y resultado.
 
-## Primera selección para mostrar a Sebastián
+## Primera selección vigente para mostrar a Sebastián
 
-1. **Dos botones en el mismo contexto:** CTA-01 (relleno + flecha) frente a CTA-02 (luz de borde). Mismo texto “Nueva solicitud”, mismo tamaño y colores; así se compara el movimiento.
-2. **Dos navegaciones:** NAV-01 (cápsula con indicador) frente a NAV-02 (menú de tarjetas) solo si sus grupos de contenido lo justifican.
-3. **Una tarjeta de producto:** CARD-01 (luz localizada) y variante fotográfica sin efecto como comparación.
-4. **El formulario:** ACTION-01 con envío real/simulado etiquetado, error recuperable y preservación de campos.
+La [selección ampliada por pantalla](seleccion-ampliada-por-pantalla.md) contiene evidencia, costes relativos y límites de las nuevas opciones.
 
-No construir de golpe todo el catálogo. Después de elegir, llevar los componentes aprobados a las demás pantallas. La investigación permite que el agente avance sin volver a buscar una referencia vaga.
+1. **Botón:** comparar CTA-01 (Magic UI) con CTA-03 (Codrops Calypso). Mismo texto, dimensiones y colores.
+2. **Navegación:** comparar NAV-04 (Aceternity Resizable Navbar) con la barra actual de la prueba.
+3. **Producto:** composición fotográfica de Fume y PHOTO-01 (Motion Primitives Morphing Dialog) para ampliar la imagen.
+4. **Footer:** FOOTER-02 (ScrollX UI, 21st) con nombre delineado y enlaces reales; variante compacta para trabajo.
+5. **Detalle:** DETAIL-01 (Motion Primitives Transition Panel) si existen paneles con contenido suficiente.
+6. **Proceso:** STORY-01 (Aceternity Sticky Scroll Reveal), antes de una escena compleja tipo N3D.
+
+React Bits conserva alternativas de reserva. No construir todo el catálogo ni mezclar efectos automáticamente. Las nuevas IDs se especifican en la selección ampliada; todavía no están aprobadas ni integradas.
 
 ## Botones
 
@@ -43,14 +47,14 @@ No construir de golpe todo el catálogo. Después de elegir, llevar los componen
 - Esfuerzo: medio. Prioridad: comparar con CTA-01.
 - Licencia: MIT + Commons Clause de React Bits; revisar condiciones antes de distribuir adaptación.
 
-### CTA-03 — Alternativa de CSS puro
+### CTA-03 — Codrops Calypso con CSS
 
 - Fuentes: [Codrops Button Hover Styles](https://tympanus.net/Development/ButtonHoverStyles/), [artículo](https://tympanus.net/codrops/2021/02/17/ideas-for-css-button-hover-animations/) y [repo](https://github.com/codrops/ButtonHoverStyles).
-- Rasgo: rellenos/máscaras y desplazamientos de etiqueta construidos con CSS, sin runtime React.
-- Uso: alternativa si las dos anteriores no convencen. La colección tiene varias variantes; todavía no se aprobó una concreta.
+- Variante exacta: `button--calypso`. Relleno circular creciente y etiqueta que sale/reentra con escala, construidos con CSS. HTML y CSS originales consultados.
+- Uso: comparar con CTA-01 como acción destacada. Variante investigada, todavía no aprobada.
 - Svelte/React: adaptar el HTML/CSS elegido y encapsularlo.
 - Aceptación previa a integrar: registrar nombre/clase exacta de la variante y mostrarla; no entregar “estilo Codrops” indeterminado.
-- Prioridad: reserva. MIT según repo consultado.
+- Prioridad: primera comparación. MIT según repo consultado.
 
 ### ACTION-01 — Botón que comunica una operación
 
@@ -180,4 +184,4 @@ Plantilla de tarea: objetivo de producto; ID/URL; rasgo visual; alcance; qué se
 
 Se observaron en navegador Magic UI Interactive Hover Button (antes/después de pulsar), Pill Nav y la vista de Specular Button. Los demás se seleccionaron por documentación y, donde se indica, lectura de fuente. No se auditaron todos sus gestos, accesibilidad, rendimiento o comportamiento móvil. No se ejecutaron componentes dentro del proyecto.
 
-Nada de esta lista está aprobado todavía. La próxima decisión es visual: comparar CTA-01 y CTA-02 en la página de prueba que ya está construyendo el otro Codex.
+Nada de esta lista está aprobado todavía. La próxima decisión es visual: comparar CTA-01 con CTA-03 y NAV-04 con la barra actual, siguiendo la selección ampliada. La prueba ya fue preparada por el otro Codex.
