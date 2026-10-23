@@ -6,6 +6,14 @@ Instrucciones para agentes que trabajen en este repositorio.
 
 Vértice CR es un startup de impresión 3D a largo plazo **y** un registro del aprendizaje del curso de backend. En las etapas iniciales no forzar cada clase o ejercicio a una implementación de negocio; primero conservar el conocimiento, luego decidir qué se aplica.
 
+## Colaboración con Sebastián y MVP académico
+
+Sebastián dirige el desarrollo como orquestador de IAs; la programación se realiza esencialmente mediante agentes. Explicar decisiones en español sencillo y producir cambios pequeños, localizados y revisables. Los agentes se responsabilizan de inspeccionar el código y comprobar el resultado; no asumir que Sebastián corregirá manualmente incompatibilidades de estilos o dependencias.
+
+Para el proyecto final de backend/hackathon, leer primero `docs/proyecto-final-backend/README.md` y `docs/decisiones/0002-frontend-mvp.md`. El alcance académico y la visión comercial posterior a graduarse tienen decisiones independientes.
+
+La dirección visual elegida combina claridad de N3D con una reinterpretación de la identidad industrial del repositorio anterior. Las pantallas viejas no están aprobadas como diseño de la aplicación nueva. Cuando un vacío de contexto o de visión cambie una decisión importante, preguntar a Sebastián antes de inventarlo.
+
 ## Antes de editar
 
 1. Leer este archivo.
