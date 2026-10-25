@@ -14,7 +14,7 @@ Para el proyecto final de backend/hackathon, leer primero `docs/proyecto-final-b
 
 Para tareas de interfaz del MVP, consultar `docs/diseno/investigacion-referencias-04.md` y `docs/diseno/componentes-candidatos-mvp.md`. Usar el ID/URL del candidato y preservar su rasgo visual al adaptarlo. No confundir candidatos con decisiones aprobadas ni componentes React con componentes Svelte. Registrar la elección y los pendientes para mantener el objetivo entre tareas.
 
-La dirección visual elegida combina claridad de N3D con una reinterpretación de la identidad industrial del repositorio anterior. Las pantallas viejas no están aprobadas como diseño de la aplicación nueva. Cuando un vacío de contexto o de visión cambie una decisión importante, preguntar a Sebastián antes de inventarlo.
+La dirección visual vigente (2026-10-25) está documentada en docs/diseno/direccion-de-arte.md: adaptación oscura de N3D Melbourne para el catálogo público de Vértice, con carbón, naranja, titulares sans pesados, navegación compacta y tarjetas de producto. Sebastián pidió tema oscuro por defecto y tema claro disponible. No copiar la marca ni sus recursos; no heredar la identidad de Tienda-de-Impresion3D. Etiquetar imágenes conceptuales y no inventar medidas, existencias ni precios.
 
 ## Antes de editar
 

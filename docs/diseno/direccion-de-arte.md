@@ -1,87 +1,34 @@
-# Dirección de arte — Vértice CR
+# Dirección visual — Vértice CR
 
-> Una sola página. Se completa **antes** de escribir código de interfaz. Se juzga mirando pantallas reales, no este documento.
+> La prueba visual de Next.js toma como referencia principal a N3D Melbourne. Es una adaptación propia para presentar servicios FDM y solicitudes a medida.
 
-**Estado:** por completar. El diseño de la entrega académica se descartó: se sentía genérico y con incoherencias visuales (fondos y ambientes que no combinaban entre secciones).
+**Estado:** dirección oscura implementada; tema claro disponible desde el control de apariencia.
 
-## 1. Referencias
+## Referencia principal
 
-Entre 6 y 8 sitios o imágenes. Pueden ser de cualquier rubro. Para cada una, **qué te gusta exactamente**.
+[N3D Melbourne](https://www.n3dmelbourne.com/) aporta la estructura visual indicada por Sebastián:
 
-| # | Referencia (enlace o captura) | Qué me gusta (ritmo, fondo, tipografía, movimiento, etc.) |
-|---|---|---|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
-| 6 | | |
+- Fondo carbón y superficies oscuras con bordes discretos.
+- Tipografía sans pesada para titulares grandes.
+- Naranja vivo para acciones y énfasis cortos.
+- Navegación compacta centrada en una cápsula.
+- Hero con imagen protagonista y dos rutas claras.
+- Catálogo con búsqueda, filtros y tarjetas consistentes.
 
-## 2. Esencia
+Vértice adapta esos recursos a sus propios ejemplos y a la solicitud de fabricación. No copia el nombre, fotos, textos, personajes, membresías ni ofertas de N3D. Las imágenes del prototipo son conceptuales; no prueban fabricación, stock, medidas ni precio.
 
-Tres adjetivos que la página debe provocar:
+## Dirección para Vértice
 
-1.
-2.
-3.
+- Personalidad directa, funcional y hecha para makers.
+- Tema oscuro por defecto, carbón, alto contraste y naranja; variante clara disponible.
+- Tipografía sans de sistema con peso alto en titulares y lectura cómoda en controles.
+- Portada con pregunta concreta, imagen del producto, aviso conceptual y accesos al catálogo o a la solicitud.
+- Catálogo con filtros basados solo en las familias recibidas desde la API; sin precios ni disponibilidad inventados.
+- Solicitud en superficies oscuras con foco visible y resumen contextual; comunicar revisión y persistencia de demo.
+- Hover breve, navegación por teclado y respeto al movimiento reducido.
 
-Lo que **no** debe parecer:
+## Historial
 
-- No "juguetes" ni plantilla genérica.
--
-
-## 3. Elemento firma
-
-Algo propio de Vértice que ninguna otra tienda tenga. Candidatos a evaluar: visor 3D de piezas reales, el concepto de "capas" (logo, transiciones, fondos), fotografía de impresiones propias.
-
-Elegido:
-
-## 4. Color
-
-| Rol | Valor | Uso |
-|---|---|---|
-| Fondo base | | |
-| Superficie elevada | | |
-| Texto principal | | |
-| Texto secundario | | |
-| Acento principal | | |
-| Estados (éxito, error, aviso) | | |
-
-## 5. Sistema de superficies (resuelve las incoherencias de fondo)
-
-Define 3 o 4 niveles de fondo y **cuándo se usa cada uno**.
-
-| Nivel | Descripción | Se usa en |
-|---|---|---|
-| 0 — Base | | |
-| 1 — Elevada | | |
-| 2 — Énfasis | | |
-| 3 — Ambiente (hero, secciones narrativas) | | |
-
-Regla: ninguna sección inventa un fondo nuevo; solo usa uno de estos niveles.
-
-## 6. Tipografía
-
-| Rol | Fuente | Tamaños y uso |
-|---|---|---|
-| Títulos | | |
-| Texto | | |
-| Técnico (medidas, códigos) | | |
-
-## 7. Imágenes y movimiento
-
-- Tipo de imagen (render, foto real, ilustración):
-- Reglas de movimiento (qué se anima, cuánto, qué respeta `prefers-reduced-motion`):
-
-## 8. Pantallas de aprobación
-
-Antes de programar, se aprueban en una herramienta visual estas pantallas:
-
-- [ ] Home
-- [ ] Catálogo
-- [ ] Solicitud de cotización
-
-## 9. Historial
-
-- 2026-10-13: hoja creada; diseño anterior descartado.
-
+- 2026-10-13: hoja creada para reunir criterios visuales del producto.
+- 2026-10-24: se probó una propuesta clara editorial que Sebastián rechazó.
+- 2026-10-25: reemplazo por una adaptación oscura de N3D Melbourne, referencia indicada por Sebastián.
