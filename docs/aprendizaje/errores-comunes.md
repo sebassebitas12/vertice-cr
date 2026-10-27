@@ -16,3 +16,4 @@ Errores que ya aparecieron, para no repetirlos.
 | 2026-10-26 | Pedidos repetidos y DELETE sin borrar filas. | INSERT repetido y condición id = 6 AND id = 7 imposible. | Ejecutar solo el bloque necesario; revisar los ID y usar IN u OR para alternativas. |
 | 2026-10-27 | libros se creó sin titulo. | Columna omitida aunque la sintaxis restante era válida. | Agregar mediante ALTER TABLE y corregir la definición guardada. |
 | 2026-10-27 | fecha_prestamos difería del DER. | Nombre en plural en el script. | Renombrar a fecha_prestamo y mantener consistencia. |
+| 2026-10-27 | Error 1146 al usar clientes después de renombrarla a compradores. | Las consultas seguían apuntando al nombre anterior. | Usar el nuevo nombre en las consultas y cambios posteriores. |

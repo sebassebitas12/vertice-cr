@@ -69,3 +69,21 @@ Fuente: [nota de MySQL](2026-10-27-mysql-relacional.md).
 | 1:1 | Como máximo una fila vinculada por lado; una FK única ayuda a imponerlo. |
 | JOIN | Combina filas de tablas según una condición; presentado en teoría en esta sesión. |
 | ALTER TABLE | Cambia la estructura de una tabla existente. |
+
+## Creación y consultas básicas — 2026-10-27
+
+Fuente: [nota de SQL](2026-10-27-sql-creacion-consultas.md).
+
+| Término | Significado |
+|---|---|
+| DDL | Comandos para definir o modificar estructuras: CREATE, ALTER y DROP. |
+| DML / DQL | Manipulación de datos / consulta; la presentación incluye SELECT dentro de DML. |
+| DEFAULT / CHECK | Valor predeterminado / condición que deben satisfacer los datos. |
+| DROP / TRUNCATE | Eliminar el objeto / vaciar sus filas conservando la tabla. |
+| SELECT / FROM | Elegir columnas / indicar la tabla de origen. |
+| WHERE | Filtrar filas mediante una condición. |
+| AND / OR / NOT | Conjunción / alternativas / negación de condiciones. |
+| BETWEEN / IN | Rango inclusivo / pertenencia a una lista. |
+| LIKE | Comparación con un patrón de texto; % y _ son comodines. |
+| IS NULL | Comprobar ausencia de valor. |
+| ORDER BY, ASC y DESC | Ordenar resultados de forma ascendente o descendente. |

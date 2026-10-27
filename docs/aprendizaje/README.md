@@ -20,4 +20,6 @@ Registro de lo estudiado durante el curso y de lo aprendido mientras se construy
 
 - [2026-10-27 — MySQL, DER y biblioteca (sesiones 26–27)](2026-10-27-mysql-relacional.md).
 
+- [2026-10-27 — SQL: creación y consultas básicas](2026-10-27-sql-creacion-consultas.md).
+
 ---
