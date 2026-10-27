@@ -10,3 +10,9 @@ Errores que ya aparecieron, para no repetirlos.
 | 2026-10-20 | Una captura de una consulta se interpretó inicialmente como fallo de guardado. | Se estaba inspeccionando la ejecución equivocada. | Confirmar el mensaje exacto y la ejecución correspondiente antes de diagnosticar un error. |
 | 2026-10-19 | El workflow de la extensión no generaba ejecuciones al probar un correo. | Seguía publicada la versión original, no la exportación actualizada. | Publicar la versión de extensión y probar con un correo entrante nuevo. |
 | 2026-10-19 | Un correo cotidiano sin campos fijos no se interpretaba como solicitud válida. | El parser dependía de un formato rígido para producto y cantidad. | Aceptar lenguaje cotidiano y pedir aclaración si los datos siguen ambiguos. |
+
+| 2026-10-26 | Error de sintaxis al cerrar CREATE TABLE. | Coma después de la última columna. | Quitar la coma final. |
+| 2026-10-26 | INSERT en tabla intermedia falló por ID sin valor predeterminado. | ID obligatorio sin generación automática. | Configurar AUTO_INCREMENT manteniendo una clave primaria. |
+| 2026-10-26 | Pedidos repetidos y DELETE sin borrar filas. | INSERT repetido y condición id = 6 AND id = 7 imposible. | Ejecutar solo el bloque necesario; revisar los ID y usar IN u OR para alternativas. |
+| 2026-10-27 | libros se creó sin titulo. | Columna omitida aunque la sintaxis restante era válida. | Agregar mediante ALTER TABLE y corregir la definición guardada. |
+| 2026-10-27 | fecha_prestamos difería del DER. | Nombre en plural en el script. | Renombrar a fecha_prestamo y mantener consistencia. |

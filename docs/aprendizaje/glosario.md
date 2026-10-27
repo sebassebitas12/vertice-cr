@@ -46,3 +46,26 @@ Conceptos vistos en clase, explicados de forma breve. Referencias: [automatizaci
 | Upsert | Insertar si no existe un registro coincidente, o actualizarlo si existe. | n8n, 2026-10-20 |
 | Webhook | URL que recibe una solicitud de otro sistema para iniciar o continuar un flujo. | Laboratorio 2, 2026-10-21 |
 | Workflow | Secuencia de nodos y conexiones que ejecuta una automatización. | LAB1 |
+
+## MySQL y modelado relacional — 2026-10-26/27
+
+Fuente: [nota de MySQL](2026-10-27-mysql-relacional.md).
+
+| Término | Significado |
+|---|---|
+| MySQL Server / Workbench | Motor que administra la base / cliente gráfico para interactuar con él. |
+| SQL | Lenguaje para definir, consultar y modificar estructuras y datos. |
+| Entidad / atributo | Elemento que se modela / característica que se guarda como columna. |
+| Registro / campo | Fila concreta / columna de una tabla. |
+| DER | Diagrama de entidades, atributos y relaciones. |
+| PK | Clave primaria: identificador único y no nulo de una fila. |
+| FK | Clave foránea: restricción que conecta valores con claves de otra tabla o de la misma. |
+| Integridad referencial | Impide referencias no nulas a registros inexistentes cuando la FK está declarada y activa. |
+| AUTO_INCREMENT | Generación automática de ID; puede dejar huecos. |
+| NOT NULL / UNIQUE | Valor obligatorio / valores no repetidos; son reglas distintas. |
+| NULL | Ausencia de valor, distinta de cero o texto vacío. |
+| 1:N | Una fila puede relacionarse con muchas; la FK se coloca del lado N. |
+| N:M | Muchas filas en ambos lados; se representa mediante una tabla intermedia. |
+| 1:1 | Como máximo una fila vinculada por lado; una FK única ayuda a imponerlo. |
+| JOIN | Combina filas de tablas según una condición; presentado en teoría en esta sesión. |
+| ALTER TABLE | Cambia la estructura de una tabla existente. |
