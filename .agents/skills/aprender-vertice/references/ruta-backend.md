@@ -76,6 +76,20 @@ Consulta la [nota del Laboratorio 2](../../../../docs/aprendizaje/2026-10-21-lab
 
 Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-10-22-extension-base-datos-gimnasio.md) y el [registro de práctica](../../../../docs/practicas/05-extension-base-datos-gimnasio.md).
 
+## 06 — Fundamentos relacionales con MySQL y DER
+
+**Estado: estudiado y practicado según declaración y capturas** · Sesiones: 2026-10-26/27
+
+- MySQL Server y Workbench; SQL, tablas, campos, registros y tipos.
+- DER en draw.io; PK/FK; relaciones 1:N y tabla intermedia N:M.
+- NOT NULL, UNIQUE, AUTO_INCREMENT, NULL e integridad referencial.
+- CREATE DATABASE, USE, CREATE TABLE, INSERT, SELECT, ALTER TABLE y DELETE con selección de ID.
+- Biblioteca practicada con cuatro tablas, cuatro autores, seis libros, tres clientes y cinco préstamos.
+- JOIN y relación 1:1 presentados en el material; no se registra ejecución de JOIN.
+- No implica adoptar MySQL para Vértice ni sustituir las prácticas anteriores de PostgreSQL o n8n.
+
+Consulta la [nota](../../../../docs/aprendizaje/2026-10-27-mysql-relacional.md) y el [registro](../../../../docs/practicas/06-mysql-biblioteca.md).
+
 ## Próximos temas
 
 No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso.
@@ -87,3 +101,5 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 - **2026-10-20:** orquestación IA y Data Tables documentadas con resultados observados; sin convertir el laboratorio en aplicación del startup.
 - **2026-10-21:** API full stack, transacciones, migración FDM y snapshots practicados; inventario y precios del caso siguen siendo simulados.
 - **2026-10-22:** se registró la extensión de gimnasio en Supabase como práctica académica independiente; no se incorporó al producto Vértice.
+
+- **2026-10-27:** se documentaron las sesiones de MySQL del 26–27, el DER y la práctica de biblioteca; revisión final del archivo SQL pendiente, sin importar la solución.

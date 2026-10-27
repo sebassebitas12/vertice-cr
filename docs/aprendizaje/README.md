@@ -18,4 +18,6 @@ Registro de lo estudiado durante el curso y de lo aprendido mientras se construy
 - [2026-10-21 — Laboratorio 2 full stack](2026-10-21-laboratorio2-fullstack.md).
 - [2026-10-22 — Extensión de base de datos para un gimnasio](2026-10-22-extension-base-datos-gimnasio.md).
 
+- [2026-10-27 — MySQL, DER y biblioteca (sesiones 26–27)](2026-10-27-mysql-relacional.md).
+
 ---
