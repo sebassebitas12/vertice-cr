@@ -87,3 +87,11 @@ Fuente: [nota de SQL](2026-10-27-sql-creacion-consultas.md).
 | LIKE | Comparación con un patrón de texto; % y _ son comodines. |
 | IS NULL | Comprobar ausencia de valor. |
 | ORDER BY, ASC y DESC | Ordenar resultados de forma ascendente o descendente. |
+
+## Ampliación de SQL — 2026-10-28
+
+| Término | Significado |
+|---|---|
+| DECIMAL(10,2) | Número decimal exacto: 10 dígitos totales, 2 después del separador decimal. |
+| LIMIT | Limita la cantidad de filas devueltas; se combinó con ORDER BY para pedidos recientes. |
+| Desempate de orden | Segunda columna de ORDER BY que define el orden cuando se repite el primer criterio. |

@@ -92,14 +92,17 @@ Consulta la [nota](../../../../docs/aprendizaje/2026-10-27-mysql-relacional.md) 
 
 ## 07 — SQL: creación y consultas básicas
 
-**Estado: teoría estudiada y práctica #1 realizada según declaración; práctica #2 en curso** · Registro: 2026-10-27
+**Estado: estudiado y practicado según declaración y capturas** · Sesiones: 2026-10-27/28
 
 - CREATE, ALTER (ADD, MODIFY, DROP COLUMN, RENAME), DROP y TRUNCATE.
 - Restricciones NOT NULL, UNIQUE, DEFAULT y CHECK.
 - SELECT/FROM, WHERE, comparaciones, AND/OR/NOT, BETWEEN, IN, LIKE e IS NULL.
 - ORDER BY con ASC/DESC y varias columnas.
 - Práctica #1 completada paso a paso; consultas observadas sin filas, sin afirmar validación de filtros con datos variados.
-- Práctica #2: preparación del DER en draw.io; creación y carga en MySQL todavía no registradas.
+- Práctica #2 terminada según declaración: DER, siete tablas relacionadas, carga de datos, ALTER y DROP de tabla de prueba, filtros y ordenamiento.
+- Resultados observados: 7 precios filtrados, 2 coincidencias LIKE y 6 productos en rango inclusivo. Consultas finales confirmadas por declaración.
+- DECIMAL para precios, INT para unidades y LIMIT para acotar resultados. IS NULL sin coincidencias en proveedor_id por NOT NULL.
+- Aclaración del estudiante: trabajo en clase, no entrega formal.
 
 Consulta la [nota](../../../../docs/aprendizaje/2026-10-27-sql-creacion-consultas.md) y el [registro](../../../../docs/practicas/07-sql-creacion-consultas.md).
 
