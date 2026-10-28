@@ -16,3 +16,8 @@ Errores que ya aparecieron, para no repetirlos.
 | 2026-10-26 | Pedidos repetidos y DELETE sin borrar filas. | INSERT repetido y condición id = 6 AND id = 7 imposible. | Ejecutar solo el bloque necesario; revisar los ID y usar IN u OR para alternativas. |
 | 2026-10-27 | libros se creó sin titulo. | Columna omitida aunque la sintaxis restante era válida. | Agregar mediante ALTER TABLE y corregir la definición guardada. |
 | 2026-10-27 | fecha_prestamos difería del DER. | Nombre en plural en el script. | Renombrar a fecha_prestamo y mantener consistencia. |
+| 2026-10-27 | Error 1146 al usar clientes después de renombrarla a compradores. | Las consultas seguían apuntando al nombre anterior. | Usar el nuevo nombre en las consultas y cambios posteriores. |
+| 2026-10-27 | FK producto_id apuntaba a pedidos en el borrador. | Se copió la referencia de la otra FK. | Corregir a productos(id) antes de crear; la captura posterior muestra la referencia correcta. |
+| 2026-10-27 | Error 1136 al insertar productos. | Cuatro columnas declaradas y cinco valores por fila: faltaba proveedor_id. | Agregar la columna omitida; captura posterior confirma 12 inserciones exitosas. |
+| 2026-10-27 | Borrador ALTER TABLE tabla_prueba DROP TABLE. | Confusión entre modificar una tabla y eliminarla completa. | Usar DROP TABLE seguido del nombre; historial posterior confirma ejecución. |
+| 2026-10-27 | Borrador ORDER BY DESC sin columna. | DESC solo indica dirección, no el criterio. | Indicar precio después de ORDER BY; resultados descendentes observados. |

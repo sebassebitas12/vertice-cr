@@ -13,6 +13,8 @@ Aquí se **registran** las prácticas realizadas, su objetivo y los conceptos ap
 
 - [MySQL — DER y biblioteca](06-mysql-biblioteca.md) — estudiada y practicada según declaración y capturas, 2026-10-26/27.
 
+- [SQL — Creación y consultas básicas](07-sql-creacion-consultas.md) — prácticas #1 y #2 realizadas según declaración; tienda completa con resultados observados, trabajo en clase del 27–28 de octubre.
+
 ## Para nuevos registros
 
 Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cuando sea útil. No inventar capturas, archivos o resultados que no se hayan compartido. No forzar equivalencias con Vértice.
