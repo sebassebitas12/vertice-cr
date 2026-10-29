@@ -15,6 +15,8 @@ Aquí se **registran** las prácticas realizadas, su objetivo y los conceptos ap
 
 - [SQL — Creación y consultas básicas](07-sql-creacion-consultas.md) — prácticas #1 y #2 realizadas según declaración; tienda completa con resultados observados, trabajo en clase del 27–28 de octubre.
 
+- [Extensión SQL — Vistas y automatización](08-sql-extension-vistas-automatizacion.md) — trabajo en clase del 28 de octubre; catálogo con JOIN demostrado, demás objetos de la extensión sin ejecución propia registrada.
+
 ## Para nuevos registros
 
 Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cuando sea útil. No inventar capturas, archivos o resultados que no se hayan compartido. No forzar equivalencias con Vértice.

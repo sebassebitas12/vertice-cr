@@ -22,4 +22,6 @@ Registro de lo estudiado durante el curso y de lo aprendido mientras se construy
 
 - [2026-10-27 — SQL: creación y consultas básicas](2026-10-27-sql-creacion-consultas.md).
 
+- [2026-10-28 — Vistas, JOIN y automatización SQL](2026-10-28-sql-vistas-join-automatizacion.md).
+
 ---
