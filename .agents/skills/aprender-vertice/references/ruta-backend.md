@@ -106,6 +106,19 @@ Consulta la [nota](../../../../docs/aprendizaje/2026-10-27-mysql-relacional.md) 
 
 Consulta la [nota](../../../../docs/aprendizaje/2026-10-27-sql-creacion-consultas.md) y el [registro](../../../../docs/practicas/07-sql-creacion-consultas.md).
 
+## 08 — Vistas, JOIN, procedimientos y triggers
+
+**Estado: teoría estudiada; vistas y JOIN practicados parcialmente con resultados observados** · Clase: 2026-10-28 · Registro: 2026-10-29
+
+- Presentación de manipulación y automatización, Guía Rápida SQL y ejemplos del profesor.
+- Tres vistas simples visibles; JOIN productos/categorias y catálogo con 12 filas demostrados.
+- Procedimientos, CALL, IN, DELIMITER, triggers BEFORE/AFTER y OLD/NEW explicados desde ejemplos del profesor; sin ejecución propia de rutinas/triggers registrada.
+- Extensión tratada como trabajo en clase; no declarar implementación de los cinco objetos restantes ni exigir terminarla para seguir.
+- Objetivo: fundamentos para dirigir agentes y revisar futuras decisiones de Vértice; aplicaciones candidatas, sin cambios de stack.
+- El 29 de octubre Sebastián informó cambio de tema a Business Solutions; contenido todavía no compartido.
+
+Consulta la [nota](../../../../docs/aprendizaje/2026-10-28-sql-vistas-join-automatizacion.md) y el [registro](../../../../docs/practicas/08-sql-extension-vistas-automatizacion.md).
+
 ## Próximos temas
 
 No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso.

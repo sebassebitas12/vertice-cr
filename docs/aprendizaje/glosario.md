@@ -95,3 +95,20 @@ Fuente: [nota de SQL](2026-10-27-sql-creacion-consultas.md).
 | DECIMAL(10,2) | Número decimal exacto: 10 dígitos totales, 2 después del separador decimal. |
 | LIMIT | Limita la cantidad de filas devueltas; se combinó con ORDER BY para pedidos recientes. |
 | Desempate de orden | Segunda columna de ORDER BY que define el orden cuando se repite el primer criterio. |
+
+## Vistas y automatización — 2026-10-28
+
+Fuente: [nota](2026-10-28-sql-vistas-join-automatizacion.md).
+
+| Término | Significado |
+|---|---|
+| INNER JOIN / ON | Une filas con coincidencia / define la condición de unión. |
+| Alias AS | Nombre de presentación o referencia dentro de una consulta. |
+| Vista | SELECT guardado que consulta los datos base actuales. |
+| Procedimiento / CALL | Instrucciones guardadas / invocación explícita de esas instrucciones. |
+| Parámetro IN | Valor recibido por un procedimiento. |
+| DELIMITER | Separador de instrucciones configurado por el cliente al definir bloques. |
+| Trigger | Instrucciones que reaccionan automáticamente a un evento de una tabla. |
+| BEFORE / AFTER | Ejecución antes / después de la operación de fila, sin implicar COMMIT. |
+| OLD / NEW | Valores anteriores / nuevos disponibles según el evento del trigger. |
+| SUM / GROUP BY | Agregación por suma / formación de grupos de filas. |
