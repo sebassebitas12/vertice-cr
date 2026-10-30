@@ -115,9 +115,22 @@ Consulta la [nota](../../../../docs/aprendizaje/2026-10-27-sql-creacion-consulta
 - Procedimientos, CALL, IN, DELIMITER, triggers BEFORE/AFTER y OLD/NEW explicados desde ejemplos del profesor; sin ejecución propia de rutinas/triggers registrada.
 - Extensión tratada como trabajo en clase; no declarar implementación de los cinco objetos restantes ni exigir terminarla para seguir.
 - Objetivo: fundamentos para dirigir agentes y revisar futuras decisiones de Vértice; aplicaciones candidatas, sin cambios de stack.
-- El 29 de octubre Sebastián informó cambio de tema a Business Solutions; contenido todavía no compartido.
+- El 29 de octubre Sebastián cambió a Business Solutions; el contenido y el avance parcial quedaron documentados el 30 de octubre en el tema 09.
 
 Consulta la [nota](../../../../docs/aprendizaje/2026-10-28-sql-vistas-join-automatizacion.md) y el [registro](../../../../docs/practicas/08-sql-extension-vistas-automatizacion.md).
+
+## 09 — Business Solutions: mercadeo, datos y agentes
+
+**Estado: teoría estudiada y práctica parcial** · Sesiones: 2026-10-29/30
+
+- Caso independiente Merma Cero: necesidad, nicho, servicio, recorrido, embudo, canales y contenido.
+- Responsabilidades de equipos, traspaso con contexto, plazo de contacto y aprobación de versiones.
+- EER y 22 tablas creadas en MySQL; carga verificada hasta 17 tablas, con traspasos e interacciones.
+- Métricas y arquitectura de agentes tratadas conceptualmente; consultas finales, fichas de agentes y entrega final sin completar.
+- El 30 de octubre Sebastián informó que no pudo terminar la práctica y priorizó mercadeo. El resumen del resultado previsto no se registra como ejecución.
+- Aprendizajes conservados para consulta; aplicaciones a Vértice candidatas, sin cambios de producto ni stack.
+
+Consulta la [nota](../../../../docs/aprendizaje/2026-10-30-business-solutions-mercadeo-datos-agentes.md) y el [registro](../../../../docs/practicas/09-business-solutions-merma-cero.md).
 
 ## Próximos temas
 
@@ -132,3 +145,5 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 - **2026-10-22:** se registró la extensión de gimnasio en Supabase como práctica académica independiente; no se incorporó al producto Vértice.
 
 - **2026-10-27:** se documentaron las sesiones de MySQL del 26–27, el DER y la práctica de biblioteca; revisión final del archivo SQL pendiente, sin importar la solución.
+
+- **2026-10-30:** Business Solutions documentado como teoría estudiada y práctica parcial, con separación entre resultados observados, diseño previsto y aplicaciones candidatas a Vértice.

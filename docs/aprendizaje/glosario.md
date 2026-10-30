@@ -112,3 +112,30 @@ Fuente: [nota](2026-10-28-sql-vistas-join-automatizacion.md).
 | BEFORE / AFTER | Ejecución antes / después de la operación de fila, sin implicar COMMIT. |
 | OLD / NEW | Valores anteriores / nuevos disponibles según el evento del trigger. |
 | SUM / GROUP BY | Agregación por suma / formación de grupos de filas. |
+
+## Business Solutions — 2026-10-29/30
+
+Fuente: [mercadeo, datos y agentes](2026-10-30-business-solutions-mercadeo-datos-agentes.md).
+
+| Término | Significado |
+|---|---|
+| Nicho | Grupo concreto de clientes con necesidades compartidas que se decide atender. |
+| Propuesta de valor | Beneficio que se ofrece a un cliente y por qué le resulta útil. |
+| Recorrido del cliente | Experiencia del cliente al reconocer una necesidad, evaluar y decidir; no siempre es lineal. |
+| Embudo comercial | Modelo de etapas y pérdidas desde captación hasta contratación. |
+| Lead / prospecto | Contacto interesado / contacto que cumple criterios definidos para profundizar. |
+| Oportunidad | Posible contratación concreta; un cliente puede tener varias. |
+| Traspaso a ventas | Transferencia de responsabilidad y contexto con recepción y siguiente acción verificables. |
+| Campaña / canal | Iniciativa con objetivo y período / medio utilizado para contactar al público. |
+| Presupuesto / gasto | Importe planificado / costo realmente incurrido. |
+| Aprobación versionada | Registro de quién aprobó qué versión y cuándo. |
+| CTR / CPC | Clics sobre impresiones / gasto publicitario por clic. |
+| CAC | Costos de adquisición definidos por cliente nuevo adquirido. |
+| ROAS | Ingresos atribuidos a publicidad divididos entre gasto publicitario; no mide utilidad. |
+| Conversión | Proporción que avanza entre estados definidos, con unidad y período coherentes. |
+| Cohorte | Grupo que comparte un evento inicial o período, seguido para comparar su evolución. |
+| Ticket promedio | Valor de ventas dividido entre número de ventas bajo un criterio definido. |
+| Ciclo de venta | Tiempo entre inicio y cierre comercial definidos. |
+| Métrica de vanidad | Indicador que puede impresionar sin demostrar por sí mismo resultados del negocio. |
+| Atribución | Regla para asignar un resultado a uno o varios contactos/canales. |
+| Normalización | Organización de dependencias de datos para evitar redundancias y anomalías; no equivale a crear más tablas. |

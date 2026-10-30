@@ -24,4 +24,7 @@ Registro de lo estudiado durante el curso y de lo aprendido mientras se construy
 
 - [2026-10-28 — Vistas, JOIN y automatización SQL](2026-10-28-sql-vistas-join-automatizacion.md).
 
+- [2026-10-30 — Business Solutions: mercadeo, datos y agentes](2026-10-30-business-solutions-mercadeo-datos-agentes.md) — teoría y práctica parcial del 29–30 de octubre; aplicaciones a Vértice sin aprobar.
+
+
 ---
