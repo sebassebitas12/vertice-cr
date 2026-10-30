@@ -17,6 +17,9 @@ Aquí se **registran** las prácticas realizadas, su objetivo y los conceptos ap
 
 - [Extensión SQL — Vistas y automatización](08-sql-extension-vistas-automatizacion.md) — trabajo en clase del 28 de octubre; catálogo con JOIN demostrado, demás objetos de la extensión sin ejecución propia registrada.
 
+
+- [Business Solutions — Merma Cero](09-business-solutions-merma-cero.md) — práctica parcial del 29–30 de octubre; 22 tablas creadas, carga parcial y cierre no completado.
+
 ## Para nuevos registros
 
 Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cuando sea útil. No inventar capturas, archivos o resultados que no se hayan compartido. No forzar equivalencias con Vértice.
