@@ -147,3 +147,16 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 - **2026-10-27:** se documentaron las sesiones de MySQL del 26–27, el DER y la práctica de biblioteca; revisión final del archivo SQL pendiente, sin importar la solución.
 
 - **2026-10-30:** Business Solutions documentado como teoría estudiada y práctica parcial, con separación entre resultados observados, diseño previsto y aplicaciones candidatas a Vértice.
+
+## 10 — Normalización 1FN y 2FN: hospital
+
+**Estado: estudiado y practicado según conversación y capturas** · 2026-10-30
+
+- 1FN: valores atómicos; medicamentos separados en filas.
+- 2FN: las cinco tablas tienen PK simples, sin dependencias parciales, asumiendo 1FN.
+- Cuatro claves foráneas verificadas y diagrama EER generado mediante ingeniería inversa.
+- Observado: cuatro filas en tabla inicial, seis de medicamentos y seis filas del JOIN final.
+- La guía requería al menos cinco filas iniciales, cinco atributos por entidad y N:M explícita, aspectos no cubiertos completamente en la práctica observada.
+- No implica adoptar MySQL en Vértice.
+
+[Nota](../../../../docs/aprendizaje/2026-10-30-normalizacion-hospital.md) · [Práctica](../../../../docs/practicas/10-normalizacion-hospital.md)
