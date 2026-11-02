@@ -25,3 +25,7 @@ Aquí se **registran** las prácticas realizadas, su objetivo y los conceptos ap
 Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cuando sea útil. No inventar capturas, archivos o resultados que no se hayan compartido. No forzar equivalencias con Vértice.
 
 - [Hospital — Normalización 1FN y 2FN](10-normalizacion-hospital.md) — estudiado y practicado el 30 de octubre; alcance y pendientes documentados.
+
+- [Normalización #1 — Ocho casos](11-normalizacion-ocho-casos.md) — temas revisados; enunciado individual sin IA.
+- [Normalización #2 — Gimnasio](12-normalizacion-gimnasio-diagnostico.md) — cambios con ALTER TABLE y verificaciones observadas; enunciado individual sin IA.
+- [Normalización #3 — Back office FULL IA](13-normalizacion-back-office-full-ia.md) — sistema propuesto, elementos generados y ejecución pendiente de validar.
