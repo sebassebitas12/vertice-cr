@@ -28,3 +28,5 @@ Registro de lo estudiado durante el curso y de lo aprendido mientras se construy
 
 
 ---
+
+- [2026-10-30 — Normalización 1FN/2FN: hospital](2026-10-30-normalizacion-hospital.md) — práctica MySQL, claves y EER; diferencias con guía documentadas.

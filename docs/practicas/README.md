@@ -23,3 +23,5 @@ Aquí se **registran** las prácticas realizadas, su objetivo y los conceptos ap
 ## Para nuevos registros
 
 Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cuando sea útil. No inventar capturas, archivos o resultados que no se hayan compartido. No forzar equivalencias con Vértice.
+
+- [Hospital — Normalización 1FN y 2FN](10-normalizacion-hospital.md) — estudiado y practicado el 30 de octubre; alcance y pendientes documentados.

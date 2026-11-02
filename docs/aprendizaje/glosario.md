@@ -139,3 +139,14 @@ Fuente: [mercadeo, datos y agentes](2026-10-30-business-solutions-mercadeo-datos
 | Métrica de vanidad | Indicador que puede impresionar sin demostrar por sí mismo resultados del negocio. |
 | Atribución | Regla para asignar un resultado a uno o varios contactos/canales. |
 | Normalización | Organización de dependencias de datos para evitar redundancias y anomalías; no equivale a crear más tablas. |
+
+## Normalización — 2026-10-30
+
+| Término | Significado |
+|---|---|
+| 1FN | Cada celda tiene un valor atómico y las filas tienen clave primaria. |
+| 2FN | Estar en 1FN y no tener atributos no clave dependientes de una parte de una PK compuesta. |
+| Dependencia funcional | A → B: un valor de A determina un valor único de B. |
+| Clave compuesta | Clave primaria formada por más de una columna. |
+| Dependencia parcial | Atributo no clave determinado por solo parte de una clave compuesta. |
+| Anomalías de datos | Problemas de inserción, actualización o eliminación causados por redundancias. |
