@@ -21,3 +21,7 @@ Errores que ya aparecieron, para no repetirlos.
 | 2026-10-27 | Error 1136 al insertar productos. | Cuatro columnas declaradas y cinco valores por fila: faltaba proveedor_id. | Agregar la columna omitida; captura posterior confirma 12 inserciones exitosas. |
 | 2026-10-27 | Borrador ALTER TABLE tabla_prueba DROP TABLE. | Confusión entre modificar una tabla y eliminarla completa. | Usar DROP TABLE seguido del nombre; historial posterior confirma ejecución. |
 | 2026-10-27 | Borrador ORDER BY DESC sin columna. | DESC solo indica dirección, no el criterio. | Indicar precio después de ORDER BY; resultados descendentes observados. |
+
+| 2026-11-02 | Borrador de `ALTER TABLE pagos MODIFY COLUMN monto NOT NULL` omitió el tipo de columna. | En MySQL, `MODIFY COLUMN` exige declarar la definición del tipo. | Conservar `DECIMAL(10,2)` junto a `NOT NULL`, y agregar `CHECK` por separado; verificado con `SHOW CREATE TABLE`. |
+| 2026-11-02 | Borrador de `ALTER TABLE clases DROP COLUMN instructor_nombre VARCHAR(100)` incluyó el tipo. | `DROP COLUMN` recibe solamente el nombre del campo. | Usar `DROP COLUMN instructor_nombre`; ausencia observada con `DESCRIBE clases`. |
+| 2026-11-02 | Borrador de FK en `pagos` apuntó desde `monto` hacia `membresias.tipo`. | Confusión entre valor monetario y clave de relación; tipos incompatibles. | Usar `pagos.membresia` como columna local; FK confirmada mediante `SHOW CREATE TABLE`. |

@@ -30,3 +30,5 @@ Registro de lo estudiado durante el curso y de lo aprendido mientras se construy
 ---
 
 - [2026-10-30 — Normalización 1FN/2FN: hospital](2026-10-30-normalizacion-hospital.md) — práctica MySQL, claves y EER; diferencias con guía documentadas.
+
+- [2026-11-02 — Normalización 1FN, 2FN, 3FN y Business Solutions](2026-11-02-normalizacion-3fn-diseno-negocio.md) — teoría de los dos PDF, diseño de negocio y lecciones de tres prácticas.

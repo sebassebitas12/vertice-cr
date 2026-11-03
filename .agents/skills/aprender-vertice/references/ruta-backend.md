@@ -160,3 +160,17 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 - No implica adoptar MySQL en Vértice.
 
 [Nota](../../../../docs/aprendizaje/2026-10-30-normalizacion-hospital.md) · [Práctica](../../../../docs/practicas/10-normalizacion-hospital.md)
+
+## 11 — Normalización hasta 3FN y diseño de negocio
+
+**Estado: teoría estudiada; prácticas abordadas; verificaciones parciales observadas** · 2026-11-02
+
+- Fuentes: *Formas Normales 1FN–3FN* (16 páginas) y *Normalización y Diseño de Bases de Datos para Business Solutions* (17 páginas).
+- Comprensión de dependencia parcial (2FN), dependencia transitiva (3FN), identidad y cardinalidad; consecuencias de anomalías de actualización para inventarios, RRHH y ventas.
+- Práctica #1: ocho casos de diagnóstico revisados interactivamente. El enunciado prohíbe IA; el registro conserva temas, no soluciones.
+- Práctica #2: gimnasio; cambios `ALTER TABLE` y verificaciones compartidas para teléfonos, redundancia, relaciones y validaciones de importes. El enunciado prohíbe IA; no afirmar valoración o aprobación docente.
+- Práctica #3: back office de mantenimiento construido como artefactos propuestos mediante FULL IA; 8 tablas, 3 vistas, 2 procedimientos y 2 triggers declarados, **sin ejecución de MySQL Server verificada desde el asistente**.
+- DER y EER como herramientas de comunicación y de comprobación; normalizar a 3FN antes de considerar desnormalizar por razones medidas.
+- Sin integración al software de Vértice ni cambio de stack.
+
+[Nota de aprendizaje](../../../../docs/aprendizaje/2026-11-02-normalizacion-3fn-diseno-negocio.md) · [Práctica #1](../../../../docs/practicas/11-normalizacion-ocho-casos.md) · [Práctica #2](../../../../docs/practicas/12-normalizacion-gimnasio-diagnostico.md) · [Práctica #3](../../../../docs/practicas/13-normalizacion-back-office-full-ia.md)

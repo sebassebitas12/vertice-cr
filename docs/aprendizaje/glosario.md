@@ -150,3 +150,19 @@ Fuente: [mercadeo, datos y agentes](2026-10-30-business-solutions-mercadeo-datos
 | Clave compuesta | Clave primaria formada por más de una columna. |
 | Dependencia parcial | Atributo no clave determinado por solo parte de una clave compuesta. |
 | Anomalías de datos | Problemas de inserción, actualización o eliminación causados por redundancias. |
+
+## 3FN y diseño empresarial — 2026-11-02
+
+| Término | Significado |
+|---|---|
+| 3FN | Una relación en 2FN donde no existen dependencias transitivas de atributos no clave respecto a claves candidatas. |
+| Dependencia transitiva | Situación en que un dato no clave depende de otro dato no clave, que a su vez depende de la clave. |
+| Sobrenormalización | Fragmentación innecesaria del modelo que añade complejidad sin resolver problemas reales de datos. |
+| Desnormalización deliberada | Repetir ciertos datos intencionalmente y de forma documentada para un objetivo medido, como mejorar un reporte. |
+| Entidad asociativa | Tabla que representa una relación N:M, con claves foráneas a las entidades relacionadas. |
+| Restricción de dominio | Regla sobre los valores admitidos, por ejemplo `NOT NULL` y `CHECK (monto > 0)`. |
+| `SHOW CREATE TABLE` | Inspección de la definición SQL efectiva de una tabla, con claves y restricciones. |
+| Back office | Parte administrativa interna de un sistema de negocio. |
+| Datos maestros | Catálogos e identidades relativamente estables sobre los que operan transacciones y procesos. |
+
+Fuente: [nota de normalización y Business Solutions](2026-11-02-normalizacion-3fn-diseno-negocio.md).
