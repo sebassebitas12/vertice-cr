@@ -184,6 +184,6 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 - CLI inicializado; modelo y migración de `Usuario` generados; `db:migrate` reportado como exitoso.
 - Asociaciones 1:1, 1:N y N:M introducidas en el material. Se discutieron roles/usuarios (1:N) y autores/libros (N:M con tabla intermedia).
 - Capas presentadas: rutas, controladores, modelos y base de datos; métodos CRUD y validaciones de modelos.
-- Estado en curso: el mini proyecto, sus asociaciones y sus endpoints no se registran como terminados ni probados.
+- El mini proyecto sigue en curso; esta ruta consigna la inicialización, el primer modelo y la migración, además de los conceptos revisados.
 
 Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-11-04-orm-sequelize.md) y el [registro del mini proyecto](../../../../docs/practicas/14-mini-proyecto-biblioteca-sequelize.md).

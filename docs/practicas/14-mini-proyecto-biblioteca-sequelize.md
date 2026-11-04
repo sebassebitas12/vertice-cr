@@ -24,7 +24,7 @@ Este registro conserva el avance informado; no copia la solución ni confirma la
 - Respetar la restricción del profesor de no incluir datos quemados.
 - Completar y revisar visualmente el DER y las relaciones antes de dar el esquema por cerrado.
 - Continuar la conexión del servidor Express y los controladores y rutas que se presenten en clase.
-- El profesor mencionó probar con Postman; Sebastián expresó que prefiere no usarlo. La forma de comprobar la API conforme a la instrucción del curso no queda resuelta en este registro.
+- El profesor mencionó pruebas con Postman; Sebastián pidió evitarlas y solicitó verificar el funcionamiento por otra vía. Este registro no transcribe esas verificaciones.
 - La salida de migración acredita el cambio del esquema reportado; por sí sola no acredita la cobertura de endpoints ni el funcionamiento de la interfaz.
 
 ## Relación con Vértice CR

@@ -20,8 +20,6 @@ Aquí se **registran** las prácticas realizadas, su objetivo y los conceptos ap
 
 - [Business Solutions — Merma Cero](09-business-solutions-merma-cero.md) — práctica parcial del 29–30 de octubre; 22 tablas creadas, carga parcial y cierre no completado.
 
-- [14 — Mini proyecto de biblioteca con Sequelize](14-mini-proyecto-biblioteca-sequelize.md) — en curso; se registran la inicialización, el modelo `Usuario` y la migración reportados.
-
 ## Para nuevos registros
 
 Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cuando sea útil. No inventar capturas, archivos o resultados que no se hayan compartido. No forzar equivalencias con Vértice.
@@ -31,3 +29,5 @@ Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cu
 - [Normalización #1 — Ocho casos](11-normalizacion-ocho-casos.md) — temas revisados; enunciado individual sin IA.
 - [Normalización #2 — Gimnasio](12-normalizacion-gimnasio-diagnostico.md) — cambios con ALTER TABLE y verificaciones observadas; enunciado individual sin IA.
 - [Normalización #3 — Back office FULL IA](13-normalizacion-back-office-full-ia.md) — sistema propuesto, elementos generados y ejecución pendiente de validar.
+
+- [14 — Mini proyecto de biblioteca con Sequelize](14-mini-proyecto-biblioteca-sequelize.md) — en curso; se registran la inicialización, el modelo `Usuario` y la migración reportados.
