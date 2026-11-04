@@ -20,6 +20,8 @@ Aquí se **registran** las prácticas realizadas, su objetivo y los conceptos ap
 
 - [Business Solutions — Merma Cero](09-business-solutions-merma-cero.md) — práctica parcial del 29–30 de octubre; 22 tablas creadas, carga parcial y cierre no completado.
 
+- [14 — Mini proyecto de biblioteca con Sequelize](14-mini-proyecto-biblioteca-sequelize.md) — en curso; se registran la inicialización, el modelo `Usuario` y la migración reportados.
+
 ## Para nuevos registros
 
 Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cuando sea útil. No inventar capturas, archivos o resultados que no se hayan compartido. No forzar equivalencias con Vértice.

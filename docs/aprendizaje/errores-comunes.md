@@ -25,3 +25,6 @@ Errores que ya aparecieron, para no repetirlos.
 | 2026-11-02 | Borrador de `ALTER TABLE pagos MODIFY COLUMN monto NOT NULL` omitió el tipo de columna. | En MySQL, `MODIFY COLUMN` exige declarar la definición del tipo. | Conservar `DECIMAL(10,2)` junto a `NOT NULL`, y agregar `CHECK` por separado; verificado con `SHOW CREATE TABLE`. |
 | 2026-11-02 | Borrador de `ALTER TABLE clases DROP COLUMN instructor_nombre VARCHAR(100)` incluyó el tipo. | `DROP COLUMN` recibe solamente el nombre del campo. | Usar `DROP COLUMN instructor_nombre`; ausencia observada con `DESCRIBE clases`. |
 | 2026-11-02 | Borrador de FK en `pagos` apuntó desde `monto` hacia `membresias.tipo`. | Confusión entre valor monetario y clave de relación; tipos incompatibles. | Usar `pagos.membresia` como columna local; FK confirmada mediante `SHOW CREATE TABLE`. |
+
+| 2026-11-03 | Se escribieron `nom intall` y luego `npm intall`; la consola no reconoció el comando. | Errores tipográficos en el ejecutable y en `install`. | Escribir `npm install` y repetir el comando completo correctamente. |
+| 2026-11-03 | `npm sequelize-cli init` devolvió `Unknown command`. | Se intentó ejecutar el binario de Sequelize CLI como si fuera un comando nativo de npm. | Invocar el CLI local con `npx sequelize-cli init`; la consola confirmó la creación de la estructura. |

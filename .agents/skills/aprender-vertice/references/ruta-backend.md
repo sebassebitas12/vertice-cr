@@ -147,6 +147,7 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 - **2026-10-27:** se documentaron las sesiones de MySQL del 26–27, el DER y la práctica de biblioteca; revisión final del archivo SQL pendiente, sin importar la solución.
 
 - **2026-10-30:** Business Solutions documentado como teoría estudiada y práctica parcial, con separación entre resultados observados, diseño previsto y aplicaciones candidatas a Vértice.
+- **2026-11-04:** ORM y Sequelize registrados como tema en curso; inicialización, modelo `Usuario` y migración ejecutada según salida compartida.
 
 ## 10 — Normalización 1FN y 2FN: hospital
 
@@ -174,3 +175,15 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 - Sin integración al software de Vértice ni cambio de stack.
 
 [Nota de aprendizaje](../../../../docs/aprendizaje/2026-11-02-normalizacion-3fn-diseno-negocio.md) · [Práctica #1](../../../../docs/practicas/11-normalizacion-ocho-casos.md) · [Práctica #2](../../../../docs/practicas/12-normalizacion-gimnasio-diagnostico.md) · [Práctica #3](../../../../docs/practicas/13-normalizacion-back-office-full-ia.md)
+
+## 12 — ORM, Sequelize y API con Express
+
+**Estado: en curso; introducción, modelo `Usuario` y migración inicial realizados según consola compartida** · Sesión: 2026-11-03/04
+
+- ORM y relación entre objetos JavaScript y tablas SQL; el ejercicio usa Sequelize con Node.js, Express y MySQL.
+- CLI inicializado; modelo y migración de `Usuario` generados; `db:migrate` reportado como exitoso.
+- Asociaciones 1:1, 1:N y N:M introducidas en el material. Se discutieron roles/usuarios (1:N) y autores/libros (N:M con tabla intermedia).
+- Capas presentadas: rutas, controladores, modelos y base de datos; métodos CRUD y validaciones de modelos.
+- Estado en curso: el mini proyecto, sus asociaciones y sus endpoints no se registran como terminados ni probados.
+
+Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-11-04-orm-sequelize.md) y el [registro del mini proyecto](../../../../docs/practicas/14-mini-proyecto-biblioteca-sequelize.md).

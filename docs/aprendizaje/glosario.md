@@ -166,3 +166,20 @@ Fuente: [mercadeo, datos y agentes](2026-10-30-business-solutions-mercadeo-datos
 | Datos maestros | Catálogos e identidades relativamente estables sobre los que operan transacciones y procesos. |
 
 Fuente: [nota de normalización y Business Solutions](2026-11-02-normalizacion-3fn-diseno-negocio.md).
+
+## ORM y Sequelize — 2026-11-04
+
+| Término | Significado | Dónde lo usé |
+|---|---|---|
+| Association / asociación | Relación declarada entre modelos que corresponde a una cardinalidad del esquema relacional. | Sequelize, 2026-11-04 |
+| `belongsTo` | Declara que un modelo pertenece a otro; se usa en el lado que guarda la clave foránea. | Sequelize, 2026-11-04 |
+| `belongsToMany` | Declara una relación N:M enlazada mediante una tabla intermedia (`through`). | Sequelize, 2026-11-04 |
+| Controller / controlador | Función que recibe una petición, coordina la operación y responde al cliente. | Express, 2026-11-04 |
+| `hasMany` | Declara que un registro se relaciona con muchos registros de otro modelo. | Sequelize, 2026-11-04 |
+| Migration / migración | Archivo versionado que aplica (`up`) o revierte (`down`) un cambio de esquema. | Sequelize CLI, 2026-11-04 |
+| Model / modelo | Definición que relaciona datos y operaciones de la aplicación con una tabla. | Sequelize, 2026-11-04 |
+| ORM | Mapeo objeto-relacional: conecta los objetos del programa con las tablas de una base relacional. | Sequelize, 2026-11-04 |
+| Route / ruta | Vincula un verbo HTTP y una URL con una función controladora. | Express, 2026-11-04 |
+| Sequelize | ORM para Node.js usado para declarar modelos, asociaciones y operar con bases de datos compatibles. | Sequelize, 2026-11-04 |
+| Sequelize CLI | Herramienta de línea de comandos para inicializar estructura y generar o ejecutar migraciones. | Sequelize, 2026-11-04 |
+| `SequelizeMeta` | Tabla que el CLI usa para registrar migraciones aplicadas. | Sequelize, 2026-11-04 |
