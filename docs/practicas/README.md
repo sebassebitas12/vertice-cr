@@ -29,3 +29,5 @@ Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cu
 - [Normalización #1 — Ocho casos](11-normalizacion-ocho-casos.md) — temas revisados; enunciado individual sin IA.
 - [Normalización #2 — Gimnasio](12-normalizacion-gimnasio-diagnostico.md) — cambios con ALTER TABLE y verificaciones observadas; enunciado individual sin IA.
 - [Normalización #3 — Back office FULL IA](13-normalizacion-back-office-full-ia.md) — sistema propuesto, elementos generados y ejecución pendiente de validar.
+
+- [14 — Mini proyecto de biblioteca con Sequelize](14-mini-proyecto-biblioteca-sequelize.md) — en curso; se registran la inicialización, el modelo `Usuario` y la migración reportados.
