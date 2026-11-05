@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@layer base {
+  html,
+  body {
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: #161618;
+    color: #f5f4f1;
+    scroll-behavior: smooth;
+  }
+}
+
+/* ==========================================================
+   SISTEMA MATE DE ESTUDIO VÉRTICE — CERO HUECOS HUNDIDOS Y CERO SOMBRAS PESADAS
+   ========================================================== */
+
+.btn-3d-orange {
+  border: none;
+  background-color: #ff6a1f;
+  color: #120904;
+  box-shadow: none;
+  transition:
+    background-color 0.15s ease,
+    transform 0.12s ease;
+}
+.btn-3d-orange:hover {
+  background-color: #ff7b38;
+  transform: translateY(-1px);
+}
+.btn-3d-orange:active {
+  background-color: #e65a12;
+  transform: translateY(0);
+}
+
+.btn-3d-dark {
+  border: none;
+  background-color: #242429;
+  color: #f5f4f1;
+  box-shadow: none;
+  transition:
+    background-color 0.15s ease,
+    transform 0.12s ease;
+}
+.btn-3d-dark:hover {
+  background-color: #2d2d34;
+  transform: translateY(-1px);
+}
+.btn-3d-dark:active {
+  background-color: #1f1f24;
+  transform: translateY(0);
+}
+
+.btn-3d-graphite {
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.65rem 1.35rem;
+  font-weight: 700;
+  background-color: #242429;
+  color: #f5f4f1;
+  box-shadow: none;
+  transition:
+    background-color 0.15s ease,
+    transform 0.12s ease;
+}
+.btn-3d-graphite:hover {
+  background-color: #2e2e35;
+  transform: translateY(-1px);
+}
+.btn-3d-graphite:active {
+  background-color: #1f1f24;
+  transform: translateY(0);
+}
+
+.nav-pill-3d {
+  border: none;
+  background-color: rgba(29, 29, 34, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: none;
+}
+
+.badge-3d-warm,
+.chip-3d-amber {
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background-color: rgba(255, 106, 31, 0.14);
+  color: #ff8b4d;
+  box-shadow: none;
+}
+
+.chip-3d-dark,
+.chip-3d {
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background-color: #26262c;
+  color: #d8d8df;
+  box-shadow: none;
+}
+
+.chip-3d-orange {
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  background-color: #ff6a1f;
+  color: #140a04;
+  box-shadow: none;
+}
+
+/* Tarjeta mate limpia que combina con el fondo #161618 sin ladrillo duro debajo */
+.card-3d {
+  border: none;
+  background-color: #1e1e22;
+  box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.45);
+}
+
+/* Inputs y bloques internos mates al ras (cero efecto hundido/hoyo negro) */
+.well-3d {
+  border: none;
+  background-color: #25252b;
+  color: #f5f4f1;
+  border-radius: 0.875rem;
+  box-shadow: none;
+  transition: background-color 0.15s ease;
+}
+.well-3d:hover {
+  background-color: #2a2a31;
+}
+.well-3d:focus {
+  background-color: #2a2a31;
+  outline: 2px solid #ff6a1f;
+  outline-offset: 0px;
+}

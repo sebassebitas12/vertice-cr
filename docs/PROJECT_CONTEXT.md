@@ -1,54 +1,52 @@
-﻿# Vértice — contexto vigente de la prueba de stack
+# Vértice — contexto vigente de la prueba de stack
 
-**Fecha:** 2026-10-24 (America/Mexico_City)  
-**Rama:** `experimento/stack-frontends`  
-**Alcance:** prueba completa de producto y stack en Vértice; Lab 3 está cerrado y fuera de alcance.
+**Actualizado:** 2026-10-25 (America/Mexico_City)
+**Rama:** `experimento/visual-taller-limpio`
+**Base de seguridad observada:** `d22284a chore: guardar prueba stack-mvp y docs previos al rediseño visual` (commit existente antes de esta pasada; no atribuirlo a esta implementación).
+**Alcance:** prueba Next.js para Vértice. Lab 3 está cerrado y fuera de alcance.
 
 ## Objetivo
 
-Construir una aplicación recorrible como cliente y como taller, con acabado y estados de producto listos para evaluar como preview desplegable. La meta principal de esta prueba es visual: acercarse al nivel de acabado del dashboard Tailwind Admin para el área de trabajo y adaptar la experiencia pública observada en N3D Melbourne a los servicios FDM de Vértice. El stack Next.js sigue siendo una hipótesis: se conserva si la prueba demuestra calidad visual, funcionamiento y facilidad de cambio con GPT-6 Luna; de lo contrario se rehace después con evidencia.
+Preparar una aplicación recorrible como cliente y como taller para evaluar acabado visual, funcionamiento y facilidad de cambios con GPT-6 Luna. La portada pública toma de N3D Melbourne jerarquía, composición de producto, catálogo y movimiento; no debe copiar su marca ni repetir la dirección visual rechazada. Tailwind Admin es el referente de calidad para el área de trabajo. Next.js sigue siendo una prueba de stack, no una decisión definitiva para Vértice.
 
-## Decisiones explícitas
+## Decisiones vigentes
 
-- Frontend: Next.js App Router, React, TypeScript, Tailwind y shadcn.
-- API de negocio separada: Express con TypeScript.
-- PostgreSQL/Auth/Storage: Supabase, en entorno exclusivo para la prueba; no usar ni modificar el proyecto de Lab 3 ni otra base existente.
-- Automatización/asistencia: n8n mediante la API; secretos solo en servidor.
-- Tema oscuro por defecto y tema claro con el mismo nivel de acabado.
-- Fabricación FDM bajo pedido. No inventar stock inmediato, precios, tiempos, tolerancias ni capacidades técnicas.
-- Una solicitud sin cotización mantiene `PENDING_QUOTE` y precio nulo. La cotización real la prepara el taller; pagos solo en entorno demostrativo.
-- Capturas, estados vacíos/error/carga y uso móvil/teclado son parte de aceptación; compilar por sí solo no cierra una tarea.
-- No hay presupuesto para nuevos servicios de pago. No se eliminan ni actualizan recursos existentes.
+- Frontend de la prueba: Next.js App Router, React, TypeScript y Tailwind.
+- API de negocio separada: Express; actualmente el servicio demo está en JavaScript y guarda solicitudes en memoria. La migración a TypeScript es una fase posterior.
+- PostgreSQL/Auth/Storage: Supabase solo en un entorno nuevo de prueba. No reutilizar ni modificar el proyecto de Lab 3.
+- n8n se integrará mediante la API cuando exista un workflow exportado y credenciales disponibles.
+- Fabricación FDM bajo pedido. Los materiales listados son referencias; la pertinencia y disponibilidad se confirman por solicitud.
+- No inventar precios, existencias, plazos ni capacidades técnicas. Solicitudes sin cotización conservan `PENDING_QUOTE` y precio nulo.
+- No contratar servicios nuevos ni eliminar/actualizar recursos existentes.
+- La evidencia visual (390, 768, 1440 px y ambos temas) es parte de aceptación; compilar por sí solo no cierra el trabajo.
 
-## Referencias reunidas
+## Estado de la experiencia pública
 
-- N3D Melbourne: https://www.n3dmelbourne.com/ y https://www.n3dmelbourne.com/designs — composición pública, fichas visuales, catálogo y movimiento; adaptar su organización, no su identidad ni sus recursos.
-- Tailwind Admin React: https://react.tailwind-admin.com/ — referencia de acabado que Sebastián destacó.
-- Repositorio gratuito: https://github.com/Tailwind-Admin/free-tailwind-admin-dashboard-template — ejecutar su variante Next como muestra independiente, revisar qué incluye, conservar su licencia MIT si se reutiliza código.
-- Candidatos documentados: `docs/diseno/componentes-candidatos-mvp.md`, `docs/diseno/seleccion-ampliada-por-pantalla.md`, `docs/diseno/investigacion-referencias-04.md`. Son propuestas/candidatos; no todos están aceptados ni instalados.
-- Experimento Svelte y repo Tienda-de-Impresion3D: usar solo como antecedentes funcionales y de aprendizaje. No copiar estilos ni afirmar que decisiones visuales rechazadas siguen aprobadas.
+- La base visual oscura sigue en prueba. El lockup oficial provisional es la V naranja ancha con pliegue interior, seguida por “értice”; referencia aprobada en `experimentos/brand/logo-exploration/approved-reference/vertice-lockup-approved.png`. El tema claro continúa disponible.
+- La portada presenta una pieza fotografiada, acceso al catálogo y el recorrido de materiales/proceso ya existente.
+- `/piezas` muestra las 12 piezas acordadas con búsqueda y filtros; `/piezas/[slug]` presenta ficha, galería y autor/licencia/fuente. `/solicitud?producto=<id>` carga el producto y permite confirmar una solicitud con estado `PENDING_QUOTE`.
+- Se copiaron y optimizaron fotos físicas del repo anterior con atribución. Las fuentes disponibles de carcasa Raspberry Pi, soporte de celular y soporte de laptop eran renders/diagramas, así que esas fichas usan el marcador neutral.
+- La API Express demo sirve el catálogo desde `experimentos/stack-mvp/api/catalog-data.json` y guarda solicitudes solo en memoria. No hay base de datos, login, precios, stock, plazos ni reseñas inventadas en esta etapa.
+- Pasaron ESLint, TypeScript y un build de producción aislado. También se verificaron los 12 slugs, búsqueda, detalle, imagen, fallback y creación/idempotencia de solicitud.
+- Falta revisar el render visual real en 390, 768 y 1440 px y los dos temas. Edge no pudo iniciar una captura headless en esta sesión por un error del proceso GPU; no se archivaron capturas.
 
-Inventario verificable y capturas pendientes: `docs/diseno/referencias-prueba-vertice.md`.
+## Referencias
 
-## Estado encontrado
+- N3D Melbourne: <https://www.n3dmelbourne.com/> y <https://www.n3dmelbourne.com/designs> — composición pública, catálogo y movimiento.
+- Tailwind Admin React: <https://react.tailwind-admin.com/> — benchmark de acabado para el dashboard.
+- Tailwind Admin gratis para Next: <https://github.com/Tailwind-Admin/free-tailwind-admin-dashboard-template> — descargado y ejecutado como referencia aislada. Las capturas comparativas aún no están archivadas.
+- Candidatos por pantalla: `docs/diseno/componentes-candidatos-mvp.md`, `docs/diseno/seleccion-ampliada-por-pantalla.md` e `docs/diseno/investigacion-referencias-04.md`.
+- Evidencia y estado de referencia: `docs/diseno/referencias-prueba-vertice.md`.
 
-- Next/React/TypeScript y algunas pantallas públicas ya existen en `experimentos/stack-mvp/frontend`.
-- API Express actual es JavaScript, con catálogo ficticio y solicitudes en memoria; no tiene persistencia/auth/archivos/n8n.
-- No se encontró configuración local de Supabase, n8n, PostgreSQL, migraciones ni workflows exportados. No se hallaron credenciales de entorno. El archivo `.env.example` solo contiene URLs locales.
-- Las pantallas del prototipo actual no han sido aprobadas por Sebastián. No se deben llamar terminadas ni usar como estándar visual.
-- El frontend tiene una copia histórica de `PROJECT_CONTEXT.md`; este archivo en `docs/` del repositorio es el contexto canónico.
+## Recorrido objetivo del producto
 
-## Recorrido objetivo
-
-Explorar catálogo → ficha → crear borrador → adjuntar referencia privada → solicitar sugerencias → revisar/editar/deshacer → confirmar una vez → cliente ve el estado → taller revisa y pide información/cotiza/cancela → cliente acepta una versión exacta → se crea pedido demostrativo → seguimiento persistente.
+Explorar catálogo → describir la pieza → adjuntar referencia → revisar sugerencias del asistente → confirmar solicitud → taller revisa/pide información/cotiza/cancela → cliente acepta una versión concreta → seguimiento demostrativo de producción.
 
 ## Siguiente trabajo
 
-1. Guardar y verificar referencias/candidatos; ejecutar de forma aislada el template Next gratuito para comparar el contenido real de la versión libre.
-2. Crear sistema visual y completar el recorrido público, cuenta, cliente y taller con datos de demo; mostrarlo antes de conectar persistencia.
-3. Definir migraciones/seed reproducibles y adaptar API Express a TypeScript, contratos y permisos.
-4. Conectar un proyecto Supabase nuevo de prueba y n8n solo cuando estén disponibles credenciales/recursos existentes sin costo adicional.
-5. Revisar screenshots 390/768/1440 px, ambos temas, teclado/reduced motion, errores y recorrido completo.
-6. Preparar deploy gratis dentro de límites actuales; evaluar si Next se conserva.
+1. Revisar manualmente el preview en 390/768/1440 px y tema oscuro/claro; hacer ajustes según la revisión de Sebastián.
+2. Ampliar la experiencia pública solo después de esa revisión; el acceso/registro/recuperación queda para una siguiente fase.
+3. Continuar después con cliente/taller, base Supabase nueva, API TypeScript/persistencia, archivos privados y n8n, respetando cuotas gratuitas y credenciales disponibles.
+4. Desplegar un preview de prueba y evaluar Next con resultados del recorrido y cambios reales.
 
-Ver tareas y bloqueos con evidencia en `docs/desarrollo/plan-luna.md`.
+El tablero con criterios de cierre y bloqueos está en `docs/desarrollo/plan-luna.md`.

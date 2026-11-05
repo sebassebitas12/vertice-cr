@@ -1,6 +1,20 @@
 # Catálogo de candidatos para Vértice
 
-Fecha: 2026-10-23. Estado: **candidatos investigados, ninguno aprobado ni instalado**.
+Fecha de investigación: 2026-10-23. Estado general: **propuesta visual en adaptación local; no aprobada todavía**. Las fuentes se usan como referencia de comportamiento; no se instaló ni copió un paquete de esos catálogos.
+
+## Adaptaciones actuales de la propuesta (2026-10-24)
+
+Estas rutas describen código presente en `experimentos/stack-mvp/frontend`; no equivalen a aprobación visual. La dirección y los tokens vigentes están en [dirección de arte](direccion-de-arte.md).
+
+| Candidato | URL | Ruta adaptada | Estado actual |
+|---|---|---|---|
+| CTA-03 · Codrops Calypso | [Demo](https://tympanus.net/Development/ButtonHoverStyles/) | `app/globals.css`, `.button-primary` | CSS implementado; revisar teclado, touch y aspecto en ambos temas. |
+| NAV-04 · Aceternity Resizable Navbar | [Componente](https://ui.aceternity.com/components/resizable-navbar) | `components/site-header.tsx`, `components/motion-observer.tsx`, `app/globals.css` | Compactación y menú móvil propios; aún no visualmente aceptados. |
+| CARD-01 · React Bits Spotlight Card | [Componente](https://reactbits.dev/components/spotlight-card) | `components/product-card.tsx`, `components/motion-observer.tsx`, `app/globals.css` | Foco de luz CSS local; mantener el texto legible sin puntero. |
+| FOOTER-02 · ScrollX UI | [Componente](https://21st.dev/@scrollxui/components/footer-with-minimal-outline) | `components/site-footer.tsx`, `app/globals.css` | Marca grande delineada y enlaces locales; validar tamaño móvil. |
+| MOTION-01 · React Bits Animated Content como patrón | [Animación](https://reactbits.dev/animations/animated-content) | `[data-reveal]` en `app/globals.css`; `components/motion-observer.tsx` solo maneja header y spotlight | CSS scroll-driven, sin GSAP ni mutaciones DOM; fallback visible y movimiento reducido. |
+
+La marquesina de materiales y el revelado por capas son motivos propios de la propuesta de Vértice, no componentes de estos repositorios.
 
 Contexto y fuentes generales: [investigación del documento 04](investigacion-referencias-04.md). Objetivo: mantener claridad de producto y una identidad industrial cálida, con momentos visuales expresivos que puedan modificarse sin rehacer toda la página.
 
@@ -184,4 +198,4 @@ Plantilla de tarea: objetivo de producto; ID/URL; rasgo visual; alcance; qué se
 
 Se observaron en navegador Magic UI Interactive Hover Button (antes/después de pulsar), Pill Nav y la vista de Specular Button. Los demás se seleccionaron por documentación y, donde se indica, lectura de fuente. No se auditaron todos sus gestos, accesibilidad, rendimiento o comportamiento móvil. No se ejecutaron componentes dentro del proyecto.
 
-Nada de esta lista está aprobado todavía. La próxima decisión es visual: comparar CTA-01 con CTA-03 y NAV-04 con la barra actual, siguiendo la selección ampliada. La prueba ya fue preparada por el otro Codex.
+Los candidatos siguen sin aprobación de Sebastián. CTA-03, NAV-04, CARD-01 y FOOTER-02 se adaptaron en una primera pasada para poder evaluarlos juntos en el producto. La siguiente decisión es visual: revisar capturas renderizadas en ambos temas y en escritorio/móvil, corregir la propuesta o descartarla. No declarar aprobado por el hecho de que el código compile.

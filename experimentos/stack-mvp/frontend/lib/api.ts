@@ -1,13 +1,16 @@
-export type CatalogProduct = {
-  id: string; name: string; family: string; material: string; description: string; visual: string;
-};
 
+export type CatalogImage = { src: string; alt: string; sourceUrl: string };
+export type CatalogProduct = {
+  id: string; slug: string; name: string; family: string; description: string;
+  searchTerms: string[]; featured: boolean; images: CatalogImage[];
+  attribution: { author: string; license: string; sourceUrl: string };
+};
 export type DemoRequest = {
   id: string; productId?: string; description: string; useCase: string; quantity: number;
   preferredMaterial?: string; status: "PENDING_QUOTE"; price: null; createdAt: string;
 };
-
 type CatalogResponse = { ok: boolean; data: CatalogProduct[] };
+type ProductResponse = { ok: boolean; data?: CatalogProduct; error?: string };
 type RequestResponse = { ok: boolean; data?: DemoRequest; error?: string };
 
 const serverApiUrl = process.env.VERTICE_API_URL || "http://localhost:4000";
@@ -21,6 +24,18 @@ export async function getCatalog(): Promise<{ data: CatalogProduct[]; error: str
     return { data: body.data, error: null };
   } catch {
     return { data: [], error: "API_DEMO_OFFLINE" };
+  }
+}
+
+export async function getCatalogProduct(slug: string): Promise<{ product: CatalogProduct | null; error: string | null }> {
+  try {
+    const response = await fetch(serverApiUrl + "/api/catalog/" + encodeURIComponent(slug), { cache: "no-store" });
+    if (response.status === 404) return { product: null, error: null };
+    if (!response.ok) throw new Error("La API demo respondió con error.");
+    const body = (await response.json()) as ProductResponse;
+    return { product: body.data ?? null, error: null };
+  } catch {
+    return { product: null, error: "API_DEMO_OFFLINE" };
   }
 }
 

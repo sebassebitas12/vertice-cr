@@ -16,32 +16,7 @@ app.use(
 );
 app.use(express.json({ limit: "32kb" }));
 
-const demoCatalog = [
-  {
-    id: "sample-bracket",
-    name: "Soporte modular",
-    family: "Estructura",
-    material: "PLA",
-    description: "Modelo de muestra para probar la navegación del catálogo.",
-    visual: "bracket",
-  },
-  {
-    id: "sample-cable-guide",
-    name: "Guía de cable",
-    family: "Organización",
-    material: "PETG",
-    description: "Modelo de muestra para probar selección y solicitud.",
-    visual: "cable",
-  },
-  {
-    id: "sample-spacer",
-    name: "Separador geométrico",
-    family: "Pieza técnica",
-    material: "ASA",
-    description: "Modelo de muestra. No es una especificación de fabricación.",
-    visual: "spacer",
-  },
-];
+const demoCatalog = require("./catalog-data.json");
 
 const requestSchema = z.object({
   productId: z.preprocess(
@@ -68,7 +43,7 @@ app.get("/api/catalog", (req, res) => {
   const query = String(req.query.q || "").trim().toLocaleLowerCase("es");
   const data = query
     ? demoCatalog.filter((item) =>
-        [item.name, item.family, item.material, item.description]
+        [item.name, item.family, item.description, ...(item.searchTerms || [])]
           .join(" ")
           .toLocaleLowerCase("es")
           .includes(query),
@@ -80,6 +55,12 @@ app.get("/api/catalog", (req, res) => {
     data,
     meta: { demoOnly: true },
   });
+});
+
+app.get("/api/catalog/:slug", (req, res) => {
+  const product = demoCatalog.find((item) => item.slug === req.params.slug);
+  if (!product) return res.status(404).json({ ok: false, error: "La pieza no existe." });
+  res.json({ ok: true, data: product, meta: { demoOnly: true } });
 });
 
 app.post("/api/requests", (req, res) => {
