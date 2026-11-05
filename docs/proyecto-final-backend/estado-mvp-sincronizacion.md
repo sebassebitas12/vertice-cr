@@ -6,6 +6,9 @@
 
 ---
 
+> [!IMPORTANT]
+> Antes de programar, leer `docs/proyecto-final-backend/pendientes-proxima-sesion.md` (auditoría con seguridad RLS, coherencia visual y riesgo de copia del MicroDuck).
+
 ## 1. Cómo levantar el proyecto en la Laptop del Curso
 
 Al hacer `git pull` en la laptop:
@@ -54,3 +57,4 @@ Abre **`http://localhost:3000/`**. El proyecto se conectará automáticamente a 
 - `.agents/skills/diseno-frontend-sebastian/SKILL.md`: Reglas universales de diseño frontend de Sebastián para cualquier proyecto o clase.
 - `.agents/skills/disenar-vertice/SKILL.md`: Reglas específicas de Vértice CR.
 - `.agents/skills/aprender-vertice/SKILL.md`: Tutor y registrador de clases del curso de backend.
+
