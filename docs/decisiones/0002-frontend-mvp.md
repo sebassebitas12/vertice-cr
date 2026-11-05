@@ -64,16 +64,16 @@ Cada campo conserva valor, origen y estado: escrito por el usuario, propuesto po
 
 El cliente revisa una vista previa antes de confirmar el envío. Guardar y cambiar estados requiere una operación validada por la API, con protección contra duplicados y control del propietario. El asistente conserva el borrador ante errores o navegación prevista.
 
-## Dirección visual por confirmar
+## Dirección visual vigente en la prueba Next
 
-Sebastián eligió combinar la claridad de N3D con una reinterpretación de la identidad industrial anterior. Le gusta esa identidad como punto de partida, pero quiere rehacerla para el alcance actual. No trasladar literalmente la Home congelada del repositorio viejo.
+La dirección clara editorial del 2026-10-24 fue rechazada por Sebastián. La referencia correcta indicada es [N3D Melbourne](https://www.n3dmelbourne.com/). La prueba adapta su lenguaje visual oscuro —carbón, naranja, sans pesada, navegación compacta, hero de producto y catálogo filtrable— sin copiar marca, fotos, personajes, textos ni negocio.
 
-- Tienda y catálogo: productos protagonistas, lectura directa, filtros agrupados y pocas acciones bien jerarquizadas.
-- Portada: expresión industrial selectiva, luz cálida y composición distintiva; evitar decoración que compita con el producto.
-- Solicitud asistida: conversación y formulario coordinados, campos editables y diferencias de IA visibles; debe sentirse un espacio de trabajo.
-- Administración: densidad funcional y estados claros, con la misma familia visual.
-- Color, tipografía, geometría y recursos de marca anteriores son antecedentes a revisar: no se consideran automáticamente aprobados para el rediseño.
-
+- Tema oscuro por defecto y alternativa clara disponible.
+- Catálogo con búsqueda y filtros derivados de las familias que devuelve la API.
+- Solicitud con formulario oscuro y resumen de referencia; el taller revisa antes de cotizar.
+- No mostrar precios, existencias o tiempos no confirmados.
+- No heredar identidad ni componentes de Tienda-de-Impresion3D.
+- La dirección nueva requiere revisión renderizada en escritorio y móvil.
 ## Trabajo dirigido por agentes
 
 El usuario define intención, prioridades y aceptación. El agente convierte cada petición en cambios de componentes acotados, inspecciona dependencias y verifica el resultado. No se espera que Sebastián arregle manualmente estilos o código generado.
@@ -82,7 +82,7 @@ Por cada cambio: localizar el componente, identificar qué comportamiento se con
 
 Las instrucciones del repositorio y los criterios de aceptación deben permitir que otro agente continúe sin reconstruir la intención desde conversaciones pasadas. Cuando falte contexto de diseño que cambie el resultado, preguntar a Sebastián en lugar de inventarlo.
 
-Se generaron mockups conceptuales de inicio y Mis solicitudes que gustaron como dirección. La vista de solicitudes debe ganar espacio y separar resumen/detalle; el encuadre de la imagen no obliga a mostrar toda la página a la vez. El próximo paso es concretar navbar/footer y sus variantes, preferencias, estados y fichas de movimiento en un prototipo navegable. Las imágenes no validan comportamiento ni accesibilidad. El desarrollo de producto sigue empezando por el backend una vez concretado el alcance.
+La prueba Next ya tiene una portada, un catálogo y un formulario con la dirección provisional nueva. La implementación y sus imágenes conceptuales no equivalen a una aprobación de marca ni validan el backend. El siguiente paso es revisar las pantallas reales en escritorio y móvil; la comparación de stack de Vértice continúa después de esa revisión.
 
 ## Criterios de aceptación de esta arquitectura
 

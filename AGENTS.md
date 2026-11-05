@@ -12,9 +12,11 @@ Sebastián dirige el desarrollo como orquestador de IAs; la programación se rea
 
 Para el proyecto final de backend/hackathon, leer primero `docs/proyecto-final-backend/README.md` y `docs/decisiones/0002-frontend-mvp.md`. El alcance académico y la visión comercial posterior a graduarse tienen decisiones independientes.
 
+Antes de diseñar o revisar cualquier interfaz, leer y seguir `.agents/skills/disenar-vertice/SKILL.md` (concepto "La Planta", patrones prohibidos y ciclo con capturas). Aplica a cualquier modelo (Gemini, GPT, Claude).
+
 Para tareas de interfaz del MVP, consultar `docs/diseno/investigacion-referencias-04.md` y `docs/diseno/componentes-candidatos-mvp.md`. Usar el ID/URL del candidato y preservar su rasgo visual al adaptarlo. No confundir candidatos con decisiones aprobadas ni componentes React con componentes Svelte. Registrar la elección y los pendientes para mantener el objetivo entre tareas.
 
-La dirección visual elegida combina claridad de N3D con una reinterpretación de la identidad industrial del repositorio anterior. Las pantallas viejas no están aprobadas como diseño de la aplicación nueva. Cuando un vacío de contexto o de visión cambie una decisión importante, preguntar a Sebastián antes de inventarlo.
+La propuesta visual en revisión (2026-10-24) está documentada en docs/diseno/direccion-de-arte.md: sistema oscuro de Vértice inspirado en los patrones de N3D Melbourne, con tema claro, Geist, catálogo y motivos propios de capas FDM. No está aprobada hasta que Sebastián revise capturas. No copiar marcas ni recursos; no heredar la identidad de Tienda-de-Impresion3D. Etiquetar imágenes conceptuales y no inventar materiales disponibles por pieza, medidas, existencias, plazos ni precios.
 
 ## Antes de editar
 
