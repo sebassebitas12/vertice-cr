@@ -17,5 +17,6 @@ Registro de lo estudiado durante el curso y de lo aprendido mientras se construy
 - [2026-10-20 — Agente orquestador, POO y Data Tables en n8n](2026-10-20-agente-orquestador-n8n.md).
 - [2026-10-21 — Laboratorio 2 full stack](2026-10-21-laboratorio2-fullstack.md).
 - [2026-10-22 — Extensión de base de datos para un gimnasio](2026-10-22-extension-base-datos-gimnasio.md).
+- [2026-11-05 — Arquitectura frontend: Registries de componentes (MCPs), resets nativos e IA in-situ](2026-11-05-arquitectura-frontend-mcps-y-componentes.md).
 
 ---

@@ -46,3 +46,7 @@ Conceptos vistos en clase, explicados de forma breve. Referencias: [automatizaci
 | Upsert | Insertar si no existe un registro coincidente, o actualizarlo si existe. | n8n, 2026-10-20 |
 | Webhook | URL que recibe una solicitud de otro sistema para iniciar o continuar un flujo. | Laboratorio 2, 2026-10-21 |
 | Workflow | Secuencia de nodos y conexiones que ejecuta una automatización. | LAB1 |
+| MCP (Model Context Protocol) | Protocolo estándar abierto que permite a los agentes de IA conectarse a servidores externos de herramientas, bases de datos y registries de componentes. | Frontend & MCPs, 2026-11-05 |
+| Registry de Componentes | Repositorio estructurado (como shadcn o 21st.dev) desde el cual una IA o CLI puede descargar e integrar componentes de UI listos para usar con sus dependencias. | Frontend & MCPs, 2026-11-05 |
+| IA In-Situ | Integración de inteligencia artificial embebida directamente dentro de formularios, tablas y flujos de acción de la interfaz, en lugar de ventanas conversacionales o chatbots aislados. | Frontend & MCPs, 2026-11-05 |
+| Pill Nav Sólido | Navegación en cápsula flotante con superficie mate opaca y bordes nítidos, que elimina el sidebar lateral para maximizar el ancho útil de la pantalla. | Frontend & MCPs, 2026-11-05 |
