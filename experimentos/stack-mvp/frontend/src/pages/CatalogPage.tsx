@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { Search } from 'lucide-react';
 import { CATALOG_PRODUCTS, FDM_MATERIALS, type MaterialCode } from '../data/catalog';
 
 const CATEGORIES = ['Todas', 'Taller & Setup', 'Organización', 'Soportes'] as const;
@@ -64,23 +65,30 @@ export function CatalogPage() {
           </div>
 
           <Link to="/solicitar" className="btn-3d-graphite text-xs shrink-0 self-start lg:self-end">
-            ¿Necesitas una pieza a medida? Solicitar con IA →
+            ¿Pieza personalizada? Cotizar con asistente
           </Link>
         </div>
 
         {/* BARRA DE BÚSQUEDA Y FILTROS SINCRONIZADOS EN URL */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center mb-10">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 relative">
+            <Search
+              aria-hidden="true"
+              className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
+            />
             <input
               type="text"
               value={search}
               onChange={(e) => updateFilter('q', e.target.value)}
               placeholder="Buscar por nombre, código (#A-01) o aplicación..."
-              className="well-3d w-full px-4 py-3 text-sm"
+              className="well-3d w-full pl-10 pr-4 py-3 text-sm border border-white/[0.08]"
             />
           </div>
 
-          <div className="lg:col-span-4 flex flex-wrap gap-1.5">
+          <div className="lg:col-span-4 flex flex-wrap items-center gap-1.5">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-500 self-center mr-1">
+              Categoría:
+            </span>
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -97,7 +105,10 @@ export function CatalogPage() {
             ))}
           </div>
 
-          <div className="lg:col-span-3 flex flex-wrap gap-1.5 lg:justify-end">
+          <div className="lg:col-span-3 flex flex-wrap items-center gap-1.5 lg:justify-end">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-500 self-center mr-1">
+              Polímero:
+            </span>
             <button
               type="button"
               onClick={() => updateFilter('material', 'Todos')}

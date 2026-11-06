@@ -16,7 +16,7 @@ export interface QuoteVersion {
 export interface RequestEvent {
   id: string;
   date: string;
-  actor: 'Cliente' | 'Taller Vértice' | 'Asistente IA (n8n)';
+  actor: 'Cliente' | 'Taller Vértice' | 'Asistente técnico Vértice';
   title: string;
   detail: string;
 }
@@ -141,7 +141,7 @@ const SEED_REQUESTS: QuoteRequestRecord[] = [
       {
         id: 'ev-2',
         date: '2026-11-04 14:16',
-        actor: 'Asistente IA (n8n)',
+        actor: 'Asistente técnico Vértice',
         title: 'Polímero sugerido y aceptado: PETG',
         detail: 'Recomendado por elasticidad mecánica en tornillo de sujeción.',
       },
@@ -266,7 +266,7 @@ export function createQuoteRequest(input: {
     history.push({
       id: `ev-${Date.now()}-2`,
       date: now,
-      actor: 'Asistente IA (n8n)',
+      actor: 'Asistente técnico Vértice',
       title: `Sugerencia de polímero aceptada (${input.material})`,
       detail: `Entorno declarado: ${input.environment}.`,
     });

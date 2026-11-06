@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
+import { Sparkles } from 'lucide-react';
 import {
   CATALOG_PRODUCTS,
   FDM_MATERIALS,
@@ -211,7 +212,7 @@ export function RequestPage() {
             <div className="flex items-center gap-3 mb-3">
               <span className="w-8 h-0.5 bg-[#ff6a1f]" />
               <span className="text-sm font-semibold text-zinc-200">
-                Solicitud asistida por IA (n8n) · Vértice CR
+                Asistente técnico Vértice
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-3">
@@ -313,8 +314,8 @@ export function RequestPage() {
                     }
                     className={`p-4 rounded-2xl text-left transition cursor-pointer ${
                       draft.mode === 'catalogo'
-                        ? 'bg-[#252325] ring-2 ring-[#ff6a1f]'
-                        : 'bg-[#1e1e22] hover:bg-[#242429]'
+                        ? 'bg-[#282830] border-l-4 border-[#ff6a1f] shadow-md'
+                        : 'bg-[#1e1e22] border-l-4 border-transparent hover:bg-[#242429]'
                     }`}
                   >
                     <p className="text-sm font-bold text-white">
@@ -332,8 +333,8 @@ export function RequestPage() {
                     }
                     className={`p-4 rounded-2xl text-left transition cursor-pointer ${
                       draft.mode === 'medida'
-                        ? 'bg-[#252325] ring-2 ring-[#ff6a1f]'
-                        : 'bg-[#1e1e22] hover:bg-[#242429]'
+                        ? 'bg-[#282830] border-l-4 border-[#ff6a1f] shadow-md'
+                        : 'bg-[#1e1e22] border-l-4 border-transparent hover:bg-[#242429]'
                     }`}
                   >
                     <p className="text-sm font-bold text-white">
@@ -364,7 +365,7 @@ export function RequestPage() {
                       <select
                         value={draft.selectedProductId}
                         onChange={(e) => handleSelectCatalogProduct(e.target.value)}
-                        className="well-3d w-full px-3.5 py-2.5 text-sm font-bold"
+                        className="well-3d w-full px-3.5 py-2.5 text-sm font-bold border border-white/[0.08]"
                       >
                         {CATALOG_PRODUCTS.map((p) => (
                           <option
@@ -397,17 +398,18 @@ export function RequestPage() {
                     setDraft((prev) => ({ ...prev, description: e.target.value }))
                   }
                   placeholder="Ej: Necesito un soporte para fijar una cámara o sensor en un portón exterior expuesto al sol y la lluvia..."
-                  className="well-3d w-full p-4 text-sm leading-relaxed"
+                  className="well-3d w-full p-4 text-sm leading-relaxed border border-white/[0.08]"
                 />
                 <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
                   <button
                     type="button"
                     onClick={handleAnalyzeWithAi}
-                    className="btn-3d-graphite text-xs cursor-pointer"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#222228] border border-[#ff6a1f]/30 hover:border-[#ff6a1f] text-xs font-bold text-white transition-all cursor-pointer shadow-sm hover:bg-[#282830]"
                   >
+                    <Sparkles aria-hidden="true" className="w-3.5 h-3.5 text-[#ff6a1f]" />
                     {isAnalyzing
                       ? 'Consultando catálogo y polímeros...'
-                      : 'Analizar uso y buscar coincidencias con IA (n8n) ↗'}
+                      : 'Analizar uso y buscar coincidencias con el asistente técnico Vértice'}
                   </button>
                   <span className="text-xs text-zinc-400">
                     Prueba con "sol exterior", "prensa cable mesa" o "vibración"
@@ -480,7 +482,7 @@ export function RequestPage() {
                         },
                       }))
                     }
-                    className="well-3d w-full px-4 py-3 text-sm"
+                    className="well-3d w-full px-4 py-3 text-sm border border-white/[0.08]"
                   >
                     {(Object.keys(FDM_MATERIALS) as MaterialCode[]).map((code) => (
                       <option key={code} value={code} className="bg-[#161618] text-white">
@@ -519,7 +521,7 @@ export function RequestPage() {
                         },
                       }))
                     }
-                    className="well-3d w-full px-4 py-3 text-sm"
+                    className="well-3d w-full px-4 py-3 text-sm border border-white/[0.08]"
                   >
                     <option value="Interior / Taller" className="bg-[#161618]">
                       Interior / Taller mecánico
@@ -639,7 +641,7 @@ export function RequestPage() {
             <div className="lg:col-span-5 space-y-5">
               <div className="card-3d rounded-2xl p-6 sm:p-7">
                 <div className="flex items-center justify-between gap-2 mb-5">
-                  <span className="chip-3d-amber">SUGERENCIA IA · n8n</span>
+                  <span className="chip-3d-amber">SUGERENCIA DEL ASISTENTE</span>
                   <span className="chip-3d-orange">PENDING_QUOTE</span>
                 </div>
 

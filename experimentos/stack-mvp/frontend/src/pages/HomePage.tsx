@@ -37,8 +37,8 @@ export default function HomePage() {
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-              Cada modelo de nuestra planta pasa por pruebas de ajuste, selección de polímero y orientación de capa antes de fabricarse. Elige un diseño probado o describe tu necesidad para que nuestro asistente en{' '}
-              <span className="font-semibold text-[#ff6a1f]">n8n</span> prepare tu solicitud.
+              Cada modelo de nuestra planta pasa por pruebas de ajuste, selección de polímero y orientación de capa antes de fabricarse. Elige un diseño probado o describe tu necesidad para que el{' '}
+              <span className="font-semibold text-[#ff6a1f]">asistente técnico Vértice</span> prepare tu solicitud.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -52,7 +52,7 @@ export default function HomePage() {
                 to="/solicitar"
                 className="btn-3d-dark rounded-full px-7 py-3.5 text-sm font-bold tracking-wide"
               >
-                Cotizar pieza con IA <span className="text-[#ff6a1f]">↗</span>
+                Cotizar con asistente
               </Link>
             </div>
           </div>
@@ -152,8 +152,8 @@ export default function HomePage() {
                   <p className="text-base leading-relaxed text-zinc-400">
                     Las piezas que sostienen carga, roscas o fricción diaria son la parte difícil. Antes de imprimir cualquier solicitud, definimos cuántos perímetros lleva la pared, en qué orientación trabajan las capas y qué polímero entre{' '}
                     <span className="font-semibold text-[#ff6a1f]">ASA, PETG, PLA, ABS y TPU</span>{' '}
-                    responde mejor al esfuerzo real. Nuestro asistente en{' '}
-                    <span className="font-semibold text-[#ff6a1f]">n8n</span> te guía paso a paso antes de que el taller revise tu cotización.
+                    responde mejor al esfuerzo real. El{' '}
+                    <span className="font-semibold text-[#ff6a1f]">asistente técnico Vértice</span> te guía paso a paso antes de que el taller revise tu cotización.
                   </p>
 
                   <blockquote className="border-l-2 border-[#ff6a1f] pl-5">
@@ -238,8 +238,7 @@ export default function HomePage() {
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           <p className="text-sm leading-relaxed text-zinc-400">
-            <strong className="text-white">Selección verificada.</strong> Nuestro flujo con{' '}
-            <span className="font-semibold text-[#ff6a1f]">n8n</span> relaciona el entorno real de tu pieza (exposición solar, humedad, impacto o tracción) con los 5 polímeros FDM que trabajamos en planta.
+            <strong className="text-white">Selección verificada.</strong> Nuestro asistente técnico Vértice relaciona el entorno real de tu pieza (exposición solar, humedad, impacto o tracción) con los 5 polímeros FDM que trabajamos en planta.
           </p>
           <p className="text-sm leading-relaxed text-zinc-400">
             <strong className="text-white">Laminado a medida.</strong> Cada solicitud se prepara ajustando altura de capa (<span className="font-semibold text-[#ff6a1f]">0.12 mm a 0.28 mm</span>) y patrón de relleno interno antes de emitir la cotización.
@@ -276,7 +275,7 @@ export default function HomePage() {
           >
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold text-white">Asistente n8n</h3>
+                <h3 className="text-base font-bold text-white">Asistente técnico Vértice</h3>
                 <span className="rounded-md bg-white/[0.07] px-2 py-0.5 text-[11px] font-semibold text-zinc-300">
                   IA en vivo
                 </span>
@@ -427,7 +426,7 @@ export default function HomePage() {
               <ul className="space-y-3 text-sm text-zinc-200">
                 <li className="flex items-start gap-2.5">
                   <span className="font-bold text-[#ff6a1f]">✓</span>
-                  <span>Autocompletado de polímero sugerido por n8n</span>
+                  <span>Autocompletado de polímero sugerido por el asistente técnico</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="font-bold text-[#ff6a1f]">✓</span>

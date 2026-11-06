@@ -92,12 +92,18 @@ export function ToolsPage() {
                   onClick={() => setSelectedCaseId(env.id)}
                   className={`text-left px-5 py-3.5 rounded-2xl text-sm font-bold transition-all cursor-pointer flex items-center justify-between ${
                     selectedCaseId === env.id
-                      ? 'bg-[#ff6a1f] text-[#110a05]'
-                      : 'bg-[#1e1e23] text-[#f5f5f7] hover:bg-[#25252b]'
+                      ? 'bg-[#282830] border-l-4 border-[#ff6a1f] text-white'
+                      : 'bg-[#1e1e22] border-l-4 border-transparent hover:bg-[#242429] text-zinc-300'
                   }`}
                 >
                   <span>{env.label}</span>
-                  <span className="text-xs font-extrabold">{env.recommended}</span>
+                  <span
+                    className={`text-xs font-extrabold ${
+                      selectedCaseId === env.id ? 'text-[#ff6a1f]' : ''
+                    }`}
+                  >
+                    {env.recommended}
+                  </span>
                 </button>
               ))}
             </div>

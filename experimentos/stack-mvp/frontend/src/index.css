@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+  scrollbar-width: thin;
+  scrollbar-color: #2e323b transparent;
+  --ease-out-spring: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e323b;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f4450;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}
+
 @layer base {
   html,
   body {
@@ -20,8 +60,9 @@
   color: #120904;
   box-shadow: none;
   transition:
-    background-color 0.15s ease,
-    transform 0.12s ease;
+    background-color 180ms var(--ease-out-spring),
+    transform 180ms var(--ease-out-spring),
+    opacity 180ms var(--ease-out-spring);
 }
 .btn-3d-orange:hover {
   background-color: #ff7b38;
@@ -38,8 +79,9 @@
   color: #f5f4f1;
   box-shadow: none;
   transition:
-    background-color 0.15s ease,
-    transform 0.12s ease;
+    background-color 180ms var(--ease-out-spring),
+    transform 180ms var(--ease-out-spring),
+    opacity 180ms var(--ease-out-spring);
 }
 .btn-3d-dark:hover {
   background-color: #2d2d34;
@@ -62,8 +104,9 @@
   color: #f5f4f1;
   box-shadow: none;
   transition:
-    background-color 0.15s ease,
-    transform 0.12s ease;
+    background-color 180ms var(--ease-out-spring),
+    transform 180ms var(--ease-out-spring),
+    opacity 180ms var(--ease-out-spring);
 }
 .btn-3d-graphite:hover {
   background-color: #2e2e35;
@@ -75,10 +118,17 @@
 }
 
 .nav-pill-3d {
-  border: none;
-  background-color: rgba(29, 29, 34, 0.92);
-  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background-color: #1e1e22;
   box-shadow: none;
+}
+
+.nav-link-3d {
+  transition: opacity 180ms var(--ease-out-spring);
+}
+
+.nav-link-3d:hover {
+  opacity: 0.8;
 }
 
 .badge-3d-warm,
@@ -131,7 +181,6 @@
 
 /* Inputs y bloques internos mates al ras (cero efecto hundido/hoyo negro) */
 .well-3d {
-  border: none;
   background-color: #25252b;
   color: #f5f4f1;
   border-radius: 0.875rem;

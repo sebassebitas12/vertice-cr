@@ -83,9 +83,6 @@ export function MyRequestsPage() {
           </div>
 
           <div className="flex items-center gap-3 self-start lg:self-end">
-            <Link to="/taller" className="btn-3d-graphite text-xs">
-              Vista del Taller (Admin)
-            </Link>
             <Link
               to="/solicitar"
               className="btn-3d-orange rounded-full px-5 py-2.5 text-xs font-bold"
@@ -127,8 +124,8 @@ export function MyRequestsPage() {
                     onClick={() => handleSelectRequest(req.id)}
                     className={`w-full text-left p-5 rounded-2xl transition cursor-pointer ${
                       isSelected
-                        ? 'bg-[#242224] ring-2 ring-[#ff6a1f]'
-                        : 'bg-[#1e1e22] hover:bg-[#242429]'
+                        ? 'bg-[#24242b] border-l-4 border-[#ff6a1f] shadow-lg'
+                        : 'bg-[#1e1e22] border-l-4 border-transparent hover:bg-[#242429]'
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2 mb-2">
@@ -234,7 +231,7 @@ export function MyRequestsPage() {
                       value={clarificationText}
                       onChange={(e) => setClarificationText(e.target.value)}
                       placeholder="Escribe aquí las medidas o detalles solicitados por el taller..."
-                      className="well-3d w-full p-3.5 text-sm"
+                      className="well-3d w-full p-3.5 text-sm border border-white/[0.08]"
                     />
                     <button
                       type="submit"

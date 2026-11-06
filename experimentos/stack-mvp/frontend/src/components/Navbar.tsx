@@ -4,12 +4,12 @@ const NAV_ITEMS = [
   { to: '/catalogo', label: 'Diseños' },
   { to: '/', label: 'Nosotros', end: true },
   { to: '/herramientas', label: 'Herramientas' },
-  { to: '/solicitar', label: 'Cotizar con IA' },
+  { to: '/solicitar', label: 'Cotizar con asistente' },
 ];
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-[#141417]/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-[#141417]">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3.5 lg:px-8">
         {/* Logo libre a la izquierda */}
         <Link to="/" className="inline-flex items-center select-none">
@@ -30,7 +30,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 isActive
                   ? 'btn-3d-orange rounded-full px-4 py-1.5 text-xs font-bold tracking-wide'
-                  : 'rounded-full px-4 py-1.5 text-xs font-bold text-zinc-300 transition hover:text-white'
+                  : 'nav-link-3d rounded-full px-4 py-1.5 text-xs font-bold text-zinc-300 hover:text-white'
               }
             >
               {item.label}
@@ -43,7 +43,7 @@ export default function Navbar() {
           <NavLink
             to="/mis-solicitudes"
             className={({ isActive }) =>
-              `hidden text-xs font-bold transition sm:inline ${
+              `nav-link-3d hidden text-xs font-bold sm:inline ${
                 isActive ? 'text-[#ff6a1f]' : 'text-zinc-300 hover:text-white'
               }`
             }
@@ -53,7 +53,7 @@ export default function Navbar() {
           <NavLink
             to="/taller"
             className={({ isActive }) =>
-              `hidden text-xs font-bold transition md:inline ${
+              `nav-link-3d hidden text-xs font-bold md:inline ${
                 isActive ? 'text-[#ff6a1f]' : 'text-zinc-400 hover:text-white'
               }`
             }
