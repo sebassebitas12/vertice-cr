@@ -75,6 +75,18 @@ Estas reglas no admiten excepciones ni excusas de "es solo una prueba":
 20. **PROHIBIDO descuidar los controles nativos del navegador (Calendarios blancos, selects azules y spinners feos):**
     * ❌ *Baneado:* Dejar que `<input type="date">` abra un calendario blanco chillón sobre un tema oscuro, que `<select>` use el azul y blanco por defecto de Windows, o que `input[type="number"]` muestre los steppers/flechitas dobles grises nativas de Windows.
     * ✅ *Correcto:* Declarar obligatoriamente `color-scheme: dark;` en `:root`, apagar los spinners nativos con `-webkit-appearance: none` e invertir el picker del calendario (`filter: invert(0.8)`).
+21. **PROHIBIDO el scroll vertical en pantallas de acceso (Login y Registro estrictamente sin scrollbar):**
+    * ❌ *Baneado:* Hacer tarjetas de login kilométricas con viñetas de marketing de relleno adentro, leyendas académicas al pie o paddings gigantescos que superen la altura del viewport y fuercen al navegador a mostrar barra de desplazamiento vertical. Scrollear en un login transmite desprolijidad y descuido.
+    * ✅ *Correcto:* El contenedor de autenticación debe medir `height: 100svh; overflow: hidden;` y declarar forzosamente `html:has(.auth-screen), body:has(.auth-screen) { height: 100%; overflow: hidden !important; }`. La tarjeta de login debe ser ultra compacta (altura contenida de ~390px a 420px), eliminando viñetas de marketing y notas de relleno para que flote perfectamente centrada en cualquier resolución (desde 720p hasta 4K) sin mover un solo píxel de scroll.
+22. **PROHIBIDO el Navbar flotante con transparencia traslúcida que ensucie el contenido (Pill Nav con Superficie Sólida Mate):**
+    * ❌ *Baneado:* Crear barras superiores flotantes con `backdrop-blur` translúcido o transparencias acuosas que hacen que las palabras y tablas que scrollean por detrás se trasluzcan, generando ruido visual, letras superpuestas e ilegibilidad.
+    * ✅ *Correcto:* El estándar para navegación moderna compacta es la **Pill Nav Central de Superficie Sólida y Opaca** (`bg-[#181b22]`, `border border-white/[0.08]`, `shadow-[0_12px_36px_rgba(0,0,0,0.5)]`). El nav flota en la cabecera con esquinas redondeadas (`rounded-full` o `rounded-2xl`), pero su fondo es 100% mate y opaco, tapando limpiamente el contenido que pasa por debajo sin transparencias raras.
+23. **PROHIBIDOS los chatbots flotantes de esquina en interfaces operativas (IA In-Situ Embebida en la UI):**
+    * ❌ *Baneado:* Poner una burbuja flotante tipo widget de soporte en la esquina inferior derecha (`fixed bottom-6 right-6`) que tape botones de guardado, colisione con modales/drawers laterales y obligue al usuario a "conversar" en una ventanita aislada.
+    * ✅ *Correcto:* La IA debe vivir **embebida silenciosamente dentro de los flujos naturales del producto**:
+      * **Magic Bar de autocompletado:** Un campo inteligente en el formulario (`[ ✨ Escribe o escanea producto ]`) que autocompleta nombre, SKU, categoría y márgenes en un clic.
+      * **Carga de facturas por OCR:** Botón `[ 📷 Cargar ticket / factura ]` en compras que prellena el borrador de 20 productos en 3 segundos sin digitar.
+      * **Cobro por frase en caja:** Input de venta rápida (*"2 cocas de dos litros y medio kilo de queso"*) que agrega directo los ítems al carrito con su total.
 
 ---
 
@@ -254,6 +266,64 @@ export function LoginPage() {
   </div>
   <p className="mt-2 text-sm leading-relaxed text-zinc-400">{descripcion}</p>
 </div>
+```
+
+### C. Barra de Navegación Pill Nav Sólida Mate (Sin desenfoques traslúcidos)
+```tsx
+export function PillNavBar({ modules, activeKey, onSelect }) {
+  return (
+    <nav className="inline-flex items-center gap-1.5 p-1.5 rounded-full bg-[#181b22] border border-white/[0.08] shadow-[0_12px_32px_rgba(0,0,0,0.5)]">
+      {modules.map((m) => {
+        const active = m.key === activeKey;
+        return (
+          <button
+            key={m.key}
+            onClick={() => onSelect(m.key)}
+            className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+              active
+                ? 'bg-emerald-500 text-[#071d13] shadow-md shadow-emerald-500/20'
+                : 'text-zinc-400 hover:text-white hover:bg-white/[0.05]'
+            }`}
+          >
+            {m.label}
+          </button>
+        );
+      })}
+    </nav>
+  );
+}
+```
+
+### D. Formulario con Magic Bar de Autocompletado In-Situ (IA Embebida)
+```tsx
+export function ProductFormWithMagicBar({ onEnrichWithAI }) {
+  const [magicQuery, setMagicQuery] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  return (
+    <div className="space-y-6">
+      {/* Magic Bar: 1 input que autocompleta 8 campos */}
+      <div className="p-3.5 rounded-2xl bg-[#181b22] border border-emerald-500/20 flex items-center gap-3">
+        <SparklesIcon className="w-5 h-5 text-emerald-400 flex-none" />
+        <input
+          type="text"
+          value={magicQuery}
+          onChange={(e) => setMagicQuery(e.target.value)}
+          placeholder="✨ Escribe 'Coca Cola 2L' o escanea código para autocompletar todo..."
+          className="flex-1 bg-transparent text-sm text-white placeholder-zinc-500 focus:outline-none"
+        />
+        <button
+          onClick={() => onEnrichWithAI(magicQuery)}
+          className="px-3.5 py-1.5 rounded-xl bg-emerald-500 text-xs font-bold text-[#071d13] hover:bg-emerald-400"
+        >
+          {loading ? 'Completando…' : 'Autocompletar'}
+        </button>
+      </div>
+
+      {/* Los campos normales reciben la información autocompletada sin chatbots */}
+    </div>
+  );
+}
 ```
 
 ---
