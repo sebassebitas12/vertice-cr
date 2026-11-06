@@ -49,3 +49,4 @@ Los chatbots flotantes en la esquina inferior derecha estorban en interfaces ope
 * **Magic Bar de Autocompletado:** Un campo en la cabecera de creación donde se escribe el producto o se escanea el código, y la IA prellena nombre, categoría, unidad, SKU y precios de golpe.
 * **Carga por Foto / OCR:** Subir la foto de la factura del proveedor para prellenar compras en borrador en 3 segundos.
 * **Cobro Asistido en Caja:** Campo de texto libre/voz en el POS (*"2 cocas 2L y medio kilo de queso"*) que agrega directamente los ítems al carrito con su total.
+
