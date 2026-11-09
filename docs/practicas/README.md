@@ -31,3 +31,6 @@ Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cu
 - [Normalización #3 — Back office FULL IA](13-normalizacion-back-office-full-ia.md) — sistema propuesto, elementos generados y ejecución pendiente de validar.
 
 - [14 — Mini proyecto de biblioteca con Sequelize](14-mini-proyecto-biblioteca-sequelize.md) — en curso; se registran la inicialización, el modelo `Usuario` y la migración reportados.
+
+- [15 — Mini Proyecto 1: Minimercado La Esquina](15-mini-proyecto-1-la-esquina-sequelize-express.md) — terminado y entregado según declaración; copia local y flujos principales verificados el 2026-11-09.
+- [16 — Quiz #2: Gestión de Inventarios](16-quiz-2-gestion-inventarios.md) — enunciado revisado; elección e implementación pendientes.

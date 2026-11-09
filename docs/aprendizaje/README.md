@@ -34,3 +34,5 @@ Registro de lo estudiado durante el curso y de lo aprendido mientras se construy
 - [2026-11-02 — Normalización 1FN, 2FN, 3FN y Business Solutions](2026-11-02-normalizacion-3fn-diseno-negocio.md) — teoría de los dos PDF, diseño de negocio y lecciones de tres prácticas.
 
 - [2026-11-04 — ORM y Sequelize con Express](2026-11-04-orm-sequelize.md) — primer modelo y migración reportados; mini proyecto de biblioteca en curso.
+
+- [2026-11-09 — Express, JWT y permisos por rol](2026-11-09-express-jwt-roles-mini-proyecto.md) — cierre del mini proyecto y conceptos verificados en su copia local.

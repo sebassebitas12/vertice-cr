@@ -187,3 +187,24 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 - El mini proyecto sigue en curso; esta ruta consigna la inicialización, el primer modelo y la migración, además de los conceptos revisados.
 
 Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-11-04-orm-sequelize.md) y el [registro del mini proyecto](../../../../docs/practicas/14-mini-proyecto-biblioteca-sequelize.md).
+
+## 13 — Mini Proyecto 1: ventas, inventario, autenticación y RBAC
+
+**Estado: terminado según el estudiante; copia local revisada y verificaciones ejecutadas** · 2026-11-09
+
+- Proyecto independiente: [Minimercado La Esquina](https://github.com/sebassebitas12/la-esquina-pos); se registran aprendizajes, sin trasladar código a Vértice.
+- Aplicación de Express, Sequelize, MySQL, migraciones, rutas, controladores y CRUD.
+- Autenticación con JWT y hash de contraseña; autorización por roles administrador/lector en middleware de Express.
+- Se verificaron migraciones, sintaxis backend, compilación frontend y pruebas de humo de API, clientes y dominio en la copia local.
+
+Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-11-09-express-jwt-roles-mini-proyecto.md) y el [registro del Mini Proyecto 1](../../../../docs/practicas/15-mini-proyecto-1-la-esquina-sequelize-express.md).
+
+## 14 — Quiz #2: Gestión de Inventarios
+
+**Estado: enunciado revisado; elección de opción e implementación pendientes** · 2026-11-09
+
+- El PDF divide el trabajo en análisis de compras/inventario (40 puntos) y solución Node.js conectada a una base de datos (60 puntos).
+- El equipo debe elegir entre comparador de precios, inventario de construcción o motor de promociones. No se escogió ni se implementó una opción.
+- El plazo impreso es 2026-11-06; confirmar con el docente si existe extensión o cambio de fecha.
+
+Consulta el [registro de requisitos y pendientes](../../../../docs/practicas/16-quiz-2-gestion-inventarios.md).

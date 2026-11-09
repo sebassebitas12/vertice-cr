@@ -183,3 +183,18 @@ Fuente: [nota de normalización y Business Solutions](2026-11-02-normalizacion-3
 | Sequelize | ORM para Node.js usado para declarar modelos, asociaciones y operar con bases de datos compatibles. | Sequelize, 2026-11-04 |
 | Sequelize CLI | Herramienta de línea de comandos para inicializar estructura y generar o ejecutar migraciones. | Sequelize, 2026-11-04 |
 | `SequelizeMeta` | Tabla que el CLI usa para registrar migraciones aplicadas. | Sequelize, 2026-11-04 |
+
+## Express, autenticación y permisos — 2026-11-09
+
+| Término | Significado | Dónde lo usé |
+|---|---|---|
+| Autenticación | Verifica quién hace una solicitud, por ejemplo mediante correo, contraseña y sesión. | Mini Proyecto 1, 2026-11-09 |
+| Autorización | Determina qué operaciones puede realizar una cuenta ya autenticada. | Express y roles, 2026-11-09 |
+| bcrypt | Biblioteca para generar y comparar hashes de contraseñas sin guardar la contraseña en texto plano. | API de La Esquina, 2026-11-09 |
+| Bearer token | Forma de enviar un token de acceso en el encabezado HTTP `Authorization`. | JWT, 2026-11-09 |
+| HTTP 201 | Respuesta que indica que una solicitud creó un recurso. | Registro de cuenta, prueba local 2026-11-09 |
+| HTTP 401 | Respuesta cuando la solicitud no presenta credenciales válidas. | Middleware de autenticación, 2026-11-09 |
+| HTTP 403 | Respuesta cuando la cuenta está autenticada, pero no tiene permiso para la operación. | Middleware de autorización, 2026-11-09 |
+| JWT | Token firmado que transporta claims; su contenido codificado se puede leer y no es secreto por sí mismo. | Autenticación de La Esquina, 2026-11-09 |
+| Middleware | Función de Express que procesa una solicitud antes de llegar al controlador, por ejemplo para validar sesión o rol. | Rutas privadas, 2026-11-09 |
+| RBAC | Control de acceso basado en roles; cada rol habilita un conjunto de operaciones. | Administrador y lector, 2026-11-09 |
