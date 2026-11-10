@@ -202,11 +202,24 @@ Fuente: [nota de normalización y Business Solutions](2026-11-02-normalizacion-3
 | HTTP 401 | Respuesta cuando la solicitud no presenta credenciales válidas. | Middleware de autenticación, 2026-11-09 |
 | HTTP 403 | Respuesta cuando la cuenta está autenticada, pero no tiene permiso para la operación. | Middleware de autorización, 2026-11-09 |
 | JWT | Token firmado que transporta claims; su contenido codificado se puede leer y no es secreto por sí mismo. | Autenticación de La Esquina, 2026-11-09 |
-| Middleware | Función que procesa una solicitud antes de la ruta o respuesta; puede continuar con `next()` o reportar un error con `next(error)`. | Express y RBAC, 2026-11-09/10 |
+| Middleware | Función de Express que procesa una solicitud antes de llegar al controlador; puede modificar `req`/`res`, responder, continuar con `next()` o transferir un error con `next(err)`. | Autenticación y RBAC, 2026-11-09; tema de middleware, 2026-11-10 |
 | RBAC | Control de acceso basado en roles; cada rol habilita un conjunto de operaciones. | Administrador y lector, 2026-11-09 |
-| `next()` | Función de Express que pasa el control al siguiente middleware o manejador. | Middleware, 2026-11-10 |
-| `next(error)` | Pasa un error al middleware central de errores, omitiendo los manejadores normales restantes. | Middleware, 2026-11-10 |
-| Middleware de errores | Middleware Express con firma `(err, req, res, next)`, registrado después de las rutas para procesar errores enviados con `next(error)`. | Middleware, 2026-11-10 |
-| HTTP 400 | Respuesta que indica que los datos de la solicitud no pasaron la validación. | Middleware, 2026-11-10 |
-| HTTP 404 | Respuesta cuando no existe el recurso solicitado o la ruta no está definida. | Middleware, 2026-11-10 |
-| HTTP 500 | Respuesta genérica ante un error inesperado del servidor. | Middleware, 2026-11-10 |
+
+## Middleware, validación y errores — 2026-11-10
+
+| Término | Significado | Dónde se estudió |
+|---|---|---|
+| AppError | Error de aplicación usado para representar una condición esperada con su código HTTP y mensaje público. | Middleware y errores, 2026-11-10 |
+| Error de programación | Fallo inesperado causado por un bug, por ejemplo usar una propiedad indefinida. | Middleware y errores, 2026-11-10 |
+| Error operacional | Condición esperada de la API, como recurso inexistente, datos inválidos o conflicto. | Middleware y errores, 2026-11-10 |
+| HTTP 400 | Respuesta común para una solicitud con datos inválidos. | Validación, 2026-11-10 |
+| HTTP 409 | Respuesta para un conflicto con el estado del recurso, por ejemplo un dato duplicado. | Errores HTTP, 2026-11-10 |
+| HTTP 422 | Puede indicar que el cuerpo JSON se entiende, pero sus valores no cumplen las reglas; se elige frente a 400 según una política consistente. | Validación, 2026-11-10 |
+| HTTP 500 | Fallo interno inesperado del servidor; el detalle se registra y no se expone al cliente. | Errores HTTP, 2026-11-10 |
+| Logger HTTP | Middleware que registra datos de cada solicitud, como método, ruta, código de respuesta y duración. | Middleware, 2026-11-10 |
+| Middleware de error | Función de Express con firma `(err, req, res, next)` que centraliza respuestas de error. | Middleware, 2026-11-10 |
+| `next()` | Continúa al siguiente middleware o manejador de la ruta. | Middleware, 2026-11-10 |
+| `next(err)` | Pasa el error al middleware de manejo de errores. | Middleware, 2026-11-10 |
+| Validación de esquema | Reglas declaradas para revisar tipo, formato y campos permitidos antes del controlador. | Validación, 2026-11-10 |
+
+Fuente: [Middleware, validación y errores](2026-11-10-express-middleware-validacion-errores.md).

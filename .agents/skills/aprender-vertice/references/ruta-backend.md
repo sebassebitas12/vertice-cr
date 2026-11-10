@@ -149,7 +149,7 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 
 - **2026-10-30:** Business Solutions documentado como teoría estudiada y práctica parcial, con separación entre resultados observados, diseño previsto y aplicaciones candidatas a Vértice.
 - **2026-11-04:** ORM y Sequelize registrados como tema en curso; inicialización, modelo `Usuario` y migración ejecutada según salida compartida.
-- **2026-11-10:** se documentó Express.js desde el material compartido; práctica no reportada y la explicación general de middleware sigue pendiente.
+- **2026-11-10:** se documentaron Express.js y middleware; la práctica adicional de tareas fue verificada localmente; capturas pendientes.
 
 ## 10 — Normalización 1FN y 2FN: hospital
 
@@ -222,20 +222,17 @@ Consulta el [registro de requisitos y pendientes](../../../../docs/practicas/16-
 - Modularización con `express.Router()` y separación propuesta entre rutas, controladores, servicios y modelos; relación entre `app.js` e `index.js`.
 - Configuración mediante variables de entorno y manejo cuidadoso de secretos.
 
-La continuación sobre middleware y manejo centralizado de errores se registra en el tema 16. Consulta la [nota de Express.js](../../../../docs/aprendizaje/2026-11-10-express-js.md).
+El mini proyecto anterior ya registra el uso de middleware de autorización para JWT. La continuación sobre middleware, validación y manejo centralizado de errores se documenta en el tema 16. Consulta la [nota de Express.js](../../../../docs/aprendizaje/2026-11-10-express-js.md).
 
+## 16 — Middleware, validación y manejo de errores
 
-## 16 — Middleware y manejo de errores en Express
+**Estado: tema estudiado; práctica adicional implementada y verificada localmente; capturas pendientes** · Registro: 2026-11-10
 
-**Estado: en curso; práctica implementada con asistencia de IA y verificada; comprensión personal por reforzar** · Registro: 2026-11-10
+- Middleware como función que procesa la solicitud en orden, continúa con `next()`, responde o transfiere errores con `next(err)`; se estudiaron middleware de aplicación, router, ruta, integrados, de terceros y de error.
+- Orden del flujo: seguridad y parseo, autenticación, validación, controlador y servicio; la respuesta 404 va después de las rutas y el manejador central de errores al final.
+- Validación de `params`, `query` y `body` por tipo y formato, con reglas de negocio revisadas en la capa correspondiente. Se comparó la validación manual con esquemas y se mencionaron Zod, Joi y express-validator.
+- Respuestas de validación 400/422 según una convención única; detalles por campo para la interfaz y protección frente a campos no permitidos o asignación masiva.
+- Diferencia entre errores operacionales esperados y bugs; error de aplicación, middleware central de cuatro parámetros y respuesta genérica 500 para fallos inesperados.
+- Registro de solicitudes con método, ruta, código y duración; middleware de seguridad, CORS, límite de peticiones y compresión como ejemplos de terceros del material.
 
-- Middleware como paso de una cadena de solicitud: puede inspeccionar/modificar `req` o `res`, responder, continuar con `next()` o enviar un error con `next(error)`.
-- Logger global y primero; registro al terminar la respuesta con `res.on('finish')`.
-- Autenticación por encabezado Bearer y autorización por rol; en la práctica se usan tokens fijos de demostración, no JWT de producción.
-- Validación de `titulo` y `prioridad` antes de crear una tarea; respuesta con lista completa de errores.
-- Diferencia entre `notFound` para URL inexistente y `errorHandler(err, req, res, next)` para errores de rutas.
-- Orden del servidor: logger, `express.json()`, rutas, `notFound` y manejador de errores.
-- Se verificaron localmente los ocho casos HTTP del enunciado. Las capturas que pide la práctica siguen pendientes.
-- Ejercicio independiente en `C:\Documentos\Practica-Backend\Middlewares en Node`; no se trasladó código ni se modificó el producto Vértice.
-
-Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-11-10-express-middleware.md) y el [registro de la práctica](../../../../docs/practicas/17-middlewares-nodejs.md).
+- Práctica adicional: API de tareas en memoria con logger, autenticación mediante tokens fijos de demostración, autorización por rol, validación, respuesta 404 y manejador central; se verificaron los ocho casos del enunciado.
