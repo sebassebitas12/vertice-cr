@@ -37,4 +37,4 @@ Registro académico únicamente: no se modificó el código del producto ni se e
 Práctica adicional: no reportada.
 
 ## Fuente
-*Middleware, validación y errores*, material de clase compartido por Sebastián, 14 diapositivas.
+archivo de clase compartido *Middleware_Validacion_Errores.pptx.pdf* (14 diapositivas).
