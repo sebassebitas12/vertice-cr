@@ -73,3 +73,11 @@ Evolución aprobada por Sebastián:
 Sebastián trabaja entre dos equipos (PC principal en casa y laptop en el curso):
 1. Mantener siempre las skills en `.agents/skills/` dentro del repositorio actualizadas y sincronizadas con git.
 2. Documentar cualquier cambio de esquema de base de datos, variables de entorno (`.env.example`) y estado de fases del proyecto en `docs/` antes de cerrar sesión y hacer `git push`.
+## 7. Integridad visual de iconos, catálogos y menús
+
+La revisión debe cubrir los datos reales del catálogo completo, no solo la primera tarjeta o una muestra pequeña.
+
+- **Iconografía completa y reconocible:** cada producto, categoría, marca o entidad que se represente visualmente debe tener un icono o imagen intencional y coherente con su identidad. No dejar espacios vacíos, iconos rotos ni repetir un glifo genérico como sustituto para toda la colección. Cuando el catálogo crezca, asignar recursos usando una clave estable del registro; para elementos futuros sin imagen, usar una alternativa diseñada por categoría y mantenerla reconocible. Revisar todos los elementos disponibles y sus variantes.
+- **Selectores terminados:** no dejar desplegables nativos con la presentación por defecto del navegador o del sistema operativo cuando rompan la identidad visual (por ejemplo, lista blanca/azul de Windows dentro de una aplicación oscura). El menú cerrado, abierto, la opción seleccionada, deshabilitada, vacía y filtrada deben tener estilos coherentes y legibles.
+- **Accesibilidad del menú:** todo selector personalizado debe conservar etiqueta visible, foco perceptible, operación con teclado, cierre con Escape, selección entendible para lectores de pantalla y áreas de interacción cómodas. Su lista no debe quedar recortada por modales, contenedores con scroll o capas de la interfaz.
+- **Inspección antes de entregar:** recorrer el catálogo completo o verificarlo con una auditoría automatizada, abrir los desplegables reales y revisar estados normal, abierto, búsqueda sin resultados y selección. Comprobar también formularios, diálogos y tamaños de pantalla representativos. Una compilación exitosa no sustituye esta revisión.

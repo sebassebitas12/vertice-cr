@@ -16,6 +16,12 @@ Conceptos vistos en clase, explicados de forma breve. Referencias: [automatizaci
 | Data Tables | Almacenamiento persistente estructurado integrado en n8n. | n8n, 2026-10-20 |
 | Encapsulamiento | Restringir el acceso directo al estado y ofrecer una interfaz controlada. | POO, práctica #2 |
 | Endpoint | Ruta de una API que permite consultar o modificar un recurso, como `/solicitudes`. | LAB1 |
+| Express.js | Framework de Node.js que facilita definir rutas HTTP y responder a solicitudes. | Express.js, 2026-11-10 |
+| `express.Router()` | Enrutador que permite agrupar rutas y montarlas en la aplicación con un prefijo. | Express.js, 2026-11-10 |
+| `req.body` | Datos enviados en el cuerpo de una solicitud; para JSON se utiliza `express.json()`. | Express.js, 2026-11-10 |
+| `req.params` | Valores de segmentos dinámicos de una ruta, como el `id` de `/usuarios/:id`. | Express.js, 2026-11-10 |
+| `req.query` | Parámetros opcionales enviados en la consulta de una URL. | Express.js, 2026-11-10 |
+| `res.status()` | Método para establecer el código HTTP de la respuesta. | Express.js, 2026-11-10 |
 | Entero seguro | Entero que JavaScript representa exactamente; validar con `Number.isSafeInteger` antes de usarlo como ID numérico. | Laboratorio 2, 2026-10-21 |
 | `FOR UPDATE` | Cláusula SQL que bloquea filas seleccionadas durante una transacción. | Laboratorio 2, 2026-10-21 |
 | Getter | Forma controlada de leer una propiedad. | POO |
