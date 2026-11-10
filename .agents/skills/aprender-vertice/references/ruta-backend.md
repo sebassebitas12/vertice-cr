@@ -149,7 +149,7 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 
 - **2026-10-30:** Business Solutions documentado como teoría estudiada y práctica parcial, con separación entre resultados observados, diseño previsto y aplicaciones candidatas a Vértice.
 - **2026-11-04:** ORM y Sequelize registrados como tema en curso; inicialización, modelo `Usuario` y migración ejecutada según salida compartida.
-- **2026-11-10:** se documentó Express.js desde el material compartido; práctica no reportada y la explicación general de middleware sigue pendiente.
+- **2026-11-10:** se documentaron Express.js y middleware; la práctica adicional de tareas fue verificada localmente; capturas pendientes.
 
 ## 10 — Normalización 1FN y 2FN: hospital
 
@@ -226,7 +226,7 @@ El mini proyecto anterior ya registra el uso de middleware de autorización para
 
 ## 16 — Middleware, validación y manejo de errores
 
-**Estado: estudiado, práctica adicional no reportada** · Registro: 2026-11-10
+**Estado: tema estudiado; práctica adicional implementada y verificada localmente; capturas pendientes** · Registro: 2026-11-10
 
 - Middleware como función que procesa la solicitud en orden, continúa con `next()`, responde o transfiere errores con `next(err)`; se estudiaron middleware de aplicación, router, ruta, integrados, de terceros y de error.
 - Orden del flujo: seguridad y parseo, autenticación, validación, controlador y servicio; la respuesta 404 va después de las rutas y el manejador central de errores al final.
@@ -235,4 +235,6 @@ El mini proyecto anterior ya registra el uso de middleware de autorización para
 - Diferencia entre errores operacionales esperados y bugs; error de aplicación, middleware central de cuatro parámetros y respuesta genérica 500 para fallos inesperados.
 - Registro de solicitudes con método, ruta, código y duración; middleware de seguridad, CORS, límite de peticiones y compresión como ejemplos de terceros del material.
 
-Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-11-10-express-middleware-validacion-errores.md). No se modificó el producto Vértice.
+- Práctica adicional: API de tareas en memoria con logger, autenticación mediante tokens fijos de demostración, autorización por rol, validación, respuesta 404 y manejador central; se verificaron los ocho casos del enunciado.
+
+La práctica se documenta en la [nota de aprendizaje](../../../../docs/aprendizaje/2026-11-10-express-middleware.md) y el [registro](../../../../docs/practicas/17-middlewares-nodejs.md). El código vive en una carpeta independiente; no se modificó el producto Vértice.

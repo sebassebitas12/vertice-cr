@@ -202,7 +202,7 @@ Fuente: [nota de normalización y Business Solutions](2026-11-02-normalizacion-3
 | HTTP 401 | Respuesta cuando la solicitud no presenta credenciales válidas. | Middleware de autenticación, 2026-11-09 |
 | HTTP 403 | Respuesta cuando la cuenta está autenticada, pero no tiene permiso para la operación. | Middleware de autorización, 2026-11-09 |
 | JWT | Token firmado que transporta claims; su contenido codificado se puede leer y no es secreto por sí mismo. | Autenticación de La Esquina, 2026-11-09 |
-| Middleware | Función de Express que procesa una solicitud antes de llegar al controlador, por ejemplo para validar sesión o rol. | Rutas privadas, 2026-11-09 |
+| Middleware | Función de Express que procesa una solicitud antes de llegar al controlador; puede modificar `req`/`res`, responder, continuar con `next()` o transferir un error con `next(err)`. | Autenticación y RBAC, 2026-11-09; tema de middleware, 2026-11-10 |
 | RBAC | Control de acceso basado en roles; cada rol habilita un conjunto de operaciones. | Administrador y lector, 2026-11-09 |
 
 ## Middleware, validación y errores — 2026-11-10

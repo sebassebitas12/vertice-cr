@@ -33,4 +33,4 @@ No se reportaron errores de la práctica de Express en el material compartido.
 Continuar con el tema que indique el profesor y practicar las rutas según el ejercicio de clase.
 
 ## Continuación
-El material posterior sobre middleware, validación y manejo centralizado de errores se registra en la [nota del 2026-11-10](2026-11-10-express-middleware-validacion-errores.md).
+El material posterior sobre middleware, validación y manejo centralizado de errores se registra en la [nota del 2026-11-10](2026-11-10-express-middleware-validacion-errores.md). La práctica adicional de API de tareas está en el [registro de práctica](../practicas/17-middlewares-nodejs.md).

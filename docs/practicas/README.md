@@ -34,3 +34,4 @@ Anotar tema, fuente/enunciado, estado informado, conceptos y relación futura cu
 
 - [15 — Mini Proyecto 1: Minimercado La Esquina](15-mini-proyecto-1-la-esquina-sequelize-express.md) — terminado y entregado según declaración; copia local y flujos principales verificados el 2026-11-09.
 - [16 — Quiz #2: Gestión de Inventarios](16-quiz-2-gestion-inventarios.md) — enunciado revisado; elección e implementación pendientes.
+- [17 — Middlewares en Node.js](17-middlewares-nodejs.md) — implementada con asistencia de IA; capturas pendientes.

@@ -1,7 +1,7 @@
 # 2026-11-10 — Express: middleware, validación y manejo de errores
 
 ## Contexto
-Resumen del material de clase *Middleware, validación y errores* (14 diapositivas). Registra lo explicado en el PDF; no se reportó una práctica adicional.
+Resumen del material de clase *Middleware, validación y errores* (14 diapositivas). Registra lo explicado en el PDF; la práctica adicional de API de tareas se documenta aparte.
 
 ## Middleware
 Un middleware es una función que procesa una solicitud durante el recorrido entre el cliente y la respuesta. Recibe `req`, `res` y `next`; puede modificar la solicitud, responder y terminar el recorrido, continuar con `next()` o pasar un error con `next(err)`.
@@ -34,7 +34,7 @@ Los middlewares amplían el flujo de rutas y respuestas de Express estudiado pre
 Registro académico únicamente: no se modificó el código del producto ni se eligieron nuevas dependencias para Vértice.
 
 ## Práctica
-Práctica adicional: no reportada.
+La práctica adicional de API de tareas se implementó por separado con asistencia de IA y se verificaron los ocho casos del enunciado. Las capturas de pantalla solicitadas siguen pendientes. Consultá el [registro de la práctica](../practicas/17-middlewares-nodejs.md).
 
 ## Fuente
 archivo de clase compartido *Middleware_Validacion_Errores.pptx.pdf* (14 diapositivas).
