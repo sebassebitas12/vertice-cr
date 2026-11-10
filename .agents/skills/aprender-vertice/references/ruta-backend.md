@@ -222,4 +222,17 @@ Consulta el [registro de requisitos y pendientes](../../../../docs/practicas/16-
 - Modularización con `express.Router()` y separación propuesta entre rutas, controladores, servicios y modelos; relación entre `app.js` e `index.js`.
 - Configuración mediante variables de entorno y manejo cuidadoso de secretos.
 
-El PDF también presenta middleware y manejo centralizado de errores. El mini proyecto anterior ya registra el uso de middleware de autorización para JWT; la explicación general de middleware queda como tema siguiente, sin registrar práctica adicional en esta nota. Consulta la [nota de Express.js](../../../../docs/aprendizaje/2026-11-10-express-js.md).
+El mini proyecto anterior ya registra el uso de middleware de autorización para JWT. La continuación sobre middleware, validación y manejo centralizado de errores se documenta en el tema 16. Consulta la [nota de Express.js](../../../../docs/aprendizaje/2026-11-10-express-js.md).
+
+## 16 — Middleware, validación y manejo de errores
+
+**Estado: estudiado, práctica adicional no reportada** · Registro: 2026-11-10
+
+- Middleware como función que procesa la solicitud en orden, continúa con `next()`, responde o transfiere errores con `next(err)`; se estudiaron middleware de aplicación, router, ruta, integrados, de terceros y de error.
+- Orden del flujo: seguridad y parseo, autenticación, validación, controlador y servicio; la respuesta 404 va después de las rutas y el manejador central de errores al final.
+- Validación de `params`, `query` y `body` por tipo y formato, con reglas de negocio revisadas en la capa correspondiente. Se comparó la validación manual con esquemas y se mencionaron Zod, Joi y express-validator.
+- Respuestas de validación 400/422 según una convención única; detalles por campo para la interfaz y protección frente a campos no permitidos o asignación masiva.
+- Diferencia entre errores operacionales esperados y bugs; error de aplicación, middleware central de cuatro parámetros y respuesta genérica 500 para fallos inesperados.
+- Registro de solicitudes con método, ruta, código y duración; middleware de seguridad, CORS, límite de peticiones y compresión como ejemplos de terceros del material.
+
+Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-11-10-express-middleware-validacion-errores.md). No se modificó el producto Vértice.
