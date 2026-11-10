@@ -32,5 +32,5 @@ No se reportaron errores de la práctica de Express en el material compartido.
 ## Siguiente paso
 Continuar con el tema que indique el profesor y practicar las rutas según el ejercicio de clase.
 
-## Tema pendiente
-El PDF también presenta middleware y manejo centralizado de errores. El mini proyecto anterior ya registra el uso de middleware de autorización para JWT; la explicación general de middleware sigue como tema siguiente y no se registra práctica adicional en esta nota.
+## Continuación
+La clase y práctica de middleware se registran en la [nota de aprendizaje](2026-11-10-express-middleware.md) y el [registro de práctica](../practicas/17-middlewares-nodejs.md).

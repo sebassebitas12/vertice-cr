@@ -202,5 +202,11 @@ Fuente: [nota de normalización y Business Solutions](2026-11-02-normalizacion-3
 | HTTP 401 | Respuesta cuando la solicitud no presenta credenciales válidas. | Middleware de autenticación, 2026-11-09 |
 | HTTP 403 | Respuesta cuando la cuenta está autenticada, pero no tiene permiso para la operación. | Middleware de autorización, 2026-11-09 |
 | JWT | Token firmado que transporta claims; su contenido codificado se puede leer y no es secreto por sí mismo. | Autenticación de La Esquina, 2026-11-09 |
-| Middleware | Función de Express que procesa una solicitud antes de llegar al controlador, por ejemplo para validar sesión o rol. | Rutas privadas, 2026-11-09 |
+| Middleware | Función que procesa una solicitud antes de la ruta o respuesta; puede continuar con `next()` o reportar un error con `next(error)`. | Express y RBAC, 2026-11-09/10 |
 | RBAC | Control de acceso basado en roles; cada rol habilita un conjunto de operaciones. | Administrador y lector, 2026-11-09 |
+| `next()` | Función de Express que pasa el control al siguiente middleware o manejador. | Middleware, 2026-11-10 |
+| `next(error)` | Pasa un error al middleware central de errores, omitiendo los manejadores normales restantes. | Middleware, 2026-11-10 |
+| Middleware de errores | Middleware Express con firma `(err, req, res, next)`, registrado después de las rutas para procesar errores enviados con `next(error)`. | Middleware, 2026-11-10 |
+| HTTP 400 | Respuesta que indica que los datos de la solicitud no pasaron la validación. | Middleware, 2026-11-10 |
+| HTTP 404 | Respuesta cuando no existe el recurso solicitado o la ruta no está definida. | Middleware, 2026-11-10 |
+| HTTP 500 | Respuesta genérica ante un error inesperado del servidor. | Middleware, 2026-11-10 |
