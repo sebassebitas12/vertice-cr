@@ -6,6 +6,7 @@ Esta ruta registra **temas de clase**, no tareas pendientes de la tienda. Se act
 
 - **Estudiado y practicado:** el estudiante indica haber visto y realizado ejercicios.
 - **En curso:** indica que lo está estudiando.
+- **Estudiado, práctica no reportada:** el material fue compartido o revisado, pero no se informó haber realizado ejercicios.
 - **Pendiente:** todavía no lo ha visto o no se ha registrado.
 
 El estado describe el aprendizaje reportado; no pretende certificar el nivel de dominio ni la calidad del código.
@@ -148,6 +149,7 @@ No se asignan tecnologías, secuencias ni fechas hasta que aparezcan en el curso
 
 - **2026-10-30:** Business Solutions documentado como teoría estudiada y práctica parcial, con separación entre resultados observados, diseño previsto y aplicaciones candidatas a Vértice.
 - **2026-11-04:** ORM y Sequelize registrados como tema en curso; inicialización, modelo `Usuario` y migración ejecutada según salida compartida.
+- **2026-11-10:** se documentó Express.js desde el material compartido; práctica no reportada y la explicación general de middleware sigue pendiente.
 
 ## 10 — Normalización 1FN y 2FN: hospital
 
@@ -208,3 +210,16 @@ Consulta la [nota de aprendizaje](../../../../docs/aprendizaje/2026-11-09-expres
 - El plazo impreso es 2026-11-06; confirmar con el docente si existe extensión o cambio de fecha.
 
 Consulta el [registro de requisitos y pendientes](../../../../docs/practicas/16-quiz-2-gestion-inventarios.md).
+
+## 15 — Express.js
+
+**Estado: estudiado, práctica no reportada** · Registro: 2026-11-10
+
+- Creación de una aplicación Express y escucha de solicitudes HTTP.
+- Estructura de rutas con método, dirección y manejador; parámetros de ruta, consulta y cuerpo (`req.params`, `req.query`, `req.body`).
+- Interpretación de JSON con `express.json()` y respuestas con códigos HTTP y formatos JSON o texto.
+- CRUD en memoria, con respuestas `200`, `201`, `204` y `404`; se reconoce que los datos en memoria no persisten al reiniciar.
+- Modularización con `express.Router()` y separación propuesta entre rutas, controladores, servicios y modelos; relación entre `app.js` e `index.js`.
+- Configuración mediante variables de entorno y manejo cuidadoso de secretos.
+
+El PDF también presenta middleware y manejo centralizado de errores. El mini proyecto anterior ya registra el uso de middleware de autorización para JWT; la explicación general de middleware queda como tema siguiente, sin registrar práctica adicional en esta nota. Consulta la [nota de Express.js](../../../../docs/aprendizaje/2026-11-10-express-js.md).
