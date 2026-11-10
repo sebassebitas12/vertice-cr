@@ -236,3 +236,5 @@ El mini proyecto anterior ya registra el uso de middleware de autorización para
 - Registro de solicitudes con método, ruta, código y duración; middleware de seguridad, CORS, límite de peticiones y compresión como ejemplos de terceros del material.
 
 - Práctica adicional: API de tareas en memoria con logger, autenticación mediante tokens fijos de demostración, autorización por rol, validación, respuesta 404 y manejador central; se verificaron los ocho casos del enunciado.
+
+La práctica se documenta en la [nota de aprendizaje](../../../../docs/aprendizaje/2026-11-10-express-middleware.md) y el [registro](../../../../docs/practicas/17-middlewares-nodejs.md). El código vive en una carpeta independiente; no se modificó el producto Vértice.
