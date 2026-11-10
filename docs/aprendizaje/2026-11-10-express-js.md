@@ -32,5 +32,5 @@ No se reportaron errores de la práctica de Express en el material compartido.
 ## Siguiente paso
 Continuar con el tema que indique el profesor y practicar las rutas según el ejercicio de clase.
 
-## Tema pendiente
-El PDF también presenta middleware y manejo centralizado de errores. El mini proyecto anterior ya registra el uso de middleware de autorización para JWT; la explicación general de middleware sigue como tema siguiente y no se registra práctica adicional en esta nota.
+## Continuación
+El material posterior sobre middleware, validación y manejo centralizado de errores se registra en la [nota del 2026-11-10](2026-11-10-express-middleware-validacion-errores.md).
