@@ -81,3 +81,45 @@ La revisión debe cubrir los datos reales del catálogo completo, no solo la pri
 - **Selectores terminados:** no dejar desplegables nativos con la presentación por defecto del navegador o del sistema operativo cuando rompan la identidad visual (por ejemplo, lista blanca/azul de Windows dentro de una aplicación oscura). El menú cerrado, abierto, la opción seleccionada, deshabilitada, vacía y filtrada deben tener estilos coherentes y legibles.
 - **Accesibilidad del menú:** todo selector personalizado debe conservar etiqueta visible, foco perceptible, operación con teclado, cierre con Escape, selección entendible para lectores de pantalla y áreas de interacción cómodas. Su lista no debe quedar recortada por modales, contenedores con scroll o capas de la interfaz.
 - **Inspección antes de entregar:** recorrer el catálogo completo o verificarlo con una auditoría automatizada, abrir los desplegables reales y revisar estados normal, abierto, búsqueda sin resultados y selección. Comprobar también formularios, diálogos y tamaños de pantalla representativos. Una compilación exitosa no sustituye esta revisión.
+
+
+---
+
+## 8. Traductor Automático del Pedido "Que no sea genérico"
+
+Cuando Sebastián pida en el prompt *"que no sea genérico"*, *"que no sea básico"* o pida una interfaz interactiva sin dar especificaciones de diseño largas, el agente aplicará **OBLIGATORIAMENTE** estas 4 directrices de ingeniería:
+
+### 1. Prohibidas las interfaces lineales de 2 pasos ("Formulario -> Resultado apilado"):
+- Una interfaz genérica hecha por IA siempre hace lo mismo: un recuadro de subida estático y luego pone la imagen a la izquierda y un bloque de texto o JSON a la derecha en línea recta.
+- En su lugar, construye una **Mesa de Trabajo Interactiva (Interactive Workbench)**:
+  - **Sincronización bidireccional:** Al tocar o pasar el mouse sobre una partida o elemento de la lista, se resalta en el documento o se abre su ficha técnica detallada.
+  - **Capacidad de edición y recálculo en vivo:** El usuario puede ajustar cantidades o valores y ver la matemática recalcularse en tiempo real.
+  - **Botones de acción de negocio:** Botones con consecuencias reales (*"Aprobar y Registrar en BD"*, *"Rechazar por Discrepancia"*, *"Exportar Informe"*).
+
+### 2. Restricciones físicas de paleta (Cero Maquillaje Cliché):
+- **Prohibidos los degradados arcoíris o fondos de color saturados:** La estética por defecto es **Negro Estudio (#09090b / #000000)** con superficies mate grafito (#141417 y #1c1c20).
+- **Una sola familia de color funcional:** Verde esmeralda para validaciones exitosas (#30d158), azul sutil para acciones primarias (#0a84ff), texto blanco de alto contraste (#ffffff).
+
+### 3. Escala tipográfica accesible (Prohibido el texto diminuto):
+- **Cuerpo de texto y datos legibles sin lentes:** Mínimo **17px–18px** con interlineado generoso (1.6).
+- **Titulares con presencia:** 32px–40px bold.
+- **Prohibido el texto en gris oscuro sobre fondo negro:** El texto secundario va en #d4d4d8 o #a1a1aa, nunca en grises ilegibles.
+
+### 4. Comunicación humana del Agente (Cero JSON crudo):
+- El agente emite sus dictámenes y conclusiones en **prosa ejecutiva y lenguaje natural**, explicando en español claro qué auditó, qué acciones tomó con sus herramientas y si los cálculos son correctos.
+
+---
+
+## 9. Prohibición Estricta del "Patrón Vibe-Coding" (La Firma Cliché de la IA)
+
+Cualquier persona identifica una interfaz hecha por IA en medio segundo cuando detecta estos 4 vicios visuales, los cuales quedan **TERMINANTEMENTE PROHIBIDOS**:
+
+1. **PROHIBIDO el punto verde / LED pulsante de adorno:**
+   - No colocar puntos verdes (`w-2 h-2 rounded-full bg-green-500 animate-pulse` o `● ONLINE / AUDITORÍA APROBADA`) al lado de títulos, proveedores o folios. En software nativo serio (Apple Wallet, Archivos de iOS), los estados se comprenden por el flujo y la arquitectura, no con luces de discoteca.
+2. **PROHIBIDOS los "eyebrows" en mayúsculas diminutas flotando arriba de títulos:**
+   - No usar la fórmula cliché `text-xs uppercase tracking-wider text-green-400` encima de un encabezado (`● AUDITORÍA APROBADA`, `— SISTEMA INTELIGENTE`). El título debe sostenerse por su propio peso y presencia tipográfica.
+3. **PROHIBIDOS los subtítulos grises en monospace con puntos medios (`·`):**
+   - No formatear metadatos como `Folio: NV-2026-8942 · 13% IVA · Moneda: USD`. Los datos técnicos se organizan en fichas limpias, tablas estructuradas o etiquetas naturales, no en una línea gris debajo del nombre.
+4. **PROHIBIDAS las píldoras flotantes que presumen tecnología:**
+   - Cero insignias decorativas de *"GPT-4o"*, *"SQLite Synced"* o *"Latencia 0.8s"*. Una herramienta profesional no necesita presumir su infraestructura en la cara del usuario; simplemente ejecuta su función con excelencia.
+
