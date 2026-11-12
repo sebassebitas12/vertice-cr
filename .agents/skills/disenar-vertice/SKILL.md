@@ -47,3 +47,21 @@ La aplicación en `experimentos/stack-mvp/frontend` es **multipágina real (`rea
 - Cero stock falso; todo se fabrica bajo pedido.
 - Toda solicitud sin cotizar ingresa en estado `PENDING_QUOTE`, nunca a precio `$0` ni `₡0`.
 - Base de datos activa en el proyecto de Supabase `srknevopdhujjchwwkbv` (`https://srknevopdhujjchwwkbv.supabase.co`), tablas `public.catalog_products` y `public.quote_requests`.
+
+
+---
+
+## Anexo — Recetas técnicas detalladas (movidas desde `diseno-frontend-sebastian`)
+
+### Onda 3D WebGL del Hero (`Ps3HeroWave.tsx`)
+- **PROHIBIDO hacer ondas 2D tiesas con `<canvas>` 2D (`bezierCurveTo`).**
+- Usar un **shader 3D real en WebGL / Three.js (`ShaderMaterial`)** sobre mallas subdivididas (`PlaneGeometry(28, 5.2, 220, 64)`).
+- Desplazar vértices con ondas armónicas suaves en `Y` y `Z` y calcular iluminación **Fresnel** (`pow(1.0 - abs(dot(normal, viewDir)), 3.2)`) en el fragment shader con mezcla aditiva (`THREE.AdditiveBlending`). Así el velo es translúcido en el centro y brilla con luz sedosa en los pliegues, acompañado de micropartículas con desenfoque de profundidad.
+- El efecto vive **solo en el Hero**; al bajar, el fondo es `#161618` limpio (sin cuadrículas ni ruido tipo lija).
+
+### Visor CAD en despiece (`ExplodedStlViewer.tsx`)
+- **PROHIBIDO dibujar objetos 3D falsos en 2D/SVG o cargar mallas STL crudas:** si pasas un STL teselado crudo por `EdgesGeometry`, se llena de líneas internas diagonales que parecen una telaraña sucia.
+- Receta "10/10":
+  1. Sub-piezas con **geometría CAD limpia por extrusión (`THREE.ExtrudeGeometry` con `THREE.Shape` y `holes`)**.
+  2. `MeshStandardMaterial({ depthWrite: true, polygonOffset: true, opacity: 0.90 })` (cuerpo gris humo `#27272c` + piezas clave en naranja `#c84b12` / `#ff6a1f`) y aristas nítidas `EdgesGeometry(geo, 22)`.
+  3. Exhibir objetos deseables (MicroDuck Robot, Cutter Retráctil EDC F1, Estuche Técnico Impermeable), nunca cajas vacías ni piezas abstractas.
