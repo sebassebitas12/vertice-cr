@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anteproyecto Oficial v2.0 — Vértice CR · Proyecto Final Full Stack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+
+    :root {
+      --bg: #161618;
+      --surface: #1e1e22;
+      --surface-hi: #25252b;
+      --control: #2d2d36;
+      --text: #f5f4f1;
+      --muted: #bcbab4;
+      --dim: #8a8883;
+      --orange: #ff6a1f;
+      --orange-soft: rgba(255, 106, 31, 0.14);
+      --blue: #38bdf8;
+      --green: #34d399;
+      --amber: #f59e0b;
+      --purple: #c084fc;
+      --divider: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #0d0d0f;
+      color: var(--text);
+      font-family: 'Chakra Petch', 'Segoe UI', sans-serif;
+      font-size: 12px;
+      line-height: 1.44;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      margin: 0 auto;
+      padding: 13mm 14mm 16mm;
+      background: var(--bg);
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page:last-child { page-break-after: auto; break-after: auto; }
+
+    .cad-grid {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 12mm 12mm;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 3.5mm;
+      margin-bottom: 4.5mm;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .page-header__left { display: flex; align-items: center; gap: 9px; }
+    .page-header__bar { width: 22px; height: 3px; background: var(--orange); border-radius: 2px; }
+    .page-header__kicker { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 0.07em; text-transform: uppercase; }
+    .page-header__logo { height: 18px; width: auto; }
+
+    .page-footer {
+      position: absolute;
+      left: 14mm;
+      right: 14mm;
+      bottom: 7.5mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 2.8mm;
+      border-top: 1px solid var(--divider);
+      font-size: 9.2px;
+      color: var(--dim);
+    }
+    .page-footer strong { color: var(--orange); }
+
+    h1 { margin: 0; font-size: 26px; font-weight: 700; line-height: 1.08; }
+    h2 { margin: 0 0 6px; font-size: 18.5px; font-weight: 700; line-height: 1.15; }
+    h3 { margin: 0 0 4px; font-size: 13px; font-weight: 700; color: var(--text); }
+    p { margin: 0 0 6px; color: var(--muted); }
+    .accent { color: var(--orange); }
+
+    .lead { font-size: 12.2px; color: var(--muted); margin-bottom: 8px; }
+    .card { background: var(--surface); border-radius: 11px; padding: 10px 12px; }
+    .card-hi { background: var(--surface-hi); border-radius: 11px; padding: 10px 12px; }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+
+    .pill {
+      display: inline-flex; align-items: center; padding: 2px 8px;
+      border-radius: 999px; font-size: 9.5px; font-weight: 700;
+      background: var(--control); color: var(--text); white-space: nowrap;
+    }
+    .pill-orange { background: var(--orange-soft); color: var(--orange); }
+    .pill-blue { background: rgba(56, 189, 248, 0.16); color: var(--blue); }
+    .pill-green { background: rgba(52, 211, 153, 0.16); color: var(--green); }
+    .pill-amber { background: rgba(245, 158, 11, 0.16); color: var(--amber); }
+    .pill-purple { background: rgba(192, 132, 252, 0.16); color: var(--purple); }
+
+    table.data { width: 100%; border-collapse: collapse; font-size: 10.3px; }
+    table.data th, table.data td {
+      text-align: left;
+      padding: 5px 6.5px;
+      border-bottom: 1px solid var(--divider);
+      vertical-align: top;
+      line-height: 1.32;
+    }
+    table.data th {
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 9.2px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    table.data td { color: var(--muted); }
+    table.data td strong { color: var(--text); }
+
+    table.compact { font-size: 9.4px; }
+    table.compact th, table.compact td { padding: 3.6px 5.5px; line-height: 1.25; }
+    table.compact .pill { font-size: 8.6px; padding: 1.5px 6px; }
+
+    /* Cover */
+    .cover-wrap { flex: 1; display: flex; flex-direction: column; justify-content: space-between; position: relative; z-index: 2; }
+    .cover-wave { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+    .cover-logo { display: inline-block; padding: 14px 22px; border-radius: 16px; background: rgba(30, 30, 34, 0.88); margin-bottom: 18px; }
+    .cover-logo img { height: 64px; display: block; }
+    .cover-title { font-size: 40px; line-height: 1.03; font-weight: 700; margin: 0 0 12px; }
+    .cover-sub { font-size: 14.5px; color: var(--muted); max-width: 540px; margin: 0 0 16px; }
+    .cover-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 14px; }
+    .cover-stat { background: var(--surface); border-radius: 10px; padding: 10px 12px; }
+    .cover-stat strong { display: block; font-size: 17px; color: var(--orange); font-family: 'JetBrains Mono', monospace; }
+    .cover-stat span { font-size: 10px; color: var(--muted); }
+    .cover-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 14px; padding-top: 14px; border-top: 1px solid var(--divider); }
+    .cover-meta div span { display: block; font-size: 9px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.07em; }
+    .cover-meta div strong { display: block; font-size: 11.8px; color: var(--text); margin-top: 2px; }
+
+    /* TOC */
+    .toc-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 3.6px 10px; border-radius: 7px; background: var(--surface);
+      margin-bottom: 3px; font-size: 10.6px;
+    }
+    .toc-row strong { color: var(--text); }
+    .toc-row em { font-style: normal; color: var(--orange); font-family: 'JetBrains Mono', monospace; margin-right: 9px; font-weight: 700; }
+
+    /* Objective callout */
+    .obj-main {
+      border-left: 4px solid var(--orange);
+      background: var(--orange-soft);
+      border-radius: 0 12px 12px 0;
+      padding: 12px 15px;
+      font-size: 12.8px;
+      color: var(--text);
+      margin-bottom: 11px;
+    }
+
+    .obj-list { display: grid; gap: 7px; }
+    .obj-item { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; background: var(--surface); border-radius: 10px; padding: 9px 11px; font-size: 11.8px; }
+    .obj-num { width: 25px; height: 25px; border-radius: 7px; background: var(--orange-soft); color: var(--orange); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 11.5px; display: flex; align-items: center; justify-content: center; }
+
+    /* Mockup frames */
+    .mock-desktop { background: #121215; border-radius: 10px; padding: 9px 11px; border: 1px solid var(--divider); }
+    .mock-phone { background: #121215; border-radius: 14px; padding: 9px; border: 2px solid #2d2d36; }
+    .mock-bar { display: flex; justify-content: space-between; align-items: center; padding-bottom: 5px; margin-bottom: 7px; border-bottom: 1px solid var(--divider); font-size: 9px; color: var(--muted); }
+    .milestone-row td { background: rgba(255, 106, 31, 0.14) !important; color: var(--text) !important; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PÁGINA 1: PORTADA ==================== -->
+  <section class="page cad-grid">
+    <svg class="cover-wave" viewBox="0 0 794 1123" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="ag1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ff6a1f" stop-opacity="0.02" />
+          <stop offset="52%" stop-color="#ff6a1f" stop-opacity="0.26" />
+          <stop offset="100%" stop-color="#ff6a1f" stop-opacity="0.04" />
+        </linearGradient>
+      </defs>
+      <path d="M-40 320 C 190 240, 440 420, 840 295" fill="none" stroke="url(#ag1)" stroke-width="44" />
+      <path d="M-40 365 C 220 295, 470 460, 840 350" fill="none" stroke="rgba(245,244,241,0.08)" stroke-width="16" />
+    </svg>
+
+    <div class="cover-wrap">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:10px; border-bottom:1px solid var(--divider);">
+        <span class="pill pill-orange">Anteproyecto Oficial v2.0 · Proyecto Final Full Stack</span>
+        <span class="mono" style="font-size:10px; color:var(--muted);">FWD COSTA RICA · NOVIEMBRE 2026</span>
+      </div>
+
+      <div style="margin:auto 0;">
+        <div class="cover-logo">
+          <img src="../../../assets/brand/vertice-logo-3d.png" alt="Vértice CR" />
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+          <span style="width:34px; height:3px; background:var(--orange); display:inline-block;"></span>
+          <span style="font-size:11.5px; font-weight:700; color:var(--orange); letter-spacing:0.08em; text-transform:uppercase;">Plataforma Integral de Manufactura 3D y Filamentos</span>
+        </div>
+        <h1 class="cover-title">Anteproyecto<br /><span class="accent">Vértice CR</span></h1>
+        <p class="cover-sub">
+          Sistema web full stack para fabricación de piezas 3D bajo pedido, solicitudes personalizadas con fotos asistidas por ocho agentes de IA, venta de filamentos e insumos con inventario real, pagos PayPal Sandbox + SINPE, autenticación avanzada, automatizaciones en n8n y gobernanza de datos (Ley N.° 8968).
+        </p>
+
+        <div class="cover-stats">
+          <div class="cover-stat"><strong>21 Tablas</strong><span>PostgreSQL 3FN + Diccionario</span></div>
+          <div class="cover-stat"><strong>8 Agentes</strong><span>IA en backend con control humano</span></div>
+          <div class="cover-stat"><strong>3 Flujos</strong><span>n8n + Hacienda + PayPal Sandbox</span></div>
+          <div class="cover-stat"><strong>18 Vistas</strong><span>4 Roles · PC y móvil 390 px</span></div>
+        </div>
+      </div>
+
+      <div class="cover-meta">
+        <div><span>Estudiante</span><strong>Sebastián Flores Miranda</strong></div>
+        <div><span>Grupo / Modalidad</span><strong>Desamparados · Individual</strong></div>
+        <div><span>Profesor</span><strong>Barry Vega</strong></div>
+        <div><span>Programa</span><strong>FWD Costa Rica · Desarrollo Web Full Stack</strong></div>
+        <div><span>Fecha de entrega</span><strong>23 de noviembre de 2026</strong></div>
+        <div><span>Avances obligatorios</span><strong>Jueves 03/12 y Miércoles 09/12/2026</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 2: RESUMEN EJECUTIVO DE NEGOCIO ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">00 · Resumen Ejecutivo y Propuesta de Valor de Negocio</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>Resumen ejecutivo: ¿Qué es Vértice CR y por qué es una solución de negocio?</h2>
+
+    <div class="obj-main" style="margin-bottom:10px; padding:10px 14px; font-size:12px;">
+      <strong style="display:block; color:var(--orange); font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:3px;">¿Qué es Vértice CR? (en una frase)</strong>
+      Es una plataforma costarricense que une en un solo lugar un <strong>taller de impresión 3D bajo pedido</strong> y una <strong>tienda real de filamentos e insumos</strong>, diseñada tanto para personas que nunca han usado una impresora 3D como para quienes ya tienen una.
+    </div>
+
+    <h3 style="margin-bottom:6px;">El problema real que resuelve</h3>
+    <div class="grid-3" style="margin-bottom:10px;">
+      <div class="card">
+        <span class="pill pill-orange" style="margin-bottom:5px;">1. Para quien necesita una pieza</span>
+        <p style="margin:0; font-size:10.7px; line-height:1.42;">Mucha gente ocupa un repuesto quebrado, un soporte o un accesorio a medida, pero no sabe de materiales ni de medidas técnicas. Cotizar por mensajes sueltos se vuelve largo, confuso y muchas ventas se pierden.</p>
+      </div>
+      <div class="card">
+        <span class="pill pill-blue" style="margin-bottom:5px;">2. Para quien ya tiene impresora</span>
+        <p style="margin:0; font-size:10.7px; line-height:1.42;">En Costa Rica cuesta ver precios claros en colones/dólares y existencias reales de filamentos y repuestos sin estar preguntando por chat.</p>
+      </div>
+      <div class="card">
+        <span class="pill pill-amber" style="margin-bottom:5px;">3. Para el taller (por dentro)</span>
+        <p style="margin:0; font-size:10.7px; line-height:1.42;">Llevar pedidos personalizados, cotizaciones, stock de bobinas, facturas de proveedores y seguimiento a mano consume demasiado tiempo, provoca errores de precio y deja desprotegidos los datos de los clientes.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:10px; padding:11px 13px;">
+      <h3 style="margin-bottom:7px;">Por qué es una solución real de negocio (y no solo una tienda más)</h3>
+      <div class="grid-2" style="gap:9px;">
+        <div class="card-hi" style="padding:9px 11px;">
+          <strong style="display:block; color:var(--orange); font-size:11px; margin-bottom:3px;">Dos caminos claros desde el inicio</strong>
+          <p style="margin:0 0 4px; font-size:10.5px; line-height:1.4;"><strong>«Necesito una pieza»:</strong> elegís diseños ya probados o subís fotos de lo que se te quebró; un asistente te hace preguntas simples en español normal (nunca inventa medidas ni precios) para que el taller te mande una cotización formal.</p>
+          <p style="margin:0; font-size:10.5px; line-height:1.4;"><strong>«Tengo impresora»:</strong> comprás filamentos e insumos con stock real, tipo de cambio actualizado automáticamente cada día y pago directo (PayPal de prueba o SINPE Móvil).</p>
+        </div>
+        <div style="display:grid; gap:7px;">
+          <div class="card-hi" style="padding:8px 11px;">
+            <strong style="display:block; color:var(--blue); font-size:11px; margin-bottom:2px;">Operación ordenada para crecer</strong>
+            <p style="margin:0; font-size:10.5px; line-height:1.38;">El taller entra y ve de primero <strong>«Qué atender hoy»</strong> (solicitudes nuevas, cotizaciones pendientes y filamentos por agotarse).</p>
+          </div>
+          <div class="card-hi" style="padding:8px 11px;">
+            <strong style="display:block; color:var(--purple); font-size:11px; margin-bottom:2px;">Inteligencia artificial con criterio comercial</strong>
+            <p style="margin:0; font-size:10.5px; line-height:1.38;">8 agentes le ahorran trabajo repetitivo al negocio (guiar clientes, preparar borradores de cotización, leer facturas de proveedores, redactar seguimientos y redes, analizar ventas y orientar sobre privacidad), pero <strong>una persona siempre tiene la última palabra</strong>.</p>
+          </div>
+          <div class="card-hi" style="padding:8px 11px;">
+            <strong style="display:block; color:var(--green); font-size:11px; margin-bottom:2px;">Seriedad y confianza</strong>
+            <p style="margin:0; font-size:10.5px; line-height:1.38;">Roles separados (cliente, taller, administrador y auditor), seguridad real de cuentas y cumplimiento claro de privacidad y eliminación de datos bajo la <strong>Ley N.° 8968</strong> de Costa Rica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-hi" style="border-left:4px solid var(--orange); padding:11px 14px;">
+      <span class="pill pill-orange" style="margin-bottom:5px;">Versión hablada de 30 segundos (síntesis para revisión del proyecto)</span>
+      <p style="margin:0; font-size:11.3px; color:var(--text); line-height:1.48; font-style:italic;">
+        «Vértice CR es la plataforma de un negocio real de impresión 3D y venta de filamentos en Costa Rica. Resuelve dos problemas a la vez: por fuera, permite que cualquier persona sin experiencia suba fotos de una pieza que necesita y reciba guía clara para cotizarla, mientras quien ya tiene impresora compra filamentos con stock real, tipo de cambio diario de Hacienda y pago por PayPal o SINPE. Y por dentro, ordena todo el taller con un panel de prioridades, automatizaciones, seguridad avanzada por roles y ocho agentes de IA que ayudan a cotizar, leer facturas y analizar el negocio sin quitarle el control al dueño.»
+      </p>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 02</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 3: ÍNDICE E INTRODUCCIÓN ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">01 · Índice e Introducción</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>Índice de contenidos</h2>
+    <div style="margin-bottom:8px;">
+      <div class="toc-row"><span><em>00</em><strong>Resumen ejecutivo: qué es Vértice CR y por qué es una solución real de negocio</strong></span><span class="mono">Pág. 02</span></div>
+      <div class="toc-row"><span><em>01</em><strong>Introducción: contexto del negocio, problema y público objetivo</strong></span><span class="mono">Pág. 03</span></div>
+      <div class="toc-row"><span><em>02</em><strong>Objetivos: objetivo general y cinco objetivos específicos</strong></span><span class="mono">Pág. 04</span></div>
+      <div class="toc-row"><span><em>03</em><strong>Desarrollo: líneas de negocio, arquitectura general y matriz de 4 roles</strong></span><span class="mono">Pág. 05</span></div>
+      <div class="toc-row"><span><em>04</em><strong>Base de datos SQL (ER 3FN · 21 tablas), gobernanza Ley 8968 y Diccionario de Datos</strong></span><span class="mono">Pág. 06–08</span></div>
+      <div class="toc-row"><span><em>05</em><strong>Seguridad, autenticación avanzada, arquitectura Express y variables .env</strong></span><span class="mono">Pág. 09</span></div>
+      <div class="toc-row"><span><em>06</em><strong>Los 8 agentes de IA (objetivo, modelo/proveedor, entradas, salidas y privacidad)</strong></span><span class="mono">Pág. 10</span></div>
+      <div class="toc-row"><span><em>07</em><strong>APIs externas reales, 3 workflows de n8n, pruebas unitarias Jest y flujo GitHub</strong></span><span class="mono">Pág. 11</span></div>
+      <div class="toc-row"><span><em>08</em><strong>Requerimientos funcionales codificados (RF-01 a RF-22)</strong></span><span class="mono">Pág. 12–13</span></div>
+      <div class="toc-row"><span><em>09</em><strong>Requerimientos no funcionales codificados (RNF-01 a RNF-12)</strong></span><span class="mono">Pág. 13</span></div>
+      <div class="toc-row"><span><em>10</em><strong>Historias de usuario (HU-01 a HU-14) con criterios de aceptación y trazabilidad</strong></span><span class="mono">Pág. 14–15</span></div>
+      <div class="toc-row"><span><em>11</em><strong>Arquitectura de 18 pantallas (cobertura 2.2), anexo de mockups y Libro de Marca</strong></span><span class="mono">Pág. 16</span></div>
+      <div class="toc-row"><span><em>12</em><strong>Cronograma día por día hacia el 03/12 y 09/12 de 2026</strong></span><span class="mono">Pág. 17</span></div>
+    </div>
+
+    <h2>1. Introducción</h2>
+    <p class="lead">
+      <strong>Vértice CR</strong> es un emprendimiento costarricense de manufactura aditiva FDM y abastecimiento de insumos para impresión 3D. Este anteproyecto define el problema real, la arquitectura de software, el modelo de datos, la seguridad avanzada y el plan de ejecución para construir y desplegar el sistema completo en producción.
+    </p>
+
+    <div class="grid-2" style="margin-bottom:7px;">
+      <div class="card">
+        <h3>El problema que enfrentan los clientes</h3>
+        <p style="margin:0; font-size:10.6px;">Personas, hogares y pequeños negocios necesitan piezas funcionales concretas (repuestos quebrados, soportes a medida o prototipos), pero <strong>desconocen el mundo 3D</strong>: no saben qué polímero aguanta sol, calor o esfuerzo mecánico, ni cómo explicar medidas. Al cotizar por chats informales, las consultas se enredan y se pierden. Por otro lado, quienes sí tienen impresora buscan filamentos e insumos en Costa Rica con stock real y equivalencia clara entre colones y dólares.</p>
+      </div>
+      <div class="card">
+        <h3>El problema operativo del taller</h3>
+        <p style="margin:0; font-size:10.6px;">Atender pedidos personalizados y ventas de filamento desde mensajería suelta consume horas repitiendo preguntas básicas, genera cotizaciones a ojo sin costo real, provoca descontrol del inventario de bobinas, deja facturas de proveedores sin registrar y debilita el seguimiento de clientes. Además, recopilar datos personales sin consentimiento auditable incumple la <strong>Ley N.° 8968</strong> de Costa Rica.</p>
+      </div>
+    </div>
+
+    <div class="card-hi" style="padding:9px 12px;">
+      <h3>A quién va dirigido Vértice CR (dos caminos desde portada)</h3>
+      <div class="grid-2" style="margin-top:4px;">
+        <div>
+          <span class="pill pill-orange" style="margin-bottom:3px;">Camino 1 · «Necesito una pieza»</span>
+          <p style="margin:0; font-size:10.6px;">Clientes finales, técnicos y pymes que buscan diseños probados bajo pedido o desean <strong>subir fotos de lo que necesitan</strong> para recibir guía clara sin tecnicismos y una cotización formal editable.</p>
+        </div>
+        <div>
+          <span class="pill pill-blue" style="margin-bottom:3px;">Camino 2 · «Tengo impresora»</span>
+          <p style="margin:0; font-size:10.6px;">Makers, estudiantes y talleres locales que compran filamentos (<span class="mono">PLA, PETG, ASA, ABS, TPU</span>), boquillas, láminas PEI y repuestos con precios en <span class="mono">₡</span>, referencia en <span class="mono">$</span> y stock verificado.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 03</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 4: OBJETIVOS ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">02 · Objetivo General y Objetivos Específicos</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>2. Objetivos del proyecto</h2>
+
+    <h3>2.1 Objetivo general</h3>
+    <div class="obj-main">
+      <strong>Desarrollar</strong> un sistema web full stack seguro, responsivo y desplegado en una URL pública para <strong>Vértice CR</strong>, que unifique la venta de filamentos e insumos, el catálogo de piezas 3D bajo pedido, la recepción de solicitudes personalizadas con fotografías asistidas por ocho agentes de inteligencia artificial, integraciones con APIs reales y automatizaciones en n8n bajo los principios de la Ley N.° 8968.
+    </div>
+
+    <h3 style="margin-bottom:8px;">2.2 Objetivos específicos</h3>
+    <div class="obj-list" style="margin-bottom:14px;">
+      <div class="obj-item">
+        <span class="obj-num">01</span>
+        <div><strong>Modelar e implementar</strong> una base de datos SQL relacional normalizada en tercera forma normal (PostgreSQL en Supabase, 21 tablas) gestionada mediante <strong>Sequelize ORM</strong>, con diccionario de datos, scripts de creación (<span class="mono">schema.sql</span>) y datos de prueba (<span class="mono">seed.sql</span>) que cubran seguridad por roles, sesiones, catálogo, inventario real, solicitudes con fotos, cotizaciones, pagos, bitácoras de IA y gobernanza.</div>
+      </div>
+      <div class="obj-item">
+        <span class="obj-num">02</span>
+        <div><strong>Construir</strong> una API REST en Node.js y Express organizada por capas (<span class="mono">config, models, controllers, routes, middlewares, services, tests</span>) con <strong>Sequelize ORM</strong> (prevención de SQL Injection y transacciones ACID), autenticación avanzada (<span class="mono">bcrypt</span>, Access JWT corto, Refresh Tokens rotativos en cookie <span class="mono">HttpOnly</span>, recuperación segura), defensa OWASP (rate-limiting, Helmet, CORS estricto, anti-IDOR, anti-Mass Assignment), validación Zod y autorización por cuatro roles.</div>
+      </div>
+      <div class="obj-item">
+        <span class="obj-num">03</span>
+        <div><strong>Implementar</strong> ocho agentes de inteligencia artificial en <span class="mono">backend/services/</span> —con objetivo, modelo/proveedor, entradas, salidas y protección de datos definidos— siempre bajo supervisión humana obligatoria y registro auditable en <span class="mono">ai_agent_logs</span>.</div>
+      </div>
+      <div class="obj-item">
+        <span class="obj-num">04</span>
+        <div><strong>Integrar</strong> APIs externas reales desde el servidor —tipo de cambio oficial diario (tarea programada en Express) y consulta de contribuyentes del Ministerio de Hacienda de Costa Rica, más pagos de prueba mediante PayPal Orders v2 Sandbox (junto con comprobantes SINPE Móvil)— y exportar tres workflows en n8n que automaticen envío transaccional de correos/alertas, recepción inteligente de correos entrantes (clientes y facturas XML/PDF) y bajas de cuenta.</div>
+      </div>
+      <div class="obj-item">
+        <span class="obj-num">05</span>
+        <div><strong>Diseñar, probar y desplegar</strong> una interfaz web en React (escritorio y móvil <span class="mono">390 px</span>) fiel al Libro de Marca «La Planta», respaldada por pruebas unitarias con Jest, control de versiones por ramas en GitHub, páginas de gobernanza (Ley N.° 8968) y Plan de Producción verificado sobre URL pública HTTPS.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Reglas comerciales y técnicas no negociables</h3>
+      <div class="grid-3" style="margin-top:6px;">
+        <div><strong style="color:var(--orange);">Honestidad técnica</strong><p style="margin:3px 0 0; font-size:11px;">Piezas 3D estándar muestran precio base referencial; toda pieza a medida o con cambio de tamaño entra sin precio fijo hasta revisión humana del taller.</p></div>
+        <div><strong style="color:var(--orange);">Pagos reales en prueba</strong><p style="margin:3px 0 0; font-size:11px;">PayPal Sandbox (Orders v2 desde backend, convirtiendo ₡ → USD con tasa oficial de Hacienda) + SINPE Móvil con comprobante validado.</p></div>
+        <div><strong style="color:var(--orange);">Cuenta para operar</strong><p style="margin:3px 0 0; font-size:11px;">Navegar es libre; comprar o enviar solicitud exige cuenta con aceptación registrada de privacidad y términos (Ley N.° 8968).</p></div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 04</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 5: DESARROLLO, ROLES Y ARQUITECTURA ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">03 · Desarrollo de la Solución y Arquitectura</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>3. Desarrollo de la solución</h2>
+    <p class="lead">
+      El sistema se organiza en un frontend modular en <strong>React + Vite + TypeScript</strong> que consume exclusivamente una API REST propia en <strong>Node.js + Express</strong>. Ninguna credencial de base de datos, IA, Hacienda, PayPal ni n8n se expone al navegador.
+    </p>
+
+    <div class="card" style="padding:11px; margin-bottom:10px;">
+      <h3 style="margin-bottom:5px;">Arquitectura general del sistema y relación entre componentes</h3>
+      <svg viewBox="0 0 680 225" width="100%" height="202" aria-label="Diagrama de arquitectura Vértice CR">
+        <rect x="0" y="0" width="680" height="225" rx="8" fill="#141417" />
+        <rect x="16" y="32" width="144" height="160" rx="10" fill="#1e1e22" stroke="#ff6a1f" stroke-width="1.5" />
+        <text x="88" y="54" fill="#ff6a1f" font-size="11" font-weight="700" text-anchor="middle">FRONTEND (REACT)</text>
+        <text x="88" y="72" fill="#f5f4f1" font-size="9.5" text-anchor="middle">Vercel · HTTPS</text>
+        <text x="88" y="95" fill="#bcbab4" font-size="9" text-anchor="middle">• Portada (Hero 3D)</text>
+        <text x="88" y="111" fill="#bcbab4" font-size="9" text-anchor="middle">• Piezas 3D + Filamentos</text>
+        <text x="88" y="127" fill="#bcbab4" font-size="9" text-anchor="middle">• Pedir con foto + STL</text>
+        <text x="88" y="143" fill="#bcbab4" font-size="9" text-anchor="middle">• Panel Taller / Admin</text>
+        <text x="88" y="159" fill="#bcbab4" font-size="9" text-anchor="middle">• Auditoría y Ley 8968</text>
+        <text x="88" y="177" fill="#38bdf8" font-size="8.5" text-anchor="middle">PC + Móvil 390 px</text>
+
+        <line x1="160" y1="112" x2="196" y2="112" stroke="#ff6a1f" stroke-width="2" />
+        <polygon points="196,107 206,112 196,117" fill="#ff6a1f" />
+        <text x="181" y="102" fill="#bcbab4" font-family="JetBrains Mono" font-size="6.6" text-anchor="middle">JWT+Cookie</text>
+
+        <rect x="206" y="18" width="224" height="188" rx="10" fill="#1e1e22" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" />
+        <text x="318" y="38" fill="#f5f4f1" font-size="11" font-weight="700" text-anchor="middle">BACKEND API (NODE + EXPRESS)</text>
+        <text x="318" y="52" fill="#ff6a1f" font-size="9" text-anchor="middle">Render / Railway · Capas + Pruebas Jest</text>
+        <rect x="218" y="62" width="200" height="25" rx="6" fill="#25252b" />
+        <text x="318" y="78" fill="#f5f4f1" font-size="7.7" text-anchor="middle">routes/ → middlewares/ (Helmet, RateLimit, JWT, Zod)</text>
+        <rect x="218" y="93" width="200" height="24" rx="6" fill="#25252b" />
+        <text x="318" y="109" fill="#f5f4f1" font-size="9" text-anchor="middle">controllers/ (orquestación HTTP y errores)</text>
+        <rect x="218" y="123" width="200" height="33" rx="6" fill="rgba(255,106,31,0.16)" stroke="#ff6a1f" stroke-width="1" />
+        <text x="318" y="137" fill="#ff6a1f" font-size="8.4" font-weight="700" text-anchor="middle">services/ (8 Agentes + Hacienda + PayPal)</text>
+        <text x="318" y="149" fill="#bcbab4" font-size="8" text-anchor="middle">Negocio, conversión ₡→$, visión, webhooks</text>
+        <rect x="218" y="162" width="200" height="28" rx="6" fill="#25252b" />
+        <text x="318" y="180" fill="#f5f4f1" font-size="8.4" text-anchor="middle">models/ + config/ (Sequelize ORM · 21 tablas + .env)</text>
+
+        <line x1="430" y1="52" x2="472" y2="52" stroke="#34d399" stroke-width="1.8" />
+        <line x1="430" y1="112" x2="472" y2="112" stroke="#38bdf8" stroke-width="1.8" />
+        <line x1="430" y1="172" x2="472" y2="172" stroke="#c084fc" stroke-width="1.8" />
+
+        <rect x="474" y="18" width="190" height="60" rx="9" fill="#1e1e22" stroke="#34d399" stroke-width="1.2" />
+        <text x="569" y="36" fill="#34d399" font-size="10" font-weight="700" text-anchor="middle">SUPABASE (SQL + STORAGE)</text>
+        <text x="569" y="51" fill="#bcbab4" font-size="8.7" text-anchor="middle">PostgreSQL 3FN · 21 tablas</text>
+        <text x="569" y="65" fill="#bcbab4" font-size="8.7" text-anchor="middle">Fotos cliente, STL y comprobantes</text>
+
+        <rect x="474" y="85" width="190" height="55" rx="9" fill="#1e1e22" stroke="#38bdf8" stroke-width="1.2" />
+        <text x="569" y="102" fill="#38bdf8" font-size="10" font-weight="700" text-anchor="middle">APIs EXTERNAS REALES</text>
+        <text x="569" y="117" fill="#bcbab4" font-size="8.6" text-anchor="middle">Hacienda CR (Tipo cambio + Cédula)</text>
+        <text x="569" y="130" fill="#bcbab4" font-size="8.6" text-anchor="middle">PayPal Orders v2 Sandbox · LLM/Visión</text>
+
+        <rect x="474" y="148" width="190" height="58" rx="9" fill="#1e1e22" stroke="#c084fc" stroke-width="1.2" />
+        <text x="569" y="166" fill="#c084fc" font-size="10" font-weight="700" text-anchor="middle">3 WORKFLOWS EN n8n</text>
+        <text x="569" y="180" fill="#bcbab4" font-size="8.5" text-anchor="middle">1) Envío correos · 2) Recepción correos</text>
+        <text x="569" y="194" fill="#bcbab4" font-size="8.5" text-anchor="middle">3) Eliminación de cuenta (Ley 8968)</text>
+      </svg>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:9px;">
+      <div class="card">
+        <span class="pill pill-orange" style="margin-bottom:4px;">Línea 1 · Piezas 3D estándar</span>
+        <p style="margin:0; font-size:10.8px;">Diseños probados en planta fabricados bajo pedido. Muestran precio base en <span class="mono">₡</span> y equivalente <span class="mono">$</span>. Sin cambios se compran directo; si piden otra medida pasa a cotización.</p>
+      </div>
+      <div class="card">
+        <span class="pill pill-purple" style="margin-bottom:4px;">Línea 2 · A medida con fotos</span>
+        <p style="margin:0; font-size:10.8px;">Hasta 4 fotos (<span class="mono">JPG/PNG/WEBP</span>, máx. 5 MB) + 1 archivo <span class="mono">.STL/.3MF</span> opcional. La IA analiza con cautela sin inventar medidas ni precios; si falla visión, el pedido no se bloquea.</p>
+      </div>
+      <div class="card">
+        <span class="pill pill-blue" style="margin-bottom:4px;">Línea 3 · Filamentos e insumos</span>
+        <p style="margin:0; font-size:10.8px;">Filamentos <span class="mono">PLA, PETG, ASA, ABS, TPU</span>, boquillas y láminas PEI con inventario y stock reales. Se agregan al carrito y se pagan con PayPal Sandbox o SINPE Móvil.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom:5px;">Matriz de los 4 roles (acceso en frontend + autorización obligatoria en backend)</h3>
+      <table class="data">
+        <thead><tr><th>Rol</th><th>Acceso principal</th><th>Permisos verificados en servidor</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1. Cliente</strong></td><td>Tienda, Pedir con foto, Mi cuenta, Perfil</td><td>Compra insumos/piezas estándar, crea solicitudes con fotos, acepta/paga sus cotizaciones y ejerce baja Ley 8968. Verificación de propiedad (<span class="mono">ownership</span>): jamás ve datos ajenos.</td></tr>
+          <tr><td><strong>2. Taller / Operación</strong></td><td>Inicio taller, Solicitudes, Inventario, Facturas</td><td>Atiende «Qué atender hoy», pide aclaraciones, prepara/envía cotizaciones, valida comprobantes SINPE, actualiza producción y stock.</td></tr>
+          <tr><td><strong>3. Administrador</strong></td><td>Todos los módulos + Configuración</td><td>Gestiona usuarios y roles, precios, finanzas/costos, aprueba campañas de redes, supervisa los 8 agentes, Hacienda, PayPal y n8n.</td></tr>
+          <tr><td><strong>4. Auditor</strong></td><td>Panel de Auditoría (solo lectura)</td><td>Consulta bitácoras de los 8 agentes, integraciones, workflows n8n, consentimientos y bajas. Cualquier escritura devuelve <span class="mono">HTTP 403</span>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 05</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 6: BASE DE DATOS (ER 3FN) Y GOBERNANZA ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">04 · Modelado de Datos SQL (3FN · 21 Tablas) y Gobernanza</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>4. Base de datos relacional (PostgreSQL · 3FN)</h2>
+    <p class="lead">
+      El esquema relacional separa seguridad y sesiones, operación comercial, cotizaciones, inventario, auditoría de IA y gobernanza en <strong>21 tablas normalizadas en tercera forma normal (3FN)</strong>, con llaves primarias UUID, llaves foráneas explícitas, scripts de migración (<span class="mono">schema.sql</span>) y datos de prueba (<span class="mono">seed.sql</span>).
+    </p>
+
+    <div class="card" style="padding:10px; margin-bottom:9px;">
+      <svg viewBox="0 0 680 198" width="100%" height="184" aria-label="Diagrama Entidad Relación 3FN">
+        <rect x="0" y="0" width="680" height="198" rx="8" fill="#141417" />
+        <rect x="12" y="12" width="156" height="86" rx="8" fill="#1e1e22" stroke="#ff6a1f" stroke-width="1.2" />
+        <text x="90" y="27" fill="#ff6a1f" font-size="9.2" font-weight="700" text-anchor="middle">SEGURIDAD &amp; AUTH (N:M / 1:N)</text>
+        <text x="20" y="42" fill="#f5f4f1" font-family="JetBrains Mono" font-size="8">users (PK id, email, hash)</text>
+        <text x="20" y="55" fill="#bcbab4" font-family="JetBrains Mono" font-size="8">roles · user_roles (N:M)</text>
+        <text x="20" y="68" fill="#38bdf8" font-family="JetBrains Mono" font-size="8">refresh_tokens (FK user)</text>
+        <text x="20" y="81" fill="#38bdf8" font-family="JetBrains Mono" font-size="8">password_reset_tokens</text>
+        <text x="20" y="93" fill="#8a8883" font-size="7.5">Rotación + revocación</text>
+
+        <rect x="12" y="110" width="156" height="76" rx="8" fill="#1e1e22" stroke="#34d399" stroke-width="1.2" />
+        <text x="90" y="126" fill="#34d399" font-size="9.2" font-weight="700" text-anchor="middle">GOBERNANZA (1:N)</text>
+        <text x="20" y="142" fill="#f5f4f1" font-family="JetBrains Mono" font-size="8">legal_consents (FK user)</text>
+        <text x="20" y="156" fill="#bcbab4" font-family="JetBrains Mono" font-size="8">account_deletion_requests</text>
+        <text x="20" y="172" fill="#8a8883" font-size="8">Ley N.° 8968 · anonimización</text>
+
+        <rect x="192" y="12" width="166" height="86" rx="8" fill="#1e1e22" stroke="#c084fc" stroke-width="1.2" />
+        <text x="275" y="27" fill="#c084fc" font-size="9.2" font-weight="700" text-anchor="middle">SOLICITUDES 3D (1:N)</text>
+        <text x="202" y="44" fill="#f5f4f1" font-family="JetBrains Mono" font-size="8.2">quote_requests (FK user)</text>
+        <text x="202" y="60" fill="#bcbab4" font-family="JetBrains Mono" font-size="8.2">request_attachments (foto/STL)</text>
+        <text x="202" y="76" fill="#bcbab4" font-family="JetBrains Mono" font-size="8.2">quotes (version, total_crc)</text>
+        <text x="202" y="90" fill="#8a8883" font-size="7.6">Cotizaciones versionadas #v1</text>
+
+        <rect x="192" y="110" width="166" height="76" rx="8" fill="#1e1e22" stroke="#38bdf8" stroke-width="1.2" />
+        <text x="275" y="126" fill="#38bdf8" font-size="9.2" font-weight="700" text-anchor="middle">ÓRDENES Y PAGOS (1:N)</text>
+        <text x="202" y="142" fill="#f5f4f1" font-family="JetBrains Mono" font-size="8.2">orders (FK user, quote_id?)</text>
+        <text x="202" y="156" fill="#bcbab4" font-family="JetBrains Mono" font-size="8.2">order_items (3D o insumo)</text>
+        <text x="202" y="170" fill="#bcbab4" font-family="JetBrains Mono" font-size="8.2">payments (PayPal / SINPE)</text>
+
+        <rect x="382" y="12" width="146" height="86" rx="8" fill="#1e1e22" stroke="#f59e0b" stroke-width="1.2" />
+        <text x="455" y="27" fill="#f59e0b" font-size="9.2" font-weight="700" text-anchor="middle">CATÁLOGO E INV.</text>
+        <text x="392" y="45" fill="#f5f4f1" font-family="JetBrains Mono" font-size="8.1">products_3d (bajo pedido)</text>
+        <text x="392" y="61" fill="#bcbab4" font-family="JetBrains Mono" font-size="8.1">supplies (stock, price)</text>
+        <text x="392" y="77" fill="#bcbab4" font-family="JetBrains Mono" font-size="8.1">inventory_movements</text>
+        <text x="392" y="91" fill="#8a8883" font-size="7.6">Kardex auditable (1:N)</text>
+
+        <rect x="382" y="110" width="146" height="76" rx="8" fill="#1e1e22" stroke="rgba(255,255,255,0.28)" stroke-width="1.1" />
+        <text x="455" y="126" fill="#f5f4f1" font-size="9.2" font-weight="700" text-anchor="middle">COSTOS Y TASA CR</text>
+        <text x="392" y="142" fill="#f5f4f1" font-family="JetBrains Mono" font-size="8.1">supplier_invoices</text>
+        <text x="392" y="156" fill="#bcbab4" font-family="JetBrains Mono" font-size="8.1">exchange_rates (Hac.)</text>
+        <text x="392" y="170" fill="#bcbab4" font-family="JetBrains Mono" font-size="8.1">campaigns (redes IA)</text>
+
+        <rect x="544" y="12" width="124" height="174" rx="8" fill="#1e1e22" stroke="#ff6a1f" stroke-width="1.1" stroke-dasharray="4 3" />
+        <text x="606" y="32" fill="#ff6a1f" font-size="9.2" font-weight="700" text-anchor="middle">AUDITORÍA IA</text>
+        <text x="554" y="54" fill="#f5f4f1" font-family="JetBrains Mono" font-size="8">ai_agent_logs</text>
+        <text x="554" y="68" fill="#bcbab4" font-size="8">agente, modelo, rol,</text>
+        <text x="554" y="80" fill="#bcbab4" font-size="8">entrada, salida, fecha</text>
+        <text x="554" y="112" fill="#f5f4f1" font-family="JetBrains Mono" font-size="8">n8n_webhook_logs</text>
+        <text x="554" y="126" fill="#bcbab4" font-size="8">workflow, evento,</text>
+        <text x="554" y="138" fill="#bcbab4" font-size="8">HTTP status, reintento</text>
+        <text x="554" y="168" fill="#34d399" font-size="8.2">Solo lectura Auditor</text>
+
+        <line x1="90" y1="98" x2="90" y2="110" stroke="#34d399" stroke-width="1.2" />
+        <line x1="168" y1="50" x2="192" y2="50" stroke="#c084fc" stroke-width="1.2" />
+        <line x1="168" y1="74" x2="192" y2="132" stroke="#38bdf8" stroke-width="1.2" />
+        <line x1="275" y1="98" x2="275" y2="110" stroke="#38bdf8" stroke-width="1.2" />
+        <line x1="358" y1="50" x2="382" y2="50" stroke="#f59e0b" stroke-width="1.2" />
+        <line x1="358" y1="146" x2="382" y2="58" stroke="#f59e0b" stroke-width="1.2" />
+      </svg>
+    </div>
+
+    <div class="card" style="margin-bottom:8px; padding:8px 11px;">
+      <table class="data compact">
+        <thead><tr><th>Grupo</th><th>Tablas (21 en total · 3FN)</th><th>Propósito en el dominio</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Seguridad y Auth (5)</strong></td><td class="mono">users, roles, user_roles, refresh_tokens, password_reset_tokens</td><td>Identidad única, contraseñas <span class="mono">bcrypt</span>, roles N:M, rotación/revocación de sesiones y recuperación temporal.</td></tr>
+          <tr><td><strong>Catálogo e inventario (3)</strong></td><td class="mono">products_3d, supplies, inventory_movements</td><td>Modelos 3D bajo pedido separados de insumos con stock real y trazabilidad de cada movimiento.</td></tr>
+          <tr><td><strong>Solicitudes y ventas (6)</strong></td><td class="mono">quote_requests, request_attachments, quotes, orders, order_items, payments</td><td>Flujo desde fotos/STL del cliente hasta cotización versionada (<span class="mono">#v1</span>), orden y pago PayPal/SINPE.</td></tr>
+          <tr><td><strong>Finanzas y tasa CR (3)</strong></td><td class="mono">supplier_invoices, exchange_rates, campaigns</td><td>Facturas de proveedores leídas por IA, histórico del tipo de cambio de Hacienda y borradores de redes.</td></tr>
+          <tr><td><strong>IA y gobernanza (4)</strong></td><td class="mono">ai_agent_logs, n8n_webhook_logs, legal_consents, account_deletion_requests</td><td>Bitácoras inmutables de los 8 agentes, ejecuciones n8n, consentimiento versionado y bajas Ley 8968.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-hi">
+      <h3>Gobernanza de datos (Ley N.° 8968 de Costa Rica)</h3>
+      <div class="grid-3" style="margin-top:5px; font-size:10.8px;">
+        <div><strong style="color:var(--green);">Consentimiento informado</strong><p style="margin:2px 0 0;">Checkbox obligatorio en registro guardando versión de política, IP resumida y fecha en <span class="mono">legal_consents</span>.</p></div>
+        <div><strong style="color:var(--green);">Transparencia de terceros</strong><p style="margin:2px 0 0;">Política detalla qué datos viajan a proveedores de IA, PayPal Sandbox y Storage, junto con medidas de encriptación y retención.</p></div>
+        <div><strong style="color:var(--green);">Baja y anonimización</strong><p style="margin:2px 0 0;">Desde el perfil, previa confirmación de contraseña, anonimiza datos personales conservando únicamente respaldo contable legal.</p></div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 06</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 7: DICCIONARIO DE DATOS (TABLAS 01 A 10) ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">04.1 · Diccionario de Datos SQL (Tablas 01 a 10)</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>4.1 Diccionario de datos — Seguridad, Catálogo y Solicitudes 3D</h2>
+    <p class="lead">Cada tabla cumple 3FN (sin dependencias transitivas ni grupos repetitivos), utiliza <span class="mono">UUID</span> como llave primaria y marcas de tiempo <span class="mono">TIMESTAMPTZ</span> en UTC.</p>
+
+    <div class="card" style="padding:8px 10px;">
+      <table class="data compact">
+        <thead>
+          <tr>
+            <th style="width:128px;">Tabla</th>
+            <th style="width:270px;">Campos clave y tipos SQL</th>
+            <th style="width:74px;">Relación</th>
+            <th>Propósito funcional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono"><strong>01. users</strong></td>
+            <td class="mono">id UUID PK · full_name VARCHAR(120) · email VARCHAR(160) UNIQUE · password_hash TEXT? · auth_provider VARCHAR(16) ('LOCAL','GOOGLE') · oauth_sub VARCHAR(120) · mfa_enabled BOOLEAN · mfa_secret_enc TEXT · anonymized_at TIMESTAMPTZ</td>
+            <td>1:N con sesiones, órdenes y solicitudes</td>
+            <td>Identidad única (local <span class="mono">bcrypt</span> o Google OIDC), soporte MFA TOTP para Admin/Taller y anonimización Ley 8968.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>02. roles</strong></td>
+            <td class="mono">id SMALLSERIAL PK · code VARCHAR(24) UNIQUE ('cliente','taller','admin','auditor') · label VARCHAR(60)</td>
+            <td>N:M con <span class="mono">users</span></td>
+            <td>Catálogo normalizado de los 4 roles autorizados por el sistema.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>03. user_roles</strong></td>
+            <td class="mono">user_id UUID FK(users) · role_id SMALLINT FK(roles) · assigned_by UUID · assigned_at TIMESTAMPTZ · PK(user_id, role_id)</td>
+            <td>Puente N:M</td>
+            <td>Asigna roles sin duplicar datos y guarda trazabilidad de quién asignó cada permiso.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>04. refresh_tokens</strong></td>
+            <td class="mono">id UUID PK · user_id UUID FK(users) · token_hash TEXT UNIQUE · user_agent VARCHAR(200) · expires_at TIMESTAMPTZ · revoked_at TIMESTAMPTZ</td>
+            <td>N:1 con <span class="mono">users</span></td>
+            <td>Respalda autenticación avanzada: permite rotar Refresh Tokens en cookie <span class="mono">HttpOnly</span> y revocar sesiones.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>05. password_reset_tokens</strong></td>
+            <td class="mono">id UUID PK · user_id UUID FK(users) · token_hash TEXT UNIQUE · expires_at TIMESTAMPTZ · used_at TIMESTAMPTZ</td>
+            <td>N:1 con <span class="mono">users</span></td>
+            <td>Gestiona recuperación segura de contraseña (<span class="mono">RF-03</span>) con un solo uso y expiración de 30 min.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>06. products_3d</strong></td>
+            <td class="mono">id UUID PK · slug VARCHAR(120) UNIQUE · name VARCHAR(140) · category VARCHAR(60) · default_polymer VARCHAR(16) · base_price_crc NUMERIC(12,2) · est_hours NUMERIC(5,2) · image_url TEXT · is_published BOOLEAN</td>
+            <td>1:N con <span class="mono">order_items</span> y <span class="mono">quote_requests</span></td>
+            <td>Modelos 3D probados fabricados bajo pedido. No manejan stock ficticio; muestran precio base referencial.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>07. supplies</strong></td>
+            <td class="mono">id UUID PK · sku VARCHAR(40) UNIQUE · name VARCHAR(140) · supply_type VARCHAR(30) · polymer VARCHAR(16) · color_name VARCHAR(40) · diameter_mm NUMERIC(4,2) · price_crc NUMERIC(12,2) · stock_qty INT · min_stock INT</td>
+            <td>1:N con <span class="mono">inventory_movements</span> y <span class="mono">order_items</span></td>
+            <td>Filamentos e insumos con inventario real, alerta automática de stock bajo y equivalencia diaria en USD.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>08. inventory_movements</strong></td>
+            <td class="mono">id UUID PK · supply_id UUID FK(supplies) · movement_type VARCHAR(20) ('IN','OUT','ADJUST') · qty_delta INT · reference_type VARCHAR(30) · reference_id UUID · actor_id UUID FK(users) · created_at TIMESTAMPTZ</td>
+            <td>N:1 con <span class="mono">supplies</span></td>
+            <td>Kardex completo que explica cada entrada por factura, salida por venta confirmada o ajuste manual.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>09. quote_requests</strong></td>
+            <td class="mono">id UUID PK · code VARCHAR(20) UNIQUE · user_id UUID FK(users) · base_product_id UUID FK(products_3d)? · description TEXT · desired_polymer VARCHAR(20) · dimensions_cm JSONB · ai_notes JSONB · status VARCHAR(30) · created_at TIMESTAMPTZ</td>
+            <td>1:N con adjuntos y <span class="mono">quotes</span></td>
+            <td>Recibe solicitudes personalizadas o modificaciones de catálogo sin precio automático hasta revisión humana.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>10. request_attachments</strong></td>
+            <td class="mono">id UUID PK · request_id UUID FK(quote_requests) · file_kind VARCHAR(16) ('PHOTO','MODEL_3D') · mime_type VARCHAR(60) · size_bytes INT · storage_path TEXT · created_at TIMESTAMPTZ</td>
+            <td>N:1 con <span class="mono">quote_requests</span></td>
+            <td>Guarda hasta 4 fotos (<span class="mono">≤ 5 MB</span>) y 1 archivo <span class="mono">.STL/.3MF</span> opcional alojados en Supabase Storage.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 07</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 8: DICCIONARIO DE DATOS (TABLAS 11 A 20) ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">04.2 · Diccionario de Datos SQL (Tablas 11 a 21)</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>4.2 Diccionario de datos — Cotizaciones, Pagos, Finanzas y Auditoría</h2>
+    <p class="lead">Incluye el versionamiento formal de cotizaciones, control idempotente de pagos PayPal/SINPE, histórico del tipo de cambio de Hacienda y trazabilidad completa de IA, n8n y Ley N.° 8968.</p>
+
+    <div class="card" style="padding:7px 10px; margin-bottom:6px;">
+      <table class="data compact">
+        <thead>
+          <tr>
+            <th style="width:128px;">Tabla</th>
+            <th style="width:270px;">Campos clave y tipos SQL</th>
+            <th style="width:74px;">Relación</th>
+            <th>Propósito funcional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono"><strong>11. quotes</strong></td>
+            <td class="mono">id UUID PK · request_id UUID FK(quote_requests) · version_num INT · material_cost_crc NUMERIC(12,2) · labor_cost_crc NUMERIC(12,2) · total_crc NUMERIC(12,2) · rate_used NUMERIC(10,4) · status VARCHAR(24) · approved_by UUID · valid_until DATE</td>
+            <td>N:1 con <span class="mono">quote_requests</span></td>
+            <td>Versiona cotizaciones (<span class="mono">#v1, #v2</span>) aprobadas por el taller con costo transparente antes de enviarse al cliente.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>12. orders</strong></td>
+            <td class="mono">id UUID PK · order_code VARCHAR(24) UNIQUE · user_id UUID FK(users) · quote_id UUID FK(quotes)? · delivery_method VARCHAR(20) · shipping_crc NUMERIC(12,2) · total_crc NUMERIC(12,2) · total_usd NUMERIC(12,2) · status VARCHAR(28) · idempotency_key VARCHAR(80) UNIQUE</td>
+            <td>1:N con ítems y pagos</td>
+            <td>Unifica pedidos de insumos, piezas estándar y cotizaciones aprobadas evitando duplicados mediante <span class="mono">idempotency_key</span>.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>13. order_items</strong></td>
+            <td class="mono">id UUID PK · order_id UUID FK(orders) · item_kind VARCHAR(20) ('SUPPLY','PRODUCT_3D','CUSTOM') · supply_id UUID? · product_3d_id UUID? · qty INT · unit_price_crc NUMERIC(12,2)</td>
+            <td>N:1 con <span class="mono">orders</span></td>
+            <td>Detalle inmutable de cada línea comprada congelando el precio vigente al momento del pedido.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>14. payments</strong></td>
+            <td class="mono">id UUID PK · order_id UUID FK(orders) · method VARCHAR(20) ('PAYPAL_SANDBOX','SINPE') · external_ref VARCHAR(120) · amount_crc NUMERIC(12,2) · amount_usd NUMERIC(12,2) · proof_url TEXT · status VARCHAR(24) · verified_by UUID · paid_at TIMESTAMPTZ</td>
+            <td>N:1 con <span class="mono">orders</span></td>
+            <td>Registra órdenes PayPal Orders v2 Sandbox y comprobantes SINPE validados por el taller.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>15. supplier_invoices</strong></td>
+            <td class="mono">id UUID PK · supplier_name VARCHAR(140) · supplier_tax_id VARCHAR(30) · hacienda_verified BOOLEAN · invoice_date DATE · subtotal_crc NUMERIC(12,2) · tax_crc NUMERIC(12,2) · total_crc NUMERIC(12,2) · extracted_items JSONB · status VARCHAR(24) · file_url TEXT</td>
+            <td>Referenciada por <span class="mono">inventory_movements</span></td>
+            <td>Guarda facturas de proveedores extraídas por el Agente 04 en borrador hasta validación humana y consulta Hacienda.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>16. exchange_rates</strong></td>
+            <td class="mono">id SERIAL PK · source VARCHAR(40) ('HACIENDA_CR') · buy_rate NUMERIC(10,4) · sell_rate NUMERIC(10,4) · fetched_at TIMESTAMPTZ · is_fallback BOOLEAN</td>
+            <td>Histórico diario</td>
+            <td>Almacena el tipo de cambio oficial diario (cron backend <span class="mono">7:00 a. m.</span>) con respaldo si falla la API.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>17. campaigns</strong></td>
+            <td class="mono">id UUID PK · target_type VARCHAR(20) · target_id UUID · objective VARCHAR(120) · post_copy TEXT · ad_copy TEXT · story_copy TEXT · status VARCHAR(24) ('DRAFT','APPROVED') · created_by UUID</td>
+            <td>N:1 con <span class="mono">users</span></td>
+            <td>Borradores de contenido generados por el Agente 06; nunca se publican sin revisión humana.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>18. ai_agent_logs</strong></td>
+            <td class="mono">id UUID PK · agent_code VARCHAR(32) · provider_model VARCHAR(60) · user_id UUID FK(users)? · user_role VARCHAR(24) · input_summary TEXT · output_summary TEXT · latency_ms INT · status VARCHAR(16) · created_at TIMESTAMPTZ</td>
+            <td>Solo lectura Auditor</td>
+            <td>Bitácora auditable de toda ejecución de los 8 agentes con minimización de datos personales.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>19. n8n_webhook_logs</strong></td>
+            <td class="mono">id UUID PK · workflow_code VARCHAR(20) · event_name VARCHAR(60) · http_status SMALLINT · retry_count SMALLINT · payload_meta JSONB · created_at TIMESTAMPTZ</td>
+            <td>Solo lectura Auditor</td>
+            <td>Registra cada disparo y respuesta de los 3 workflows de n8n para trazabilidad y diagnóstico.</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>20. legal_consents</strong></td>
+            <td class="mono">id UUID PK · user_id UUID FK(users) · doc_type VARCHAR(24) ('PRIVACY','TERMS') · policy_version VARCHAR(16) · accepted_at TIMESTAMPTZ</td>
+            <td>N:1 con <span class="mono">users</span></td>
+            <td>Registra la aceptación explícita y versionada de términos y privacidad al crear cuenta (Ley N.° 8968).</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>21. account_deletion_requests</strong></td>
+            <td class="mono">id UUID PK · user_id UUID FK(users) · status VARCHAR(24) ('REQUESTED','COMPLETED') · confirmed_at TIMESTAMPTZ · completed_at TIMESTAMPTZ · legal_note TEXT</td>
+            <td>N:1 con <span class="mono">users</span></td>
+            <td>Controla el flujo auditable de baja/anonimización conservando respaldo contable legal obligatorio.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-hi" style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:7px 10px;">
+      <div style="font-size:10.2px; color:var(--muted);">
+        <strong style="color:var(--text);">Entregables de BD y ORM en el repositorio:</strong> modelos y asociaciones con <strong>Sequelize ORM</strong> en <span class="mono">/backend/src/models/</span> + <span class="mono">/backend/db/schema.sql</span> (21 tablas, índices y FKs) + <span class="mono">/backend/db/seed.sql</span> (4 roles con hash <span class="mono">bcrypt</span>, catálogo 3D y filamentos).
+      </div>
+      <span class="pill pill-green">3FN Verificada</span>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 08</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 9: SEGURIDAD, AUTENTICACIÓN AVANZADA Y EXPRESS ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">05 · Seguridad, Autenticación Avanzada y Arquitectura Express</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>5. Seguridad, autenticación avanzada y arquitectura por capas</h2>
+    <p class="lead">
+      La seguridad se aplica con defensa en profundidad desde el servidor: ocultar opciones en React mejora la experiencia, pero <strong>toda regla de acceso, validación, cuota y propiedad de datos se exige obligatoriamente en Express</strong>.
+    </p>
+
+    <div class="grid-2" style="margin-bottom:8px;">
+      <div class="card">
+        <span class="pill pill-orange" style="margin-bottom:4px;">Autenticación avanzada: OAuth 2.0/OIDC, MFA y Cookies</span>
+        <ul style="margin:3px 0 0; padding-left:14px; color:var(--muted); font-size:9.9px; line-height:1.36;">
+          <li><strong style="color:var(--text);">Contraseñas y fuerza bruta:</strong> <span class="mono">bcrypt</span> (≥ 10–12 rondas), mensajes genéricos («Correo o contraseña incorrectos»), <span class="mono">rate-limit</span> y bloqueo progresivo.</li>
+          <li><strong style="color:var(--text);">OAuth 2.0 + OIDC («Continuar con Google»):</strong> flujo <strong>Authorization Code + PKCE</strong>, validación de <span class="mono">state</span>, <span class="mono">redirect_uri</span> exacta, scopes mínimos (<span class="mono">openid email profile</span>) e ID Token solo para identidad (con consentimiento Ley 8968).</li>
+          <li><strong style="color:var(--text);">MFA con TOTP (Admin y Taller):</strong> 2FA de 6 dígitos (<span class="mono">otplib</span> + QR, secreto cifrado en <span class="mono">mfa_secret_enc</span>) para proteger precios, cotizaciones y usuarios.</li>
+          <li><strong style="color:var(--text);">Sesiones sin localStorage:</strong> Access JWT (<span class="mono">15 min</span>) y Refresh rotativo (<span class="mono">7 d</span>) en cookies <span class="mono">HttpOnly, Secure, SameSite=Lax</span> con revocación en BD y validación de <strong>firma, <span class="mono">iss</span>, <span class="mono">aud</span> y <span class="mono">exp</span></strong>.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="pill pill-blue" style="margin-bottom:4px;">Defensa OWASP, RBAC/ABAC, Sequelize ORM y CSRF</span>
+        <ul style="margin:3px 0 0; padding-left:14px; color:var(--muted); font-size:9.9px; line-height:1.36;">
+          <li><strong style="color:var(--text);">Defensa anti-CSRF completa:</strong> patrón <strong>Double Submit Cookie</strong> (<span class="mono">X-CSRF-Token</span> obligatorio en <span class="mono">POST/PUT/PATCH/DELETE</span> → <span class="mono">403</span>), cookies <span class="mono">SameSite=Lax</span>, validación <span class="mono">Origin</span> y cero cambios con <span class="mono">GET</span>.</li>
+          <li><strong style="color:var(--text);">RBAC granular + ABAC (Denegar por defecto):</strong> <span class="mono">requierePermiso("recurso:accion")</span> + verificación de propiedad (<span class="mono">ownership</span> anti-IDOR). Identidad fallida = <span class="mono">401</span>; permiso denegado = <span class="mono">403</span>.</li>
+          <li><strong style="color:var(--text);">Anti-SQLi, Mass Assignment y XSS:</strong> <strong>Sequelize ORM</strong> (consultas parametrizadas + allow-list de <span class="mono">fields/attributes</span> + transacciones ACID), cero <span class="mono">dangerouslySetInnerHTML</span>, <strong>CSP</strong> vía <span class="mono">helmet</span> y cero stack traces.</li>
+          <li><strong style="color:var(--text);">Archivos e integraciones:</strong> <span class="mono">multer</span> valida MIME/peso (<span class="mono">≤ 5 MB</span>); webhooks n8n firmados y PayPal vía <strong>OAuth 2.0 Client Credentials</strong> server-side.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:8px;">
+      <div class="card" style="padding:8px 10px;">
+        <h3>Estructura de carpetas del Backend Express</h3>
+        <table class="data compact">
+          <thead><tr><th>Carpeta / Archivo</th><th>Responsabilidad exclusiva</th></tr></thead>
+          <tbody>
+            <tr><td class="mono"><strong>src/server.js</strong></td><td>Inicializa Express, <span class="mono">helmet</span> (CSP), CORS estricto, <span class="mono">cookie-parser</span>, rate-limit y errores.</td></tr>
+            <tr><td class="mono"><strong>src/config/</strong></td><td>Instancia <strong>Sequelize ORM</strong> (PostgreSQL SSL), Storage y lectura validada de <span class="mono">.env</span>.</td></tr>
+            <tr><td class="mono"><strong>src/middlewares/</strong></td><td>JWT (<span class="mono">iss/aud/exp</span>), <span class="mono">requierePermiso</span>, <strong>CSRF</strong>, validación Zod y <span class="mono">multer</span>.</td></tr>
+            <tr><td class="mono"><strong>src/routes/</strong></td><td>Define endpoints REST y encadena autenticación → autorización → controlador.</td></tr>
+            <tr><td class="mono"><strong>src/controllers/</strong></td><td>Recibe HTTP, delega en <span class="mono">services/</span> y responde sin filtrar datos internos.</td></tr>
+            <tr><td class="mono"><strong>src/models/</strong></td><td>Modelos y asociaciones <strong>Sequelize ORM</strong> (21 tablas 3FN, anti-SQLi y ACID).</td></tr>
+            <tr><td class="mono"><strong>src/services/</strong></td><td>Negocio, OAuth PKCE/MFA, <strong>8 agentes IA</strong>, Hacienda CR, PayPal y n8n.</td></tr>
+            <tr><td class="mono"><strong>tests/</strong></td><td>Pruebas unitarias con Jest y mocks externos (<span class="mono">npm test</span>).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="padding:8px 10px;">
+        <h3>Variables de entorno (<span class="mono">.env.example</span> — sin valores reales)</h3>
+        <table class="data compact">
+          <thead><tr><th>Variable</th><th>Propósito en servidor</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">PORT, NODE_ENV, CORS_ORIGIN</td><td>Puerto, entorno y whitelist de origen del frontend.</td></tr>
+            <tr><td class="mono">DATABASE_URL</td><td>Cadena segura SSL hacia PostgreSQL (Sequelize).</td></tr>
+            <tr><td class="mono">SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY</td><td>Almacenamiento privado de fotos, STL y comprobantes.</td></tr>
+            <tr><td class="mono">JWT_SECRET, JWT_REFRESH_SECRET, JWT_ISS, JWT_AUD</td><td>Firma, emisor, audiencia y expiración (15m / 7d).</td></tr>
+            <tr><td class="mono">GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, CALLBACK</td><td>OAuth 2.0 + OIDC (Authorization Code + PKCE).</td></tr>
+            <tr><td class="mono">BCRYPT_ROUNDS, MFA_ENC_KEY, CSRF_SECRET</td><td>Hashing, cifrado TOTP y validación anti-CSRF.</td></tr>
+            <tr><td class="mono">DEEPSEEK_API_KEY, GEMINI_API_KEY</td><td>Credenciales de los proveedores de IA (texto/visión).</td></tr>
+            <tr><td class="mono">HACIENDA_TC_URL, HACIENDA_CONTRIB_URL</td><td>Endpoints públicos oficiales de Hacienda CR.</td></tr>
+            <tr><td class="mono">PAYPAL_ENV, PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET</td><td>OAuth 2.0 Client Credentials de PayPal Sandbox.</td></tr>
+            <tr><td class="mono">SMTP_HOST/USER/PASS, N8N_WEBHOOK_SECRET</td><td>Correo transaccional y secreto compartido n8n.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card-hi" style="font-size:10.8px; color:var(--muted);">
+      <strong style="color:var(--orange);">Regla estricta de secretos:</strong> el archivo <span class="mono">.env</span> está bloqueado en <span class="mono">.gitignore</span> desde el primer commit; el repositorio únicamente publica <span class="mono">.env.example</span> con nombres de variables sin valores reales.
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 09</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 10: LOS 8 AGENTES DE IA (DETALLE COMPLETO SECCIÓN 7) ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">06 · Los 8 Agentes de Inteligencia Artificial (backend/services/)</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>6. Especificación completa de los 8 agentes de IA</h2>
+    <p class="lead">
+      Cada agente vive en <span class="mono">backend/services/agents/</span>, valida el rol del solicitante en el servidor, registra su actividad en <span class="mono">ai_agent_logs</span> y deja siempre la decisión final bajo control humano.
+    </p>
+
+    <div class="card" style="padding:7px 10px; margin-bottom:6px;">
+      <table class="data compact">
+        <thead>
+          <tr>
+            <th style="width:94px;">Agente</th>
+            <th style="width:118px;">Objetivo de negocio</th>
+            <th style="width:58px;">Rol</th>
+            <th style="width:148px;">Entrada → Salida esperada</th>
+            <th style="width:94px;">Modelo / Proveedor</th>
+            <th>Protección de datos (Ley 8968)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong class="mono">01.</strong> <strong>Guía de pedidos a medida</strong></td>
+            <td>Ayudar al cliente sin experiencia 3D a describir bien su pieza antes de cotizar.</td>
+            <td>Cliente</td>
+            <td>Texto + hasta 4 fotos → observaciones cautelosas, preguntas clave y borrador editable (sin precio).</td>
+            <td class="mono">Gemini 2.5 Flash (Visión + Texto)</td>
+            <td>Se eliminan correo, teléfono y nombre antes de llamar al LLM; solo viaja texto técnico e imagen.</td>
+          </tr>
+          <tr>
+            <td><strong class="mono">02.</strong> <strong>Asesor de diseños y materiales (RAG)</strong></td>
+            <td>Recomendar modelos 3D o polímeros correctos según uso real (sol, calor, carga).</td>
+            <td>Cliente / Taller</td>
+            <td>Necesidad del usuario → recomendación fundamentada citando catálogo y fichas reales.</td>
+            <td class="mono">DeepSeek Chat + RAG SQL</td>
+            <td>Consulta exclusivamente tablas públicas de catálogo y fichas técnicas; cero datos personales.</td>
+          </tr>
+          <tr>
+            <td><strong class="mono">03.</strong> <strong>Preparador de cotizaciones</strong></td>
+            <td>Acelerar el cálculo técnico de costos sin perder margen del taller.</td>
+            <td>Taller / Admin</td>
+            <td>Solicitud + peso/horas estimadas + tasa Hacienda → borrador de cotización en <span class="mono">₡/$</span>.</td>
+            <td class="mono">DeepSeek Chat + cálculo Node.js</td>
+            <td>Acceso bloqueado a clientes; la cotización exige revisión y aprobación humana antes de enviarse.</td>
+          </tr>
+          <tr>
+            <td><strong class="mono">04.</strong> <strong>Lector de facturas</strong></td>
+            <td>Eliminar digitación manual de facturas de proveedores de filamento e insumos.</td>
+            <td>Taller / Admin</td>
+            <td>PDF, XML Hacienda o foto de factura → emisor, fecha, ítems, IVA y total en borrador.</td>
+            <td class="mono">Gemini 2.5 Flash + parser XML</td>
+            <td>Requiere validación humana explícita antes de impactar inventario o costos contables.</td>
+          </tr>
+          <tr>
+            <td><strong class="mono">05.</strong> <strong>Atención y seguimiento</strong></td>
+            <td>Mantener comunicación clara y oportuna sobre solicitudes o compras en curso.</td>
+            <td>Taller / Admin</td>
+            <td>Estado real del pedido/solicitud → borrador de respuesta en tono Vértice listo para copiar.</td>
+            <td class="mono">DeepSeek Chat</td>
+            <td>Nunca envía mensajes automáticamente; enmascara datos sensibles del cliente en el prompt.</td>
+          </tr>
+          <tr>
+            <td><strong class="mono">06.</strong> <strong>Generador de contenido</strong></td>
+            <td>Producir material promocional consistente sobre catálogo e insumos aprobados.</td>
+            <td>Admin</td>
+            <td>Producto/filamento + objetivo → 3 borradores (post, pauta e historia) con tono de marca.</td>
+            <td class="mono">DeepSeek Chat + plantillas</td>
+            <td>Opera solo sobre catálogo aprobado sin datos de clientes; queda en «Pendiente de aprobación».</td>
+          </tr>
+          <tr>
+            <td><strong class="mono">07.</strong> <strong>Analista del negocio</strong></td>
+            <td>Explicar ventas, márgenes, costos y rotación de inventario en lenguaje claro.</td>
+            <td>Admin</td>
+            <td>Pregunta en español natural → resumen ejecutivo basado en métricas SQL agregadas.</td>
+            <td class="mono">DeepSeek Chat sobre SQL agregado</td>
+            <td>Recibe únicamente totales y promedios agregados; jamás expone registros individuales (PII).</td>
+          </tr>
+          <tr>
+            <td><strong class="mono">08.</strong> <strong>Guía de privacidad</strong></td>
+            <td>Orientar a usuarios y equipo sobre derechos de privacidad y pasos internos Ley 8968.</td>
+            <td>Todos / Auditor</td>
+            <td>Consulta de privacidad o revisión interna → lista de pasos basada en la política oficial.</td>
+            <td class="mono">DeepSeek Chat + RAG legal interno</td>
+            <td>No emite asesoría legal vinculante ni ejecuta borrados autónomos; todo paso requiere confirmación.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="card-hi">
+        <h3>Arquitectura desacoplada y resiliencia de IA</h3>
+        <p style="margin:0; font-size:11px;">Todos los agentes consumen un adaptador común en <span class="mono">services/aiProvider.js</span> con timeout de <span class="mono">20 s</span>, reintento controlado y manejo limpio de errores. Si el modelo de visión falla, el cliente nunca pierde sus fotos ni su formulario y la solicitud pasa igual al taller.</p>
+      </div>
+      <div class="card-hi">
+        <h3>Principio «Human-in-the-loop» auditable</h3>
+        <p style="margin:0; font-size:11px;">Ningún agente fija precios finales, descuenta inventario, envía correos masivos ni elimina cuentas por sí solo. Cada llamada guarda agente, modelo, rol, latencia y resultado en <span class="mono">ai_agent_logs</span> visible en solo lectura para el Auditor.</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 10</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 11: APIs EXTERNAS, 3 WORKFLOWS n8n, JEST Y GITHUB ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">07 · APIs Externas, 3 Workflows n8n, Pruebas Unitarias y GitHub</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>7. Integraciones externas, automatizaciones y aseguramiento de calidad</h2>
+
+    <div class="card" style="margin-bottom:9px;">
+      <h3>7.1 APIs externas reales (consumidas únicamente desde <span class="mono">backend/services/</span>)</h3>
+      <table class="data compact">
+        <thead><tr><th style="width:140px;">Servicio externo</th><th style="width:155px;">Endpoint / Protocolo</th><th>Uso funcional, manejo de errores y seguridad</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Ministerio de Hacienda CR — Tipo de cambio</strong></td>
+            <td class="mono">GET api.hacienda.go.cr/indicadores/tc/dolar</td>
+            <td>Obtiene compra y venta oficial diaria del dólar mediante tarea programada en backend (<span class="mono">7:00 a. m.</span> CR). Conversión: <span class="mono">USD = round(precio_CRC / tasa_venta, 2)</span>. Si Hacienda no responde, usa el último valor en <span class="mono">exchange_rates</span> con fecha visible.</td>
+          </tr>
+          <tr>
+            <td><strong>Ministerio de Hacienda CR — Contribuyentes</strong></td>
+            <td class="mono">GET api.hacienda.go.cr/fe/ae?identificacion=...</td>
+            <td>Valida nombre y situación tributaria por cédula física o jurídica al registrar facturas de proveedores (Agente 04) o datos de facturación de clientes.</td>
+          </tr>
+          <tr>
+            <td><strong>PayPal Orders v2 Sandbox</strong></td>
+            <td class="mono">POST api-m.sandbox.paypal.com/v2/checkout/orders</td>
+            <td>Usa <strong>OAuth 2.0 Client Credentials</strong> solo en backend para crear y capturar órdenes de prueba en USD. Al confirmar captura, marca pagado y descuenta stock con transacción ACID e idempotencia.</td>
+          </tr>
+          <tr>
+            <td><strong>Google OAuth 2.0 / OIDC</strong></td>
+            <td class="mono">accounts.google.com · Authorization Code + PKCE</td>
+            <td>Inicio de sesión social opcional para clientes con <span class="mono">code_challenge</span>, validación de <span class="mono">state</span>, scopes mínimos (<span class="mono">openid email profile</span>) y verificación del ID Token solo para identidad.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-bottom:9px;">
+      <h3>7.2 Los 3 workflows de n8n (exportados en <span class="mono">/n8n/*.json</span>)</h3>
+      <table class="data compact">
+        <thead><tr><th style="width:130px;">Workflow</th><th style="width:110px;">Disparador</th><th style="width:210px;">Pasos principales</th><th>Problema de negocio que resuelve</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>WF-01 · Envío de correos y alertas (Saliente)</strong></td>
+            <td>Webhook firmado desde Express</td>
+            <td>Recibe evento (<span class="mono">registro, recuperación, cotización, estado de pedido, stock bajo</span>) → arma plantilla Vértice → envía correo vía Gmail/SMTP al cliente o taller → registra log.</td>
+            <td>Automatiza toda la comunicación saliente transaccional y las alertas operativas sin envíos manuales ni olvidos.</td>
+          </tr>
+          <tr>
+            <td><strong>WF-02 · Recepción de correos (Entrante)</strong></td>
+            <td>Trigger Gmail / IMAP (bandeja Vértice)</td>
+            <td>Escucha correos entrantes → si trae factura <span class="mono">.XML/.PDF</span> de proveedor la envía al backend (Agente 04 en borrador); si es respuesta/comprobante de cliente la asocia al caso y prepara borrador (Agente 05, revisión humana).</td>
+            <td>Convierte correos reales de clientes y facturas de proveedores en casos ordenados sin perder mensajes ni digitar a mano.</td>
+          </tr>
+          <tr>
+            <td><strong>WF-03 · Eliminación de cuenta (Ley 8968)</strong></td>
+            <td>Webhook de baja confirmada</td>
+            <td>Registra caso → avisa por correo al administrador para revisar obligaciones contables → tras aprobación dispara anonimización de PII y envía correo final de confirmación al usuario.</td>
+            <td>Garantiza cumplimiento trazable del derecho de supresión sin borrar registros contables exigidos por ley.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="pill pill-green" style="margin-bottom:5px;">7.3 Pruebas unitarias con Jest</span>
+        <p style="font-size:10.8px; margin-bottom:5px;">Ejecutables con un único comando documentado en el README (<span class="mono">npm test</span> en <span class="mono">/backend</span>):</p>
+        <ul style="margin:0; padding-left:15px; color:var(--muted); font-size:10.3px; line-height:1.38;">
+          <li><strong style="color:var(--text);">Middlewares y CSRF:</strong> validación Zod, rechazo de JWT sin <span class="mono">iss/aud/exp</span> (<span class="mono">401</span>), <span class="mono">requierePermiso</span> denegar por defecto (<span class="mono">403</span>) y bloqueo CSRF.</li>
+          <li><strong style="color:var(--text);">Auth avanzada:</strong> hashing <span class="mono">bcrypt</span>, rotación/revocación de Refresh Tokens, PKCE/<span class="mono">state</span> y verificación MFA TOTP.</li>
+          <li><strong style="color:var(--text);">Controladores y Services:</strong> Sequelize ORM, conversión <span class="mono">₡→$</span>, idempotencia de stock, 8 agentes y mocks externos.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="pill pill-purple" style="margin-bottom:5px;">7.4 Flujo de GitHub y ramas obligatorias</span>
+        <table class="data compact">
+          <tbody>
+            <tr><td class="mono"><strong>main</strong></td><td>Versión estable y desplegable en producción (Vercel / Render).</td></tr>
+            <tr><td class="mono"><strong>develop</strong></td><td>Rama de integración continua donde convergen los Pull Requests.</td></tr>
+            <tr><td class="mono"><strong>feature/...</strong></td><td>Una rama por módulo (<span class="mono">auth-rbac, catalog-api, ai-agents-1, n8n-audit</span>).</td></tr>
+            <tr><td class="mono"><strong>fix/...</strong></td><td>Correcciones puntuales trazables antes de fusionar a <span class="mono">develop</span>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 11</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 12: REQUERIMIENTOS FUNCIONALES (RF-01 A RF-14) ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">08 · Requerimientos Funcionales (RF-01 a RF-14)</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>8. Requerimientos funcionales codificados</h2>
+    <p class="lead">Cada requerimiento posee código único consecutivo, nombre, descripción, prioridad y rol/módulo para trazabilidad completa durante el desarrollo, las pruebas unitarias y los avances del 03/12 y 09/12.</p>
+
+    <div class="card">
+      <table class="data">
+        <thead><tr><th style="width:54px;">Código</th><th style="width:134px;">Nombre</th><th>Descripción funcional</th><th style="width:58px;">Prioridad</th><th style="width:94px;">Rol / Módulo</th></tr></thead>
+        <tbody>
+          <tr><td class="mono"><strong>RF-01</strong></td><td>Registro con consentimiento</td><td>Permitir crear cuenta con nombre, correo, contraseña y aceptación obligatoria de política de privacidad y términos.</td><td><span class="pill pill-orange">Alta</span></td><td>Cliente / Auth</td></tr>
+          <tr><td class="mono"><strong>RF-02</strong></td><td>Inicio de sesión, OAuth y MFA</td><td>Autenticar con correo/<span class="mono">bcrypt</span> o <strong>Google OAuth 2.0/OIDC (PKCE + state)</strong> para clientes, <strong>MFA TOTP</strong> para Admin/Taller, cookies <span class="mono">HttpOnly</span> y cierre de sesión real.</td><td><span class="pill pill-orange">Alta</span></td><td>Todos / Auth</td></tr>
+          <tr><td class="mono"><strong>RF-03</strong></td><td>Recuperación de contraseña</td><td>Permitir solicitar restablecimiento seguro de contraseña con token temporal de un solo uso y expiración.</td><td><span class="pill pill-amber">Media</span></td><td>Todos / Auth</td></tr>
+          <tr><td class="mono"><strong>RF-04</strong></td><td>RBAC granular y ABAC</td><td>Aplicar permisos granulares (<span class="mono">recurso:accion</span>) con «Denegar por defecto», propiedad por usuario (<span class="mono">ownership</span>) y respuesta <span class="mono">401/403</span> en Express.</td><td><span class="pill pill-orange">Alta</span></td><td>Todos / Seguridad</td></tr>
+          <tr><td class="mono"><strong>RF-05</strong></td><td>Portada de dos caminos</td><td>Mostrar Hero aprobado de Vértice y accesos claros a «Necesito una pieza» y «Tengo impresora».</td><td><span class="pill pill-orange">Alta</span></td><td>Público / Portada</td></tr>
+          <tr><td class="mono"><strong>RF-06</strong></td><td>Catálogo de piezas 3D</td><td>Listar, buscar y filtrar modelos 3D estándar por categoría y polímero con precio base <span class="mono">₡/$</span>.</td><td><span class="pill pill-orange">Alta</span></td><td>Público / Piezas 3D</td></tr>
+          <tr><td class="mono"><strong>RF-07</strong></td><td>Solicitud a medida con fotos</td><td>Permitir enviar solicitud personalizada con hasta 4 fotos (<span class="mono">≤ 5 MB</span>) y 1 archivo <span class="mono">.STL/.3MF</span> opcional.</td><td><span class="pill pill-orange">Alta</span></td><td>Cliente / Pedidos</td></tr>
+          <tr><td class="mono"><strong>RF-08</strong></td><td>Tienda de filamentos e insumos</td><td>Listar filamentos e insumos con filtros, precio real en <span class="mono">₡</span>, referencia <span class="mono">$</span> y stock disponible.</td><td><span class="pill pill-orange">Alta</span></td><td>Público / Insumos</td></tr>
+          <tr><td class="mono"><strong>RF-09</strong></td><td>Carrito y confirmación</td><td>Gestionar carrito para insumos y piezas estándar sin cambios, eligiendo retiro o envío en CR.</td><td><span class="pill pill-orange">Alta</span></td><td>Cliente / Compra</td></tr>
+          <tr><td class="mono"><strong>RF-10</strong></td><td>Pago PayPal Sandbox y SINPE</td><td>Procesar pago en línea mediante PayPal Orders v2 Sandbox (convirtiendo <span class="mono">₡→$</span>) o adjuntar comprobante SINPE.</td><td><span class="pill pill-orange">Alta</span></td><td>Cliente / Pagos</td></tr>
+          <tr><td class="mono"><strong>RF-11</strong></td><td>Gestión de cotizaciones</td><td>Permitir al taller revisar fotos, pedir aclaraciones, emitir cotización versionada y al cliente aprobarla y pagarla.</td><td><span class="pill pill-orange">Alta</span></td><td>Taller / Cliente</td></tr>
+          <tr><td class="mono"><strong>RF-12</strong></td><td>Panel «Qué atender hoy»</td><td>Mostrar 4 cifras clave arriba (solicitudes, cotizaciones, stock bajo y tasa de cambio) y cola priorizada de tareas.</td><td><span class="pill pill-orange">Alta</span></td><td>Taller / Admin</td></tr>
+          <tr><td class="mono"><strong>RF-13</strong></td><td>Control de stock e inventario</td><td>Descontar inventario al confirmar pagos de insumos, registrar entradas/salidas en kardex y alertar stock bajo.</td><td><span class="pill pill-orange">Alta</span></td><td>Taller / Admin</td></tr>
+          <tr><td class="mono"><strong>RF-14</strong></td><td>Facturas y consulta Hacienda</td><td>Registrar facturas de proveedores (asistido por IA), validar cédula ante Hacienda y consolidar costos/reportes.</td><td><span class="pill pill-amber">Media</span></td><td>Admin / Finanzas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 12</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 13: RF-15 A RF-22 + RNF-01 A RNF-12 ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">08–09 · Requerimientos Funcionales (cont.) y No Funcionales</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h3 style="margin-bottom:4px;">Requerimientos funcionales (RF-15 a RF-22)</h3>
+    <div class="card" style="margin-bottom:7px; padding:7px 9px;">
+      <table class="data compact">
+        <thead><tr><th style="width:50px;">Código</th><th style="width:128px;">Nombre</th><th>Descripción funcional</th><th style="width:52px;">Prior.</th><th style="width:86px;">Rol / Módulo</th></tr></thead>
+        <tbody>
+          <tr><td class="mono"><strong>RF-15</strong></td><td>8 Agentes de IA en services</td><td>Exponer los 8 agentes definidos en la sección 6 en su módulo y en el Centro de Agentes según rol.</td><td><span class="pill pill-orange">Alta</span></td><td>Según rol / IA</td></tr>
+          <tr><td class="mono"><strong>RF-16</strong></td><td>Bitácora de agentes y n8n</td><td>Guardar cada ejecución de agente IA y webhook n8n en SQL con usuario, modelo, fecha y estado.</td><td><span class="pill pill-orange">Alta</span></td><td>Auditor / Admin</td></tr>
+          <tr><td class="mono"><strong>RF-17</strong></td><td>Tipo de cambio Hacienda</td><td>Consultar tipo de cambio diario desde backend y mostrar fecha de última actualización en tienda y panel.</td><td><span class="pill pill-orange">Alta</span></td><td>Todos / API Ext.</td></tr>
+          <tr><td class="mono"><strong>RF-18</strong></td><td>3 Workflows n8n operativos</td><td>Ejecutar y exportar workflows de envío de correos/alertas (WF-01), recepción y clasificación de correos entrantes (WF-02) y eliminación de cuenta Ley 8968 (WF-03).</td><td><span class="pill pill-orange">Alta</span></td><td>Sistema / n8n</td></tr>
+          <tr><td class="mono"><strong>RF-19</strong></td><td>Campañas de redes</td><td>Generar borradores de publicaciones sobre productos aprobados en estado pendiente de revisión humana.</td><td><span class="pill pill-amber">Media</span></td><td>Admin / Redes</td></tr>
+          <tr><td class="mono"><strong>RF-20</strong></td><td>Gestión de usuarios y roles</td><td>Permitir al administrador crear cuentas internas, asignar/cambiar roles y revisar integraciones.</td><td><span class="pill pill-amber">Media</span></td><td>Admin / Config.</td></tr>
+          <tr><td class="mono"><strong>RF-21</strong></td><td>Gobernanza y baja Ley 8968</td><td>Mostrar Política de Privacidad, Términos y permitir solicitar baja/anonimización desde perfil confirmando contraseña.</td><td><span class="pill pill-orange">Alta</span></td><td>Cliente / Legal</td></tr>
+          <tr><td class="mono"><strong>RF-22</strong></td><td>Panel auditoría solo lectura</td><td>Permitir al rol Auditor consultar bitácoras de IA, workflows, consentimientos y bajas sin editar registros.</td><td><span class="pill pill-amber">Media</span></td><td>Auditor / Bitácora</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="font-size:16px; margin-bottom:4px;">9. Requerimientos no funcionales (RNF-01 a RNF-12)</h2>
+    <div class="card" style="padding:7px 9px;">
+      <table class="data compact">
+        <thead><tr><th style="width:52px;">Código</th><th style="width:94px;">Nombre / Tipo</th><th>Descripción medible</th><th style="width:50px;">Prior.</th><th style="width:88px;">Rol / Módulo</th></tr></thead>
+        <tbody>
+          <tr><td class="mono"><strong>RNF-01</strong></td><td>Encriptación</td><td>Contraseñas almacenadas únicamente con hash <span class="mono">bcrypt</span> (≥ 10 rondas); cero texto plano.</td><td><span class="pill pill-orange">Alta</span></td><td>Backend / Auth</td></tr>
+          <tr><td class="mono"><strong>RNF-02</strong></td><td>Seguridad API</td><td>Validación obligatoria Zod y verificación de JWT + rol + propiedad en toda ruta protegida.</td><td><span class="pill pill-orange">Alta</span></td><td>Backend / RBAC</td></tr>
+          <tr><td class="mono"><strong>RNF-03</strong></td><td>Secretos</td><td>Todas las credenciales viven solo en <span class="mono">.env</span> excluido de Git; se entrega <span class="mono">.env.example</span>.</td><td><span class="pill pill-orange">Alta</span></td><td>DevOps / Backend</td></tr>
+          <tr><td class="mono"><strong>RNF-04</strong></td><td>Privacidad</td><td>Ley N.° 8968: minimización de PII hacia LLMs, consentimiento versionado y anonimización auditable.</td><td><span class="pill pill-orange">Alta</span></td><td>Todos / Legal</td></tr>
+          <tr><td class="mono"><strong>RNF-05</strong></td><td>Usabilidad UX</td><td>Diseño PC + móvil <span class="mono">390 px</span> sin textos cortados, cero teletransportes y casillas con unidades fijas.</td><td><span class="pill pill-orange">Alta</span></td><td>Frontend / UX</td></tr>
+          <tr><td class="mono"><strong>RNF-06</strong></td><td>Rendimiento</td><td>Respuestas REST de catálogo/consultas en <span class="mono">&lt; 500 ms</span> (sin IA); timeout seguro de <span class="mono">20 s</span> para APIs externas.</td><td><span class="pill pill-amber">Media</span></td><td>Backend / API</td></tr>
+          <tr><td class="mono"><strong>RNF-07</strong></td><td>Resiliencia</td><td>Un fallo de visión IA, Hacienda o n8n nunca borra borradores ni bloquea envío; usa última tasa guardada.</td><td><span class="pill pill-orange">Alta</span></td><td>Services / IA</td></tr>
+          <tr><td class="mono"><strong>RNF-08</strong></td><td>Idempotencia</td><td>Confirmar pedidos, pagos o envíos repetidos no crea duplicados ni descuenta stock dos veces.</td><td><span class="pill pill-orange">Alta</span></td><td>Pagos / Stock</td></tr>
+          <tr><td class="mono"><strong>RNF-09</strong></td><td>Mantenibilidad</td><td>Código por capas, ESLint limpio, pruebas unitarias Jest en un comando y ramas <span class="mono">main/develop/feature/fix</span>.</td><td><span class="pill pill-orange">Alta</span></td><td>Todo el sistema</td></tr>
+          <tr><td class="mono"><strong>RNF-10</strong></td><td>Disponibilidad</td><td>Despliegue público accesible vía URL HTTPS en producción (Vercel + Render/Railway + Supabase + n8n).</td><td><span class="pill pill-orange">Alta</span></td><td>Infraestructura</td></tr>
+          <tr><td class="mono"><strong>RNF-11</strong></td><td>Auth y OAuth</td><td>Cookies <span class="mono">HttpOnly/Secure/SameSite</span> (cero <span class="mono">localStorage</span>), JWT con <span class="mono">iss/aud/exp</span>, rotación Refresh, Google PKCE, MFA TOTP interno y bloqueo progresivo.</td><td><span class="pill pill-orange">Alta</span></td><td>Backend / Auth</td></tr>
+          <tr><td class="mono"><strong>RNF-12</strong></td><td>OWASP y CSRF</td><td><strong>Sequelize ORM</strong> (anti-SQLi/Mass Assignment), <strong>anti-CSRF (<span class="mono">X-CSRF-Token</span> + <span class="mono">Origin</span>)</strong>, <span class="mono">helmet</span> con <strong>CSP</strong> anti-XSS, CORS estricto y cero stack traces.</td><td><span class="pill pill-orange">Alta</span></td><td>Backend / Red</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 13</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 14: HISTORIAS DE USUARIO (HU-01 A HU-07) ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">10 · Historias de Usuario (HU-01 a HU-07)</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>10. Historias de usuario codificadas</h2>
+    <p class="lead">Cada historia sigue el formato oficial <em>Como [rol], quiero [acción], para [beneficio]</em> con criterios de aceptación verificables, estimación y trazabilidad a requerimientos.</p>
+
+    <div class="card">
+      <table class="data">
+        <thead><tr><th style="width:50px;">Código</th><th style="width:205px;">Historia de usuario</th><th>Criterios de aceptación</th><th style="width:68px;">Prior./Est.</th><th style="width:82px;">Relación</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="mono"><strong>HU-01</strong></td>
+            <td><strong>Como cliente nuevo</strong>, quiero registrarme aceptando los términos y la política de privacidad, para poder comprar y dar seguimiento a mis pedidos.</td>
+            <td>Valida correo único y contraseña segura; bloquea envío si no marca consentimiento; guarda hash <span class="mono">bcrypt</span> y consentimiento; emite sesión segura y dispara WF-01 (correo de bienvenida).</td>
+            <td>Alta<br/><span class="mono">4 h</span></td>
+            <td class="mono">RF-01, RF-02, RNF-01, RNF-11</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-02</strong></td>
+            <td><strong>Como visitante</strong>, quiero ver desde la portada si necesito una pieza o tengo impresora, para encontrar rápido lo que busco sin confundirme.</td>
+            <td>Hero muestra los 2 caminos; menú enlaza a Piezas 3D, Pedir con foto y Filamentos; carga limpia en PC y móvil <span class="mono">390 px</span>.</td>
+            <td>Alta<br/><span class="mono">4 h</span></td>
+            <td class="mono">RF-05, RNF-05</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-03</strong></td>
+            <td><strong>Como cliente sin experiencia en 3D</strong>, quiero subir hasta 4 fotos de mi pieza rota y recibir preguntas guía de la IA, para enviar una solicitud clara sin adivinar términos.</td>
+            <td>Acepta JPG/PNG/WEBP ≤ 5 MB y STL/3MF opcional; muestra aviso de regla/moneda; IA sugiere campos sin borrar ediciones ni inventar precio; guarda estado inicial «Nueva solicitud».</td>
+            <td>Alta<br/><span class="mono">8 h</span></td>
+            <td class="mono">RF-07, RF-15, RNF-07</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-04</strong></td>
+            <td><strong>Como dueño de impresora</strong>, quiero filtrar filamentos por polímero y ver precio en colones y dólares con stock real, para comprar sin preguntar disponibilidad.</td>
+            <td>Filtra por PLA/PETG/ASA/ABS/TPU y búsqueda; muestra stock exacto y equivalencia <span class="mono">$</span> con tasa oficial de Hacienda; impide agregar más que el stock.</td>
+            <td>Alta<br/><span class="mono">5 h</span></td>
+            <td class="mono">RF-08, RF-17</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-05</strong></td>
+            <td><strong>Como cliente</strong>, quiero pagar mi compra de filamentos o mi cotización aprobada con PayPal Sandbox o SINPE Móvil, para confirmar el pedido al instante.</td>
+            <td>PayPal crea y captura orden USD desde backend y marca pagado descontando stock; SINPE adjunta comprobante para validación del taller; cero duplicados.</td>
+            <td>Alta<br/><span class="mono">8 h</span></td>
+            <td class="mono">RF-09, RF-10, RNF-08</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-06</strong></td>
+            <td><strong>Como cliente</strong>, quiero ver mis compras de insumos y mis solicitudes 3D en pestañas separadas dentro de Mi cuenta, para no mezclar cotizaciones con compras.</td>
+            <td>Dos pestañas en su sitio (sin saltos); cada registro abre su detalle, fotos, cotización y estado actual; bloquea ver pedidos de otro usuario (<span class="mono">ownership</span>).</td>
+            <td>Alta<br/><span class="mono">4 h</span></td>
+            <td class="mono">RF-04, RF-11, RNF-02</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-07</strong></td>
+            <td><strong>Como personal del taller</strong>, quiero entrar y ver «Qué atender hoy» con lo más urgente arriba, para responder solicitudes y reponer filamentos en 1 o 2 toques.</td>
+            <td>Muestra solicitudes nuevas, cotizaciones pendientes y stock bajo priorizados; menú contraíble en PC y barra inferior en móvil.</td>
+            <td>Alta<br/><span class="mono">6 h</span></td>
+            <td class="mono">RF-12, RNF-05</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 14</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 15: HISTORIAS DE USUARIO (HU-08 A HU-14) ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">10 · Historias de Usuario (HU-08 a HU-14)</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h3 style="margin-bottom:6px;">Historias de usuario (continuación · operación, IA, n8n y gobernanza)</h3>
+    <div class="card" style="margin-bottom:12px;">
+      <table class="data">
+        <thead><tr><th style="width:50px;">Código</th><th style="width:205px;">Historia de usuario</th><th>Criterios de aceptación</th><th style="width:68px;">Prior./Est.</th><th style="width:82px;">Relación</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="mono"><strong>HU-08</strong></td>
+            <td><strong>Como taller</strong>, quiero usar el Preparador de cotizaciones IA y editar el monto final en colones antes de enviarlo, para cotizar rápido sin perder control del margen.</td>
+            <td>Calcula propuesta con costo de material/tiempo y tasa vigente; permite editar <span class="mono">₡</span> antes de emitir cotización <span class="mono">#v1</span>; registra uso en <span class="mono">ai_agent_logs</span>.</td>
+            <td>Alta<br/><span class="mono">6 h</span></td>
+            <td class="mono">RF-11, RF-15, RF-16</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-09</strong></td>
+            <td><strong>Como taller / administrador</strong>, quiero subir una factura de proveedor de filamentos para que la IA extraiga los ítems en borrador, para no digitarla a mano.</td>
+            <td>Extrae emisor, fecha, líneas, IVA y total; valida cédula en Hacienda si aplica; exige confirmación humana antes de afectar gastos o stock.</td>
+            <td>Media<br/><span class="mono">6 h</span></td>
+            <td class="mono">RF-13, RF-14, RF-15</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-10</strong></td>
+            <td><strong>Como taller</strong>, quiero generar borradores de respuesta para clientes con solicitudes enfriadas, para dar seguimiento rápido manteniendo el tono de Vértice.</td>
+            <td>Lee estado real del caso, propone mensaje editable para copiar y registra historial; nunca envía correos ni mensajes sin acción humana.</td>
+            <td>Media<br/><span class="mono">4 h</span></td>
+            <td class="mono">RF-15, RF-16</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-11</strong></td>
+            <td><strong>Como administrador</strong>, quiero generar borradores de publicaciones para redes sobre mis piezas y filamentos, para promocionar stock nuevo en minutos.</td>
+            <td>Genera 3 piezas (post, pauta e historia) con botón de copiar; queda en «Pendiente de aprobación» y nunca se publica sola.</td>
+            <td>Media<br/><span class="mono">4 h</span></td>
+            <td class="mono">RF-15, RF-19</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-12</strong></td>
+            <td><strong>Como administrador</strong>, quiero consultar al Analista de negocio en lenguaje natural sobre ventas, costos y filamentos más vendidos, para tomar mejores decisiones.</td>
+            <td>Responde usando métricas agregadas reales de PostgreSQL; muestra cifras en <span class="mono">₡</span> y registra la consulta en bitácora sin PII.</td>
+            <td>Media<br/><span class="mono">5 h</span></td>
+            <td class="mono">RF-14, RF-15, RNF-04</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-13</strong></td>
+            <td><strong>Como cliente</strong>, quiero solicitar desde mi perfil la eliminación de mi cuenta y datos personales, para ejercer mi derecho bajo la Ley N.° 8968.</td>
+            <td>Exige confirmar contraseña; registra caso en BD y dispara WF-03 de n8n; anonimiza PII conservando únicamente respaldo contable obligatorio y notifica cierre.</td>
+            <td>Alta<br/><span class="mono">5 h</span></td>
+            <td class="mono">RF-18, RF-21, RNF-04</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HU-14</strong></td>
+            <td><strong>Como auditor</strong>, quiero consultar en solo lectura la bitácora de los 8 agentes, webhooks de n8n, consentimientos y bajas, para verificar el cumplimiento del sistema.</td>
+            <td>Muestra filtros por fecha/agente/evento; rechaza con <span class="mono">HTTP 403</span> cualquier intento de crear, editar o borrar registros desde este rol.</td>
+            <td>Media<br/><span class="mono">4 h</span></td>
+            <td class="mono">RF-04, RF-16, RF-22</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-hi" style="display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <strong>Trazabilidad completa verificada</strong>
+        <p style="margin:2px 0 0; font-size:11px;">Las 14 historias de usuario cubren el 100 % de los 22 RF, 12 RNF, 21 tablas 3FN, 4 roles, 8 agentes de IA y 3 workflows de n8n.</p>
+      </div>
+      <span class="pill pill-orange mono">Total estimado: 73 h efectivas</span>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 15</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 16: MATRIZ 18 PANTALLAS (COBERTURA 2.2) Y ANEXOS ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">11 · Mapa de 18 Pantallas (Sección 2.2), Mockups y Libro de Marca</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>11. Cobertura de las 18 pantallas, anexos visuales y Libro de Marca</h2>
+    <p class="lead">
+      Todas las vistas del sistema se consolidan en <strong>18 pantallas responsivas (escritorio 1440 px + móvil 390 px)</strong> cubriendo el 100 % de la Sección 2.2 de FWD. Los mockups visuales completos ya se entregan en el anexo <strong>Anexo-Mockups-Vertice-CR.pdf</strong> (20 láminas 16:9), aplicando las reglas del <strong>Libro de Marca v2.0</strong>.
+    </p>
+
+    <div class="card" style="padding:8px 10px; margin-bottom:9px;">
+      <table class="data compact">
+        <thead>
+          <tr><th style="width:142px;">Requisito FWD (Sec. 2.2)</th><th style="width:155px;">Pantallas cubiertas (01–18)</th><th>Elementos obligatorios incluidos (PC + 390 px)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Login, OAuth, MFA y recuperación</strong></td><td><span class="mono">06. Acceso</span></td><td>Correo/contraseña, botón «Continuar con Google» (OAuth PKCE), paso MFA TOTP para Admin/Taller, registro con consentimiento y recuperación.</td></tr>
+          <tr><td><strong>Dashboard de cada rol (4)</strong></td><td><span class="mono">08. Mi cuenta · 10. Inicio Taller/Admin · 18. Auditoría</span></td><td>Vistas diferenciadas para <strong>Cliente</strong> (2 pestañas), <strong>Taller</strong> («Qué atender hoy»), <strong>Admin</strong> (4 cifras + costos) y <strong>Auditor</strong> (solo lectura).</td></tr>
+          <tr><td><strong>Módulos comerciales y taller</strong></td><td><span class="mono">01–05 · 11–14 · 17</span></td><td>Portada Hero 3D, Piezas 3D, Pedir con foto + STL, Filamentos/Stock, Compra PayPal/SINPE, Solicitudes, Inventario, Facturas, Costos y Configuración.</td></tr>
+          <tr><td><strong>Los 8 agentes de IA</strong></td><td><span class="mono">03 · 11 · 13 · 14 · 15 · 16</span></td><td>Agente 01 en Pedir con foto, Agente 02 en Catálogo, Agentes 03/05 en Solicitudes, Agente 04 en Facturas, Agente 06 en Campañas, Agente 07 en Reportes y todos en <span class="mono">16. Centro de Agentes</span>.</td></tr>
+          <tr><td><strong>Información de APIs externas</strong></td><td><span class="mono">01 · 04 · 05 · 10 · 13 · 17</span></td><td>Tipo de cambio oficial de Hacienda (<span class="mono">₡/$</span> + fecha) en tienda/panel, validación de cédula en facturas y captura PayPal Sandbox en compra.</td></tr>
+          <tr><td><strong>Gobernanza Ley N.° 8968 y 2FA</strong></td><td><span class="mono">07. Legal · 09. Perfil y baja</span></td><td>Política de privacidad, Términos, activación de MFA TOTP (roles internos), historial de consentimiento y eliminación/anonimización confirmada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-bottom:9px;">
+      <h3 style="margin-bottom:6px;">Referencia visual base (Escritorio + Móvil 390 px · Identidad «La Planta»)</h3>
+      <div style="display:grid; grid-template-columns:1.55fr 1fr; gap:10px;">
+        <div class="mock-desktop">
+          <div class="mock-bar">
+            <img src="../../../assets/brand/vertice-logo-flat.png" style="height:13px;" alt="Mockup PC" />
+            <span>Panel Taller/Admin · Menú contraíble «</span>
+            <span class="mono" style="color:var(--orange);">TC Hacienda: ₡512.40</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:7px;">
+            <div style="background:#1e1e22; border-radius:6px; padding:5px;"><div style="font-size:8px; color:var(--dim);">Solicitudes</div><strong class="mono" style="color:var(--orange); font-size:12px;">06</strong></div>
+            <div style="background:#1e1e22; border-radius:6px; padding:5px;"><div style="font-size:8px; color:var(--dim);">Cotizaciones</div><strong class="mono" style="font-size:12px;">04</strong></div>
+            <div style="background:#1e1e22; border-radius:6px; padding:5px;"><div style="font-size:8px; color:var(--dim);">Stock bajo</div><strong class="mono" style="color:#f59e0b; font-size:12px;">03</strong></div>
+            <div style="background:#1e1e22; border-radius:6px; padding:5px;"><div style="font-size:8px; color:var(--dim);">PayPal/SINPE</div><strong class="mono" style="color:#34d399; font-size:12px;">OK</strong></div>
+          </div>
+          <div style="background:#1e1e22; border-radius:7px; padding:7px; font-size:9px; display:grid; gap:4px;">
+            <div style="display:flex; justify-content:space-between; background:#25252b; padding:4px 7px; border-radius:5px;">
+              <span><strong>Solicitud #SOL-14</strong> · Soporte con 3 fotos (PETG)</span><span style="color:var(--orange); font-weight:700;">Cotizar →</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; background:#25252b; padding:4px 7px; border-radius:5px;">
+              <span><strong>Stock bajo</strong> · PLA+ Negro Mate (2 rollos)</span><span style="color:#38bdf8; font-weight:700;">Reponer →</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mock-phone">
+          <div class="mock-bar">
+            <img src="../../../assets/brand/vertice-logo-flat.png" style="height:11px;" alt="Mockup Móvil" />
+            <span class="mono" style="font-size:8px;">390 px</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; background:#1e1e22; padding:3px; border-radius:999px; margin-bottom:6px; font-size:8px; text-align:center;">
+            <span style="background:var(--orange); color:#140b05; border-radius:999px; padding:3px; font-weight:700;">Pedir foto</span>
+            <span style="color:var(--muted); padding:3px;">Asistente IA</span>
+          </div>
+          <div style="background:#1e1e22; border-radius:7px; padding:6px; font-size:8.5px; margin-bottom:6px;">
+            <strong style="display:block; margin-bottom:2px;">Subí hasta 4 fotos</strong>
+            <span style="color:var(--orange); font-size:8px;">Tip: Poné una regla o moneda a la par</span>
+            <div style="margin-top:4px; padding:5px; border-radius:5px; background:#161618; text-align:center; color:var(--muted);">+ Elegir fotos / .STL opcional</div>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); padding-top:4px; border-top:1px solid var(--divider); text-align:center; font-size:7.8px; color:var(--muted);">
+            <span style="color:var(--orange); font-weight:700;">Inicio</span><span>3D</span><span>Insumos</span><span>Cuenta</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card-hi">
+        <span class="pill pill-green" style="margin-bottom:4px;">Entregado · 24 láminas 16:9</span>
+        <strong style="display:block; font-size:11.5px;">Libro-de-Marca-Vertice-CR.pdf</strong>
+        <p style="margin:2px 0 0; font-size:10px;">11/11 elementos oficiales, isotipo exacto «V», favicon <span class="mono">512 px</span> y 20 íconos Lucide.</p>
+      </div>
+      <div class="card-hi">
+        <span class="pill pill-green" style="margin-bottom:4px;">Entregado · 20 láminas 16:9</span>
+        <strong style="display:block; font-size:11.5px;">Anexo-Mockups-Vertice-CR.pdf</strong>
+        <p style="margin:2px 0 0; font-size:10px;">Las 18 pantallas oficiales lado a lado (PC 1440 px + móvil 390 px) con identidad «La Planta».</p>
+      </div>
+      <div class="card-hi">
+        <span class="pill pill-blue" style="margin-bottom:4px;">Antes del 09/12/2026</span>
+        <strong style="display:block; font-size:11.5px;">Plan-de-Produccion-Vertice-CR.pdf</strong>
+        <p style="margin:2px 0 0; font-size:10px;">18 apartados de despliegue + URL pública HTTPS + 8 capturas verificadas.</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 16</strong></span>
+    </div>
+  </section>
+
+  <!-- ==================== PÁGINA 17: CRONOGRAMA DE TRABAJO ==================== -->
+  <section class="page">
+    <div class="page-header">
+      <div class="page-header__left"><span class="page-header__bar"></span><span class="page-header__kicker">12 · Cronograma de Trabajo y Avances Obligatorios</span></div>
+      <img class="page-header__logo" src="../../../assets/brand/vertice-logo-flat.png" alt="Vértice" />
+    </div>
+
+    <h2>12. Cronograma hacia el 03/12 y 09/12 de 2026</h2>
+    <p class="lead">Planificación día por día a partir del 23 de noviembre de 2026, alineada a las dos fechas oficiales de revisión con el profesor <strong>Barry Vega</strong> y al flujo obligatorio de ramas en GitHub (<span class="mono">main, develop, feature/..., fix/...</span>).</p>
+
+    <div class="card" style="margin-bottom:8px; padding:8px 10px;">
+      <table class="data compact">
+        <thead>
+          <tr>
+            <th style="width:64px;">Fecha</th>
+            <th style="width:62px;">Día</th>
+            <th>Actividad principal</th>
+            <th style="width:94px;">RF / HU</th>
+            <th style="width:128px;">Entregable</th>
+            <th style="width:70px;">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">23/11/2026</td><td>Lunes</td><td>Cierre del Anteproyecto v2.0 (con diccionario 3FN y auth avanzada) y Libro de Marca v2.0.</td><td class="mono">Alcance total</td><td>PDFs Anteproyecto y Marca</td><td><span class="pill pill-green">En curso</span></td></tr>
+          <tr><td class="mono">24/11/2026</td><td>Martes</td><td>Diseño de las 18 pantallas (PC + 390 px), Anexo de Mockups PDF y creación de repo <span class="mono">main/develop</span>.</td><td class="mono">RNF-05, RNF-09</td><td>Anexo Mockups + Repo</td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">25/11/2026</td><td>Miércoles</td><td>Modelos y asociaciones <strong>Sequelize ORM</strong> (21 tablas 3FN en Supabase), <span class="mono">schema.sql</span> y <span class="mono">seed.sql</span>.</td><td class="mono">RF-04, RF-13</td><td>Rama <span class="mono">feature/db-schema</span></td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">26/11/2026</td><td>Jueves</td><td>Express por capas + Auth avanzada (<span class="mono">bcrypt</span>, cookies <span class="mono">HttpOnly</span>, JWT <span class="mono">iss/aud/exp</span>, CSRF, Google PKCE, MFA TOTP, RBAC/ABAC y Ley 8968).</td><td class="mono">RF-01..04, RNF-11..12</td><td>Rama <span class="mono">feature/auth-rbac</span></td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">27/11/2026</td><td>Viernes</td><td>API de Catálogo 3D, Filamentos/Stock, Solicitudes con fotos/STL (Storage) y Hacienda CR.</td><td class="mono">RF-06..08, RF-17</td><td>Rama <span class="mono">feature/catalog-api</span></td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">28/11/2026</td><td>Sábado</td><td>Frontend React + Hero 3D conservado + Acceso (Login/Registro/Recuperar) + Privacidad/Términos.</td><td class="mono">RF-01..05, HU-01..02</td><td>Rama <span class="mono">feature/web-public</span></td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">30/11/2026</td><td>Lunes</td><td>Frontend Catálogo 3D (fotos reales), Filamentos, Pedir con foto y Carrito + PayPal Sandbox/SINPE.</td><td class="mono">RF-06..10, HU-03..05</td><td>Rama <span class="mono">feature/checkout</span></td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">01/12/2026</td><td>Martes</td><td>Panel «Qué atender hoy», Solicitudes/Cotizaciones, Inventario y Mi cuenta (2 pestañas).</td><td class="mono">RF-11..13, HU-06..08</td><td>Rama <span class="mono">feature/workshop-ui</span></td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">02/12/2026</td><td>Miércoles</td><td>Integración PRs a <span class="mono">develop</span>, pruebas iniciales y verificación responsive del Primer Avance.</td><td class="mono">RNF-02, RNF-05</td><td>Demo funcional integrada</td><td><span class="pill">Pendiente</span></td></tr>
+          <tr class="milestone-row"><td class="mono">03/12/2026</td><td>Jueves</td><td>PRIMER AVANCE OBLIGATORIO — Presentación de BD, Auth avanzada/Roles, Tienda, Fotos, Hacienda y PayPal.</td><td class="mono">RF-01..13, RF-17</td><td>Presentación al profesor</td><td><span class="pill pill-orange">Hito 1</span></td></tr>
+          <tr><td class="mono">04/12/2026</td><td>Viernes</td><td>Implementación de Agentes IA 01 a 04 (Pedidos con foto, Asesor RAG, Cotizaciones, Facturas).</td><td class="mono">RF-14..16, HU-08..09</td><td>Rama <span class="mono">feature/ai-agents-1</span></td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">05/12/2026</td><td>Sábado</td><td>Implementación de Agentes IA 05 a 08 (Seguimiento, Redes, Analista, Privacidad) + Centro IA.</td><td class="mono">RF-15, RF-19, HU-10..12</td><td>Rama <span class="mono">feature/ai-agents-2</span></td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">06/12/2026</td><td>Domingo</td><td>Los 3 workflows en n8n exportados (<span class="mono">/n8n</span>) + flujo real de baja/anonimización + Panel Auditoría.</td><td class="mono">RF-18, RF-21..22, HU-13..14</td><td>Rama <span class="mono">feature/n8n-audit</span></td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">07/12/2026</td><td>Lunes</td><td>Pruebas unitarias completas con Jest (middlewares, auth, roles, controladores y services con mocks).</td><td class="mono">RNF-08, RNF-09</td><td>Rama <span class="mono">feature/unit-tests</span></td><td><span class="pill">Pendiente</span></td></tr>
+          <tr><td class="mono">08/12/2026</td><td>Martes</td><td>Despliegue público HTTPS (Vercel + Render + Supabase + n8n) + 8 capturas + Plan de Producción PDF.</td><td class="mono">RNF-10</td><td>URL pública + Plan Prod.</td><td><span class="pill">Pendiente</span></td></tr>
+          <tr class="milestone-row"><td class="mono">09/12/2026</td><td>Miércoles</td><td>SEGUNDO AVANCE OBLIGATORIO — Demostración completa en URL pública, 8 agentes, 3 n8n y auditoría.</td><td class="mono">100 % RF y RNF</td><td>Presentación al profesor</td><td><span class="pill pill-orange">Hito 2</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-hi" style="display:flex; justify-content:space-between; align-items:center;">
+      <div style="font-size:11px; color:var(--muted);">
+        <strong style="color:var(--text);">Control de cambios y entregas:</strong> Cada bloque cierra con Pull Request hacia <span class="mono">develop</span> y fusión verificada a <span class="mono">main</span> para despliegue continuo.
+      </div>
+      <span class="pill pill-green">16 días planificados</span>
+    </div>
+
+    <div class="page-footer">
+      <span>Anteproyecto Full Stack · Vértice CR</span>
+      <span>Sebastián Flores Miranda · Grupo Desamparados · Prof. Barry Vega · <strong>Página 17</strong></span>
+    </div>
+  </section>
+
+</body>
+</html>

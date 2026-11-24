@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mockup 02 v2 — Tienda Unificada Vértice CR (Asesor Vértice Rediseñado + Filtros Pro)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --stage: #08080a;
+      --bg: #141417;
+      --surf: #1c1c21;
+      --surf-hi: #24242b;
+      --ctrl: #2a2a34;
+      --ink: #f5f4f1;
+      --ink-2: #c9c7c2;
+      --ink-3: #8d8b87;
+      --orange: #ff6a1f;
+      --pla: #a3e635;
+      --petg: #38bdf8;
+      --asa: #ff6a1f;
+      --abs: #f59e0b;
+      --tpu: #c084fc;
+      --hair: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    html, body {
+      width: 1960px;
+      background: var(--stage);
+      color: var(--ink);
+      font-family: 'Chakra Petch', 'Segoe UI', sans-serif;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stage {
+      width: 1960px;
+      padding: 44px 56px 56px;
+      background:
+        radial-gradient(980px 580px at 24% 6%, rgba(255, 106, 31, 0.13), transparent 65%),
+        radial-gradient(840px 620px at 84% 58%, rgba(56, 189, 248, 0.07), transparent 68%),
+        #08080a;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .studio-top { display: flex; align-items: center; justify-content: space-between; }
+    .studio-top-l { display: flex; align-items: baseline; gap: 16px; }
+    .studio-code { font-size: 16px; font-weight: 700; color: var(--orange); white-space: nowrap; }
+    .studio-name { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+    .studio-meta { font-size: 13.5px; color: var(--ink-3); font-weight: 500; }
+    .studio-top-r { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--ink-2); white-space: nowrap; }
+    .studio-top-r img { height: 22px; }
+
+    .artboard-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 44px; }
+
+    /* ================= DESKTOP 1440 PX ================= */
+    .desktop-frame {
+      position: relative;
+      width: 1440px;
+      background: var(--bg);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 40px 110px rgba(0, 0, 0, 0.84), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+
+    .win-bar {
+      height: 38px; background: #101013;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+    }
+    .win-dots { display: flex; gap: 7px; }
+    .win-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .win-dots span:nth-child(1) { background: #ff5f57; }
+    .win-dots span:nth-child(2) { background: #febc2e; }
+    .win-dots span:nth-child(3) { background: #28c840; }
+    .win-url {
+      background: #19191e; color: var(--ink-2); font-size: 12.5px; font-weight: 500;
+      padding: 5px 34px; border-radius: 8px; display: flex; align-items: center; gap: 7px;
+    }
+    .win-vp { font-size: 12px; color: var(--ink-3); font-weight: 600; }
+
+    /* ================= NAVBAR BLOQUEADO ================= */
+    .nav {
+      position: relative; z-index: 40;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 56px;
+      background: rgba(18, 18, 22, 0.88);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .nav-logo { height: 36px; display: block; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.7)); }
+    .nav-capsule {
+      display: flex; align-items: center; gap: 6px;
+      background: #1d1d22; padding: 5px 6px; border-radius: 999px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.36);
+    }
+    .nav-item {
+      position: relative; padding: 8px 20px; border-radius: 999px;
+      font-size: 13.5px; font-weight: 600; color: var(--ink-2);
+      display: inline-flex; align-items: center; white-space: nowrap;
+    }
+    .nav-item.active { background: #292932; color: #fff; font-weight: 700; }
+    .nav-item.active::after {
+      content: ''; position: absolute; left: 22px; right: 22px; bottom: 3px;
+      height: 2px; border-radius: 99px; background: var(--orange);
+    }
+    .nav-quote-matte {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 8px 22px; border-radius: 999px;
+      background: var(--orange); color: #161618;
+      font-size: 13.5px; font-weight: 700; white-space: nowrap;
+    }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .cart-icon-btn {
+      position: relative; width: 40px; height: 40px; border-radius: 999px;
+      background: var(--surf); color: #f5f4f1;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .cart-badge {
+      position: absolute; top: -3px; right: -3px; width: 19px; height: 19px; border-radius: 50%;
+      background: var(--orange); color: #161618; font-size: 10.5px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .menu-trigger {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25252c; color: #f5f4f1;
+      padding: 6px 15px 6px 7px; border-radius: 999px; font-size: 13px; font-weight: 600;
+    }
+    .avatar-dot {
+      width: 28px; height: 28px; border-radius: 50%; background: #32323c; color: #f5f4f1;
+      font-size: 11.5px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ================= AMBIENTE DE TIENDA (CONTINUO SIN CORTES) ================= */
+    .store-shell { position: relative; background: var(--bg); overflow: hidden; }
+    .store-atmosphere {
+      position: absolute; inset: 0 0 auto 0; height: 500px;
+      background:
+        radial-gradient(900px 360px at 22% 0%, rgba(255, 106, 31, 0.14), transparent 72%),
+        radial-gradient(760px 320px at 84% 8%, rgba(56, 189, 248, 0.08), transparent 70%),
+        radial-gradient(rgba(255, 255, 255, 0.10) 1.1px, transparent 1.1px);
+      background-size: 100% 100%, 100% 100%, 26px 26px;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 58%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 58%, transparent 100%);
+      pointer-events: none; z-index: 1;
+    }
+
+    /* Cabecera limpia sin caja floja en la derecha */
+    .store-hero {
+      position: relative; z-index: 4;
+      padding: 38px 56px 26px;
+      display: flex; flex-direction: column; gap: 22px;
+    }
+    .kicker { display: flex; align-items: center; gap: 11px; font-size: 13px; font-weight: 600; color: var(--ink-2); }
+    .kicker-bar { width: 30px; height: 3px; background: var(--orange); border-radius: 2px; }
+    .store-hero h1 { font-size: 42px; line-height: 1.05; letter-spacing: -0.025em; font-weight: 700; color: #fff; margin-top: 8px; }
+    .store-hero h1 span { color: var(--orange); }
+    .store-hero p { font-size: 15.5px; color: var(--ink-2); max-width: 660px; margin-top: 6px; line-height: 1.5; }
+
+    /* Barra de control */
+    .store-toolbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      padding: 12px 14px;
+      background: rgba(24, 24, 30, 0.90);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 18px;
+    }
+    .scope-tabs { display: inline-flex; gap: 4px; background: #141418; padding: 4px; border-radius: 12px; }
+    .scope-tab {
+      padding: 9px 18px; border-radius: 9px; font-size: 13.5px; font-weight: 600; color: var(--ink-2);
+      display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+    }
+    .scope-tab.on { background: #292934; color: #fff; font-weight: 700; }
+    .scope-tab small { font-size: 11.5px; color: var(--ink-3); font-weight: 600; }
+    .scope-tab.on small { color: var(--orange); }
+
+    .search-sort { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: flex-end; }
+    .search-ask-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #141418;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 13px;
+      padding: 5px 5px 5px 14px;
+      flex: 1;
+      max-width: 520px;
+    }
+    .search-ask-group .search-placeholder {
+      flex: 1;
+      font-size: 13.5px;
+      color: var(--ink-3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .toolbar-ask-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #252530;
+      border: 1px solid rgba(255, 106, 31, 0.36);
+      color: #fff;
+      padding: 7px 13px;
+      border-radius: 9px;
+      font-size: 12.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .toolbar-ask-btn .v-dot {
+      width: 18px; height: 18px; border-radius: 5px;
+      background: var(--orange);
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .toolbar-ask-btn .v-dot img { height: 10px; filter: brightness(0); }
+    .sort-box {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #141418; border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px; padding: 10px 14px; font-size: 13px; color: var(--ink-2); white-space: nowrap;
+    }
+    .sort-box strong { color: #fff; }
+
+    /* ================= SIDEBAR FILTROS MEJORADOS + GRILLA ================= */
+    .store-main {
+      position: relative; z-index: 4;
+      padding: 8px 56px 56px;
+      display: grid; grid-template-columns: 272px 1fr; gap: 32px; align-items: start;
+    }
+
+    .filters-side {
+      background: rgba(24, 24, 30, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 20px; padding: 20px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .f-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .f-head strong { font-size: 15px; color: #fff; }
+    .f-clear { font-size: 12px; font-weight: 600; color: var(--orange); }
+
+    .f-group {
+      display: flex; flex-direction: column; gap: 10px;
+      padding-bottom: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .f-group:last-child { border-bottom: none; padding-bottom: 0; }
+    .f-title {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12.5px; font-weight: 700; color: #fff; letter-spacing: 0.02em;
+    }
+    .f-title small { font-size: 11.5px; font-weight: 600; color: var(--ink-2); }
+
+    /* Nuevo: Chips rápidos de Uso / Resistencia (para no técnicos) */
+    .use-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .use-pill {
+      background: #16161b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 7px 9px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-2);
+      text-align: center;
+    }
+    .use-pill.on {
+      background: rgba(255, 106, 31, 0.14);
+      border-color: rgba(255, 106, 31, 0.45);
+      color: #fff;
+    }
+
+    .f-check-list { display: flex; flex-direction: column; gap: 7px; }
+    .f-check { display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--ink-2); }
+    .f-check-l { display: inline-flex; align-items: center; gap: 9px; }
+    .chk {
+      width: 16px; height: 16px; border-radius: 5px;
+      border: 1.5px solid rgba(255, 255, 255, 0.22); background: #141418;
+      display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .chk.on { background: var(--orange); border-color: var(--orange); color: #161618; font-weight: 700; font-size: 11px; }
+    .f-count { font-size: 11.5px; color: var(--ink-3); font-weight: 600; }
+    .poly-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+    /* Swatches 5×2 simétricos con selección activa y nombre en el título (sin texto relleno) */
+    .swatch-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; justify-items: center; }
+    .sw-dot {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.14);
+    }
+    .sw-dot.on {
+      border-color: #fff;
+      box-shadow: 0 0 0 2.5px var(--orange);
+    }
+
+    /* Slider visual de rango + casillas con unidad ₡ integrada */
+    .range-track {
+      position: relative;
+      height: 5px;
+      background: #272732;
+      border-radius: 99px;
+      margin: 6px 2px 4px;
+    }
+    .range-fill {
+      position: absolute;
+      left: 12%; right: 20%; top: 0; bottom: 0;
+      background: var(--orange);
+      border-radius: 99px;
+    }
+    .range-thumb {
+      position: absolute;
+      top: 50%; transform: translate(-50%, -50%);
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #fff; border: 2.5px solid var(--orange);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.55);
+    }
+    .price-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .p-inp {
+      background: #141418; border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px; padding: 7px 10px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12.5px; color: #fff; font-weight: 600;
+    }
+    .p-inp small { color: var(--ink-3); font-weight: 700; }
+
+    .f-toggle-row { display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: #e8e8ee; font-weight: 600; }
+    .sw-pill { width: 34px; height: 19px; border-radius: 999px; background: #2f2f39; position: relative; }
+    .sw-pill::after { content: ''; position: absolute; top: 3px; left: 3px; width: 13px; height: 13px; border-radius: 50%; background: #9a9893; }
+
+    /* Nota discreta de filtros dinámicos (colapsados) */
+    .f-collapsed-row {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+      padding-top: 2px;
+    }
+
+    .side-custom-box {
+      background: radial-gradient(240px 140px at 90% 10%, rgba(255, 106, 31, 0.16), transparent 72%), #16161b;
+      border: 1px solid rgba(255, 106, 31, 0.22);
+      border-radius: 14px; padding: 14px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .side-custom-box strong { font-size: 13.5px; color: #fff; }
+    .side-custom-box p { font-size: 12px; color: var(--ink-2); line-height: 1.45; }
+    .side-custom-btn {
+      background: var(--ctrl); color: #fff; text-align: center;
+      padding: 8px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700;
+    }
+
+    /* ================= CATÁLOGO 3×3 ================= */
+    .catalog-col { display: flex; flex-direction: column; gap: 18px; }
+    .active-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .active-chips { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .a-chip {
+      background: #23232c; color: #fff; border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 7px;
+    }
+    .a-chip i { color: var(--ink-3); font-style: normal; }
+    .results-meta { font-size: 13px; color: var(--ink-2); font-weight: 600; white-space: nowrap; }
+    .results-meta strong { color: #fff; }
+
+    .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .p-card {
+      background: rgba(28, 28, 34, 0.94); border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;
+    }
+    .p-media { position: relative; height: 204px; background: #121216; overflow: hidden; }
+    .p-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .p-media.spool-stage {
+      background: radial-gradient(circle at 50% 42%, #2b2d36 0%, #191a20 100%);
+      padding: 14px;
+    }
+    .p-media.spool-stage img { border-radius: 12px; filter: brightness(0.88) contrast(1.08); }
+    .p-media::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20, 20, 25, 0.72) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .p-badge-l {
+      position: absolute; top: 12px; left: 12px; z-index: 3;
+      background: rgba(16, 16, 20, 0.86); padding: 4px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 700; color: #fff; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .p-badge-r {
+      position: absolute; top: 12px; right: 12px; z-index: 3;
+      background: rgba(16, 16, 20, 0.86); padding: 4px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 700; color: var(--ink-2);
+    }
+    .p-badge-r.stock { color: var(--pla); }
+    .p-badge-r.low { color: var(--abs); }
+
+    .p-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+    .p-rating-row { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--ink-2); }
+    .p-stars { color: #f59e0b; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+    .p-stars span { color: var(--ink-3); font-weight: 600; }
+    .p-swatches { display: inline-flex; gap: 5px; align-items: center; }
+    .p-swatches i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; border: 1px solid rgba(255, 255, 255, 0.25); }
+    .p-body h3 { font-size: 16.5px; font-weight: 700; color: #fff; line-height: 1.24; }
+    .p-desc { font-size: 12.5px; color: var(--ink-3); line-height: 1.42; flex: 1; }
+    .p-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .p-price strong { display: block; font-size: 18px; color: #fff; line-height: 1.05; }
+    .p-price.piece strong { color: var(--orange); }
+    .p-price small { font-size: 11.5px; color: var(--ink-3); }
+    .p-btn { background: var(--ctrl); color: #fff; padding: 7px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+
+    .pager {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 13px; color: var(--ink-3);
+    }
+    .pager-btns { display: flex; gap: 6px; }
+    .pg-b {
+      min-width: 34px; height: 34px; padding: 0 11px; border-radius: 9px;
+      background: #1d1d24; color: var(--ink-2);
+      display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
+    }
+    .pg-b.on { background: var(--orange); color: #161618; }
+
+    /* DISPARADOR FLOTANTE PROPIO DE VÉRTICE (ESQUINA INFERIOR DERECHA DEL VIEWPORT) */
+    .floating-advisor-fab {
+      position: absolute;
+      right: 32px;
+      bottom: 432px;
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      background: #23232c;
+      border: 1.5px solid rgba(255, 106, 31, 0.55);
+      border-radius: 999px;
+      padding: 8px 18px 8px 9px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.78), 0 0 0 4px rgba(20, 20, 23, 0.65);
+    }
+    .fab-v-badge {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .fab-v-badge img { height: 18px; filter: brightness(0); }
+    .fab-copy strong { display: block; font-size: 13.5px; color: #fff; line-height: 1.1; }
+    .fab-copy span { font-size: 11px; color: var(--ink-2); }
+    .fab-chat-ico {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #2f2f3b; color: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      margin-left: 2px;
+    }
+
+    /* ================= FOOTER REAL BLOQUEADO ================= */
+    .site-footer {
+      background: linear-gradient(to bottom, #141417 0%, #0e0e11 100px, #0c0c0f 100%);
+      padding: 52px 56px 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .foot-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 44px;
+      padding-bottom: 28px; border-bottom: 1px solid var(--hair);
+    }
+    .foot-brand img { height: 32px; margin-bottom: 12px; display: block; }
+    .foot-brand p { font-size: 13.5px; color: var(--ink-2); line-height: 1.55; max-width: 330px; }
+    .foot-meta-loc { margin-top: 12px; font-size: 12.5px; color: var(--ink-3); display: flex; flex-direction: column; gap: 4px; }
+    .foot-col h4 { font-size: 13.5px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; font-size: 13px; color: var(--ink-2); }
+    .foot-outline-word {
+      font-size: 158px; font-weight: 700; line-height: 0.9; letter-spacing: 0.08em;
+      text-align: center; color: transparent;
+      -webkit-text-stroke: 1.5px rgba(255, 106, 31, 0.24);
+      margin: 12px 0 6px; user-select: none;
+    }
+    .foot-bottom { padding-top: 14px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--ink-3); border-top: 1px solid rgba(255,255,255,0.05); }
+    .foot-pay { display: flex; align-items: center; gap: 18px; color: var(--ink-2); font-weight: 600; }
+
+    /* ================= RIGHT COLUMN: MÓVIL + COMPARATIVA DISPARADOR + ASESOR REDISEÑADO ================= */
+    .phone-col { width: 390px; display: flex; flex-direction: column; gap: 16px; flex-shrink: 0; }
+    .phone-caption { font-size: 13px; font-weight: 600; color: var(--ink-2); display: flex; justify-content: space-between; padding: 0 4px; }
+    .phone-frame {
+      width: 390px; background: #1a1a1f; border-radius: 44px; padding: 11px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.14);
+    }
+    .phone-screen { width: 100%; background: var(--bg); border-radius: 34px; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+    .ph-status { height: 40px; padding: 10px 22px 0; display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 700; }
+    .ph-island { width: 92px; height: 22px; background: #060608; border-radius: 999px; }
+    .ph-nav { display: flex; align-items: center; justify-content: space-between; padding: 10px 18px; }
+    .ph-nav img { height: 22px; }
+    .ph-nav-r { display: flex; align-items: center; gap: 10px; }
+
+    .ph-body { padding: 10px 16px 16px; display: flex; flex-direction: column; gap: 11px; }
+    .ph-body h2 { font-size: 24px; font-weight: 700; color: #fff; }
+    .ph-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: #1d1d24; padding: 4px; border-radius: 12px; }
+    .ph-tab { text-align: center; padding: 8px 4px; border-radius: 8px; font-size: 12px; font-weight: 600; color: var(--ink-2); }
+    .ph-tab.on { background: #2c2c38; color: #fff; font-weight: 700; }
+
+    .ph-search-row { display: flex; gap: 8px; }
+    .ph-search {
+      flex: 1; height: 42px; background: #1c1c22; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 0 12px; display: flex; align-items: center; gap: 8px;
+      font-size: 12.5px; color: var(--ink-3);
+    }
+    .ph-filter-btn {
+      height: 42px; padding: 0 13px; background: #252530; border-radius: 12px;
+      display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: #fff;
+    }
+    .ph-filter-btn i {
+      font-style: normal; background: var(--orange); color: #161618;
+      width: 18px; height: 18px; border-radius: 50%; font-size: 10.5px;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .ph-chips { display: flex; gap: 6px; overflow: hidden; }
+    .ph-chip { background: #22222b; padding: 5px 10px; border-radius: 999px; font-size: 11.5px; color: #fff; font-weight: 600; white-space: nowrap; }
+
+    .ph-card { background: #1c1c22; border: 1px solid rgba(255,255,255,0.06); border-radius: 18px; overflow: hidden; }
+    .ph-card-img { position: relative; height: 136px; background: #121216; }
+    .ph-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ph-card-img.spool { background: radial-gradient(circle at 50% 42%, #2b2d36 0%, #191a20 100%); padding: 10px; }
+    .ph-card-img.spool img { border-radius: 10px; filter: brightness(0.88); }
+    .ph-card-b { padding: 11px 14px; display: flex; flex-direction: column; gap: 5px; }
+    .ph-card-b strong { font-size: 15px; color: #fff; }
+    .ph-card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--ink-2); }
+    .ph-card-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .ph-card-price { font-size: 16px; font-weight: 700; color: var(--orange); white-space: nowrap; }
+    .ph-card-btn { background: var(--ctrl); color: #fff; padding: 7px 14px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+
+    .ph-dock { height: 68px; background: #16161a; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; padding: 0 8px 6px; border-top: 1px solid var(--hair); }
+    .dock-item { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 10.5px; font-weight: 600; color: var(--ink-3); }
+    .dock-item.on { color: var(--orange); font-weight: 700; }
+    .dock-fab { width: 38px; height: 28px; border-radius: 999px; background: var(--orange); color: #161618; display: flex; align-items: center; justify-content: center; }
+
+    /* Alternativa de disparador junto al buscador (para decidir visualmente entre ambos) */
+    .alt-trigger-card {
+      background: #15151a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .alt-search-demo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #1d1d24;
+      padding: 6px 6px 6px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .alt-search-demo > span:first-of-type { flex: 1; font-size: 12px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .alt-ask-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--orange); color: #161618 !important; flex: none !important;
+      padding: 6px 11px; border-radius: 9px;
+      font-size: 11.5px; font-weight: 700; white-space: nowrap;
+    }
+    .alt-ask-pill img { height: 12px; filter: brightness(0); }
+
+    /* ================= ASESOR VÉRTICE REDISEÑADO (ESTILO AMAZON RUFUS / LA PLANTA — CERO BURBUJAS GENÉRICAS) ================= */
+    .advisor-drawer {
+      width: 390px;
+      background: #17171d;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 28px 68px rgba(0, 0, 0, 0.72);
+    }
+    .adv-top {
+      background: linear-gradient(135deg, rgba(255, 106, 31, 0.14) 0%, rgba(23, 23, 29, 0) 68%), #1c1c23;
+      padding: 15px 17px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .adv-brand { display: flex; align-items: center; gap: 11px; }
+    .adv-logo {
+      width: 34px; height: 34px; border-radius: 10px;
+      background: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .adv-logo img { height: 17px; filter: brightness(0); }
+    .adv-brand strong { display: block; font-size: 14.5px; color: #fff; line-height: 1.1; }
+    .adv-brand small { font-size: 11.5px; color: var(--ink-2); }
+    .adv-close {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: #262630; color: var(--ink-2);
+      display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700;
+    }
+
+    .adv-prompts {
+      padding: 12px 17px 0;
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .adv-chip {
+      background: #21212a; border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 999px; padding: 5px 10px; font-size: 11px; font-weight: 600; color: var(--ink-2);
+    }
+    .adv-chip.on {
+      background: rgba(255, 106, 31, 0.14); border-color: rgba(255, 106, 31, 0.35); color: #fff;
+    }
+
+    .adv-body {
+      padding: 15px 17px;
+      display: flex; flex-direction: column; gap: 13px;
+    }
+    /* Pregunta como titular limpio con acento lateral (cero burbuja WhatsApp) */
+    .adv-query {
+      border-left: 2.5px solid var(--orange);
+      padding-left: 11px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+    }
+    .adv-verdict {
+      font-size: 12.5px;
+      color: var(--ink-2);
+      line-height: 1.48;
+    }
+    .adv-verdict strong { color: #fff; }
+
+    /* Comparativa técnica visual (PLA+ vs ASA) */
+    .adv-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .adv-cmp-box {
+      background: #121216;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      padding: 9px 11px;
+      display: flex; flex-direction: column; gap: 3px;
+    }
+    .adv-cmp-box.win {
+      background: rgba(255, 106, 31, 0.08);
+      border-color: rgba(255, 106, 31, 0.36);
+    }
+    .adv-cmp-top { display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; }
+    .adv-cmp-box span { font-size: 11px; color: var(--ink-3); line-height: 1.35; }
+    .adv-cmp-box.win span { color: var(--ink-2); }
+
+    /* Tarjeta rica de merchandising con foto real (estilo Amazon Rufus) */
+    .adv-product-card {
+      background: #1e1e26;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .adv-pc-top { display: flex; gap: 11px; align-items: center; }
+    .adv-pc-thumb {
+      width: 58px; height: 58px; border-radius: 10px; overflow: hidden;
+      background: #282a34; padding: 4px; flex-shrink: 0;
+    }
+    .adv-pc-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 7px; filter: brightness(0.9); }
+    .adv-pc-info strong { display: block; font-size: 13.5px; color: #fff; }
+    .adv-pc-info span { display: block; font-size: 11.5px; color: var(--pla); font-weight: 600; margin-top: 2px; }
+    .adv-pc-info b { display: block; font-size: 14.5px; color: var(--orange); margin-top: 2px; }
+
+    .adv-pc-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .adv-btn-p {
+      background: var(--orange); color: #161618; text-align: center;
+      padding: 7px 10px; border-radius: 9px; font-size: 12px; font-weight: 700;
+    }
+    .adv-btn-s {
+      background: #2b2b36; color: #fff; text-align: center;
+      padding: 7px 10px; border-radius: 9px; font-size: 12px; font-weight: 600;
+    }
+
+    .adv-input-bar {
+      margin: 0 17px 16px;
+      background: #121216; border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 12px; padding: 9px 12px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px; color: var(--ink-3);
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <header class="studio-top">
+      <div class="studio-top-l">
+        <span class="studio-code">02 / 18 · V3</span>
+        <span class="studio-name">Tienda Unificada — Asesor Integrado al Buscador (Cero Botón Flotante Estorboso)</span>
+        <span class="studio-meta">Estándar Amazon Rufus + Bambu Lab + Baymard · Filtros Pro · Asesor con ficha comparativa</span>
+      </div>
+      <div class="studio-top-r">
+        <span>1440 px + 390 px + Asesor</span>
+        <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-flat.png" alt="Vértice CR" />
+      </div>
+    </header>
+
+    <div class="artboard-row">
+      <!-- ==================== DESKTOP 1440 PX ==================== -->
+      <div class="desktop-frame">
+        <div class="win-bar">
+          <div class="win-dots"><span></span><span></span><span></span></div>
+          <div class="win-url">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8d8b87" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            verticecr.app/tienda
+          </div>
+          <div class="win-vp">Escritorio 1440 px · V2</div>
+        </div>
+
+        <!-- NAVBAR BLOQUEADO -->
+        <header class="nav">
+          <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-3d.png" class="nav-logo" alt="Vértice CR" />
+
+          <nav class="nav-capsule" aria-label="Navegación principal">
+            <span class="nav-item">Inicio</span>
+            <span class="nav-item active">Tienda</span>
+            <span class="nav-quote-matte">Cotizar pieza</span>
+          </nav>
+
+          <div class="nav-right">
+            <span class="cart-icon-btn" title="Carrito">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              <span class="cart-badge">2</span>
+            </span>
+            <span class="menu-trigger">
+              <span class="avatar-dot">SF</span>
+              <span>Mi cuenta</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </div>
+        </header>
+
+        <div class="store-shell">
+          <div class="store-atmosphere"></div>
+
+          <!-- CABECERA LIMPIA (SIN BANNER FLOJO ARRIBA) -->
+          <section class="store-hero">
+            <div>
+              <div class="kicker"><span class="kicker-bar"></span><span>Catálogo verificado en planta</span></div>
+              <h1>Tienda <span>Vértice</span></h1>
+              <p>Piezas 3D probadas bajo pedido, filamentos calibrados y repuestos con stock real listo para retiro en Desamparados o envío por Correos de CR.</p>
+            </div>
+
+            <div class="store-toolbar">
+              <div class="scope-tabs">
+                <span class="scope-tab on">Todo <small>110</small></span>
+                <span class="scope-tab">Piezas 3D <small>65</small></span>
+                <span class="scope-tab">Filamentos e insumos <small>45</small></span>
+              </div>
+
+              <div class="search-sort">
+                <div class="search-ask-group">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8d8b87" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                  <span class="search-placeholder">Buscar piezas, filamentos o repuestos...</span>
+                  <span class="toolbar-ask-btn">
+                    <span class="v-dot"><img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-isotipo-v-flat.png" alt="V" /></span>
+                    Preguntar al asesor
+                  </span>
+                </div>
+                <div class="sort-box">
+                  <span>Ordenar:</span>
+                  <strong>Más populares</strong>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SIDEBAR CON 3 MEJORAS PRO + GRILLA 3×3 -->
+          <section class="store-main">
+            <aside class="filters-side">
+              <div class="f-head">
+                <strong>Filtros</strong>
+                <span class="f-clear">Limpiar todo</span>
+              </div>
+
+              <!-- Mejora 1: Uso / Resistencia (para no técnicos) -->
+              <div class="f-group">
+                <div class="f-title"><span>Uso o resistencia</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8d8b87" stroke-width="2.2"><path d="m18 15-6-6-6 6"/></svg></div>
+                <div class="use-grid">
+                  <span class="use-pill on">Uso diario</span>
+                  <span class="use-pill">Carga / Golpe</span>
+                  <span class="use-pill">Exterior UV</span>
+                  <span class="use-pill">Flexible</span>
+                </div>
+              </div>
+
+              <div class="f-group">
+                <div class="f-title"><span>Categoría</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8d8b87" stroke-width="2.2"><path d="m18 15-6-6-6 6"/></svg></div>
+                <div class="f-check-list">
+                  <div class="f-check"><span class="f-check-l"><span class="chk"></span>Coleccionables y gaming</span><span class="f-count">18</span></div>
+                  <div class="f-check"><span class="f-check-l"><span class="chk"></span>Escritorio y setup</span><span class="f-count">24</span></div>
+                  <div class="f-check"><span class="f-check-l"><span class="chk"></span>Organización y hogar</span><span class="f-count">23</span></div>
+                  <div class="f-check"><span class="f-check-l"><span class="chk"></span>Filamentos 1.75 mm</span><span class="f-count">30</span></div>
+                  <div class="f-check"><span class="f-check-l"><span class="chk"></span>Boquillas, PEI y repuestos</span><span class="f-count">15</span></div>
+                </div>
+              </div>
+
+              <div class="f-group">
+                <div class="f-title"><span>Polímero</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8d8b87" stroke-width="2.2"><path d="m18 15-6-6-6 6"/></svg></div>
+                <div class="f-check-list">
+                  <div class="f-check"><span class="f-check-l"><span class="chk on">✓</span><i class="poly-dot" style="background:var(--pla);"></i>PLA+</span><span class="f-count">42</span></div>
+                  <div class="f-check"><span class="f-check-l"><span class="chk on">✓</span><i class="poly-dot" style="background:var(--petg);"></i>PETG</span><span class="f-count">31</span></div>
+                  <div class="f-check"><span class="f-check-l"><span class="chk"></span><i class="poly-dot" style="background:var(--asa);"></i>ASA (Exterior UV)</span><span class="f-count">9</span></div>
+                  <div class="f-check"><span class="f-check-l"><span class="chk"></span><i class="poly-dot" style="background:var(--abs);"></i>ABS+</span><span class="f-count">6</span></div>
+                  <div class="f-check"><span class="f-check-l"><span class="chk"></span><i class="poly-dot" style="background:var(--tpu);"></i>TPU Flexible</span><span class="f-count">7</span></div>
+                </div>
+              </div>
+
+              <!-- Mejora 2: Swatch activo con nombre real (sin texto instructivo de relleno) -->
+              <div class="f-group">
+                <div class="f-title"><span>Color</span><small>Negro mate</small></div>
+                <div class="swatch-grid">
+                  <span class="sw-dot on" style="background:#1c1c20;" title="Negro mate"></span>
+                  <span class="sw-dot" style="background:#e5e5e0;" title="Blanco marfil"></span>
+                  <span class="sw-dot" style="background:#6b7280;" title="Gris industrial"></span>
+                  <span class="sw-dot" style="background:#7c3aed;" title="Morado eléctrico"></span>
+                  <span class="sw-dot" style="background:#2563eb;" title="Azul pacífico"></span>
+                  <span class="sw-dot" style="background:#16a34a;" title="Verde esmeralda"></span>
+                  <span class="sw-dot" style="background:#ff6a1f;" title="Naranja Vértice"></span>
+                  <span class="sw-dot" style="background:#dc2626;" title="Rojo carmesí"></span>
+                  <span class="sw-dot" style="background:#eab308;" title="Amarillo mostaza"></span>
+                  <span class="sw-dot" style="background:#94a3b8;" title="Plata seda"></span>
+                </div>
+              </div>
+
+              <!-- Mejora 3: Slider visual + casillas con unidad ₡ integrada -->
+              <div class="f-group">
+                <div class="f-title"><span>Precio en colones</span></div>
+                <div class="range-track">
+                  <div class="range-fill"></div>
+                  <span class="range-thumb" style="left:12%;"></span>
+                  <span class="range-thumb" style="left:80%;"></span>
+                </div>
+                <div class="price-inputs">
+                  <div class="p-inp"><small>₡</small><span>4 000</span></div>
+                  <div class="p-inp"><small>₡</small><span>25 000</span></div>
+                </div>
+              </div>
+
+              <div class="f-group">
+                <div class="f-toggle-row">
+                  <span>Solo entrega inmediata</span>
+                  <span class="sw-pill"></span>
+                </div>
+              </div>
+
+              <!-- Acordeón colapsado contextual para Filamentos -->
+              <div class="f-group">
+                <div class="f-collapsed-row">
+                  <span>Diámetro y acabado (Filamentos)</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8d8b87" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+              </div>
+
+              <div class="side-custom-box">
+                <strong>¿Buscás una medida exacta?</strong>
+                <p>Si una pieza no tiene el tamaño que ocupás o necesitás un repuesto nuevo, cotizalo con foto.</p>
+                <span class="side-custom-btn">Ir al cotizador →</span>
+              </div>
+            </aside>
+
+            <!-- CATÁLOGO 3×3 -->
+            <div class="catalog-col">
+              <div class="active-bar">
+                <div class="active-chips">
+                  <span class="a-chip">Uso diario <i>×</i></span>
+                  <span class="a-chip">PLA+ <i>×</i></span>
+                  <span class="a-chip">PETG <i>×</i></span>
+                  <span class="a-chip">Negro mate <i>×</i></span>
+                </div>
+                <span class="results-meta">Mostrando <strong>1–9</strong> de <strong>73</strong> productos</span>
+              </div>
+
+              <div class="prod-grid">
+                <article class="p-card">
+                  <div class="p-media">
+                    <span class="p-badge-l"><i class="poly-dot" style="background:var(--pla);"></i>PLA+</span>
+                    <span class="p-badge-r">Bajo pedido</span>
+                    <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg" alt="Estuche Beyblade X 3-Slot" />
+                  </div>
+                  <div class="p-body">
+                    <div class="p-rating-row">
+                      <span class="p-stars">★ 4.9 <span>(24)</span></span>
+                      <span class="p-swatches"><i style="background:#7c3aed;"></i><i style="background:#1c1c20;"></i><i style="background:#ff6a1f;"></i></span>
+                    </div>
+                    <h3>Estuche Beyblade X 3-Slot</h3>
+                    <p class="p-desc">3 cavidades numeradas, bisagras con pasador y broches de ajuste firme.</p>
+                    <div class="p-foot">
+                      <div class="p-price piece"><strong>₡18 500</strong><small>6.5 h · 180 g</small></div>
+                      <span class="p-btn">Ver producto</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="p-card">
+                  <div class="p-media">
+                    <span class="p-badge-l"><i class="poly-dot" style="background:var(--petg);"></i>PETG</span>
+                    <span class="p-badge-r">Bajo pedido</span>
+                    <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-audifonos.webp" alt="Soporte Audífonos Pro" />
+                  </div>
+                  <div class="p-body">
+                    <div class="p-rating-row">
+                      <span class="p-stars">★ 4.8 <span>(19)</span></span>
+                      <span class="p-swatches"><i style="background:#1c1c20;"></i><i style="background:#6b7280;"></i><i style="background:#e5e5e0;"></i></span>
+                    </div>
+                    <h3>Soporte Audífonos Pro</h3>
+                    <p class="p-desc">Base pesada ergonómica con canal posterior oculto para cable de estudio.</p>
+                    <div class="p-foot">
+                      <div class="p-price piece"><strong>₡12 900</strong><small>4.2 h · 145 g</small></div>
+                      <span class="p-btn">Ver producto</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="p-card">
+                  <div class="p-media spool-stage">
+                    <span class="p-badge-l"><i class="poly-dot" style="background:var(--pla);"></i>PLA+</span>
+                    <span class="p-badge-r stock">14 en stock</span>
+                    <img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-01.jpg" alt="PLA+ Verde Esmeralda 1 kg" />
+                  </div>
+                  <div class="p-body">
+                    <div class="p-rating-row">
+                      <span class="p-stars">★ 4.9 <span>(31)</span></span>
+                      <span class="p-swatches"><i style="background:#16a34a;"></i><i style="background:#1c1c20;"></i><i style="background:#dc2626;"></i></span>
+                    </div>
+                    <h3>PLA+ Verde Esmeralda 1 kg</h3>
+                    <p class="p-desc">1.75 mm · tolerancia ±0.02 mm · impresión estable 205–220 °C.</p>
+                    <div class="p-foot">
+                      <div class="p-price"><strong>₡14 200</strong><small>Envío inmediato</small></div>
+                      <span class="p-btn">+ Carrito</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="p-card">
+                  <div class="p-media">
+                    <span class="p-badge-l"><i class="poly-dot" style="background:var(--pla);"></i>PLA+</span>
+                    <span class="p-badge-r">Bajo pedido</span>
+                    <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-organizador.webp" alt="Organizador Modular de Setup" />
+                  </div>
+                  <div class="p-body">
+                    <div class="p-rating-row">
+                      <span class="p-stars">★ 4.9 <span>(16)</span></span>
+                      <span class="p-swatches"><i style="background:#1c1c20;"></i><i style="background:#2563eb;"></i><i style="background:#ff6a1f;"></i></span>
+                    </div>
+                    <h3>Organizador Modular de Setup</h3>
+                    <p class="p-desc">Panel vertical para dos controles, audífonos y herramientas de escritorio.</p>
+                    <div class="p-foot">
+                      <div class="p-price piece"><strong>₡11 500</strong><small>4.0 h · 130 g</small></div>
+                      <span class="p-btn">Ver producto</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="p-card">
+                  <div class="p-media spool-stage">
+                    <span class="p-badge-l"><i class="poly-dot" style="background:var(--petg);"></i>PETG</span>
+                    <span class="p-badge-r low">Quedan 2</span>
+                    <img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-06.jpg" alt="PETG Azul Pacífico 1 kg" />
+                  </div>
+                  <div class="p-body">
+                    <div class="p-rating-row">
+                      <span class="p-stars">★ 4.8 <span>(12)</span></span>
+                      <span class="p-swatches"><i style="background:#2563eb;"></i><i style="background:#6b7280;"></i></span>
+                    </div>
+                    <h3>PETG Azul Pacífico 1 kg</h3>
+                    <p class="p-desc">Alta tenacidad mecánica para soportes funcionales y piezas sometidas a carga.</p>
+                    <div class="p-foot">
+                      <div class="p-price"><strong>₡15 800</strong><small>Envío inmediato</small></div>
+                      <span class="p-btn">+ Carrito</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="p-card">
+                  <div class="p-media spool-stage">
+                    <span class="p-badge-l">Cama PEI</span>
+                    <span class="p-badge-r stock">6 en stock</span>
+                    <img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-09.jpg" alt="Lámina PEI Texturizada 256×256" />
+                  </div>
+                  <div class="p-body">
+                    <div class="p-rating-row">
+                      <span class="p-stars">★ 5.0 <span>(14)</span></span>
+                      <span class="p-swatches"><i style="background:#3f3f46;"></i></span>
+                    </div>
+                    <h3>Lámina PEI Texturizada 256×256</h3>
+                    <p class="p-desc">Acero flexible doble cara magnética para adhesión limpia en PLA, PETG y ASA.</p>
+                    <div class="p-foot">
+                      <div class="p-price"><strong>₡16 500</strong><small>Envío inmediato</small></div>
+                      <span class="p-btn">+ Carrito</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="p-card">
+                  <div class="p-media">
+                    <span class="p-badge-l"><i class="poly-dot" style="background:var(--pla);"></i>PLA+</span>
+                    <span class="p-badge-r">Bajo pedido</span>
+                    <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-maceta.webp" alt="Maceta Geométrica Mate" />
+                  </div>
+                  <div class="p-body">
+                    <div class="p-rating-row">
+                      <span class="p-stars">★ 4.7 <span>(11)</span></span>
+                      <span class="p-swatches"><i style="background:#4b5563;"></i><i style="background:#e5e5e0;"></i><i style="background:#1c1c20;"></i></span>
+                    </div>
+                    <h3>Maceta Geométrica Mate</h3>
+                    <p class="p-desc">Paredes gruesas impermeabilizadas con bandeja de drenaje integrada.</p>
+                    <div class="p-foot">
+                      <div class="p-price piece"><strong>₡9 200</strong><small>3.2 h · 110 g</small></div>
+                      <span class="p-btn">Ver producto</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="p-card">
+                  <div class="p-media spool-stage">
+                    <span class="p-badge-l"><i class="poly-dot" style="background:var(--petg);"></i>PETG</span>
+                    <span class="p-badge-r stock">11 en stock</span>
+                    <img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-04.jpg" alt="PETG Gris Industrial 1 kg" />
+                  </div>
+                  <div class="p-body">
+                    <div class="p-rating-row">
+                      <span class="p-stars">★ 4.9 <span>(22)</span></span>
+                      <span class="p-swatches"><i style="background:#6b7280;"></i><i style="background:#1c1c20;"></i><i style="background:#e5e5e0;"></i></span>
+                    </div>
+                    <h3>PETG Gris Industrial 1 kg</h3>
+                    <p class="p-desc">1.75 mm · resistente a humedad y temperatura moderada · 230–245 °C.</p>
+                    <div class="p-foot">
+                      <div class="p-price"><strong>₡15 800</strong><small>Envío inmediato</small></div>
+                      <span class="p-btn">+ Carrito</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="p-card">
+                  <div class="p-media">
+                    <span class="p-badge-l"><i class="poly-dot" style="background:var(--petg);"></i>PETG</span>
+                    <span class="p-badge-r">Bajo pedido</span>
+                    <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-cables.webp" alt="Organizador Modular de Cables" />
+                  </div>
+                  <div class="p-body">
+                    <div class="p-rating-row">
+                      <span class="p-stars">★ 4.8 <span>(15)</span></span>
+                      <span class="p-swatches"><i style="background:#1c1c20;"></i><i style="background:#16a34a;"></i></span>
+                    </div>
+                    <h3>Organizador Modular de Cables</h3>
+                    <p class="p-desc">Canaleta compacta con ranuras de retención para USB-C, HDMI y cargadores.</p>
+                    <div class="p-foot">
+                      <div class="p-price piece"><strong>₡7 500</strong><small>2.5 h · 65 g</small></div>
+                      <span class="p-btn">Ver producto</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="pager">
+                <span>Página 1 de 9 · Todos los precios incluyen IVA</span>
+                <div class="pager-btns">
+                  <span class="pg-b on">1</span>
+                  <span class="pg-b">2</span>
+                  <span class="pg-b">3</span>
+                  <span class="pg-b">…</span>
+                  <span class="pg-b">9</span>
+                  <span class="pg-b">Siguiente →</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- FOOTER REAL BLOQUEADO -->
+        <footer class="site-footer">
+          <div class="foot-grid">
+            <div class="foot-brand">
+              <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-flat.png" alt="Vértice CR" />
+              <p>Taller costarricense de impresión 3D FDM bajo pedido y tienda de filamentos e insumos con inventario real.</p>
+              <div class="foot-meta-loc">
+                <span>Desamparados, San José · Retiro en taller y envíos por Correos de CR</span>
+                <span>Lunes a sábado · 9:00 a. m. – 6:00 p. m.</span>
+              </div>
+            </div>
+            <div class="foot-col">
+              <h4>Tienda</h4>
+              <ul><li>Piezas 3D</li><li>Filamentos</li><li>Repuestos y camas PEI</li><li>Cotizar pieza a medida</li></ul>
+            </div>
+            <div class="foot-col">
+              <h4>Ayuda y taller</h4>
+              <ul><li>Seguimiento de pedidos</li><li>Envíos y retiro en taller</li><li>Guía de materiales</li><li>Contacto y horarios</li></ul>
+            </div>
+            <div class="foot-col">
+              <h4>Legal</h4>
+              <ul><li>Política de privacidad</li><li>Términos y condiciones</li><li>Garantías y devoluciones</li><li>Accesibilidad</li></ul>
+            </div>
+          </div>
+          <div class="foot-outline-word" aria-hidden="true">VÉRTICE</div>
+          <div class="foot-bottom">
+            <span>© 2026 Vértice CR · Desamparados, Costa Rica</span>
+            <div class="foot-pay"><span>PayPal</span><span>SINPE Móvil</span><span>Correos de CR</span></div>
+          </div>
+        </footer>
+      </div>
+
+      <!-- ==================== COLUMNA DERECHA: MÓVIL + ALTERNATIVA DISPARADOR + ASESOR REDISEÑADO ==================== -->
+      <div class="phone-col">
+        <div class="phone-caption">
+          <span>Adaptación móvil real</span>
+          <span>390 px · Filtros en cajón</span>
+        </div>
+
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="ph-status"><span>9:41</span><div class="ph-island"></div><span>5G</span></div>
+            <div class="ph-nav">
+              <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-3d.png" alt="Vértice" />
+              <div class="ph-nav-r">
+                <span class="cart-icon-btn" style="width:34px; height:34px;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                  <span class="cart-badge" style="width:16px; height:16px; font-size:9.5px;">2</span>
+                </span>
+                <span class="menu-trigger" style="padding:4px 10px 4px 5px; gap:6px; font-size:11.5px;">
+                  <span class="avatar-dot" style="width:24px; height:24px; font-size:10px;">SF</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="ph-body">
+              <h2>Tienda</h2>
+              <div class="ph-tabs">
+                <span class="ph-tab on">Todo (110)</span>
+                <span class="ph-tab">Piezas 3D</span>
+                <span class="ph-tab">Filamentos</span>
+              </div>
+
+              <div class="ph-search-row">
+                <div class="ph-search">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                  <span>Buscar en tienda...</span>
+                </div>
+                <span class="ph-filter-btn">Filtros <i>4</i></span>
+              </div>
+
+              <div class="ph-chips">
+                <span class="ph-chip">Uso diario ×</span>
+                <span class="ph-chip">PLA+ ×</span>
+                <span class="ph-chip" style="background:transparent; color:var(--orange);">Limpiar</span>
+              </div>
+
+              <div class="ph-card">
+                <div class="ph-card-img">
+                  <span class="p-badge-l"><i class="poly-dot" style="background:var(--pla);"></i>PLA+</span>
+                  <span class="p-badge-r">Bajo pedido</span>
+                  <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg" alt="Estuche Beyblade X" />
+                </div>
+                <div class="ph-card-b">
+                  <div class="ph-card-meta"><span class="p-stars">★ 4.9 <span>(24)</span></span><span>6.5 h · 180 g</span></div>
+                  <strong>Estuche Beyblade X 3-Slot</strong>
+                  <div class="ph-card-foot">
+                    <span class="ph-card-price">₡18 500</span>
+                    <span class="ph-card-btn">Ver producto</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ph-card">
+                <div class="ph-card-img spool">
+                  <span class="p-badge-l"><i class="poly-dot" style="background:var(--pla);"></i>PLA+</span>
+                  <span class="p-badge-r stock">14 en stock</span>
+                  <img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-01.jpg" alt="PLA+ Verde Esmeralda" />
+                </div>
+                <div class="ph-card-b">
+                  <div class="ph-card-meta"><span class="p-stars">★ 4.9 <span>(31)</span></span><span>1.75 mm · 1 kg</span></div>
+                  <strong>PLA+ Verde Esmeralda 1 kg</strong>
+                  <div class="ph-card-foot">
+                    <span class="ph-card-price" style="color:#fff;">₡14 200</span>
+                    <span class="ph-card-btn">+ Carrito</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <nav class="ph-dock">
+              <div class="dock-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <span>Inicio</span>
+              </div>
+              <div class="dock-item on">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/></svg>
+                <span>Tienda</span>
+              </div>
+              <div class="dock-item" style="color:#fff;">
+                <span class="dock-fab">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                </span>
+                <span>Cotizar</span>
+              </div>
+              <div class="dock-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+                <span>Mi cuenta</span>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <!-- ASESOR VÉRTICE REDISEÑADO (ESTILO AMAZON RUFUS / LA PLANTA — CERO CHAT GENÉRICO) -->
+        <div class="phone-caption" style="margin-top: 8px;">
+          <span>Asesor Vértice (Se abre desde el buscador)</span>
+          <span style="color:var(--orange);">Ficha técnica + Compra directa</span>
+        </div>
+        <aside class="advisor-drawer">
+          <div class="adv-top">
+            <div class="adv-brand">
+              <span class="adv-logo">
+                <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-isotipo-v-flat.png" alt="V" />
+              </span>
+              <div>
+                <strong>Asesor Vértice</strong>
+                <small>Guía de materiales y stock real</small>
+              </div>
+            </div>
+            <span class="adv-close">×</span>
+          </div>
+
+          <div class="adv-prompts">
+            <span class="adv-chip on">¿Sirve para el carro?</span>
+            <span class="adv-chip">PLA+ vs PETG</span>
+            <span class="adv-chip">Exterior UV</span>
+          </div>
+
+          <div class="adv-body">
+            <div class="adv-query">
+              Necesito un soporte para el carro que aguante el sol en San José sin doblarse. ¿PLA+ sirve?
+            </div>
+
+            <p class="adv-verdict">
+              <strong>Evitá PLA+ dentro del carro:</strong> con el sol directo el tablero supera 60 °C y se ablanda. Para calor y rayos UV te conviene <strong>ASA</strong>.
+            </p>
+
+            <div class="adv-compare">
+              <div class="adv-cmp-box">
+                <div class="adv-cmp-top"><strong style="color:var(--pla);">PLA+</strong><span style="color:#ef4444;">✕</span></div>
+                <span>Máx. 55 °C · Interior y escritorio</span>
+              </div>
+              <div class="adv-cmp-box win">
+                <div class="adv-cmp-top"><strong style="color:var(--asa);">ASA</strong><span style="color:var(--pla);">✓ Recomendado</span></div>
+                <span>Máx. 95 °C · Sol UV e intemperie</span>
+              </div>
+            </div>
+
+            <div class="adv-product-card">
+              <div class="adv-pc-top">
+                <div class="adv-pc-thumb">
+                  <img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-02.jpg" alt="ASA Exterior UV 1 kg" />
+                </div>
+                <div class="adv-pc-info">
+                  <strong>ASA Exterior UV 1 kg</strong>
+                  <span>6 bobinas en stock hoy · 1.75 mm</span>
+                  <b>₡18 900</b>
+                </div>
+              </div>
+              <div class="adv-pc-actions">
+                <span class="adv-btn-p">+ Agregar al carrito</span>
+                <span class="adv-btn-s">Filtrar ASA en tienda</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="adv-input-bar">
+            <span>Contame dónde vas a usar la pieza...</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ff6a1f" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

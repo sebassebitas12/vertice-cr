@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mockup 01 v9 — Portada Vértice CR (4 Bloques Limpios + Footer · Sin Saturación)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --stage: #08080a;
+      --bg: #161618;
+      --bg-deep: #111114;
+      --surf: #1e1e22;
+      --surf-hi: #25252b;
+      --ctrl: #2a2a34;
+      --ink: #f5f4f1;
+      --ink-2: #c9c7c2;
+      --ink-3: #8d8b87;
+      --orange: #ff6a1f;
+      --pla: #a3e635;
+      --petg: #38bdf8;
+      --asa: #ff6a1f;
+      --abs: #f59e0b;
+      --tpu: #c084fc;
+      --hair: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    html, body {
+      width: 1960px;
+      background: var(--stage);
+      color: var(--ink);
+      font-family: 'Chakra Petch', 'Segoe UI', sans-serif;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ================= STUDIO STAGE ================= */
+    .stage {
+      width: 1960px;
+      padding: 46px 56px 56px;
+      background:
+        radial-gradient(1000px 640px at 26% 7%, rgba(255, 106, 31, 0.14), transparent 65%),
+        radial-gradient(840px 680px at 86% 52%, rgba(56, 189, 248, 0.07), transparent 68%),
+        radial-gradient(900px 520px at 30% 94%, rgba(255, 106, 31, 0.08), transparent 70%),
+        #08080a;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .studio-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .studio-top-l { display: flex; align-items: baseline; gap: 16px; }
+    .studio-code { font-size: 16px; font-weight: 700; color: var(--orange); }
+    .studio-name { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+    .studio-meta { font-size: 13.5px; color: var(--ink-3); font-weight: 500; }
+    .studio-top-r { display: flex; align-items: center; gap: 18px; font-size: 13px; color: var(--ink-2); }
+    .studio-top-r img { height: 22px; }
+
+    .artboard-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 44px;
+    }
+
+    /* ================= DESKTOP 1440 PX ================= */
+    .desktop-frame {
+      position: relative;
+      width: 1440px;
+      background: var(--bg);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow:
+        0 40px 110px rgba(0, 0, 0, 0.84),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+
+    .desktop-viewport {
+      position: relative;
+      width: 100%;
+    }
+
+    .win-bar {
+      height: 38px;
+      background: #101013;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    .win-dots { display: flex; gap: 7px; }
+    .win-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .win-dots span:nth-child(1) { background: #ff5f57; }
+    .win-dots span:nth-child(2) { background: #febc2e; }
+    .win-dots span:nth-child(3) { background: #28c840; }
+    .win-url {
+      background: #19191e;
+      color: var(--ink-2);
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 5px 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .win-vp { font-size: 12px; color: var(--ink-3); font-weight: 600; }
+
+    /* ================= NAVBAR DEFINITIVO ================= */
+    .nav {
+      position: relative;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 56px;
+      background: rgba(18, 18, 22, 0.84);
+    }
+    .nav-logo {
+      height: 36px;
+      display: block;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.7));
+    }
+    .nav-capsule {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #1d1d22;
+      padding: 5px 6px;
+      border-radius: 999px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.36);
+    }
+    .nav-item {
+      position: relative;
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink-2);
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .nav-item.active {
+      background: #292932;
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .nav-item.active::after {
+      content: '';
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 3px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--orange);
+    }
+    .nav-quote-matte {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 22px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: #161618;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .nav-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cart-icon-btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--surf);
+      color: #f5f4f1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #161618;
+      font-size: 10.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25252c;
+      color: #f5f4f1;
+      padding: 6px 15px 6px 7px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .avatar-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #32323c;
+      color: #f5f4f1;
+      font-size: 11.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ================= BLOCK 1: HERO (ÚNICO ROTADOR DE LA PORTADA) ================= */
+    .hero {
+      position: relative;
+      background: #141417;
+      min-height: 556px;
+      padding: 48px 56px 68px;
+      display: grid;
+      grid-template-columns: 1fr 560px;
+      gap: 54px;
+      align-items: center;
+      overflow: hidden;
+    }
+    #ps3WaveDesktop {
+      position: absolute;
+      inset: -64px 0 0 0;
+      width: 100%;
+      height: calc(100% + 64px);
+      pointer-events: none;
+      z-index: 1;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+    }
+    .hero-fade { display: none; }
+    .hero-copy {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+    .kicker-bar { width: 34px; height: 3px; background: var(--orange); border-radius: 2px; }
+    .hero h1 {
+      font-size: 50px;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      font-weight: 700;
+      color: #fff;
+    }
+    .hero h1 em { font-style: normal; color: var(--orange); }
+    .hero-sub { font-size: 16.5px; line-height: 1.54; color: #d6d4ce; max-width: 550px; }
+    .hero-actions { display: flex; align-items: center; gap: 14px; padding-top: 6px; }
+    .btn-p {
+      background: var(--orange);
+      color: #140c06;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-size: 14.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .btn-s {
+      background: var(--ctrl);
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 14.5px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    /* Opción C: TiltedCard 3D + Cambio automático cada 5.5 s */
+    .tilt-stage {
+      position: relative;
+      z-index: 6;
+      width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      perspective: 1100px;
+    }
+    .tilt-deck { position: relative; width: 560px; height: 362px; }
+    .tilt-ghost {
+      position: absolute;
+      top: 14px;
+      left: 24px;
+      width: 524px;
+      height: 344px;
+      border-radius: 24px;
+      overflow: hidden;
+      transform: rotate(2.4deg) translateY(8px);
+      opacity: 0.42;
+      filter: brightness(0.65);
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.65);
+    }
+    .tilt-ghost img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .tilt-card {
+      position: relative;
+      width: 538px;
+      height: 352px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #121216;
+      transform: rotateY(-5deg) rotateX(2.5deg);
+      transform-style: preserve-3d;
+      transition: transform 0.22s ease-out;
+      box-shadow:
+        0 34px 76px rgba(0, 0, 0, 0.80),
+        0 0 0 1px rgba(255, 106, 31, 0.28);
+      cursor: pointer;
+    }
+    .tilt-card img { width: 100%; height: 100%; object-fit: cover; object-position: center 48%; display: block; }
+    .tilt-sheen {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(380px 260px at 26% 18%, rgba(255, 150, 88, 0.22), transparent 64%);
+      pointer-events: none;
+    }
+    .tilt-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 14, 17, 0.95) 0%, rgba(14, 14, 17, 0.16) 48%, rgba(14, 14, 17, 0.14) 100%);
+      pointer-events: none;
+    }
+    .tilt-top-row {
+      position: absolute;
+      top: 16px; left: 18px; right: 18px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .tilt-cat {
+      background: rgba(18, 18, 22, 0.84); color: #fff;
+      padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 7px;
+    }
+    .tilt-cat i { width: 7px; height: 7px; border-radius: 50%; background: var(--pla); display: inline-block; }
+    .tilt-cta-mini { background: rgba(255, 255, 255, 0.12); color: #fff; padding: 5px 12px; border-radius: 999px; font-size: 11.5px; font-weight: 700; }
+    .tilt-bottom {
+      position: absolute;
+      left: 20px; right: 20px; bottom: 18px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    .tilt-bottom h3 { font-size: 21px; font-weight: 700; color: #fff; }
+    .tilt-bottom span { font-size: 12.5px; color: var(--ink-2); }
+    .hero-price { text-align: right; }
+    .hero-price strong { display: block; font-size: 23px; color: var(--orange); line-height: 1.05; }
+    .hero-price small { font-size: 12px; color: var(--ink-2); }
+
+    .case-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 538px; }
+    .case-tab {
+      background: #1c1c22; border-radius: 13px; padding: 10px 12px 12px;
+      display: flex; flex-direction: column; gap: 3px; cursor: pointer;
+      position: relative; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .case-tab.active { background: #25252e; border-color: rgba(255, 106, 31, 0.34); }
+    .case-tab small { font-size: 10.5px; color: var(--ink-3); font-weight: 700; }
+    .case-tab.active small { color: var(--orange); }
+    .case-tab strong { font-size: 12.5px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .case-tab.active strong { color: #fff; }
+    .case-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255, 255, 255, 0.06); }
+    .case-bar-fill { display: block; width: 0%; height: 100%; background: var(--orange); }
+    .case-tab.active .case-bar-fill { width: 58%; }
+    .tilt-timer-note {
+      display: flex; justify-content: space-between; width: 538px;
+      font-size: 11.5px; color: var(--ink-3); padding: 0 4px;
+    }
+
+    /* ================= BLOCK 2: PIEZAS DE LÍNEA (REACT BITS DOT-GRID CON FADE SIN CORTE EN SECO) ================= */
+    .bg-dotgrid {
+      position: relative;
+      background-color: #141417;
+      overflow: hidden;
+    }
+    .bg-dotgrid::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(760px 420px at 50% 42%, rgba(255, 106, 31, 0.08), transparent 72%),
+        radial-gradient(rgba(255, 255, 255, 0.12) 1.15px, transparent 1.15px);
+      background-size: 100% 100%, 26px 26px;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .sec { padding: 62px 64px; position: relative; z-index: 2; }
+    .sec-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+    .sec-head h2 {
+      font-size: 36px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 8px;
+    }
+    .sec-head h2 span { color: var(--orange); }
+    .sec-lead { font-size: 15.5px; color: var(--ink-2); max-width: 620px; line-height: 1.5; margin-top: 8px; }
+    .sec-link { font-size: 14px; font-weight: 700; color: var(--orange); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+
+    .gallery-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .g-card {
+      background: rgba(28, 28, 33, 0.92);
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .g-media { position: relative; height: 264px; overflow: hidden; background: #111114; }
+    .g-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .g-mat {
+      position: absolute; left: 16px; bottom: 14px;
+      background: rgba(16, 16, 20, 0.88); padding: 5px 12px; border-radius: 999px;
+      font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; gap: 7px; color: #fff;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .g-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .g-body h3 { font-size: 20px; font-weight: 700; color: #fff; }
+    .g-body p { font-size: 14px; color: var(--ink-2); line-height: 1.48; flex: 1; }
+    .g-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .g-foot-price strong { display: block; font-size: 20px; font-weight: 700; color: var(--orange); line-height: 1.05; }
+    .g-foot-price small { font-size: 12px; color: var(--ink-3); font-weight: 600; }
+    .g-action { font-size: 13px; font-weight: 700; color: #f5f4f1; background: var(--ctrl); padding: 7px 14px; border-radius: 999px; }
+
+    /* ================= BLOCK 3: FORMATO A — EDITORIAL ASIMÉTRICO ABIERTO SOBRE BEAMS (FADE CONTINUO SIN CORTES) ================= */
+    .bg-beams {
+      position: relative;
+      background: #141417;
+      overflow: hidden;
+    }
+    #beamsCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 80%, transparent 100%);
+    }
+    .beams-fade-top, .beams-fade-bot { display: none; }
+
+    .editorial-split {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: 0.84fr 1.16fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .editorial-left {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding-top: 8px;
+    }
+    .editorial-left h2 {
+      font-size: 40px;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      font-weight: 700;
+      color: #fff;
+    }
+    .editorial-left h2 span { color: var(--orange); }
+    .editorial-left p {
+      font-size: 16px;
+      line-height: 1.56;
+      color: var(--ink-2);
+      max-width: 440px;
+    }
+    .editorial-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding-top: 8px;
+    }
+    .editorial-reassure {
+      font-size: 12.5px;
+      color: var(--ink-3);
+      font-weight: 500;
+    }
+
+    /* Lista abierta vertical sin rectángulos ni cajas — respira directo sobre Beams */
+    .editorial-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+    }
+    .ed-row {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 22px;
+      align-items: start;
+      padding: 26px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+    .ed-num {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--orange);
+      padding-top: 2px;
+    }
+    .ed-body {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .ed-body h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.18;
+    }
+    .ed-body p {
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.55;
+    }
+    .ed-meta {
+      font-size: 12.5px;
+      color: var(--ink-3);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* ================= BLOCK 4: FILAMENTOS E INSUMOS (REACT BITS SQUARES CON FADE CONTINUO) ================= */
+    .bg-squares {
+      position: relative;
+      background: #141417;
+      overflow: hidden;
+    }
+    .bg-squares::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(840px 420px at 50% 42%, rgba(255, 106, 31, 0.10), transparent 72%),
+        radial-gradient(620px 360px at 84% 78%, rgba(56, 189, 248, 0.05), transparent 72%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 84%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 84%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    #squaresCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 86%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 86%, transparent 100%);
+    }
+
+    .poly-bar-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .poly-bar-head span { font-size: 13px; color: var(--ink-2); font-weight: 600; }
+    .poly-all-pill {
+      background: #292932; color: #fff; padding: 6px 14px; border-radius: 999px;
+      font-size: 12px; font-weight: 700; border: 1px solid rgba(255, 106, 31, 0.45);
+    }
+
+    .poly-grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 26px; }
+    .poly-tile {
+      background: rgba(28, 28, 34, 0.90); border-radius: 18px; padding: 20px 16px;
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .poly-tile.filter-hint::after { content: 'Filtrar →'; font-size: 10.5px; color: var(--ink-3); margin-top: 3px; }
+    .poly-tile strong { font-size: 23px; font-weight: 700; letter-spacing: 0.04em; }
+    .poly-tile span { font-size: 12.5px; color: var(--ink-2); font-weight: 600; }
+    .poly-tile small { font-size: 12px; color: var(--ink-3); }
+
+    .spools-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .sp-card {
+      background: rgba(28, 28, 34, 0.94); border-radius: 20px; overflow: hidden;
+      display: flex; flex-direction: column; border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .sp-stage {
+      position: relative; height: 152px;
+      background: radial-gradient(circle at 50% 42%, #2b2d36 0%, #191a20 100%);
+      display: flex; align-items: center; justify-content: center; padding: 14px; overflow: hidden;
+    }
+    .sp-stage img {
+      width: 100%; height: 100%; object-fit: cover; border-radius: 12px;
+      filter: brightness(0.88) contrast(1.08); display: block;
+    }
+    .sp-stage::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(24, 24, 30, 0.72) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .sp-stock-pill {
+      position: absolute; top: 12px; right: 12px; z-index: 3;
+      background: rgba(16, 16, 20, 0.88); padding: 4px 10px; border-radius: 999px;
+      font-size: 11.5px; font-weight: 700; color: var(--pla);
+    }
+    .sp-stock-pill.low { color: var(--abs); }
+    .sp-cat-pill {
+      position: absolute; top: 12px; left: 12px; z-index: 3;
+      background: rgba(16, 16, 20, 0.84); padding: 4px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 700; color: var(--ink-2);
+    }
+    .sp-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .sp-body h4 { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.25; }
+    .sp-body p { font-size: 12.5px; color: var(--ink-3); flex: 1; }
+    .sp-bot { display: flex; align-items: center; justify-content: space-between; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .sp-bot strong { display: block; font-size: 18px; color: #fff; line-height: 1.05; }
+    .sp-bot small { font-size: 11.5px; color: var(--ink-3); }
+    .sp-add { background: var(--ctrl); color: #fff; padding: 8px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 700; }
+
+    /* ================= BLOCK 5: FOOTER ARQUITECTÓNICO (FOOTER-02 CON TRANSICIÓN LIMPIA) ================= */
+    .site-footer {
+      background: linear-gradient(to bottom, #141417 0%, #0e0e11 110px, #0c0c0f 100%);
+      padding: 58px 64px 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .foot-grid {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 44px;
+      padding-bottom: 30px; border-bottom: 1px solid var(--hair);
+    }
+    .foot-brand img { height: 34px; margin-bottom: 14px; display: block; }
+    .foot-brand p { font-size: 14px; color: var(--ink-2); line-height: 1.55; max-width: 340px; }
+    .foot-meta-loc { margin-top: 14px; font-size: 13px; color: var(--ink-3); display: flex; flex-direction: column; gap: 4px; }
+    .foot-col h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--ink-2); }
+    .foot-outline-word {
+      font-size: 172px; font-weight: 700; line-height: 0.9; letter-spacing: 0.08em;
+      text-align: center; color: transparent;
+      -webkit-text-stroke: 1.5px rgba(255, 106, 31, 0.26);
+      margin: 14px 0 6px; user-select: none;
+      background: linear-gradient(180deg, rgba(255, 106, 31, 0.07) 0%, transparent 90%);
+      -webkit-background-clip: text;
+    }
+    .foot-bottom { padding-top: 16px; display: flex; align-items: center; justify-content: space-between; font-size: 12.5px; color: var(--ink-3); border-top: 1px solid rgba(255,255,255,0.05); }
+    .foot-pay { display: flex; align-items: center; gap: 18px; color: var(--ink-2); font-weight: 600; }
+
+    /* ================= RIGHT COLUMN: MÓVIL 390 PX + DESPLEGABLE SIMÉTRICO + ESTADOS ================= */
+    .phone-col { width: 390px; display: flex; flex-direction: column; gap: 16px; flex-shrink: 0; }
+    .phone-caption { font-size: 13px; font-weight: 600; color: var(--ink-2); display: flex; justify-content: space-between; padding: 0 4px; }
+    .phone-frame {
+      width: 390px; background: #1a1a1f; border-radius: 44px; padding: 11px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.14);
+    }
+    .phone-screen { width: 100%; background: var(--bg); border-radius: 34px; overflow: hidden; display: flex; flex-direction: column; }
+    .ph-status { height: 40px; padding: 10px 22px 0; display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 700; }
+    .ph-island { width: 92px; height: 22px; background: #060608; border-radius: 999px; }
+    .ph-nav { display: flex; align-items: center; justify-content: space-between; padding: 10px 18px; }
+    .ph-nav img { height: 22px; }
+    .ph-nav-r { display: flex; align-items: center; gap: 10px; }
+
+    .ph-hero { position: relative; padding: 12px 18px 22px; overflow: hidden; }
+    #ps3WaveMobile { position: absolute; inset: -44px 0 0 0; width: 368px; height: 310px; pointer-events: none; z-index: 1; }
+    .ph-hero-in { position: relative; z-index: 5; display: flex; flex-direction: column; gap: 11px; }
+    .ph-hero h2 { font-size: 29px; line-height: 1.04; font-weight: 700; color: #fff; }
+    .ph-hero h2 em { font-style: normal; color: var(--orange); }
+    .ph-hero p { font-size: 13.5px; color: var(--ink-2); line-height: 1.45; }
+    .ph-btn-p { height: 45px; border-radius: 999px; background: var(--orange); color: #161618; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .ph-btn-s { height: 45px; border-radius: 999px; background: var(--ctrl); color: #fff; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+
+    .ph-sec { padding: 17px 18px; display: flex; flex-direction: column; gap: 13px; }
+    .ph-sec-dot {
+      background-color: #141417;
+      background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .ph-sec-beams { background: linear-gradient(145deg, #101014 0%, #1a1310 52%, #101014 100%); }
+    .ph-sec-h { display: flex; justify-content: space-between; align-items: baseline; }
+    .ph-sec-h h3 { font-size: 18.5px; font-weight: 700; color: #fff; }
+    .ph-sec-h h3 span { color: var(--orange); }
+    .ph-sec-h a { font-size: 12.5px; font-weight: 700; color: var(--orange); }
+
+    .ph-photo-card { background: var(--surf); border-radius: 18px; overflow: hidden; }
+    .ph-photo-card img { width: 100%; height: 152px; object-fit: cover; display: block; }
+    .ph-photo-card-b { padding: 12px 15px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .ph-photo-card-b strong { display: block; font-size: 15px; color: #fff; }
+    .ph-photo-card-b span { font-size: 12px; color: var(--ink-2); }
+    .ph-price { font-size: 15.5px; font-weight: 700; color: var(--orange); white-space: nowrap; }
+
+    /* Mobile open hairline list matching Desktop Formato A (zero boxes) */
+    .ph-steps {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+    }
+    .ph-step-row {
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+    }
+    .ph-step-row b { font-size: 18px; color: var(--orange); line-height: 1.1; min-width: 24px; }
+    .ph-step-row strong { display: block; font-size: 13.5px; color: #fff; }
+    .ph-step-row span { font-size: 12px; color: var(--ink-2); line-height: 1.4; }
+
+    .ph-spool-list { display: flex; flex-direction: column; gap: 10px; }
+    .ph-spool-row {
+      background: var(--surf); border-radius: 14px; padding: 10px 12px;
+      display: flex; justify-content: space-between; align-items: center; gap: 10px;
+    }
+    .ph-spool-l { display: flex; align-items: center; gap: 10px; }
+    .ph-spool-thumb { width: 42px; height: 42px; border-radius: 10px; overflow: hidden; background: #23242c; padding: 3px; flex-shrink: 0; }
+    .ph-spool-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 7px; filter: brightness(0.88); }
+    .ph-spool-row strong { display: block; font-size: 13.5px; color: #fff; }
+    .ph-spool-row span { font-size: 11.5px; color: var(--ink-2); }
+    .ph-spool-r { display: flex; align-items: center; gap: 8px; }
+    .ph-plus {
+      width: 30px; height: 30px; border-radius: 50%; background: var(--ctrl); color: #fff;
+      display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700;
+    }
+
+    .ph-footer { background: #0c0c0f; padding: 20px 18px 16px; display: flex; flex-direction: column; gap: 11px; border-top: 1px solid var(--hair); }
+    .ph-footer img { height: 22px; width: fit-content; }
+    .ph-footer p { font-size: 12.5px; color: var(--ink-2); line-height: 1.45; }
+    .ph-foot-links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; font-size: 12.5px; color: var(--ink-2); padding: 9px 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+    .ph-foot-copy { font-size: 11.5px; color: var(--ink-3); }
+
+    .ph-dock { height: 68px; background: #16161a; display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; padding: 0 8px 6px; border-top: 1px solid var(--hair); }
+    .dock-item { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 10.5px; font-weight: 600; color: var(--ink-3); }
+    .dock-item.on { color: var(--orange); font-weight: 700; }
+    .dock-fab { width: 38px; height: 28px; border-radius: 999px; background: var(--orange); color: #161618; display: flex; align-items: center; justify-content: center; }
+
+    /* Desplegable Mi cuenta en columna derecha (100 % SIMÉTRICO) */
+    .corner-dropdown-card {
+      width: 390px; background: #1b1b20; border-radius: 20px; padding: 18px;
+      box-shadow: 0 28px 68px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .dd-user { display: flex; justify-content: space-between; align-items: center; padding: 0 2px; }
+    .dd-user strong { display: block; font-size: 14.5px; color: #fff; }
+    .dd-user span { font-size: 12px; color: var(--ink-3); }
+    .dd-role { font-size: 11px; font-weight: 600; color: var(--ink-2); background: #25252d; padding: 4px 11px; border-radius: 999px; }
+
+    .dd-links { display: flex; flex-direction: column; gap: 4px; }
+    .dd-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 11px; border-radius: 11px; font-size: 13px; font-weight: 600;
+      color: #e8e8ee; background: transparent; border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .dd-item-l { display: flex; align-items: center; gap: 10px; }
+    .dd-item-r { display: flex; align-items: center; gap: 8px; }
+    .dd-badge-pending {
+      font-size: 11px; font-weight: 700; color: var(--orange);
+      background: rgba(255, 106, 31, 0.14); padding: 2px 8px; border-radius: 999px;
+    }
+
+    .dd-divider { height: 1px; background: rgba(255, 255, 255, 0.07); }
+    .dd-sec-title { font-size: 11.5px; font-weight: 600; color: var(--ink-3); letter-spacing: 0.02em; }
+    .dd-a11y-box { background: #141418; border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 9px; }
+    .seg-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: #1e1e24; padding: 3px; border-radius: 10px; }
+    .seg-row.cols-2 { grid-template-columns: 1fr 1fr; }
+    .seg-btn {
+      padding: 6px; border-radius: 7px; font-size: 12px; font-weight: 600; color: var(--ink-3);
+      display: inline-flex; align-items: center; justify-content: center; white-space: nowrap;
+    }
+    .seg-btn.on { background: #2d2d37; color: #ffffff; font-weight: 700; }
+    .dd-scale-meta { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--ink-2); padding: 2px 2px 0; }
+    .a11y-dual { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 8px; }
+    .a11y-toggles { display: flex; flex-direction: column; gap: 6px; }
+    .a11y-toggle-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 10px; border-radius: 9px; background: #1e1e24;
+      font-size: 12.5px; font-weight: 500; color: #e8e8ee;
+    }
+    .a11y-toggle-l { display: inline-flex; align-items: center; gap: 9px; }
+    .sw-pill { width: 32px; height: 18px; border-radius: 999px; background: #2f2f39; position: relative; flex-shrink: 0; }
+    .sw-pill::after { content: ''; position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: #9a9893; }
+    .dd-logout { display: flex; align-items: center; gap: 9px; padding: 4px 10px 0; font-size: 13px; font-weight: 600; color: var(--ink-3); }
+
+    .ref-panel {
+      background: #141419; border-radius: 18px; padding: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex; flex-direction: column; gap: 9px;
+    }
+    .light-preview {
+      background: #F4F3F0; color: #141414; border-radius: 16px; padding: 14px;
+      display: flex; flex-direction: column; gap: 10px; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    }
+    .lp-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #ffffff; border-radius: 12px; padding: 8px 10px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    .lp-brand { font-size: 14px; font-weight: 700; color: #141414; }
+    .lp-brand em { font-style: normal; color: #B94312; }
+    .lp-cta { background: #B94312; color: #ffffff; font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 999px; }
+    .lp-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lp-chip { background: #ffffff; color: #141414; border: 1px solid rgba(20, 20, 20, 0.12); border-radius: 999px; padding: 4px 9px; font-size: 11px; font-weight: 600; }
+    .lp-chip.on { background: #B94312; color: #ffffff; border-color: #B94312; }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <header class="studio-top">
+      <div class="studio-top-l">
+        <span class="studio-code" style="white-space:nowrap;">01 / 18 · FINAL</span>
+        <span class="studio-name">Portada Vértice CR — 4 Bloques con Ritmo Abierto (Piezas · Filamentos · Insumos)</span>
+        <span class="studio-meta">Hero TiltedCard 5.5 s · Piezas · Editorial abierto · Filamentos · FOOTER-02</span>
+      </div>
+      <div class="studio-top-r" style="white-space:nowrap;">
+        <span>1440 px + 390 px + Estados</span>
+        <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-flat.png" alt="Vértice CR" />
+      </div>
+    </header>
+
+    <div class="artboard-row">
+      <!-- ==================== DESKTOP 1440 PX ==================== -->
+      <div class="desktop-frame">
+        <div class="win-bar">
+          <div class="win-dots"><span></span><span></span><span></span></div>
+          <div class="win-url">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8d8b87" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            verticecr.app
+          </div>
+          <div class="win-vp">Escritorio 1440 px · Versión Aprobada</div>
+        </div>
+
+        <div class="desktop-viewport">
+          <!-- NAVBAR DEFINITIVO -->
+          <header class="nav">
+            <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-3d.png" class="nav-logo" alt="Vértice CR" />
+
+            <nav class="nav-capsule" aria-label="Navegación principal">
+              <span class="nav-item active">Inicio</span>
+              <span class="nav-item">Tienda</span>
+              <span class="nav-quote-matte">Cotizar pieza</span>
+            </nav>
+
+            <div class="nav-right">
+              <span class="cart-icon-btn" title="Carrito">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                <span class="cart-badge">2</span>
+              </span>
+
+              <span class="menu-trigger">
+                <span class="avatar-dot">SF</span>
+                <span>Mi cuenta</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </div>
+          </header>
+
+          <!-- BLOQUE 1: HERO (PS3 WAVE + TILTED CARD AUTO-ROTATIVO CADA 5.5 S) -->
+          <section class="hero">
+            <canvas id="ps3WaveDesktop" width="2880" height="1240"></canvas>
+            <div class="hero-fade"></div>
+
+            <div class="hero-copy">
+              <div class="kicker">
+                <span class="kicker-bar"></span>
+                <span>Taller de impresión 3D y tienda de filamentos en Costa Rica</span>
+              </div>
+              <h1>Piezas diseñadas para<br /><em>cumplir una función real.</em></h1>
+              <p class="hero-sub">
+                Elegí modelos probados en planta, subí fotos de un repuesto quebrado con una regla a la par para recibir guía clara sin tecnicismos, o comprá filamentos e insumos con inventario real.
+              </p>
+              <div class="hero-actions">
+                <span class="btn-p">
+                  Cotizar una pieza
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </span>
+                <span class="btn-s">Explorar tienda completa</span>
+              </div>
+            </div>
+
+            <div class="tilt-stage" id="heroTiltStage">
+              <div class="tilt-deck">
+                <div class="tilt-ghost">
+                  <img id="tiltGhostImg" src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-07.jpg" alt="Siguiente producto: Filamento en stock" />
+                </div>
+
+                <div class="tilt-card" id="tiltCard">
+                  <img id="tiltMainImg" src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg" alt="Estuche Beyblade X 3-Slot" />
+                  <div class="tilt-sheen" id="tiltSheen"></div>
+                  <div class="tilt-scrim"></div>
+
+                  <div class="tilt-top-row">
+                    <span class="tilt-cat" id="tiltCat"><i></i>PLA+ · Pieza 3D</span>
+                    <span class="tilt-cta-mini">Ver ficha →</span>
+                  </div>
+
+                  <div class="tilt-bottom">
+                    <div>
+                      <h3 id="tiltTitle">Estuche Beyblade X 3-Slot</h3>
+                      <span id="tiltMeta">180 g · 6.5 h de impresión · Tolerancia probada</span>
+                    </div>
+                    <div class="hero-price">
+                      <strong id="tiltPrice">₡18 500</strong>
+                      <small id="tiltSub">Bajo pedido</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-tabs" id="caseTabs">
+                <div class="case-tab active" data-idx="0">
+                  <small>01 · Pieza 3D</small>
+                  <strong>Estuche Beyblade X</strong>
+                  <div class="case-bar"><span class="case-bar-fill"></span></div>
+                </div>
+                <div class="case-tab" data-idx="1">
+                  <small>02 · Filamento</small>
+                  <strong>PLA+ Rojo Carmesí</strong>
+                  <div class="case-bar"><span class="case-bar-fill"></span></div>
+                </div>
+                <div class="case-tab" data-idx="2">
+                  <small>03 · Insumo PEI</small>
+                  <strong>Lámina PEI 256×256</strong>
+                  <div class="case-bar"><span class="case-bar-fill"></span></div>
+                </div>
+              </div>
+              <div class="tilt-timer-note">
+                <span>Rota piezas, filamentos e insumos cada 5.5 s · Pausa al hover</span>
+                <span>React Bits TiltedCard + Motion</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- BLOQUE 2: PIEZAS DE LÍNEA (REACT BITS DOT-GRID) -->
+          <section class="bg-dotgrid">
+            <div class="sec">
+              <div class="sec-head">
+                <div>
+                  <div class="kicker"><span class="kicker-bar"></span><span>Catálogo de piezas 3D bajo pedido</span></div>
+                  <h2>Piezas de línea, <span>listas para producir</span></h2>
+                  <p class="sec-lead">65 diseños probados en tolerancias, resistencia y acabado. Sin cambios van directo al carrito; si cambiás medidas pasan a cotización humana.</p>
+                </div>
+                <span class="sec-link">Abrir tienda unificada (110 productos) →</span>
+              </div>
+
+              <div class="gallery-3">
+                <article class="g-card">
+                  <div class="g-media">
+                    <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-audifonos.webp" alt="Soporte Audífonos Pro" />
+                    <span class="g-mat"><i class="dot" style="background:var(--petg);"></i>PETG</span>
+                  </div>
+                  <div class="g-body">
+                    <h3>Soporte Audífonos Pro</h3>
+                    <p>Base con contrapeso, curva ergonómica para diadema y canal posterior oculto para cable.</p>
+                    <div class="g-foot">
+                      <div class="g-foot-price">
+                        <strong>₡12 900</strong>
+                        <small>$25.20 · Bajo pedido</small>
+                      </div>
+                      <span class="g-action">Ver ficha →</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="g-card">
+                  <div class="g-media">
+                    <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-organizador.webp" alt="Organizador Modular de Setup" />
+                    <span class="g-mat"><i class="dot" style="background:var(--pla);"></i>PLA+</span>
+                  </div>
+                  <div class="g-body">
+                    <h3>Organizador Modular de Setup</h3>
+                    <p>Panel vertical para dos controles, audífonos y herramientas de escritorio con anclaje firme.</p>
+                    <div class="g-foot">
+                      <div class="g-foot-price">
+                        <strong>₡11 500</strong>
+                        <small>$22.46 · Bajo pedido</small>
+                      </div>
+                      <span class="g-action">Ver ficha →</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="g-card">
+                  <div class="g-media">
+                    <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-maceta.webp" alt="Maceta Geométrica Mate" />
+                    <span class="g-mat"><i class="dot" style="background:var(--pla);"></i>PLA+</span>
+                  </div>
+                  <div class="g-body">
+                    <h3>Maceta Geométrica Mate</h3>
+                    <p>Paredes gruesas impermeabilizadas, bandeja de drenaje integrada y textura carbón mate.</p>
+                    <div class="g-foot">
+                      <div class="g-foot-price">
+                        <strong>₡9 200</strong>
+                        <small>$17.97 · Bajo pedido</small>
+                      </div>
+                      <span class="g-action">Ver ficha →</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <!-- BLOQUE 3: FORMATO A — EDITORIAL ASIMÉTRICO ABIERTO SOBRE BEAMS (CERO TARJETAS) -->
+          <section class="bg-beams">
+            <canvas id="beamsCanvas" width="2880" height="1120"></canvas>
+            <div class="beams-fade-top"></div>
+            <div class="beams-fade-bot"></div>
+
+            <div class="sec" style="padding-top: 76px; padding-bottom: 76px;">
+              <div class="editorial-split">
+                <div class="editorial-left">
+                  <div class="kicker"><span class="kicker-bar"></span><span>Servicio de impresión a medida</span></div>
+                  <h2>¿Se te quebró un repuesto?<br /><span>Así lo fabricamos.</span></h2>
+                  <p>
+                    No necesitás saber de diseño 3D ni de plásticos. En tres pasos claros pasamos de una foto tomada con tu teléfono a la pieza física probada en planta.
+                  </p>
+                  <div class="editorial-cta-wrap">
+                    <span class="btn-p">
+                      Cotizar mi pieza con foto
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </span>
+                    <span class="editorial-reassure">Sin compromiso · Solo pagás si aprobás la cotización formal del taller</span>
+                  </div>
+                </div>
+
+                <div class="editorial-list">
+                  <div class="ed-row">
+                    <span class="ed-num">01</span>
+                    <div class="ed-body">
+                      <h3>Subís fotos con una regla a la par</h3>
+                      <p>Cargás hasta 4 fotos claras desde tu celular (o un archivo <code>.STL</code> / <code>.3MF</code> si ya lo tenés) y contás en tus palabras para qué la vas a usar.</p>
+                      <span class="ed-meta">JPG, PNG o WEBP ≤ 5 MB · Referencia real en cm</span>
+                    </div>
+                  </div>
+
+                  <div class="ed-row">
+                    <span class="ed-num">02</span>
+                    <div class="ed-body">
+                      <h3>Guía sin tecnicismos y cotización humana</h3>
+                      <p>Te ayudamos a definir el uso y resistencia necesarios, y una persona del taller revisa el caso para preparar tu presupuesto real en colones.</p>
+                      <span class="ed-meta">Revisión en taller · Nunca inventamos precios automáticos</span>
+                    </div>
+                  </div>
+
+                  <div class="ed-row">
+                    <span class="ed-num">03</span>
+                    <div class="ed-body">
+                      <h3>Aprobás, imprimimos y entregamos en CR</h3>
+                      <p>Al aprobar pagás con PayPal o SINPE Móvil, verificamos tolerancias en planta y retirás en taller o recibís envío a cualquier parte del país.</p>
+                      <span class="ed-meta">Seguimiento por etapa desde «Mis pedidos y cotizaciones»</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- BLOQUE 4: FILAMENTOS E INSUMOS EN STOCK (REACT BITS SQUARES) -->
+          <section class="bg-squares">
+            <canvas id="squaresCanvas" width="2880" height="1520"></canvas>
+            <div class="sec">
+              <div class="sec-head">
+                <div>
+                  <div class="kicker"><span class="kicker-bar"></span><span>Filamentos e insumos en stock real</span></div>
+                  <h2>Con qué <span>imprimimos y suplimos hoy</span></h2>
+                  <p class="sec-lead">Inventario real descontado al confirmar cada compra. Tocá cualquier polímero para filtrar las bobinas e insumos disponibles hoy.</p>
+                </div>
+                <span class="sec-link">Ver los 45 insumos en Tienda →</span>
+              </div>
+
+              <div class="poly-bar-head">
+                <span>Filtrar vista rápida por polímero:</span>
+                <span class="poly-all-pill">Mostrando: Destacados en stock (Todos)</span>
+              </div>
+
+              <div class="poly-grid-5">
+                <div class="poly-tile filter-hint"><strong style="color:var(--asa);">ASA</strong><span>Exterior y sol UV</span><small>6 bobinas</small></div>
+                <div class="poly-tile filter-hint"><strong style="color:var(--petg);">PETG</strong><span>Esfuerzo mecánico</span><small>11 bobinas</small></div>
+                <div class="poly-tile filter-hint"><strong style="color:var(--pla);">PLA+</strong><span>Detalle y rigidez</span><small>16 bobinas</small></div>
+                <div class="poly-tile filter-hint"><strong style="color:var(--abs);">ABS</strong><span>Alta temperatura</span><small>5 bobinas</small></div>
+                <div class="poly-tile filter-hint"><strong style="color:var(--tpu);">TPU</strong><span>Elástico e impacto</span><small>7 bobinas</small></div>
+              </div>
+
+              <div class="spools-4">
+                <article class="sp-card">
+                  <div class="sp-stage">
+                    <span class="sp-cat-pill">PLA+</span>
+                    <span class="sp-stock-pill">14 en stock</span>
+                    <img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-01.jpg" alt="PLA+ Verde Esmeralda 1 kg" />
+                  </div>
+                  <div class="sp-body">
+                    <h4>PLA+ Verde Esmeralda 1 kg</h4>
+                    <p>1.75 mm · ±0.02 mm · 205–220 °C</p>
+                    <div class="sp-bot">
+                      <div><strong>₡14 200</strong><small>$27.73 USD</small></div>
+                      <span class="sp-add">+ Carrito</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="sp-card">
+                  <div class="sp-stage">
+                    <span class="sp-cat-pill">PETG</span>
+                    <span class="sp-stock-pill">11 en stock</span>
+                    <img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-04.jpg" alt="PETG Gris Industrial 1 kg" />
+                  </div>
+                  <div class="sp-body">
+                    <h4>PETG Gris Industrial 1 kg</h4>
+                    <p>1.75 mm · Resistente · 230–245 °C</p>
+                    <div class="sp-bot">
+                      <div><strong>₡15 800</strong><small>$30.86 USD</small></div>
+                      <span class="sp-add">+ Carrito</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="sp-card">
+                  <div class="sp-stage">
+                    <span class="sp-cat-pill">PETG</span>
+                    <span class="sp-stock-pill low">Quedan 2</span>
+                    <img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-06.jpg" alt="PETG Azul Pacífico 1 kg" />
+                  </div>
+                  <div class="sp-body">
+                    <h4>PETG Azul Pacífico 1 kg</h4>
+                    <p>1.75 mm · Esfuerzo mecánico · 235 °C</p>
+                    <div class="sp-bot">
+                      <div><strong>₡15 800</strong><small>$30.86 USD</small></div>
+                      <span class="sp-add">+ Carrito</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="sp-card">
+                  <div class="sp-stage">
+                    <span class="sp-cat-pill">ASA</span>
+                    <span class="sp-stock-pill">6 en stock</span>
+                    <img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-02.jpg" alt="ASA Verde Exterior UV 1 kg" />
+                  </div>
+                  <div class="sp-body">
+                    <h4>ASA Exterior UV 1 kg</h4>
+                    <p>1.75 mm · Intemperie · 245–260 °C</p>
+                    <div class="sp-bot">
+                      <div><strong>₡18 900</strong><small>$36.91 USD</small></div>
+                      <span class="sp-add">+ Carrito</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <!-- BLOQUE 5: FOOTER REAL (BENCHMARK BAMBU LAB · PRUSA3D · MATTERHACKERS · BAYMARD) -->
+          <footer class="site-footer">
+            <div class="foot-grid">
+              <div class="foot-brand">
+                <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-flat.png" alt="Vértice CR" />
+                <p>Taller costarricense de impresión 3D FDM bajo pedido y tienda de filamentos e insumos con inventario real.</p>
+                <div class="foot-meta-loc">
+                  <span>Desamparados, San José · Retiro en taller y envíos a todo Costa Rica</span>
+                  <span>Lunes a sábado · 9:00 a. m. – 6:00 p. m.</span>
+                </div>
+              </div>
+
+              <div class="foot-col">
+                <h4>Tienda</h4>
+                <ul>
+                  <li>Piezas 3D</li>
+                  <li>Filamentos</li>
+                  <li>Repuestos y camas PEI</li>
+                  <li>Cotizar pieza a medida</li>
+                </ul>
+              </div>
+
+              <div class="foot-col">
+                <h4>Ayuda y taller</h4>
+                <ul>
+                  <li>Seguimiento de pedidos</li>
+                  <li>Envíos y retiro en taller</li>
+                  <li>Guía de materiales</li>
+                  <li>Contacto y horarios</li>
+                </ul>
+              </div>
+
+              <div class="foot-col">
+                <h4>Legal</h4>
+                <ul>
+                  <li>Política de privacidad</li>
+                  <li>Términos y condiciones</li>
+                  <li>Garantías y devoluciones</li>
+                  <li>Accesibilidad</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="foot-outline-word" aria-hidden="true">VÉRTICE</div>
+
+            <div class="foot-bottom">
+              <span>© 2026 Vértice CR · Desamparados, Costa Rica</span>
+              <div class="foot-pay">
+                <span>PayPal</span>
+                <span>SINPE Móvil</span>
+                <span>Envíos en todo CR</span>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <!-- ==================== COLUMNA DERECHA: MÓVIL 390 PX + DESPLEGABLE SIMÉTRICO + ESTADOS ==================== -->
+      <div class="phone-col">
+        <div class="phone-caption">
+          <span>Adaptación móvil real</span>
+          <span>390 px · Mismos 4 bloques</span>
+        </div>
+
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="ph-status">
+              <span>9:41</span>
+              <div class="ph-island"></div>
+              <span>5G</span>
+            </div>
+
+            <div class="ph-nav">
+              <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-3d.png" alt="Vértice" />
+              <div class="ph-nav-r">
+                <span class="cart-icon-btn" style="width:34px; height:34px;" title="Carrito">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                  <span class="cart-badge" style="width:16px; height:16px; font-size:9.5px;">2</span>
+                </span>
+                <span class="menu-trigger" style="padding:4px 10px 4px 5px; gap:6px; font-size:11.5px;">
+                  <span class="avatar-dot" style="width:24px; height:24px; font-size:10px;">SF</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="ph-hero">
+              <canvas id="ps3WaveMobile" width="736" height="620"></canvas>
+              <div class="ph-hero-in">
+                <h2>Piezas 3D para <em>uso real</em> y filamentos hoy.</h2>
+                <p>Subí fotos de tu pieza sin tecnicismos o explorá la tienda unificada.</p>
+                <span class="ph-btn-p">Cotizar una pieza →</span>
+                <span class="ph-btn-s">Explorar tienda (110 productos)</span>
+              </div>
+            </div>
+
+            <div class="ph-sec ph-sec-dot">
+              <div class="ph-sec-h">
+                <h3>Piezas <span>de línea</span></h3>
+                <a>Ver 65 →</a>
+              </div>
+              <div class="ph-photo-card">
+                <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg" alt="Estuche Beyblade X" />
+                <div class="ph-photo-card-b">
+                  <div>
+                    <strong>Estuche Beyblade X 3-Slot</strong>
+                    <span>PLA+ bicolor · Bajo pedido</span>
+                  </div>
+                  <span class="ph-price">₡18 500</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ph-sec ph-sec-beams">
+              <div class="ph-sec-h">
+                <h3>Pedido <span>a medida</span></h3>
+                <a>3 pasos</a>
+              </div>
+              <div class="ph-steps">
+                <div class="ph-step-row">
+                  <b>01</b>
+                  <div><strong>Subís fotos con regla</strong><span>Hasta 4 fotos o .STL desde el celular.</span></div>
+                </div>
+                <div class="ph-step-row">
+                  <b>02</b>
+                  <div><strong>Cotización real del taller</strong><span>Guía sin tecnicismos y precio en colones.</span></div>
+                </div>
+                <div class="ph-step-row">
+                  <b>03</b>
+                  <div><strong>Impresión y entrega CR</strong><span>PayPal o SINPE al aprobar el presupuesto.</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ph-sec">
+              <div class="ph-sec-h">
+                <h3>Filamentos <span>en stock</span></h3>
+                <a>Ver 45 →</a>
+              </div>
+              <div class="ph-spool-list">
+                <div class="ph-spool-row">
+                  <div class="ph-spool-l">
+                    <div class="ph-spool-thumb"><img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-01.jpg" alt="PLA+" /></div>
+                    <div><strong>PLA+ Verde 1 kg</strong><span style="color:var(--pla);">14 disponibles</span></div>
+                  </div>
+                  <div class="ph-spool-r">
+                    <strong class="ph-price">₡14 200</strong>
+                    <span class="ph-plus">+</span>
+                  </div>
+                </div>
+                <div class="ph-spool-row">
+                  <div class="ph-spool-l">
+                    <div class="ph-spool-thumb"><img src="https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-04.jpg" alt="PETG" /></div>
+                    <div><strong>PETG Gris Industrial 1 kg</strong><span style="color:var(--petg);">11 disponibles</span></div>
+                  </div>
+                  <div class="ph-spool-r">
+                    <strong class="ph-price">₡15 800</strong>
+                    <span class="ph-plus">+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <footer class="ph-footer">
+              <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-flat.png" alt="Vértice CR" />
+              <p>Taller 3D FDM y tienda de filamentos en Desamparados, Costa Rica.</p>
+              <div class="ph-foot-links">
+                <span>Tienda</span>
+                <span>Cotizar pieza</span>
+                <span>Envíos y ayuda</span>
+                <span>Privacidad y términos</span>
+              </div>
+              <div style="font-size:44px; font-weight:700; letter-spacing:0.08em; text-align:center; color:transparent; -webkit-text-stroke:1px rgba(255,106,31,0.32); line-height:0.95; padding-top:4px;">VÉRTICE</div>
+              <span class="ph-foot-copy">© 2026 Vértice CR · Desamparados, Costa Rica</span>
+            </footer>
+
+            <nav class="ph-dock">
+              <div class="dock-item on">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <span>Inicio</span>
+              </div>
+              <div class="dock-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/></svg>
+                <span>Tienda</span>
+              </div>
+              <div class="dock-item" style="color:#fff;">
+                <span class="dock-fab">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                </span>
+                <span>Cotizar</span>
+              </div>
+              <div class="dock-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+                <span>Mi cuenta</span>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE «MI CUENTA» ABIERTO A ESCALA REAL -->
+        <div class="phone-caption" style="margin-top: 6px;">
+          <span>Desplegable «Mi cuenta» (Abierto)</span>
+          <span style="color:var(--orange);">Sin duplicados · Simétrico</span>
+        </div>
+        <aside class="corner-dropdown-card" aria-label="Menú de cuenta y accesibilidad">
+          <div class="dd-user">
+            <div>
+              <strong>Sebastián Flores</strong>
+              <span>sebastian@ejemplo.cr</span>
+            </div>
+            <span class="dd-role">Cliente</span>
+          </div>
+
+          <div class="dd-links">
+            <div class="dd-item">
+              <span class="dd-item-l">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+                Mis pedidos y cotizaciones
+              </span>
+              <span class="dd-item-r">
+                <span class="dd-badge-pending">1 por aprobar</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d8b87" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </div>
+            <div class="dd-item">
+              <span class="dd-item-l">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+                Mi perfil y privacidad
+              </span>
+              <span class="dd-item-r">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d8b87" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="dd-divider"></div>
+          <div class="dd-sec-title">Preferencias y accesibilidad globales (18 pantallas)</div>
+
+          <div class="dd-a11y-box">
+            <div class="seg-row">
+              <span class="seg-btn on">Oscuro</span>
+              <span class="seg-btn">Claro</span>
+              <span class="seg-btn">Sistema</span>
+            </div>
+
+            <div class="dd-scale-meta">
+              <span>Idioma global</span>
+              <span>Tamaño de texto (85 % – 200 %)</span>
+            </div>
+            <div class="a11y-dual">
+              <div class="seg-row cols-2">
+                <span class="seg-btn on">ES</span>
+                <span class="seg-btn">EN</span>
+              </div>
+              <div class="seg-row">
+                <span class="seg-btn">A-</span>
+                <span class="seg-btn on">100%</span>
+                <span class="seg-btn">A+</span>
+              </div>
+            </div>
+
+            <div class="a11y-toggles">
+              <div class="a11y-toggle-row">
+                <span class="a11y-toggle-l">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                  Menos movimiento (3D)
+                </span>
+                <span class="sw-pill"></span>
+              </div>
+              <div class="a11y-toggle-row">
+                <span class="a11y-toggle-l">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/></svg>
+                  Alto contraste
+                </span>
+                <span class="sw-pill"></span>
+              </div>
+              <div class="a11y-toggle-row">
+                <span class="a11y-toggle-l">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Lectura por voz
+                </span>
+                <span class="sw-pill"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dd-divider"></div>
+          <div class="dd-logout">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8d8b87" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Cerrar sesión
+          </div>
+        </aside>
+
+        <!-- MODO CLARO + BARRA VOZ + BLINDAJE -->
+        <div class="phone-caption" style="margin-top: 2px;">
+          <span>Modo Claro + Lectura por voz</span>
+          <span style="color:#f59e0b;">#F4F3F0 · es-CR / en-US</span>
+        </div>
+        <div class="light-preview">
+          <div class="lp-nav">
+            <span class="lp-brand"><em>V</em>értice</span>
+            <span style="font-size:11px; color:#3d3d3b; font-weight:600;">Inicio · Tienda</span>
+            <span class="lp-cta">Cotizar pieza</span>
+          </div>
+          <div class="lp-chips">
+            <span class="lp-chip on">Claro</span>
+            <span class="lp-chip">ES / EN</span>
+            <span class="lp-chip">85–200 %</span>
+            <span class="lp-chip">Pausar 3D</span>
+            <span class="lp-chip">Voz</span>
+          </div>
+        </div>
+
+        <div class="ref-panel">
+          <div style="display:flex; align-items:center; justify-content:space-between; background:#1e1e24; padding:9px 11px; border-radius:11px;">
+            <span style="display:inline-flex; align-items:center; gap:7px; font-size:12px; color:#fff; font-weight:600;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff6a1f" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              Leyendo pantalla (es-CR)
+            </span>
+            <span style="display:inline-flex; gap:6px; font-size:11px; font-weight:700;">
+              <span style="background:#2c2c35; color:#fff; padding:3px 8px; border-radius:99px;">Pausar</span>
+              <span style="background:#2c2c35; color:#c9c7c2; padding:3px 8px; border-radius:99px;">1.0x</span>
+            </span>
+          </div>
+          <p style="font-size:11.5px; color:var(--ink-2); line-height:1.5;">
+            <strong style="color:#fff;">Blindaje anti-trampa (Cotizar):</strong> máx. 3 solicitudes activas por cuenta, medidas FDM reales (1–25 cm), archivos válidos (≤ 5 MB) y filtro visual del Agente 01. Tasa Hacienda CR solo en Taller y Checkout.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function drawPs3SilkWave(canvasId, scaleMode) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+      const bgGlow = ctx.createRadialGradient(W * 0.40, H * 0.48, 20, W * 0.40, H * 0.48, W * 0.56);
+      bgGlow.addColorStop(0, 'rgba(255, 106, 31, 0.22)');
+      bgGlow.addColorStop(0.5, 'rgba(224, 85, 16, 0.08)');
+      bgGlow.addColorStop(1, 'rgba(22, 22, 24, 0)');
+      ctx.fillStyle = bgGlow;
+      ctx.fillRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter';
+      const ribbons = [
+        { seed: 0.0, yOff: 0.50, amp: 0.16, spread: 0.22, col: [255, 106, 31], edge: [255, 212, 178], alpha: 0.26 },
+        { seed: 1.2, yOff: 0.54, amp: 0.14, spread: 0.19, col: [224, 85, 16],  edge: [255, 238, 224], alpha: 0.22 },
+        { seed: 2.5, yOff: 0.47, amp: 0.13, spread: 0.16, col: [255, 128, 58], edge: [255, 255, 255], alpha: 0.18 },
+        { seed: 3.7, yOff: 0.57, amp: 0.11, spread: 0.14, col: [180, 152, 140],edge: [255, 248, 242], alpha: 0.12 },
+      ];
+      const stepsX = scaleMode === 'mobile' ? 140 : 260;
+      const strands = 26;
+      ribbons.forEach((r) => {
+        for (let s = 0; s < strands; s++) {
+          const v = s / (strands - 1);
+          const edgeDist = Math.abs(v - 0.5) * 2;
+          const fresnel = Math.pow(edgeDist, 2.2) * 1.15 + Math.pow(Math.sin(v * Math.PI), 1.4) * 0.25;
+          const fadeEdge = edgeDist > 0.92 ? (1 - edgeDist) / 0.08 : 1;
+          const a = r.alpha * fresnel * fadeEdge * (scaleMode === 'mobile' ? 0.85 : 0.72);
+          const mix = Math.min(1, Math.pow(edgeDist, 1.5));
+          const cr = Math.round(r.col[0] * (1 - mix) + r.edge[0] * mix);
+          const cg = Math.round(r.col[1] * (1 - mix) + r.edge[1] * mix);
+          const cb = Math.round(r.col[2] * (1 - mix) + r.edge[2] * mix);
+          ctx.beginPath();
+          for (let i = 0; i <= stepsX; i++) {
+            const u = i / stepsX;
+            const x = u * W;
+            const arch = -Math.cos(u * Math.PI * 0.94 - 0.18) * H * 0.11;
+            const wave =
+              Math.sin(u * 5.2 + r.seed) * H * r.amp * 0.55 +
+              Math.sin(u * 9.4 + v * 3.1 + r.seed * 1.6) * H * r.amp * 0.26 +
+              Math.cos(u * 14.0 - v * 2.2 + r.seed * 2.1) * H * r.amp * 0.11;
+            const ribbonWidth = (0.68 + 0.65 * Math.pow(Math.abs(u - 0.48) * 2, 1.35)) * H * r.spread;
+            const y = H * r.yOff + arch + wave + (v - 0.5) * ribbonWidth;
+            if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+          }
+          ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${a.toFixed(4)})`;
+          ctx.lineWidth = scaleMode === 'mobile' ? 2.4 : 3.2;
+          ctx.stroke();
+        }
+      });
+      const pts = scaleMode === 'mobile' ? 28 : 64;
+      let rng = 4219;
+      const rand = () => { rng = (rng * 16807) % 2147483647; return (rng - 1) / 2147483646; };
+      for (let i = 0; i < pts; i++) {
+        const px = rand() * W, py = H * (0.16 + rand() * 0.68);
+        const rad = (scaleMode === 'mobile' ? 2.2 : 3.4) * (0.4 + rand() * 1.4);
+        const pa = 0.12 + rand() * 0.42;
+        const g = ctx.createRadialGradient(px, py, 0, px, py, rad * 2.4);
+        g.addColorStop(0, `rgba(255, 224, 200, ${pa.toFixed(3)})`);
+        g.addColorStop(0.45, `rgba(255, 130, 60, ${(pa * 0.45).toFixed(3)})`);
+        g.addColorStop(1, 'rgba(255, 106, 31, 0)');
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(px, py, rad * 2.4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    function drawBeams() {
+      const c = document.getElementById('beamsCanvas');
+      if (!c) return;
+      const ctx = c.getContext('2d');
+      const W = c.width, H = c.height;
+      ctx.clearRect(0, 0, W, H);
+      ctx.save();
+      ctx.translate(W * 0.5, H * 0.5);
+      ctx.rotate(-0.46);
+      ctx.globalCompositeOperation = 'lighter';
+      const beams = [
+        { x: -1150, w: 220, a: 0.08, c: '255,106,31' },
+        { x: -820,  w: 140, a: 0.12, c: '255,145,82' },
+        { x: -460,  w: 280, a: 0.11, c: '255,106,31' },
+        { x: -120,  w: 110, a: 0.09, c: '245,244,241' },
+        { x: 240,   w: 250, a: 0.08, c: '255,106,31' },
+        { x: 660,   w: 160, a: 0.07, c: '56,189,248' },
+        { x: 1020,  w: 220, a: 0.06, c: '255,106,31' },
+      ];
+      beams.forEach((b) => {
+        const g = ctx.createLinearGradient(b.x - b.w, 0, b.x + b.w, 0);
+        g.addColorStop(0, `rgba(${b.c}, 0)`);
+        g.addColorStop(0.5, `rgba(${b.c}, ${b.a})`);
+        g.addColorStop(1, `rgba(${b.c}, 0)`);
+        ctx.fillStyle = g;
+        ctx.fillRect(b.x - b.w, -H * 1.4, b.w * 2, H * 2.8);
+      });
+      ctx.restore();
+    }
+
+    function drawSquares() {
+      const c = document.getElementById('squaresCanvas');
+      if (!c) return;
+      const ctx = c.getContext('2d');
+      const W = c.width, H = c.height;
+      ctx.clearRect(0, 0, W, H);
+      const size = 96;
+      const cols = Math.ceil(W / size);
+      const rows = Math.ceil(H / size);
+      const lit = new Map([
+        ['4,1', 'rgba(255,106,31,0.06)'],
+        ['5,2', 'rgba(255,106,31,0.09)'],
+        ['6,2', 'rgba(255,106,31,0.05)'],
+        ['14,1', 'rgba(255,106,31,0.08)'],
+        ['22,3', 'rgba(56,189,248,0.06)'],
+        ['23,4', 'rgba(255,106,31,0.07)'],
+        ['9,10', 'rgba(255,106,31,0.05)'],
+        ['19,11', 'rgba(255,106,31,0.06)'],
+      ]);
+      for (let r = 0; r < rows; r++) {
+        for (let col = 0; col < cols; col++) {
+          const x = col * size, y = r * size;
+          const key = `${col},${r}`;
+          if (lit.has(key)) { ctx.fillStyle = lit.get(key); ctx.fillRect(x, y, size, size); }
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.035)';
+          ctx.lineWidth = 1.5;
+          ctx.strokeRect(x, y, size, size);
+        }
+      }
+    }
+
+    drawPs3SilkWave('ps3WaveDesktop', 'desktop');
+    drawPs3SilkWave('ps3WaveMobile', 'mobile');
+    drawBeams();
+    drawSquares();
+
+    const heroCases = [
+      {
+        img: 'file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg',
+        ghost: 'https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-07.jpg',
+        cat: 'PLA+ · Pieza 3D',
+        title: 'Estuche Beyblade X 3-Slot',
+        meta: '180 g · 6.5 h de impresión · Tolerancia probada',
+        price: '₡18 500',
+        sub: 'Bajo pedido',
+        dot: '#a3e635'
+      },
+      {
+        img: 'https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-07.jpg',
+        ghost: 'https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-09.jpg',
+        cat: 'PLA+ · Filamento en stock',
+        title: 'PLA+ Rojo Carmesí 1 kg',
+        meta: '1.75 mm · ±0.02 mm · 7 bobinas disponibles hoy',
+        price: '₡14 200',
+        sub: 'En stock real',
+        dot: '#a3e635'
+      },
+      {
+        img: 'https://qbmeattcovfdrosroszz.supabase.co/storage/v1/object/public/catalog-media/supplies/supply-09.jpg',
+        ghost: 'file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg',
+        cat: 'Insumos · Cama magnética',
+        title: 'Lámina PEI Texturizada 256×256',
+        meta: 'Doble cara en acero flexible · 6 unidades en stock',
+        price: '₡16 500',
+        sub: 'En stock real',
+        dot: '#ff6a1f'
+      }
+    ];
+    let activeIdx = 0;
+    let paused = false;
+    const tiltCard = document.getElementById('tiltCard');
+    const tiltSheen = document.getElementById('tiltSheen');
+    const heroStage = document.getElementById('heroTiltStage');
+    const tabs = Array.from(document.querySelectorAll('.case-tab'));
+
+    function showHeroCase(idx) {
+      activeIdx = idx;
+      const c = heroCases[idx];
+      document.getElementById('tiltMainImg').src = c.img;
+      document.getElementById('tiltGhostImg').src = c.ghost;
+      document.getElementById('tiltCat').innerHTML = `<i style="background:${c.dot}"></i>${c.cat}`;
+      document.getElementById('tiltTitle').textContent = c.title;
+      document.getElementById('tiltMeta').textContent = c.meta;
+      document.getElementById('tiltPrice').textContent = c.price;
+      document.getElementById('tiltSub').textContent = c.sub;
+      tabs.forEach((t, i) => t.classList.toggle('active', i === idx));
+    }
+
+    tabs.forEach((tab) => { tab.addEventListener('click', () => showHeroCase(Number(tab.dataset.idx))); });
+    heroStage.addEventListener('mouseenter', () => { paused = true; });
+    heroStage.addEventListener('mouseleave', () => { paused = false; });
+
+    tiltCard.addEventListener('mousemove', (e) => {
+      const r = tiltCard.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      tiltCard.style.transform = `rotateY(${(x - 0.5) * 16}deg) rotateX(${(0.5 - y) * 12}deg)`;
+      tiltSheen.style.background = `radial-gradient(380px 260px at ${x*100}% ${y*100}%, rgba(255,150,88,0.26), transparent 64%)`;
+    });
+    tiltCard.addEventListener('mouseleave', () => {
+      tiltCard.style.transform = 'rotateY(-5deg) rotateX(2.5deg)';
+    });
+
+    setInterval(() => { if (!paused) showHeroCase((activeIdx + 1) % heroCases.length); }, 5500);
+  </script>
+</body>
+</html>

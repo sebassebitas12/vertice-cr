@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand Book — Vértice CR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    @page {
+      size: 297mm 167mm;
+      margin: 0;
+    }
+
+    :root {
+      --bg: #161618;
+      --surface: #1e1e22;
+      --surface-hi: #25252b;
+      --control: #2d2d36;
+      --text: #f5f4f1;
+      --muted: #bcbab4;
+      --dim: #8a8883;
+      --orange: #ff6a1f;
+      --orange-dark: #b94312;
+      --orange-soft: rgba(255, 106, 31, 0.14);
+      --light: #f4f3f0;
+      --dark-ink: #141414;
+      --divider: rgba(255, 255, 255, 0.08);
+      --danger: #ef5350;
+      --ok: #34d399;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #0c0c0e;
+      color: var(--text);
+      font-family: 'Chakra Petch', 'Segoe UI', sans-serif;
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .slide {
+      position: relative;
+      width: 297mm;
+      height: 167mm;
+      margin: 0 auto;
+      background: var(--bg);
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    .slide-pad {
+      padding: 13mm 16mm 14mm;
+    }
+
+    .cad-grid {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 12mm 12mm;
+    }
+
+    .slide-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8mm;
+    }
+
+    .slide-kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+    }
+
+    .slide-kicker img {
+      height: 18px;
+      width: auto;
+    }
+
+    .slide-num {
+      position: absolute;
+      right: 12mm;
+      bottom: 8mm;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--surface-hi);
+      color: var(--orange);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+
+    .slide-brand-foot {
+      position: absolute;
+      left: 16mm;
+      bottom: 8.5mm;
+      font-size: 10px;
+      color: var(--dim);
+    }
+
+    h1 { margin: 0; font-size: 40px; font-weight: 700; line-height: 1.04; letter-spacing: -0.025em; }
+    h2 { margin: 0 0 8px; font-size: 28px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: var(--text); }
+    p { margin: 0 0 9px; color: var(--muted); }
+    .accent { color: var(--orange); }
+
+    .card { background: var(--surface); border-radius: 14px; padding: 16px 18px; }
+    .card-hi { background: var(--surface-hi); border-radius: 14px; padding: 14px 16px; }
+    .pill { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; background: var(--control); color: var(--text); }
+    .pill-orange { background: var(--orange-soft); color: var(--orange); }
+
+    /* Cover & Back cover */
+    .cover-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      gap: 18px;
+    }
+
+    .cover-center img.hero-logo {
+      height: 106px;
+      width: auto;
+    }
+
+    .cover-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.42em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .cover-meta-strip {
+      position: absolute;
+      left: 16mm;
+      right: 16mm;
+      bottom: 10mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 4mm;
+      border-top: 1px solid var(--divider);
+      font-size: 11px;
+      color: var(--muted);
+      z-index: 2;
+    }
+
+    /* Chapter divider */
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      flex: 1;
+      align-items: center;
+      padding: 14mm 18mm;
+    }
+
+    .v-tile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .v-tile img {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+    }
+
+    .chapter-title-cell {
+      grid-column: span 4;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-left: 12px;
+    }
+
+    .chapter-title-cell h1 {
+      font-size: 54px;
+      color: var(--text);
+    }
+
+    /* Split layout like FWD */
+    .split-50 {
+      display: grid;
+      grid-template-columns: 44% 56%;
+      flex: 1;
+      height: 100%;
+    }
+
+    .split-photo {
+      position: relative;
+      overflow: hidden;
+      background: #111114;
+    }
+
+    .split-photo img.bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .split-photo__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(22,22,24,0.72), rgba(255,106,31,0.34));
+    }
+
+    .split-photo__title {
+      position: absolute;
+      top: 14mm;
+      left: 14mm;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .split-photo__title h1 {
+      font-size: 42px;
+      color: #fff;
+    }
+
+    .split-copy {
+      padding: 18mm 18mm 16mm 18mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .split-copy p {
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .split-copy p.muted {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Swatch bands (like FWD p.18) */
+    .bands-wrap {
+      display: grid;
+      grid-template-columns: 27% 73%;
+      gap: 12mm;
+      flex: 1;
+      align-items: stretch;
+    }
+
+    .color-bands {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-radius: 14px;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .color-bands--5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .band {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 14px 11px;
+    }
+
+    .band-name {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .band-codes {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      line-height: 1.5;
+      border-top: 1px solid currentColor;
+      padding-top: 6px;
+      opacity: 0.92;
+    }
+
+    /* Icon grid */
+    .icon-family-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      flex: 1;
+    }
+
+    .icon-group {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 13px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .icon-group h3 {
+      font-size: 12.5px;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0;
+    }
+
+    .icon-list {
+      display: grid;
+      gap: 7px;
+    }
+
+    .icon-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 9px;
+      border-radius: 9px;
+      background: var(--surface-hi);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .icon-item svg {
+      flex-shrink: 0;
+      color: var(--orange);
+    }
+
+    /* Incorrect uses */
+    .wrong-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      flex: 1;
+    }
+
+    .wrong-card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .wrong-stage {
+      height: 82px;
+      border-radius: 10px;
+      background: #121215;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wrong-x {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: rgba(239, 83, 80, 0.22);
+      color: var(--danger);
+      font-weight: 700;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Clean table */
+    table.clean { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    table.clean th, table.clean td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--divider); vertical-align: top; }
+    table.clean th { color: var(--orange); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+    table.clean td { color: var(--muted); }
+    table.clean td strong { color: var(--text); }
+
+    .mono-black { filter: brightness(0); }
+    .mono-white { filter: brightness(0) invert(1); }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== 01. PORTADA ==================== -->
+  <section class="slide cad-grid">
+    <svg style="position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none;" viewBox="0 0 1122 631" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="bw1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ff6a1f" stop-opacity="0.02" />
+          <stop offset="50%" stop-color="#ff6a1f" stop-opacity="0.24" />
+          <stop offset="100%" stop-color="#ff6a1f" stop-opacity="0.03" />
+        </linearGradient>
+      </defs>
+      <path d="M-40 360 C 260 220, 680 490, 1180 280" fill="none" stroke="url(#bw1)" stroke-width="58" />
+      <path d="M-40 410 C 300 280, 720 530, 1180 340" fill="none" stroke="rgba(245,244,241,0.08)" stroke-width="18" />
+    </svg>
+
+    <div class="cover-center">
+      <img class="hero-logo" src="../../../assets/brand/vertice-logo-3d.png" alt="Vértice CR" />
+      <div style="font-size:16px; color:var(--orange); font-weight:700; letter-spacing:0.18em; text-transform:uppercase;">Costa Rica · Manufactura 3D &amp; Filamentos</div>
+      <div class="cover-tag" style="margin-top:16px;">B R A N D &nbsp; B O O K</div>
+    </div>
+
+    <div class="cover-meta-strip">
+      <span><strong>Sebastián Flores Miranda</strong> · Prof. Barry Vega</span>
+      <span>FWD Costa Rica · Desarrollo Web Full Stack</span>
+      <span class="mono">Versión 2.0 · Noviembre 2026</span>
+    </div>
+  </section>
+
+  <!-- ==================== 02. ÍNDICE ==================== -->
+  <section class="slide">
+    <div style="display:grid; grid-template-columns:46% 54%; flex:1; height:100%;">
+      <div style="background:linear-gradient(140deg, #1e1e22 0%, #161618 65%, rgba(255,106,31,0.18) 100%); padding:18mm; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden;">
+        <img src="../../../assets/brand/vertice-logo-flat.png" style="height:30px; width:fit-content;" alt="Vértice" />
+        <div style="display:flex; align-items:center; justify-content:center; margin:auto 0;">
+          <img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="width:210px; height:210px; object-fit:contain; opacity:0.95;" alt="Isotipo V" />
+        </div>
+        <h1 style="font-size:48px; letter-spacing:0.06em;">ÍNDICE</h1>
+      </div>
+
+      <div style="padding:14mm 18mm; display:grid; grid-template-columns:1fr 1fr; gap:18px 26px; align-content:center;">
+        <div>
+          <h3 style="font-size:20px; color:var(--orange); margin-bottom:10px;">01 · Marca</h3>
+          <div style="display:grid; gap:6px; font-size:13.5px;">
+            <div><span class="mono accent">04</span> &nbsp;Voz de marca</div>
+            <div><span class="mono accent">05</span> &nbsp;Tono y actitud</div>
+            <div><span class="mono accent">06</span> &nbsp;Personalidad y «La Planta»</div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size:20px; color:var(--orange); margin-bottom:10px;">02 · Logotipo</h3>
+          <div style="display:grid; gap:6px; font-size:13.5px;">
+            <div><span class="mono accent">08</span> &nbsp;Logotipo y racional creativo</div>
+            <div><span class="mono accent">09</span> &nbsp;Sistema cromático del logo</div>
+            <div><span class="mono accent">10</span> &nbsp;Eslogan, síntesis y favicon</div>
+            <div><span class="mono accent">11</span> &nbsp;Área de protección (1X)</div>
+            <div><span class="mono accent">12</span> &nbsp;Tamaños mínimos</div>
+            <div><span class="mono accent">13</span> &nbsp;Usos correctos</div>
+            <div><span class="mono accent">14</span> &nbsp;Usos incorrectos</div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size:20px; color:var(--orange); margin-bottom:10px;">03 · Lenguaje de Diseño</h3>
+          <div style="display:grid; gap:6px; font-size:13.5px;">
+            <div><span class="mono accent">16</span> &nbsp;Tipografías oficiales</div>
+            <div><span class="mono accent">17</span> &nbsp;Paleta principal (HEX·RGB·CMYK)</div>
+            <div><span class="mono accent">18</span> &nbsp;Paleta de 5 polímeros FDM</div>
+            <div><span class="mono accent">19</span> &nbsp;Estilo fotográfico en planta</div>
+            <div><span class="mono accent">20</span> &nbsp;Sistema de 20 íconos y UI</div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size:20px; color:var(--orange); margin-bottom:10px;">04 · Aplicaciones</h3>
+          <div style="display:grid; gap:6px; font-size:13.5px;">
+            <div><span class="mono accent">22</span> &nbsp;Sitio web (PC + 390 px) y redes</div>
+            <div><span class="mono accent">23</span> &nbsp;Papelería, empaque y firma</div>
+            <div><span class="mono accent">24</span> &nbsp;Contraportada y contacto</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-num">02</span>
+  </section>
+
+  <!-- ==================== 03. CAPÍTULO: MARCA ==================== -->
+  <section class="slide cad-grid">
+    <div class="chapter-grid">
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.9;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.16;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.45;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.12;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.75;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.16;" alt="" /></div>
+
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.14;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.65;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.1;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.9;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.14;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.5;" alt="" /></div>
+
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:1;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.25;" alt="" /></div>
+      <div class="chapter-title-cell">
+        <span class="mono" style="font-size:20px; color:var(--orange); font-weight:700;">01 /</span>
+        <h1>Marca</h1>
+      </div>
+    </div>
+    <span class="slide-num">03</span>
+  </section>
+
+  <!-- ==================== 04. VOZ ==================== -->
+  <section class="slide">
+    <div class="split-50">
+      <div class="split-photo">
+        <img class="bg-img" src="../../../assets/photos/pieza-organizador.webp" alt="Pieza 3D Vértice" />
+        <div class="split-photo__overlay"></div>
+        <div class="split-photo__title">
+          <img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="height:34px;" alt="" />
+          <h1>Voz</h1>
+        </div>
+      </div>
+      <div class="split-copy" style="background:var(--surface);">
+        <p>La voz de <strong>Vértice CR</strong> traduce la ingeniería de impresión 3D a español claro, cotidiano y sin intimidar a nadie.</p>
+        <p class="muted">Cuando una persona llega con una pieza quebrada en la mano y no sabe qué es PETG ni altura de capa, Vértice la escucha, le pide una foto con una regla a la par y la guía con calma hasta resolverle el problema.</p>
+        <p class="muted">Cuando llega un dueño de impresora buscando filamento o boquillas, Vértice le habla directo al grano: material exacto, diámetro, stock real en Costa Rica y precio transparente en colones y dólares.</p>
+        <div style="border-left:3px solid var(--orange); padding-left:14px; font-weight:600; color:var(--orange); font-size:15px;">
+          Somos ese amigo técnico que sabe muchísimo de manufactura, pero siempre te lo explica fácil y sin rodeos.
+        </div>
+      </div>
+    </div>
+    <span class="slide-num">04</span>
+  </section>
+
+  <!-- ==================== 05. TONO Y ACTITUD ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Tono de voz y Actitud</div>
+      <span class="pill pill-orange">Español cotidiano de Costa Rica (voseo respetuoso)</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:36% 64%; gap:20px; flex:1; align-items:stretch;">
+      <div class="card" style="display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h2>Directos, honestos y ordenados.</h2>
+          <p style="font-size:14px;">Nuestra actitud combina la disciplina de una planta industrial con la cercanía de un taller costarricense real.</p>
+          <p style="font-size:13.5px;">Nunca prometemos precios inventados, entregas imposibles ni existencias falsas. Si falta un dato para cotizar, lo preguntamos con respeto.</p>
+        </div>
+        <div class="card-hi">
+          <strong style="color:var(--orange); display:block; margin-bottom:4px;">Regla de 3 segundos</strong>
+          <span style="font-size:12.5px; color:var(--muted);">Cualquier pantalla, botón o alerta debe entenderse al primer vistazo sin leer un manual técnico.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <table class="clean">
+          <thead>
+            <tr><th style="width:24%;">Contexto</th><th style="width:38%;">Sí decimos (Voz Vértice)</th><th style="width:38%;">Evitamos</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Portada</strong></td><td>«¿Qué ocupás hoy? Necesito una pieza / Tengo impresora.»</td><td>«Seleccione su vertical transaccional.»</td></tr>
+            <tr><td><strong>Fotos del cliente</strong></td><td>«Subí hasta 4 fotos. Poné una regla o moneda a la par.»</td><td>«Adjunte evidencia metrológica digital.»</td></tr>
+            <tr><td><strong>Estados de pedido</strong></td><td>«Nueva solicitud · Esperando datos · Cotización lista · En impresión.»</td><td>«PENDING_QUOTE · NEEDS_INFO · QUOTED.»</td></tr>
+            <tr><td><strong>Asistente IA</strong></td><td>«Parece una pestaña quebrada. ¿Cuánto mide de ancho en cm?»</td><td>«Inferencia confirmada: 42 mm · ₡5,000.»</td></tr>
+            <tr><td><strong>Pagos</strong></td><td>«Pagá en línea con PayPal (prueba) o subí tu comprobante SINPE.»</td><td>«Liquidación de pasarela / seña.»</td></tr>
+            <tr><td><strong>Privacidad</strong></td><td>«Podés pedir la eliminación de tu cuenta desde tu perfil.»</td><td>«Ejecución de cláusula de supresión.»</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">05</span>
+  </section>
+
+  <!-- ==================== 06. PERSONALIDAD Y CONCEPTO ==================== -->
+  <section class="slide">
+    <div class="split-50">
+      <div class="split-photo">
+        <img class="bg-img" src="../../../assets/photos/pieza-audifonos.webp" alt="Taller Vértice" />
+        <div class="split-photo__overlay"></div>
+        <div class="split-photo__title">
+          <img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="height:34px;" alt="" />
+          <h1>Personalidad</h1>
+        </div>
+      </div>
+      <div class="split-copy" style="padding:13mm 16mm; gap:12px;">
+        <span class="pill pill-orange" style="width:fit-content;">Concepto rector: «La Planta»</span>
+        <p style="font-size:14.5px; color:var(--text);">
+          <em>«Si Vértice CR fuera una persona, tendría un taller impecablemente ordenado en Costa Rica: impresoras calibradas trabajando a la vista, bobinas clasificadas por polímero y un escritorio limpio donde diseña soluciones reales. No presume tecnicismos — escucha qué se te quebró o qué proyecto estás armando y te entrega algo que funciona a la primera.»</em>
+        </p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div class="card">
+            <h3 class="accent">Misión</h3>
+            <p style="margin:0; font-size:12.5px;">Acercar la impresión 3D funcional y el abastecimiento de filamentos en Costa Rica con una plataforma clara, honesta y asistida por IA.</p>
+          </div>
+          <div class="card">
+            <h3 class="accent">Visión</h3>
+            <p style="margin:0; font-size:12.5px;">Ser la referencia costarricense en piezas 3D bajo pedido e insumos FDM, uniendo rigor de taller con claridad digital en PC y celular.</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px;">
+          <div class="card-hi" style="padding:9px;"><strong class="accent" style="font-size:12px;">Precisión</strong><div style="font-size:10.5px; color:var(--muted);">Tolerancias reales</div></div>
+          <div class="card-hi" style="padding:9px;"><strong class="accent" style="font-size:12px;">Claridad</strong><div style="font-size:10.5px; color:var(--muted);">Cero jerga</div></div>
+          <div class="card-hi" style="padding:9px;"><strong class="accent" style="font-size:12px;">Orden</strong><div style="font-size:10.5px; color:var(--muted);">Equilibrio 70/30</div></div>
+          <div class="card-hi" style="padding:9px;"><strong class="accent" style="font-size:12px;">Control</strong><div style="font-size:10.5px; color:var(--muted);">IA + humano</div></div>
+          <div class="card-hi" style="padding:9px;"><strong class="accent" style="font-size:12px;">Privacidad</strong><div style="font-size:10.5px; color:var(--muted);">Ley N.° 8968</div></div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-num">06</span>
+  </section>
+
+  <!-- ==================== 07. CAPÍTULO: LOGOTIPO ==================== -->
+  <section class="slide cad-grid">
+    <div class="chapter-grid">
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.15;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.85;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.15;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.55;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.12;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.9;" alt="" /></div>
+
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.75;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.12;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.95;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.18;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.6;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.12;" alt="" /></div>
+
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:1;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.25;" alt="" /></div>
+      <div class="chapter-title-cell">
+        <span class="mono" style="font-size:20px; color:var(--orange); font-weight:700;">02 /</span>
+        <h1>Logotipo</h1>
+      </div>
+    </div>
+    <span class="slide-num">07</span>
+  </section>
+
+  <!-- ==================== 08. LOGOTIPO Y RACIONAL CREATIVO ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Logotipo &amp; Racional Creativo</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:56% 44%; gap:24px; flex:1; align-items:center;">
+      <div class="card" style="height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px; background:#141417;">
+        <img src="../../../assets/brand/vertice-logo-3d.png" style="width:82%; max-height:110px; object-fit:contain;" alt="Logotipo Principal 3D" />
+        <div style="display:flex; gap:14px;">
+          <span class="pill pill-orange">Piezas 3D bajo pedido</span>
+          <span class="pill">Pedir con foto + IA</span>
+          <span class="pill">Filamentos e insumos</span>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <h2>Un vértice es el punto exacto donde dos planos se encuentran.</h2>
+        <p style="font-size:14.5px; color:var(--text);">
+          En diseño 3D y geometría CAD, un <strong>vértice</strong> define la forma y la precisión de toda malla imprimible. En nuestro negocio, es también el punto de encuentro entre <strong>una idea cotidiana y una pieza física real</strong>.
+        </p>
+        <p style="font-size:13.5px;">
+          La inicial <strong>«V»</strong> en Naranja Vértice está atravesada por un corte diagonal limpio que evoca el movimiento del cabezal de impresión y el depósito de filamento capa a capa. La extrusión en la versión principal aporta presencia física tridimensional, mientras la versión plana asegura nitidez impecable en pantallas pequeñas e impresión.
+        </p>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">08</span>
+  </section>
+
+  <!-- ==================== 09. SISTEMA CROMÁTICO DEL LOGOTIPO ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Sistema Cromático del Logotipo</div>
+      <span style="font-size:12px; color:var(--muted);">Versiones oficiales según fondo y técnica de reproducción</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; flex:1;">
+      <!-- Columna Oscuro -->
+      <div style="background:#121215; border-radius:16px; padding:18px; display:flex; flex-direction:column; justify-content:space-around; align-items:center; border:1px solid var(--divider);">
+        <span class="pill pill-orange">Sobre fondo oscuro (#161618)</span>
+        <img src="../../../assets/brand/vertice-logo-3d.png" style="max-width:86%; max-height:68px;" alt="3D oscuro" />
+        <img src="../../../assets/brand/vertice-logo-flat.png" style="max-width:86%; max-height:62px;" alt="Flat oscuro" />
+        <img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="height:64px;" alt="Isotipo oscuro" />
+      </div>
+
+      <!-- Columna Claro -->
+      <div style="background:#f4f3f0; border-radius:16px; padding:18px; display:flex; flex-direction:column; justify-content:space-around; align-items:center;">
+        <span class="pill" style="background:#161618; color:#f5f4f1;">Sobre fondo claro (#F4F3F0)</span>
+        <img src="../../../assets/brand/vertice-logo-3d.png" style="max-width:86%; max-height:68px;" alt="3D claro" />
+        <img src="../../../assets/brand/vertice-logo-flat.png" style="max-width:86%; max-height:62px;" alt="Flat claro" />
+        <img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="height:64px;" alt="Isotipo claro" />
+      </div>
+
+      <!-- Columna Monocromática -->
+      <div style="display:grid; grid-template-rows:1fr 1fr; gap:12px;">
+        <div style="background:#f4f3f0; border-radius:16px; padding:16px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:12px;">
+          <span class="pill" style="background:#141414; color:#fff;">Positivo · 1 tinta negra</span>
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="mono-black" style="max-width:84%; max-height:52px;" alt="Positivo" />
+        </div>
+        <div style="background:#121215; border-radius:16px; padding:16px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:12px; border:1px solid var(--divider);">
+          <span class="pill">Negativo · 1 tinta blanca</span>
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="mono-white" style="max-width:84%; max-height:52px;" alt="Negativo" />
+        </div>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">09</span>
+  </section>
+
+  <!-- ==================== 10. ESLOGAN, SÍNTESIS Y FAVICON REAL ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Logotipo con Eslogan &amp; Síntesis (Isotipo / Favicon)</div>
+    </div>
+
+    <div style="display:grid; grid-template-rows:42% 54%; gap:14px; flex:1;">
+      <!-- Arriba: Logo con eslogan -->
+      <div class="card" style="display:grid; grid-template-columns:1.35fr 1fr; gap:20px; align-items:center;">
+        <div style="display:flex; align-items:center; gap:18px; background:#141417; padding:18px 22px; border-radius:12px;">
+          <img src="../../../assets/brand/vertice-logo-flat.png" style="height:50px;" alt="Vértice" />
+          <div style="border-left:2px solid var(--orange); padding-left:16px;">
+            <div style="font-size:16px; font-weight:700; color:var(--text); line-height:1.2;">Piezas diseñadas para<br/><span class="accent">cumplir una función real.</span></div>
+          </div>
+        </div>
+        <p style="margin:0; font-size:13.5px;">El eslogan acompaña al logotipo en portadas, banners, tarjetas y presentaciones. Resume el propósito de Vértice: fabricar objetos útiles y confiables, no adornos desechables.</p>
+      </div>
+
+      <!-- Abajo: Síntesis + Favicon real -->
+      <div class="card" style="display:grid; grid-template-columns:220px 1fr 270px; gap:22px; align-items:center;">
+        <div style="background:#141417; border-radius:14px; height:100%; display:flex; align-items:center; justify-content:center; padding:14px;">
+          <img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="height:124px; width:124px; object-fit:contain;" alt="Síntesis oficial V" />
+        </div>
+        <div>
+          <span class="pill pill-orange" style="margin-bottom:6px;">Síntesis oficial · Extraída del imagotipo</span>
+          <h3 style="font-size:18px;">La «V» seccionada en alta precisión</h3>
+          <p style="margin:0; font-size:13px;">Es la mínima expresión del ADN de Vértice CR, extraída directamente de la geometría exacta del logotipo oficial aprobado (nunca redibujada ni aproximada). Funciona como favicon del navegador, ícono de app móvil y sello de perfil en redes sociales.</p>
+        </div>
+        <div class="card-hi" style="display:flex; flex-direction:column; gap:10px; align-items:center; text-align:center;">
+          <span style="font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase;">Favicon y tamaños de ícono</span>
+          <div style="display:flex; align-items:flex-end; gap:14px;">
+            <div><img src="../../../assets/brand/favicon-vertice.png" style="width:64px; height:64px; border-radius:14px; display:block;" alt="App 64px" /><span class="mono" style="font-size:9.5px; color:var(--muted);">64 px</span></div>
+            <div><img src="../../../assets/brand/favicon-vertice.png" style="width:40px; height:40px; border-radius:9px; display:block;" alt="Icon 40px" /><span class="mono" style="font-size:9.5px; color:var(--muted);">40 px</span></div>
+            <div><img src="../../../assets/brand/favicon-vertice.png" style="width:24px; height:24px; border-radius:5px; display:block;" alt="Favicon 24px" /><span class="mono" style="font-size:9.5px; color:var(--orange);">24 px</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">10</span>
+  </section>
+
+  <!-- ==================== 11. ÁREA DE PROTECCIÓN ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Área de Protección (1X)</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:30% 70%; gap:20px; flex:1; align-items:stretch;">
+      <div class="card" style="display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h3>Resguardo obligatorio</h3>
+          <p style="font-size:13px;">El área de protección garantiza que el imagotipo respire y nunca compita visualmente con otros textos, botones o fotografías.</p>
+          <p style="font-size:13px;">La unidad modular <strong>«X»</strong> equivale al ancho del asta izquierda de la letra <strong>V</strong>. Se reserva <strong>1X libre en los 4 lados</strong>.</p>
+          <p style="font-size:12.5px; margin:0;">Cuando se coloque sobre una fotografía compleja, el área de protección puede materializarse como una cápsula oscura mate (<span class="mono">#161618</span>).</p>
+        </div>
+        <span class="pill pill-orange" style="width:fit-content;">Margen libre: 1X perimetral</span>
+      </div>
+
+      <div style="display:grid; grid-template-rows:55% 42%; gap:12px;">
+        <div class="card" style="padding:10px; display:flex; align-items:center; justify-content:center; background:#141417;">
+          <svg viewBox="0 0 640 190" width="100%" height="100%">
+            <rect x="65" y="16" width="510" height="158" fill="rgba(255,106,31,0.08)" stroke="#ff6a1f" stroke-width="1.5" stroke-dasharray="6 4" />
+            <rect x="115" y="50" width="410" height="90" fill="#1e1e22" stroke="rgba(255,255,255,0.28)" stroke-width="1" />
+            <image href="../../../assets/brand/vertice-logo-flat.png" x="130" y="56" width="380" height="78" preserveAspectRatio="xMidYMid meet" />
+            <text x="90" y="38" fill="#ff6a1f" font-family="JetBrains Mono" font-size="13" font-weight="700" text-anchor="middle">1X</text>
+            <text x="550" y="162" fill="#ff6a1f" font-family="JetBrains Mono" font-size="13" font-weight="700" text-anchor="middle">1X</text>
+          </svg>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div style="position:relative; border-radius:12px; overflow:hidden;">
+            <img src="../../../assets/photos/pieza-estuche-beyblade-cerrado.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Sin protección" />
+            <img src="../../../assets/brand/vertice-logo-flat.png" style="position:absolute; right:8px; bottom:24px; height:30px;" alt="" />
+            <div style="position:absolute; inset:0; background:linear-gradient(155deg, transparent 48%, #ef5350 48%, #ef5350 52%, transparent 52%); opacity:0.85;"></div>
+            <div style="position:absolute; left:0; right:0; bottom:0; background:#ef5350; color:#fff; font-size:11px; font-weight:700; padding:4px 10px;">✕ Sin área de protección</div>
+          </div>
+          <div style="position:relative; border-radius:12px; overflow:hidden;">
+            <img src="../../../assets/photos/pieza-estuche-beyblade-cerrado.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Con protección" />
+            <div style="position:absolute; right:10px; bottom:28px; background:rgba(22,22,24,0.92); padding:8px 12px; border-radius:8px;">
+              <img src="../../../assets/brand/vertice-logo-flat.png" style="height:24px; display:block;" alt="" />
+            </div>
+            <div style="position:absolute; left:0; right:0; bottom:0; background:#34d399; color:#0b1f17; font-size:11px; font-weight:700; padding:4px 10px;">✓ Con cápsula y área de protección</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">11</span>
+  </section>
+
+  <!-- ==================== 12. TAMAÑOS MÍNIMOS ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Tamaños Mínimos de Reproducción</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:34% 66%; gap:22px; flex:1; align-items:center;">
+      <div class="card" style="height:100%; display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h3>Legibilidad garantizada</h3>
+          <p style="font-size:13.5px;">Para evitar que el corte diagonal de la «V» o el contorno de «értice» pierdan definición en pantallas móviles o impresiones pequeñas, se fijan estos mínimos obligatorios.</p>
+          <p style="font-size:13px;">Cuando el soporte sea menor a <span class="mono">110 px</span> o <span class="mono">30 mm</span>, debe sustituirse el imagotipo completo por el <strong>isotipo «V»</strong>.</p>
+        </div>
+        <table class="clean">
+          <tr><td><strong>Web / Hero</strong></td><td class="mono">≥ 140 px</td></tr>
+          <tr><td><strong>Móvil (390 px)</strong></td><td class="mono">≥ 110 px (Plana)</td></tr>
+          <tr><td><strong>Impresión</strong></td><td class="mono">≥ 30 mm / 10 mm</td></tr>
+        </table>
+      </div>
+
+      <div style="display:grid; grid-template-rows:1fr 1fr; gap:16px; height:100%;">
+        <div class="card" style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:14px; background:#141417;">
+          <img src="../../../assets/brand/vertice-logo-flat.png" style="width:260px;" alt="Tamaño estándar" />
+          <div style="width:260px; border-top:1.5px solid var(--orange); text-align:center; padding-top:6px;" class="mono"><strong class="accent">3.0 cm / 110 px mínimo</strong> (recomendado web 140–220 px)</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="card" style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:10px; background:#141417;">
+            <img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="width:68px; height:68px;" alt="Isotipo estándar" />
+            <div style="border-top:1.5px solid var(--orange); padding-top:5px; width:130px; text-align:center;" class="mono"><strong class="accent">1.5 cm / 48 px</strong></div>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:10px; background:#141417;">
+            <img src="../../../assets/brand/favicon-vertice.png" style="width:32px; height:32px; border-radius:7px;" alt="Favicon mínimo" />
+            <div style="border-top:1.5px solid var(--orange); padding-top:5px; width:130px; text-align:center;" class="mono"><strong class="accent">1.0 cm / 24 px</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">12</span>
+  </section>
+
+  <!-- ==================== 13. USOS CORRECTOS ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Usos Correctos sobre Fotografía Real</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:26% 74%; gap:18px; height:120mm; min-height:0;">
+      <div class="card" style="display:flex; flex-direction:column; justify-content:space-between; height:100%;">
+        <div>
+          <h3>Contraste limpio siempre</h3>
+          <p style="font-size:13px;">El logotipo y la síntesis «V» pueden convivir con fotografías reales de nuestras piezas impresas siempre que exista contraste claro en la zona donde se colocan.</p>
+          <p style="font-size:13px; margin:0;">Si la foto tiene mucha textura, se aplica una cápsula oscura mate o un velo degradado sutil para preservar lectura inmediata.</p>
+        </div>
+        <span class="pill pill-orange" style="width:fit-content;">Lectura inmediata · WCAG AA</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:12px; height:100%; min-height:0;">
+        <div style="position:relative; border-radius:14px; overflow:hidden; min-height:0; min-width:0;">
+          <img src="../../../assets/photos/pieza-organizador.webp" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Uso correcto 1" />
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(22,22,24,0.74) 0%, transparent 55%);"></div>
+          <img src="../../../assets/brand/vertice-logo-3d.png" style="position:absolute; top:12px; left:14px; height:28px;" alt="" />
+        </div>
+        <div style="position:relative; border-radius:14px; overflow:hidden; min-height:0; min-width:0;">
+          <img src="../../../assets/photos/pieza-cables.webp" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Uso correcto 2" />
+          <div style="position:absolute; right:12px; bottom:12px; background:rgba(22,22,24,0.92); padding:8px 13px; border-radius:10px;">
+            <img src="../../../assets/brand/vertice-logo-flat.png" style="height:22px; display:block;" alt="" />
+          </div>
+        </div>
+        <div style="position:relative; border-radius:14px; overflow:hidden; min-height:0; min-width:0;">
+          <img src="../../../assets/photos/pieza-torre.webp" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Uso correcto 3" />
+          <img src="../../../assets/brand/favicon-vertice.png" style="position:absolute; left:12px; bottom:12px; width:42px; height:42px; border-radius:10px;" alt="" />
+        </div>
+        <div style="position:relative; border-radius:14px; overflow:hidden; min-height:0; min-width:0;">
+          <img src="../../../assets/photos/pieza-maceta.webp" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Uso correcto 4" />
+          <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(22,22,24,0.84) 0%, transparent 58%);"></div>
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="mono-white" style="position:absolute; right:14px; bottom:12px; height:24px; opacity:0.94;" alt="" />
+        </div>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">13</span>
+  </section>
+
+  <!-- ==================== 14. USOS INCORRECTOS ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Usos Incorrectos del Logotipo</div>
+      <span style="font-size:12px; color:var(--muted);">Alteraciones prohibidas en todos los soportes</span>
+    </div>
+
+    <div class="wrong-grid">
+      <div class="wrong-card">
+        <div class="wrong-stage"><span class="wrong-x">✕</span><img src="../../../assets/brand/vertice-logo-flat.png" style="width:205px; height:24px; object-fit:fill;" alt="" /></div>
+        <div><h3>1. No lo distorsiones</h3><p style="margin:0; font-size:12px;">Mantener siempre la relación de aspecto bloqueada.</p></div>
+      </div>
+      <div class="wrong-card">
+        <div class="wrong-stage"><span class="wrong-x">✕</span><img src="../../../assets/brand/vertice-logo-flat.png" style="height:40px; transform:rotate(-16deg);" alt="" /></div>
+        <div><h3>2. No lo rotes</h3><p style="margin:0; font-size:12px;">Nunca girar el bloque fuera de su eje horizontal.</p></div>
+      </div>
+      <div class="wrong-card">
+        <div class="wrong-stage"><span class="wrong-x">✕</span><img src="../../../assets/brand/vertice-logo-flat.png" style="height:44px; filter:blur(2.4px);" alt="" /></div>
+        <div><h3>3. No lo difumines</h3><p style="margin:0; font-size:12px;">Usar siempre archivos en alta resolución sin desenfoque.</p></div>
+      </div>
+      <div class="wrong-card">
+        <div class="wrong-stage"><span class="wrong-x">✕</span><img src="../../../assets/brand/vertice-logo-flat.png" style="height:44px; filter:hue-rotate(155deg) saturate(1.4);" alt="" /></div>
+        <div><h3>4. No cambies sus colores</h3><p style="margin:0; font-size:12px;">Prohibido aplicar colores ajenos a la paleta oficial.</p></div>
+      </div>
+      <div class="wrong-card">
+        <div class="wrong-stage" style="background:#ff6a1f;"><span class="wrong-x" style="background:#161618;">✕</span><img src="../../../assets/brand/vertice-logo-flat.png" style="height:44px;" alt="" /></div>
+        <div><h3>5. Sin contraste sobre naranja</h3><p style="margin:0; font-size:12px;">Sobre fondo naranja usar únicamente versión blanca o negra.</p></div>
+      </div>
+      <div class="wrong-card">
+        <div class="wrong-stage"><span class="wrong-x">✕</span><span style="font-weight:700; font-size:12px; margin-right:-6px;">TIENDA</span><img src="../../../assets/brand/vertice-logo-flat.png" style="height:40px;" alt="" /><span style="font-weight:700; font-size:12px; color:var(--orange); margin-left:-6px;">3D!</span></div>
+        <div><h3>6. No invadas el área libre</h3><p style="margin:0; font-size:12px;">Respetar siempre el margen de protección 1X.</p></div>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">14</span>
+  </section>
+
+  <!-- ==================== 15. CAPÍTULO: LENGUAJE DE DISEÑO ==================== -->
+  <section class="slide cad-grid">
+    <div class="chapter-grid">
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.9;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.16;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.5;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.12;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.8;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.15;" alt="" /></div>
+
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.12;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.7;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.14;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.9;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.16;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.55;" alt="" /></div>
+
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:1;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.25;" alt="" /></div>
+      <div class="chapter-title-cell">
+        <span class="mono" style="font-size:20px; color:var(--orange); font-weight:700;">03 /</span>
+        <h1 style="font-size:48px;">Lenguaje de diseño</h1>
+      </div>
+    </div>
+    <span class="slide-num">15</span>
+  </section>
+
+  <!-- ==================== 16. TIPOGRAFÍAS (50/50 SPLIT) ==================== -->
+  <section class="slide">
+    <div style="display:grid; grid-template-columns:50% 50%; flex:1; height:100%;">
+      <div style="background:#161618; padding:16mm 16mm; display:flex; flex-direction:column; justify-content:space-between;">
+        <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Tipografías oficiales</div>
+        <div style="text-align:center;">
+          <div style="font-size:48px; font-weight:700; color:var(--text); margin-bottom:16px;">Chakra Petch</div>
+          <div style="font-size:20px; font-weight:600; color:var(--orange); line-height:1.5; margin-bottom:18px;">
+            Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj<br/>
+            Kk Ll Mm Nn Ññ Oo Pp Qq Rr<br/>
+            Ss Tt Uu Vv Ww Xx Yy Zz<br/>
+            0123456789
+          </div>
+          <div style="width:140px; height:2px; background:var(--orange); margin:0 auto 14px;"></div>
+          <p style="font-size:13px; max-width:390px; margin:0 auto;">Tipografía principal de marca e interfaz (pesos 400, 500, 600 y 700). Combina geometría técnica de taller CAD con lectura clara en titulares, botones y párrafos.</p>
+        </div>
+        <div style="font-size:11px; color:var(--dim); text-align:center;">Display 48–56 px · H1 32 px · H2 24 px · Body 15–16 px (nunca &lt; 12 px)</div>
+      </div>
+
+      <div style="background:#ff6a1f; color:#140b05; padding:16mm 16mm; display:flex; flex-direction:column; justify-content:center; text-align:center;">
+        <div class="mono" style="font-size:38px; font-weight:700; color:#140b05; margin-bottom:18px;">JetBrains Mono</div>
+        <div class="mono" style="font-size:18px; font-weight:600; color:#fff; line-height:1.65; margin-bottom:20px;">
+          Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj<br/>
+          ₡14,500 · $28.43 · 1.75 mm<br/>
+          18.5 cm · 1 kg · SKU-FIL-012<br/>
+          0123456789
+        </div>
+        <div style="width:140px; height:2px; background:#140b05; margin:0 auto 14px;"></div>
+        <p style="font-size:13px; color:#140b05; font-weight:600; max-width:390px; margin:0 auto;">Tipografía técnica de soporte (pesos 500 y 600 con cifras tabulares). Reservada para precios en colones/dólares, medidas, existencias, SKUs y códigos de seguimiento.</p>
+      </div>
+    </div>
+    <span class="slide-num" style="background:#161618;">16</span>
+  </section>
+
+  <!-- ==================== 17. PALETA PRINCIPAL (BANDAS VERTICALES) ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Paleta de Color Principal</div>
+      <span class="pill pill-orange">Equilibrio 70 % fondo · 20 % mate · 10 % acento</span>
+    </div>
+
+    <div class="bands-wrap">
+      <div style="display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h2>Carbón mate y energía térmica.</h2>
+          <p style="font-size:13.5px;">La paleta de Vértice CR prioriza fondos oscuros limpios que descansan la vista y destacan el objeto físico, energizados por el Naranja Vértice.</p>
+          <p style="font-size:13px;">Todos los pares de texto sobre fondo cumplen contraste accesible <strong>WCAG AA (≥ 4.5:1)</strong> tanto en modo oscuro como en el modo claro alternativo.</p>
+        </div>
+        <div class="card-hi">
+          <div style="display:flex; height:16px; border-radius:6px; overflow:hidden; margin-bottom:6px;">
+            <div style="width:70%; background:#161618;"></div>
+            <div style="width:20%; background:#25252b;"></div>
+            <div style="width:10%; background:#ff6a1f;"></div>
+          </div>
+          <span class="mono" style="font-size:10px; color:var(--muted);">70% #161618 · 20% #1E1E22 · 10% #FF6A1F</span>
+        </div>
+      </div>
+
+      <div class="color-bands" style="border:1px solid rgba(255,255,255,0.09);">
+        <div class="band" style="background:#ff6a1f; color:#140b05;">
+          <div class="band-name">Naranja Vértice</div>
+          <div class="band-codes">C:0 M:58<br/>Y:88 K:0<br/>R:255 G:106 B:31<br/><strong>#FF6A1F</strong></div>
+        </div>
+        <div class="band" style="background:#b94312; color:#fff;">
+          <div class="band-name">Naranja Claro</div>
+          <div class="band-codes">C:0 M:64<br/>Y:90 K:27<br/>R:185 G:67 B:18<br/><strong>#B94312</strong></div>
+        </div>
+        <div class="band" style="background:#161618; color:#f5f4f1; border-right:1px solid rgba(255,255,255,0.08);">
+          <div class="band-name">Carbón Planta</div>
+          <div class="band-codes">C:8 M:8<br/>Y:0 K:91<br/>R:22 G:22 B:24<br/><strong>#161618</strong></div>
+        </div>
+        <div class="band" style="background:#1e1e22; color:#f5f4f1; border-right:1px solid rgba(255,255,255,0.08);">
+          <div class="band-name">Grafito Mate</div>
+          <div class="band-codes">C:12 M:12<br/>Y:0 K:87<br/>R:30 G:30 B:34<br/><strong>#1E1E22</strong></div>
+        </div>
+        <div class="band" style="background:#25252b; color:#f5f4f1;">
+          <div class="band-name">Acero Hover</div>
+          <div class="band-codes">C:14 M:14<br/>Y:0 K:83<br/>R:37 G:37 B:43<br/><strong>#25252B</strong></div>
+        </div>
+        <div class="band" style="background:#f5f4f1; color:#141414;">
+          <div class="band-name">Blanco Filamento</div>
+          <div class="band-codes">C:0 M:0<br/>Y:2 K:4<br/>R:245 G:244 B:241<br/><strong>#F5F4F1</strong></div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">17</span>
+  </section>
+
+  <!-- ==================== 18. PALETA DE LOS 5 POLÍMEROS FDM ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Subpaleta Técnica — 5 Polímeros FDM &amp; Estados</div>
+    </div>
+
+    <div class="bands-wrap">
+      <div style="display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <h2>Color con función real.</h2>
+          <p style="font-size:13.5px;">Cada uno de los 5 polímeros FDM que trabajamos en planta y vendemos en bobina tiene su propio identificador cromático, acompañado siempre de texto para garantizar accesibilidad.</p>
+        </div>
+        <div style="display:grid; gap:7px;">
+          <div class="card" style="padding:9px 12px;"><span style="color:#34d399; font-weight:700;">● Confirmado / Stock OK</span> <span class="mono" style="font-size:10px; color:var(--muted); float:right;">#34D399</span></div>
+          <div class="card" style="padding:9px 12px;"><span style="color:#f59e0b; font-weight:700;">● Stock bajo / Atención</span> <span class="mono" style="font-size:10px; color:var(--muted); float:right;">#F59E0B</span></div>
+          <div class="card" style="padding:9px 12px;"><span style="color:#ef5350; font-weight:700;">● Agotado / Error</span> <span class="mono" style="font-size:10px; color:var(--muted); float:right;">#EF5350</span></div>
+        </div>
+      </div>
+
+      <div class="color-bands color-bands--5">
+        <div class="band" style="background:#ff6a1f; color:#140b05;">
+          <div class="band-name">ASA<br/><span style="font-size:11px; font-weight:500;">Exterior y UV</span></div>
+          <div class="band-codes">C:0 M:58 Y:88 K:0<br/>R:255 G:106 B:31<br/><strong>#FF6A1F</strong></div>
+        </div>
+        <div class="band" style="background:#38bdf8; color:#081c26;">
+          <div class="band-name">PETG<br/><span style="font-size:11px; font-weight:500;">Fuerza mecánica</span></div>
+          <div class="band-codes">C:77 M:24 Y:0 K:3<br/>R:56 G:189 B:248<br/><strong>#38BDF8</strong></div>
+        </div>
+        <div class="band" style="background:#a3e635; color:#142104;">
+          <div class="band-name">PLA<br/><span style="font-size:11px; font-weight:500;">Detalle y rigidez</span></div>
+          <div class="band-codes">C:29 M:0 Y:77 K:10<br/>R:163 G:230 B:53<br/><strong>#A3E635</strong></div>
+        </div>
+        <div class="band" style="background:#f59e0b; color:#1f1302;">
+          <div class="band-name">ABS<br/><span style="font-size:11px; font-weight:500;">Alta temperatura</span></div>
+          <div class="band-codes">C:0 M:36 Y:96 K:4<br/>R:245 G:158 B:11<br/><strong>#F59E0B</strong></div>
+        </div>
+        <div class="band" style="background:#c084fc; color:#1d0a2e;">
+          <div class="band-name">TPU<br/><span style="font-size:11px; font-weight:500;">Elástico e impacto</span></div>
+          <div class="band-codes">C:24 M:48 Y:0 K:1<br/>R:192 G:132 B:252<br/><strong>#C084FC</strong></div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">18</span>
+  </section>
+
+  <!-- ==================== 19. ESTILO FOTOGRÁFICO ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Estilo Fotográfico en Planta</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:30% 70%; gap:18px; height:120mm; min-height:0;">
+      <div class="card" style="display:flex; flex-direction:column; justify-content:space-between; height:100%;">
+        <div>
+          <h3>Fotografía real, cero engaño</h3>
+          <p style="font-size:13px;">Las fotos de Vértice muestran piezas físicas reales impresas en planta con luz lateral limpia que respeta la textura auténtica del FDM.</p>
+          <p style="font-size:13px;">Nunca se hacen pasar renders 3D por fotos físicas. Si un producto aún usa imagen conceptual, se etiqueta con claridad.</p>
+          <p style="font-size:12.5px; margin:0;"><strong class="accent">Fotos del cliente:</strong> el flujo de «Pedir con foto» muestra el consejo <em>«Poné una regla o moneda a la par»</em> para dar referencia real sin pedir medidas difíciles.</p>
+        </div>
+        <span class="pill" style="width:fit-content;">Luz natural / lateral · Fondo limpio</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); grid-template-rows:1fr 1fr; gap:10px; height:100%; min-height:0;">
+        <div style="border-radius:12px; overflow:hidden; background:#121215; min-height:0; min-width:0;"><img src="../../../assets/photos/pieza-estuche-beyblade-cerrado.jpg" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Estuche 3D en placa PEI" /></div>
+        <div style="border-radius:12px; overflow:hidden; background:#121215; min-height:0; min-width:0;"><img src="../../../assets/photos/pieza-estuche-beyblade-abierto.jpg" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Estuche 3D abierto multicolor" /></div>
+        <div style="border-radius:12px; overflow:hidden; background:#121215; min-height:0; min-width:0;"><img src="../../../assets/photos/pieza-organizador.webp" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Organizador 3D" /></div>
+        <div style="border-radius:12px; overflow:hidden; background:#121215; min-height:0; min-width:0;"><img src="../../../assets/photos/pieza-audifonos.webp" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Soporte audífonos" /></div>
+        <div style="border-radius:12px; overflow:hidden; background:#121215; min-height:0; min-width:0;"><img src="../../../assets/photos/pieza-maceta.webp" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Maceta geométrica" /></div>
+        <div style="border-radius:12px; overflow:hidden; background:#121215; min-height:0; min-width:0;"><img src="../../../assets/photos/pieza-torre.webp" style="width:100%; height:100%; object-fit:cover; display:block;" alt="Torre dados" /></div>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">19</span>
+  </section>
+
+  <!-- ==================== 20. SISTEMA COMPLETO DE 20 ÍCONOS Y ELEMENTOS UI ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Sistema de Iconografía (20 Íconos Oficiales)</div>
+      <span class="pill">Estilo Lucide · Trazo 1.75 px · Cuadrícula 24×24 · Coherente con React</span>
+    </div>
+
+    <div class="icon-family-grid" style="align-content:start;">
+      <!-- Grupo 1: Tienda y 3D -->
+      <div class="icon-group">
+        <h3>Tienda y 3D (5)</h3>
+        <div class="icon-list">
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>Pieza 3D</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>Filamento / Bobina</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Impresora / Boquilla</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M8 5l1.5-2h5L16 5"/></svg>Subir foto</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3-3 3 3"/></svg>Archivo STL / 3MF</div>
+        </div>
+      </div>
+
+      <!-- Grupo 2: Compras y Pagos -->
+      <div class="icon-group">
+        <h3>Compras y Pagos (5)</h3>
+        <div class="icon-list">
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/><path d="M6 6L5 3H2"/></svg>Carrito de compra</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>PayPal Sandbox</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01M9 7h6"/></svg>SINPE / Comprobante</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Retiro / Envío CR</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5a3 3 0 0 0-5 2.5 3 3 0 0 0 5 2.5M8.5 11h7M8.5 13.5h7"/></svg>Tipo de cambio CR</div>
+        </div>
+      </div>
+
+      <!-- Grupo 3: Taller e IA -->
+      <div class="icon-group">
+        <h3>Taller y Agentes IA (5)</h3>
+        <div class="icon-list">
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>Qué atender hoy</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Cotización / Factura</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.2 6.2L20 10l-5.8 2.2L12 18l-2.2-5.8L4 10l5.8-1.8L12 2z"/></svg>Agentes de IA (8)</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>Costos y reportes</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l18-6v14l-18-6z"/><path d="M11 14v5"/></svg>Campañas redes</div>
+        </div>
+      </div>
+
+      <!-- Grupo 4: Seguridad y Cuenta -->
+      <div class="icon-group">
+        <h3>Seguridad y Cuenta (5)</h3>
+        <div class="icon-list">
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>Mi cuenta / Perfil</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>Privacidad Ley 8968</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>Usuarios y 4 roles</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>Auditoría lectura</div>
+          <div class="icon-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Baja / Eliminación</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-hi" style="margin-top:12px; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; gap:14px;">
+      <span style="font-size:12px; color:var(--muted);"><strong style="color:var(--text);">Regla de consistencia UI:</strong> toda la app usa el set lineal de <strong>Lucide Icons</strong> (<span class="mono">1.75 px</span>), casillas con unidad fija (<span class="mono">₡ · cm · mm · kg</span>) y superficies mates sin bordes blancos.</span>
+      <span class="pill pill-orange" style="white-space:nowrap; flex-shrink:0;">20 íconos base Lucide</span>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">20</span>
+  </section>
+
+  <!-- ==================== 21. CAPÍTULO: APLICACIONES ==================== -->
+  <section class="slide cad-grid">
+    <div class="chapter-grid">
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.15;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.85;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.15;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.6;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.12;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.9;" alt="" /></div>
+
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.8;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.12;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.95;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.18;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:0.55;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.14;" alt="" /></div>
+
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" style="opacity:1;" alt="" /></div>
+      <div class="v-tile"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" class="mono-white" style="opacity:0.25;" alt="" /></div>
+      <div class="chapter-title-cell">
+        <span class="mono" style="font-size:20px; color:var(--orange); font-weight:700;">04 /</span>
+        <h1>Aplicaciones</h1>
+      </div>
+    </div>
+    <span class="slide-num">21</span>
+  </section>
+
+  <!-- ==================== 22. APLICACIONES DIGITALES ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Aplicaciones Digitales — Sitio Web (PC + Móvil 390 px) &amp; Redes</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.5fr 0.72fr 0.85fr; gap:14px; height:120mm; min-height:0;">
+      <!-- Web desktop -->
+      <div class="card" style="background:#121215; border:1px solid var(--divider); display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden;">
+        <svg style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; opacity:0.55;" viewBox="0 0 500 380" preserveAspectRatio="none">
+          <path d="M-20 220 C 120 140, 320 280, 520 170" fill="none" stroke="rgba(255,106,31,0.18)" stroke-width="34" />
+          <path d="M-20 250 C 140 175, 340 300, 520 205" fill="none" stroke="rgba(245,244,241,0.06)" stroke-width="10" />
+        </svg>
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:10px; border-bottom:1px solid var(--divider); position:relative; z-index:2;">
+          <img src="../../../assets/brand/vertice-logo-flat.png" style="height:20px;" alt="" />
+          <div style="display:flex; gap:12px; font-size:10.5px; color:var(--muted);">
+            <span style="color:var(--text); font-weight:700;">Inicio</span><span>Piezas 3D</span><span>Pedir con foto</span><span>Filamentos</span><span style="color:var(--orange);">Cuenta</span>
+          </div>
+        </div>
+        <div style="padding:14px 4px; position:relative; z-index:2;">
+          <span class="pill pill-orange" style="margin-bottom:8px;">Hero conservado · Onda 3D WebGL</span>
+          <h2 style="font-size:24px; margin-bottom:8px;">Piezas diseñadas para <span class="accent">cumplir una función real.</span></h2>
+          <p style="font-size:12px; margin-bottom:12px;">Elegí diseños probados, subí fotos de lo que necesitás o comprá filamentos con stock real y tipo de cambio de hoy.</p>
+          <div style="display:flex; gap:8px;">
+            <span style="background:var(--orange); color:#140b05; padding:7px 14px; border-radius:999px; font-weight:700; font-size:11.5px;">Necesito una pieza →</span>
+            <span style="background:var(--control); color:var(--text); padding:7px 14px; border-radius:999px; font-weight:600; font-size:11.5px;">Tengo impresora</span>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; position:relative; z-index:2;">
+          <div class="card-hi" style="padding:8px;"><div class="mono" style="font-size:9.5px; color:var(--orange);">TC HACIENDA</div><strong class="mono" style="font-size:12px;">₡512.40</strong></div>
+          <div class="card-hi" style="padding:8px;"><div class="mono" style="font-size:9.5px; color:#38bdf8;">FILAMENTOS</div><strong class="mono" style="font-size:12px;">Stock real</strong></div>
+          <div class="card-hi" style="padding:8px;"><div class="mono" style="font-size:9.5px; color:#34d399;">PAGOS</div><strong class="mono" style="font-size:12px;">PayPal / SINPE</strong></div>
+        </div>
+      </div>
+
+      <!-- Mobile 390px -->
+      <div class="card" style="background:#121215; border:2px solid #2d2d36; border-radius:20px; padding:12px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:8px; border-bottom:1px solid var(--divider);">
+          <img src="../../../assets/brand/vertice-logo-flat.png" style="height:15px;" alt="" />
+          <span class="mono" style="font-size:9px; color:var(--muted);">390 px</span>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; background:#1e1e22; border-radius:999px; padding:3px; font-size:9.5px; text-align:center;">
+          <span style="background:var(--orange); color:#140b05; border-radius:999px; padding:4px; font-weight:700;">Pedir foto</span>
+          <span style="color:var(--muted); padding:4px;">Asistente IA</span>
+        </div>
+        <div style="border-radius:10px; overflow:hidden; height:128px; position:relative;">
+          <img src="../../../assets/photos/pieza-cables.webp" style="width:100%; height:100%; object-fit:cover; display:block;" alt="" />
+          <div style="position:absolute; left:6px; bottom:6px; background:rgba(22,22,24,0.9); padding:3px 7px; border-radius:6px; font-size:9px;">Tip: poné una regla a la par</div>
+        </div>
+        <div style="background:var(--orange); color:#140b05; text-align:center; border-radius:999px; padding:7px; font-weight:700; font-size:11px;">Enviar solicitud</div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); text-align:center; font-size:9px; color:var(--muted); padding-top:6px; border-top:1px solid var(--divider);">
+          <span style="color:var(--orange); font-weight:700;">Inicio</span><span>3D</span><span>Insumos</span><span>Cuenta</span>
+        </div>
+      </div>
+
+      <!-- Instagram Post -->
+      <div class="card" style="background:#141417; padding:12px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="display:flex; align-items:center; gap:9px;">
+          <img src="../../../assets/brand/favicon-vertice.png" style="width:32px; height:32px; border-radius:8px;" alt="" />
+          <div><strong style="font-size:12px; display:block;">@vertice.cr</strong><span style="font-size:10px; color:var(--muted);">Costa Rica · Planta 3D</span></div>
+        </div>
+        <div style="position:relative; border-radius:10px; overflow:hidden; height:215px;">
+          <img src="../../../assets/photos/pieza-audifonos.webp" style="width:100%; height:100%; object-fit:cover; display:block;" alt="" />
+          <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(22,22,24,0.94) 0%, rgba(22,22,24,0.22) 55%, transparent 100%);"></div>
+          <div style="position:absolute; left:10px; right:10px; bottom:10px;">
+            <span class="pill" style="background:rgba(22,22,24,0.88); color:#38bdf8; font-size:9.5px; border:1px solid rgba(56,189,248,0.35);">PETG · 1.75 mm</span>
+            <div style="font-weight:700; font-size:13px; margin-top:5px; color:#f5f4f1;">¿Se te quebró una pieza? Subí una foto y te la fabricamos.</div>
+          </div>
+        </div>
+        <div class="mono" style="font-size:10px; color:var(--orange); text-align:center;">verticecr.com · Cotizá con foto</div>
+      </div>
+    </div>
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">22</span>
+  </section>
+
+  <!-- ==================== 23. APLICACIONES FÍSICAS ==================== -->
+  <section class="slide slide-pad">
+    <div class="slide-top">
+      <div class="slide-kicker"><img src="../../../assets/brand/vertice-isotipo-v-flat.png" alt="" /> Aplicaciones Físicas, Empaque y Firma de Correo</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:14px; flex:1;">
+      <!-- Tarjeta de presentación -->
+      <div class="card" style="display:flex; flex-direction:column; justify-content:space-between;">
+        <span class="pill pill-orange" style="width:fit-content;">Tarjeta de presentación</span>
+        <div style="background:#121215; border-radius:12px; padding:16px; border-left:4px solid var(--orange); display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <img src="../../../assets/brand/vertice-logo-flat.png" style="height:22px;" alt="" />
+            <span class="mono" style="font-size:9px; color:var(--orange);">COSTA RICA</span>
+          </div>
+          <div>
+            <strong style="font-size:13.5px; display:block;">Sebastián Flores Miranda</strong>
+            <span style="font-size:11px; color:var(--muted);">Fundador · Planta de Manufactura 3D</span>
+          </div>
+          <div class="mono" style="font-size:10px; color:var(--dim);">hola@verticecr.com · verticecr.com</div>
+        </div>
+        <p style="margin:0; font-size:11.5px;">Cartulina negra mate 350 g con barniz sectorizado en el logotipo.</p>
+      </div>
+
+      <!-- Carnet / Etiqueta bobina -->
+      <div class="card" style="display:flex; flex-direction:column; justify-content:space-between;">
+        <span class="pill" style="width:fit-content;">Etiqueta de caja y bobina</span>
+        <div style="background:#f4f3f0; color:#141414; border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #ff6a1f; padding-bottom:6px;">
+            <img src="../../../assets/brand/vertice-logo-flat.png" style="height:20px;" alt="" />
+            <span class="mono" style="font-size:10px; font-weight:700; color:#b94312;">1.75 mm · 1 KG</span>
+          </div>
+          <strong style="font-size:15px;">PETG NEGRO MATE</strong>
+          <div class="mono" style="font-size:10px; color:#444;">Boquilla: 235–250 °C · Cama: 75 °C<br/>Lote Planta CR · SKU-FIL-012</div>
+        </div>
+        <p style="margin:0; font-size:11.5px;">Etiqueta adhesiva de alta lectura para stock en bodega y envíos.</p>
+      </div>
+
+      <!-- Carnet equipo -->
+      <div class="card" style="display:flex; flex-direction:column; justify-content:space-between;">
+        <span class="pill" style="width:fit-content;">Gafete del taller</span>
+        <div style="background:#121215; border-radius:14px; padding:14px; border-top:5px solid var(--orange); text-align:center; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <img src="../../../assets/brand/favicon-vertice.png" style="width:44px; height:44px; border-radius:10px;" alt="" />
+          <div>
+            <strong style="font-size:13px; display:block;">Operación · La Planta</strong>
+            <span style="font-size:10.5px; color:var(--orange);">Taller de Impresión 3D</span>
+          </div>
+          <img src="../../../assets/brand/vertice-logo-flat.png" style="height:16px; margin-top:4px;" alt="" />
+        </div>
+        <p style="margin:0; font-size:11.5px;">Identificación para ferias, entregas y equipo técnico.</p>
+      </div>
+    </div>
+
+    <!-- Firma de correo -->
+    <div class="card" style="padding:12px 16px; display:grid; grid-template-columns:170px 1fr 190px; gap:16px; align-items:center; background:#f4f3f0; color:#141414;">
+      <div style="border-right:2px solid #ff6a1f; padding-right:14px;">
+        <img src="../../../assets/brand/vertice-logo-flat.png" style="width:130px; display:block;" alt="Firma" />
+      </div>
+      <div style="font-size:12px; line-height:1.45;">
+        <strong style="font-size:14px; display:block;">Sebastián Flores Miranda · Vértice CR</strong>
+        <span style="color:#444;">Piezas 3D bajo pedido · Cotización asistida con IA · Filamentos e Insumos · Costa Rica</span><br/>
+        <span class="mono" style="font-size:10.5px; color:#b94312;">verticecr.com &nbsp;|&nbsp; hola@verticecr.com &nbsp;|&nbsp; Política de Privacidad Ley N.° 8968</span>
+      </div>
+      <div style="text-align:right;">
+        <span class="mono" style="font-size:10px; color:#555; display:block;">FWD Costa Rica · Full Stack</span>
+        <strong style="font-size:11.5px; color:#141414;">Prof. Barry Vega · 2026</strong>
+      </div>
+    </div>
+
+    <span class="slide-brand-foot">Vértice CR · Brand Book v2.0</span>
+    <span class="slide-num">23</span>
+  </section>
+
+  <!-- ==================== 24. CONTRAPORTADA ==================== -->
+  <section class="slide cad-grid">
+    <svg style="position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none;" viewBox="0 0 1122 631" preserveAspectRatio="none">
+      <path d="M-40 380 C 300 260, 720 480, 1180 300" fill="none" stroke="rgba(255,106,31,0.14)" stroke-width="46" />
+    </svg>
+
+    <div class="cover-center">
+      <img src="../../../assets/brand/favicon-vertice.png" style="width:76px; height:76px; border-radius:18px; margin-bottom:4px;" alt="Isotipo Vértice CR" />
+      <img src="../../../assets/brand/vertice-logo-3d.png" style="height:72px; width:auto;" alt="Vértice CR" />
+      <div style="font-size:16px; color:var(--text); font-weight:600; margin-top:4px;">Piezas diseñadas para <span class="accent">cumplir una función real.</span></div>
+      <div class="mono" style="font-size:12px; color:var(--muted); margin-top:10px;">verticecr.com &nbsp;·&nbsp; hola@verticecr.com &nbsp;·&nbsp; @vertice.cr</div>
+    </div>
+
+    <div class="cover-meta-strip">
+      <span><strong>Vértice CR</strong> · Manual de Identidad Visual v2.0</span>
+      <span>Sebastián Flores Miranda · Prof. Barry Vega</span>
+      <span class="mono">FWD Costa Rica · 2026</span>
+    </div>
+  </section>
+
+</body>
+</html>
