@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anexo de Mockups Oficiales (18 Pantallas PC + Móvil 390 px) — Vértice CR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    @page { size: 338.67mm 190.5mm; margin: 0; }
+    :root {
+      --bg: #161618; --surf: #1e1e22; --surf2: #25252b; --ctrl: #2a2a34;
+      --txt: #f5f4f1; --mut: #bcbab4; --dim: #8a8883; --org: #ff6a1f;
+      --blu: #38bdf8; --grn: #34d399; --amb: #f59e0b; --pur: #c084fc; --red: #f87171;
+      --div: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    html, body { margin: 0; padding: 0; background: #0d0d0f; color: var(--txt); font-family: 'Chakra Petch', 'Segoe UI', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .org { color: var(--org); } .blu { color: var(--blu); } .grn { color: var(--grn); } .amb { color: var(--amb); } .pur { color: var(--pur); } .muted { color: var(--dim); }
+
+    .slide {
+      width: 338.67mm; height: 190.5mm; padding: 8.5mm 11mm 8mm;
+      background: var(--bg); position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: space-between;
+      page-break-after: always; break-after: page;
+    }
+    .slide:last-child { page-break-after: auto; break-after: auto; }
+    .cad { background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 12mm 12mm; }
+
+    /* Cover */
+    .cov-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 10px; border-bottom: 1px solid var(--div); }
+    .cov-mid { display: grid; grid-template-columns: 1.25fr .95fr; gap: 28px; align-items: center; margin: auto 0; }
+    .cov-logo { display: inline-block; padding: 14px 22px; background: rgba(30,30,34,.9); border-radius: 14px; margin-bottom: 16px; }
+    .cov-logo img { height: 58px; display: block; }
+    .cov-h1 { font-size: 48px; line-height: 1.03; margin: 0 0 12px; }
+    .cov-p { font-size: 15px; color: var(--mut); margin: 0 0 18px; line-height: 1.48; }
+    .cov-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+    .cov-stat { background: var(--surf); border-radius: 10px; padding: 10px 12px; }
+    .cov-stat strong { display: block; font-size: 19px; color: var(--org); }
+    .cov-stat span { font-size: 11px; color: var(--mut); }
+    .cov-preview { background: var(--surf); border-radius: 16px; padding: 14px; border: 1px solid var(--div); }
+    .cov-preview img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; display: block; margin-bottom: 10px; }
+    .cov-meta { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; padding-top: 10px; border-top: 1px solid var(--div); font-size: 12px; }
+    .cov-meta span { display: block; font-size: 9.5px; color: var(--dim); text-transform: uppercase; letter-spacing: .06em; }
+
+    /* Index slide */
+    .idx-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0 auto; }
+    .idx-item { display: flex; gap: 10px; align-items: center; background: var(--surf); padding: 9px 11px; border-radius: 9px; }
+    .idx-item > span { font-size: 16px; font-weight: 700; min-width: 26px; }
+    .idx-item strong { display: block; font-size: 12.2px; color: var(--txt); }
+    .idx-item small { display: block; font-size: 10.2px; color: var(--mut); }
+
+    /* Screen Slide Chrome */
+    .s-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; border-bottom: 1px solid var(--div); gap: 12px; }
+    .s-head-l { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .s-bar { width: 22px; height: 3.5px; background: var(--org); border-radius: 2px; flex-shrink: 0; }
+    .s-kicker { font-size: 10.5px; font-weight: 700; color: var(--org); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+    .s-title { margin: 0; font-size: 15.5px; font-weight: 700; white-space: nowrap; }
+    .s-head-r { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .s-logo { height: 18px; }
+    .badge { padding: 3px 9px; border-radius: 999px; font-size: 10px; font-weight: 700; }
+    .b-orange { background: rgba(255,106,31,.16); color: var(--org); }
+    .b-blue { background: rgba(56,189,248,.16); color: var(--blu); }
+
+    .s-stage { display: grid; grid-template-columns: 1fr 245px; gap: 14px; flex: 1; margin: 9px 0; min-height: 0; }
+
+    /* Browser frame */
+    .browser { background: #121215; border: 1px solid rgba(255,255,255,.12); border-radius: 13px; display: flex; flex-direction: column; overflow: hidden; }
+    .b-bar { display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; background: #1a1a1f; border-bottom: 1px solid var(--div); gap: 10px; }
+    .b-dots { display: flex; gap: 5px; }
+    .b-dots i { width: 8px; height: 8px; border-radius: 50%; background: #3b3b44; display: block; }
+    .b-dots i:first-child { background: #ff5f57; } .b-dots i:nth-child(2) { background: #febc2e; } .b-dots i:nth-child(3) { background: #28c840; }
+    .b-url { flex: 1; background: #121215; border-radius: 6px; padding: 3px 10px; font-size: 10.5px; color: var(--mut); }
+    .b-vp { font-size: 10px; color: var(--dim); }
+    .b-body { flex: 1; background: var(--bg); overflow: hidden; display: flex; flex-direction: column; font-size: 11px; }
+
+    /* Phone frame */
+    .phone { background: #121215; border: 2px solid #30303a; border-radius: 22px; display: flex; flex-direction: column; overflow: hidden; }
+    .ph-top { display: flex; justify-content: space-between; align-items: center; padding: 5px 12px 3px; font-size: 9px; color: var(--dim); }
+    .ph-notch { width: 54px; height: 9px; background: #09090b; border-radius: 99px; }
+    .ph-head { display: flex; justify-content: space-between; align-items: center; padding: 6px 12px; background: var(--surf); border-bottom: 1px solid var(--div); }
+    .ph-logo { height: 14px; }
+    .ph-menu { font-size: 13px; color: var(--mut); }
+    .ph-body { flex: 1; padding: 9px 10px; background: var(--bg); display: flex; flex-direction: column; gap: 7px; overflow: hidden; font-size: 10px; }
+    .ph-bottom { display: grid; grid-template-columns: repeat(5,1fr); padding: 6px 4px; background: var(--surf); border-top: 1px solid var(--div); text-align: center; font-size: 8.8px; color: var(--dim); }
+    .ph-bottom .on { color: var(--org); font-weight: 700; }
+
+    /* Internal UI components */
+    .m-nav { display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; background: var(--surf); border-bottom: 1px solid var(--div); }
+    .m-nav-l, .m-nav-r { display: flex; align-items: center; gap: 12px; }
+    .m-logo { height: 18px; } .m-logo-sm { height: 15px; }
+    .m-links { display: flex; gap: 11px; font-size: 11px; color: var(--mut); }
+    .m-links .on { color: var(--org); font-weight: 700; }
+    .m-rate { font-size: 10px; color: var(--grn); background: rgba(52,211,153,.13); padding: 2px 7px; border-radius: 99px; }
+    .m-btn-s { background: var(--ctrl); color: var(--txt); padding: 4px 9px; border-radius: 7px; font-size: 10.5px; font-weight: 600; }
+    .m-btn-p { background: var(--org); color: #161618; padding: 4px 10px; border-radius: 7px; font-size: 10.5px; font-weight: 700; }
+
+    .d-hero { position: relative; display: grid; grid-template-columns: 1.45fr .75fr; gap: 14px; align-items: center; padding: 14px 16px; background: #19191e; border-bottom: 1px solid var(--div); overflow: hidden; }
+    .hero-wave { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .d-hero-in { position: relative; z-index: 2; }
+    .d-hero h3 { margin: 5px 0; font-size: 20px; line-height: 1.12; }
+    .d-hero p { margin: 0 0 9px; color: var(--mut); font-size: 11.5px; }
+    .hero-thumb { position: relative; z-index: 2; width: 100%; height: 132px; object-fit: cover; border-radius: 10px; border: 1px solid var(--div); }
+
+    .pad-sm { padding: 10px 14px; flex: 1; display: flex; flex-direction: column; justify-content: flex-start; }
+    .g-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 9px; }
+    .g-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; }
+    .g-4 { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
+    .split-65-35 { display: grid; grid-template-columns: 1.75fr 1fr; gap: 10px; flex: 1; }
+    .split-60-40 { display: grid; grid-template-columns: 1.45fr 1fr; gap: 10px; }
+    .split-55-45 { display: grid; grid-template-columns: 1.25fr 1fr; gap: 10px; }
+    .stack { display: flex; flex-direction: column; gap: 8px; }
+    .row-gap { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+    .mc { background: var(--surf); border-radius: 10px; padding: 9px 11px; }
+    .mc.on-l, .ph-card.on-l { border-left: 3px solid var(--org); }
+    .mc h4 { margin: 0 0 4px; font-size: 12.5px; }
+    .mc p { margin: 0; color: var(--mut); font-size: 10.5px; line-height: 1.38; }
+    .mc-in { background: var(--surf2); border-radius: 8px; padding: 7px 9px; font-size: 10px; color: var(--mut); }
+    .mc-in strong { color: var(--txt); }
+    .mc-in ul { margin: 4px 0 0; padding-left: 14px; }
+    .danger-box { background: rgba(248,113,113,.08); border: 1px solid rgba(248,113,113,.28); }
+
+    .pill { display: inline-flex; padding: 2px 7px; border-radius: 99px; font-size: 9px; font-weight: 700; background: var(--ctrl); color: var(--txt); }
+    .p-org { background: rgba(255,106,31,.17); color: var(--org); }
+    .p-blu { background: rgba(56,189,248,.16); color: var(--blu); }
+    .p-grn { background: rgba(52,211,153,.16); color: var(--grn); }
+    .p-amb { background: rgba(245,158,11,.16); color: var(--amb); }
+    .p-pur { background: rgba(192,132,252,.17); color: var(--pur); }
+    .p-red { background: rgba(248,113,113,.18); color: var(--red); }
+    .p-pla { background: rgba(163,230,53,.16); color: #a3e635; }
+    .p-petg { background: rgba(56,189,248,.16); color: #38bdf8; }
+    .p-asa { background: rgba(255,106,31,.17); color: #ff6a1f; }
+    .p-tpu { background: rgba(192,132,252,.17); color: #c084fc; }
+
+    .btn-p { display: inline-flex; justify-content: center; align-items: center; background: var(--org); color: #161618; font-weight: 700; padding: 6px 11px; border-radius: 8px; font-size: 10.5px; }
+    .btn-s { display: inline-flex; justify-content: center; align-items: center; background: var(--ctrl); color: var(--txt); font-weight: 600; padding: 6px 11px; border-radius: 8px; font-size: 10.5px; }
+    .btn-d { display: inline-flex; justify-content: center; align-items: center; background: #dc2626; color: #fff; font-weight: 700; padding: 6px 11px; border-radius: 8px; font-size: 10.5px; }
+    .full { width: 100%; }
+    .xs { font-size: 9.5px; line-height: 1.32; }
+    .xs-b { padding: 3.5px 8px; font-size: 9.5px; border-radius: 6px; }
+
+    .toolbar { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+    .inp-sm { background: var(--surf2); color: var(--mut); padding: 5px 9px; border-radius: 7px; font-size: 10px; border: 1px solid var(--div); flex: 1; min-width: 110px; }
+    .inp-sm.full, .ph-body .inp-sm { flex: 0 0 auto; width: 100%; }
+    .s-card { display: flex; flex-direction: column; gap: 4px; }
+    .chip { background: var(--surf); color: var(--mut); padding: 4px 8px; border-radius: 99px; font-size: 9.8px; font-weight: 600; }
+    .chip.on { background: var(--org); color: #161618; }
+    .tabs-sm { display: flex; gap: 5px; background: var(--surf); padding: 3px; border-radius: 8px; width: fit-content; max-width: 100%; flex-wrap: wrap; }
+    .tabs-sm span { padding: 3.5px 8px; border-radius: 6px; font-size: 9.5px; color: var(--mut); font-weight: 600; }
+    .tabs-sm .on { background: var(--org); color: #161618; font-weight: 700; }
+
+    .prod-c { background: var(--surf); border-radius: 9px; padding: 7px; display: flex; flex-direction: column; gap: 4px; border: 1px solid transparent; }
+    .prod-c.on, .s-card.on { border-color: var(--org); }
+    .prod-c img { width: 100%; height: 64px; object-fit: cover; border-radius: 6px; }
+    .prod-c strong, .s-card strong { font-size: 10.5px; color: var(--txt); }
+    .detail-pane { display: flex; flex-direction: column; gap: 6px; }
+    .d-mini { width: 48%; height: 68px; object-fit: cover; border-radius: 7px; }
+    .kv { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-size: 10.3px; padding: 2px 0; }
+    .kv.total { border-top: 1px solid var(--div); padding-top: 5px; font-size: 11.5px; }
+
+    .steps-bar { display: flex; gap: 8px; margin-bottom: 8px; }
+    .steps-bar span { padding: 4px 10px; border-radius: 99px; background: var(--surf); color: var(--dim); font-size: 10px; font-weight: 600; }
+    .steps-bar .on { background: rgba(255,106,31,.18); color: var(--org); }
+    .tip-box { background: rgba(255,106,31,.12); border-left: 3px solid var(--org); padding: 5px 9px; border-radius: 0 7px 7px 0; font-size: 10.2px; color: var(--txt); margin-bottom: 7px; }
+    .dropzone { border: 1.5px dashed rgba(255,255,255,.18); border-radius: 9px; padding: 8px; background: var(--surf2); font-size: 10px; }
+    .dz-img { width: 52px; height: 42px; object-fit: cover; border-radius: 6px; }
+    .dz-add { padding: 10px 10px; border-radius: 6px; background: var(--ctrl); color: var(--mut); font-size: 9.5px; }
+    .unit-inp { display: flex; justify-content: space-between; align-items: center; background: var(--surf2); border: 1px solid var(--div); border-radius: 7px; padding: 5px 8px; font-size: 10px; }
+    .unit-inp span { color: var(--dim); font-size: 9.2px; }
+    .unit-inp em { font-style: normal; color: var(--org); font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+
+    .stock-ok { color: var(--grn); font-size: 9.3px; font-weight: 700; }
+    .stock-low { color: var(--amb); font-size: 9.3px; font-weight: 700; }
+    .opt { background: var(--surf2); border: 1px solid var(--div); border-radius: 8px; padding: 7px 9px; display: flex; flex-direction: column; gap: 2px; font-size: 10px; }
+    .opt.on { border-color: var(--org); background: rgba(255,106,31,.10); }
+    .opt span { color: var(--mut); font-size: 9.3px; }
+    .check-row { font-size: 10px; color: var(--txt); background: rgba(52,211,153,.10); padding: 6px 8px; border-radius: 7px; margin: 7px 0; }
+
+    /* Admin shell */
+    .admin-shell { display: grid; grid-template-columns: 162px 1fr; flex: 1; height: 100%; }
+    .m-side { background: #19191d; border-right: 1px solid var(--div); padding: 10px 9px; display: flex; flex-direction: column; gap: 6px; }
+    .m-side-top { display: flex; justify-content: space-between; align-items: center; }
+    .m-collapse { background: var(--ctrl); padding: 1px 6px; border-radius: 5px; font-size: 10px; color: var(--mut); }
+    .m-side-role { font-size: 9.2px; color: var(--org); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+    .m-side-list { display: flex; flex-direction: column; gap: 3px; }
+    .m-side-item { padding: 5px 8px; border-radius: 6px; font-size: 10.2px; color: var(--mut); }
+    .m-side-item.on { background: rgba(255,106,31,.16); color: var(--org); font-weight: 700; }
+    .admin-main { padding: 10px 13px; display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+    .admin-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .admin-top h4 { margin: 0; font-size: 13px; }
+    .kpi { background: var(--surf); border-radius: 9px; padding: 8px 10px; }
+    .kpi span { display: block; font-size: 20px; font-weight: 700; line-height: 1.1; }
+    .kpi small { color: var(--mut); font-size: 9.8px; }
+    .task-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--div); font-size: 10.3px; }
+    .task-row:last-child { border-bottom: 0; }
+    .m-tbl { width: 100%; border-collapse: collapse; font-size: 10px; }
+    .m-tbl th, .m-tbl td { text-align: left; padding: 5px 6px; border-bottom: 1px solid var(--div); }
+    .m-tbl th { color: var(--org); font-size: 9px; text-transform: uppercase; }
+    .bar-row { display: grid; grid-template-columns: 125px 1fr 48px; align-items: center; gap: 8px; font-size: 10px; margin-top: 6px; }
+    .bar { height: 9px; background: var(--ctrl); border-radius: 99px; overflow: hidden; }
+    .bar i { display: block; height: 100%; border-radius: 99px; }
+    .ag-c { display: flex; flex-direction: column; gap: 2px; padding: 8px 9px; }
+    .ag-c strong { font-size: 10.8px; } .ag-c small { font-size: 9.2px; color: var(--mut); }
+
+    /* Phone elements */
+    .ph-hero { background: var(--surf); border-radius: 10px; padding: 9px; display: flex; flex-direction: column; gap: 5px; }
+    .ph-hero h4 { margin: 0; font-size: 11.5px; line-height: 1.2; }
+    .ph-card { background: var(--surf); border-radius: 9px; padding: 7px 8px; display: flex; flex-direction: column; gap: 4px; }
+    .ph-img { width: 100%; height: 58px; object-fit: cover; border-radius: 6px; }
+
+    /* Slide Footer */
+    .s-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 5px; border-top: 1px solid var(--div); font-size: 10px; color: var(--dim); gap: 14px; }
+    .s-notes { color: var(--mut); }
+  </style>
+</head>
+<body>
+
+  <!-- LÁMINA 01: PORTADA -->
+  <section class="slide cad">
+    <div class="cov-top">
+      <span class="badge b-orange">Anexo Visual Oficial · Anteproyecto Vértice CR</span>
+      <span class="mono" style="font-size:11px; color:var(--mut);">FWD COSTA RICA · 18 PANTALLAS PC + MÓVIL 390 PX</span>
+    </div>
+    <div class="cov-mid">
+      <div>
+        <div class="cov-logo"><img src="../../../assets/brand/vertice-logo-3d.png" alt="Vértice CR" /></div>
+        <h1 class="cov-h1">Anexo de Mockups<br /><span class="org">Vértice CR</span></h1>
+        <p class="cov-p">
+          Diseño completo de las <strong>18 pantallas oficiales</strong> del sistema (versión escritorio <span class="mono">1440 px</span> y móvil <span class="mono">390 px</span> lado a lado), aplicando la identidad <strong>«La Planta»</strong>, los 4 roles, los 8 agentes de IA, APIs reales (Hacienda CR y PayPal Sandbox), los 3 workflows de n8n y la Ley N.° 8968.
+        </p>
+        <div class="cov-stats">
+          <div class="cov-stat"><strong class="mono">18</strong><span>Pantallas PC + Móvil</span></div>
+          <div class="cov-stat"><strong class="mono">4</strong><span>Roles diferenciados</span></div>
+          <div class="cov-stat"><strong class="mono">8</strong><span>Agentes IA visibles</span></div>
+          <div class="cov-stat"><strong class="mono">3</strong><span>Flujos n8n correo/baja</span></div>
+        </div>
+      </div>
+      <div class="cov-preview">
+        <img src="../../../assets/photos/pieza-estuche-beyblade-cerrado.jpg" alt="Impresión real Vértice CR" />
+        <div class="kv"><strong>Estándar visual aplicado: «La Planta»</strong><span class="pill p-org">Chakra Petch + #FF6A1F</span></div>
+        <p class="xs muted" style="margin:4px 0 0;">Cero saltos de scroll, casillas con unidades fijas, tablas convertidas en tarjetas en 390 px y fotografías reales alojadas en Supabase Storage.</p>
+      </div>
+    </div>
+    <div class="cov-meta">
+      <div><span>Estudiante</span><strong>Sebastián Flores Miranda</strong></div>
+      <div><span>Grupo / Modalidad</span><strong>Desamparados · Individual</strong></div>
+      <div><span>Profesor</span><strong>Barry Vega</strong></div>
+      <div><span>Programa / Fecha</span><strong>FWD Costa Rica · Noviembre 2026</strong></div>
+    </div>
+  </section>
+
+  <!-- LÁMINA 02: MAPA DE LAS 18 PANTALLAS -->
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">ÍNDICE VISUAL · COBERTURA 100 % SECCIÓN 2.2 FWD</span>
+        <h2 class="s-title">Mapa maestro de las 18 pantallas (PC + Móvil 390 px)</h2>
+      </div>
+      <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+    </header>
+    <div class="idx-grid">
+  <div class="idx-item">
+    <span class="mono org">01</span>
+    <div><strong>Portada principal</strong><small>Público / Visitante · RF-05 · HU-02</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">02</span>
+    <div><strong>Catálogo de Piezas 3D estándar y detalle en misma vista</strong><small>Público / Cliente · RF-06 · HU-02</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">03</span>
+    <div><strong>Solicitud a medida con fotos + Guía IA cautelosa</strong><small>Cliente autenticado · RF-07 · RF-15 · HU-03</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">04</span>
+    <div><strong>Tienda de Filamentos e Insumos con stock real</strong><small>Público / Cliente · RF-08 · RF-17 · HU-04</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">05</span>
+    <div><strong>Carrito, entrega en CR y Pago (PayPal Sandbox + SINPE)</strong><small>Cliente autenticado · RF-09 · RF-10 · HU-05</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">06</span>
+    <div><strong>Acceso: Login, Registro, Google PKCE y MFA</strong><small>Público / Todos los roles · RF-01 · RF-02 · RF-03 · HU-01</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">07</span>
+    <div><strong>Información legal</strong><small>Público / Todos los roles · RF-21 · RNF-04</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">08</span>
+    <div><strong>Mi cuenta</strong><small>Cliente (ABAC ownership) · RF-04 · RF-11 · HU-06</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">09</span>
+    <div><strong>Perfil, Consentimientos, 2FA y Eliminación de Cuenta</strong><small>Cliente / Todos los roles · RF-21 · HU-13</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">10</span>
+    <div><strong>Inicio del Taller y Administración</strong><small>Taller / Administrador · RF-12 · HU-07</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">11</span>
+    <div><strong>Solicitudes, Cotizaciones IA y Producción</strong><small>Taller / Administrador · RF-11 · RF-15 · HU-08 · HU-10</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">12</span>
+    <div><strong>Gestión de Catálogo 3D, Stock Real y Kardex</strong><small>Taller / Administrador · RF-13 · RF-06 · RF-08</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">13</span>
+    <div><strong>Facturas de Proveedores (Agente 04 + Hacienda)</strong><small>Taller / Administrador · RF-14 · RF-15 · HU-09</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">14</span>
+    <div><strong>Costos, Márgenes y Analista del Negocio (IA sobre SQL)</strong><small>Administrador · RF-14 · RF-15 · HU-12</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">15</span>
+    <div><strong>Campañas y Publicaciones para Redes (Borrador Humano)</strong><small>Administrador · RF-19 · RF-15 · HU-11</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">16</span>
+    <div><strong>Centro de los 8 Agentes de IA</strong><small>Cliente / Taller / Admin / Auditor · RF-15 · RF-16</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">17</span>
+    <div><strong>Configuración: Roles, Hacienda, PayPal y 3 Workflows n8n</strong><small>Administrador · RF-17 · RF-18 · RF-20</small></div>
+  </div>
+  <div class="idx-item">
+    <span class="mono org">18</span>
+    <div><strong>Panel de Auditoría y Cumplimiento (Solo Lectura)</strong><small>Auditor / Administrador · RF-16 · RF-22 · HU-14</small></div>
+  </div></div>
+    <footer class="s-foot">
+      <div class="s-notes">Cada lámina muestra la vista completa de escritorio (izquierda) y la adaptación móvil real de 390 px (derecha) con roles, RF/HU e integraciones activas.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 02 / 20</div>
+    </footer>
+  </section>
+
+  
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 01 / 18 · Público / Visitante</span>
+        <h2 class="s-title">Portada principal — Dos caminos claros desde el inicio</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-05 · HU-02</span>
+        <span class="badge b-blue">Hacienda CR (TC diario)</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      
+    <div class="m-nav">
+      <div class="m-nav-l">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo" alt="Vértice" />
+        <div class="m-links">
+          <span class="on">Inicio</span><span class="">Piezas 3D</span><span class="">Pedir con foto</span><span class="">Filamentos</span>
+        </div>
+      </div>
+      <div class="m-nav-r">
+        <span class="m-rate mono">TC ₡512.00</span>
+        <span class="m-btn-s">Carrito (2)</span>
+        <span class="m-btn-p">Mi cuenta</span>
+      </div>
+    </div>
+      <div class="d-hero">
+        <svg class="hero-wave" viewBox="0 0 800 180" preserveAspectRatio="none">
+          <path d="M-20 115 C 180 40, 420 165, 820 75" fill="none" stroke="rgba(255,106,31,0.34)" stroke-width="26"/>
+          <path d="M-20 135 C 210 70, 460 175, 820 102" fill="none" stroke="rgba(245,244,241,0.10)" stroke-width="9"/>
+        </svg>
+        <div class="d-hero-in">
+          <span class="pill p-org">Taller 3D y tienda de filamentos · Costa Rica</span>
+          <h3>Imprimimos la pieza que necesitás o te suplimos el filamento real.</h3>
+          <p>Elegí tu camino: subí fotos de una pieza a medida sin saber términos técnicos, o comprá filamentos con stock verificado.</p>
+          <div class="row-gap">
+            <span class="btn-p">Necesito una pieza →</span>
+            <span class="btn-s">Tengo impresora · Ver filamentos</span>
+          </div>
+        </div>
+        <img src="../../../assets/photos/pieza-estuche-beyblade-cerrado.jpg" class="hero-thumb" alt="Estuche Beyblade X real" />
+      </div>
+      <div class="g-3 pad-sm" style="align-content:start;">
+        <div class="mc">
+          <span class="pill p-org">Línea 1 · Bajo pedido</span>
+          <h4 style="margin-top:5px;">Piezas 3D estándar</h4>
+          <p>65 modelos probados en taller con precio base en ₡ y equivalente $.</p>
+          <div class="mc-in" style="margin-top:7px;"><strong>Ejemplos reales:</strong> Estuche Beyblade X, soportes, organizadores y macetas.</div>
+        </div>
+        <div class="mc">
+          <span class="pill p-pur">Línea 2 · Con fotos + IA</span>
+          <h4 style="margin-top:5px;">Pedir pieza a medida</h4>
+          <p>Subí hasta 4 fotos (y .STL opcional). La IA te guía sin inventar precios.</p>
+          <div class="mc-in" style="margin-top:7px;"><strong>Agente 01 cauteloso:</strong> hace preguntas simples; el taller cotiza formalmente.</div>
+        </div>
+        <div class="mc">
+          <span class="pill p-blu">Línea 3 · Stock real</span>
+          <h4 style="margin-top:5px;">Filamentos e insumos</h4>
+          <p>45 bobinas PLA+, PETG, ASA, TPU, boquillas y camas PEI disponibles hoy.</p>
+          <div class="mc-in" style="margin-top:7px;"><strong>Pago directo:</strong> PayPal Sandbox o SINPE Móvil con tipo de cambio Hacienda CR.</div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="ph-hero">
+        <span class="pill p-org">Costa Rica · TC ₡512</span>
+        <h4>Piezas 3D a medida y filamentos con stock real</h4>
+        <span class="btn-p full">Necesito una pieza</span>
+        <span class="btn-s full">Tengo impresora</span>
+      </div>
+      <div class="ph-card">
+        <img src="../../../assets/photos/pieza-estuche-beyblade-cerrado.jpg" class="ph-img" alt="Beyblade X" />
+        <strong>Estuche Beyblade X 3-Slot</strong>
+        <span class="mono org">₡18 500 · $36.13</span>
+      </div>
+      <div class="ph-card">
+        <strong>Filamento PLA+ Negro 1 kg</strong>
+        <span class="mono blu">₡13 900 · 14 en stock</span>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="on">Inicio</span><span class="">Piezas 3D</span><span class="">Foto</span><span class="">Insumos</span><span class="">Cuenta</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Hero 3D aprobado de Vértice + 2 caminos principales sin saltos de scroll. Navegación libre; comprar o enviar solicitud pide cuenta.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 03 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 02 / 18 · Público / Cliente</span>
+        <h2 class="s-title">Catálogo de Piezas 3D estándar y detalle en misma vista</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-06 · HU-02</span>
+        <span class="badge b-blue">Agente 02 (Asesor) · Supabase Storage</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/piezas-3d</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      
+    <div class="m-nav">
+      <div class="m-nav-l">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo" alt="Vértice" />
+        <div class="m-links">
+          <span class="">Inicio</span><span class="on">Piezas 3D</span><span class="">Pedir con foto</span><span class="">Filamentos</span>
+        </div>
+      </div>
+      <div class="m-nav-r">
+        <span class="m-rate mono">TC ₡512.00</span>
+        <span class="m-btn-s">Carrito (2)</span>
+        <span class="m-btn-p">Mi cuenta</span>
+      </div>
+    </div>
+      <div class="pad-sm">
+        <div class="toolbar">
+          <span class="inp-sm">Buscar pieza (ej. estuche, soporte, maceta)...</span>
+          <span class="chip on">Todas (65)</span>
+          <span class="chip">Gaming</span>
+          <span class="chip">Escritorio</span>
+          <span class="chip">Taller</span>
+          <span class="chip p-pur">Preguntar al Asesor IA</span>
+        </div>
+        <div class="split-65-35">
+          <div class="g-3">
+            <div class="prod-c on">
+              <img src="../../../assets/photos/pieza-estuche-beyblade-cerrado.jpg" alt="Estuche Beyblade X" />
+              <span class="pill p-pla">PLA+</span>
+              <strong>Estuche Beyblade X 3-Slot</strong>
+              <span class="mono org">₡18 500 <small>($36.13)</small></span>
+            </div>
+            <div class="prod-c">
+              <img src="../../../assets/photos/pieza-audifonos.webp" alt="Soporte audífonos" />
+              <span class="pill p-petg">PETG</span>
+              <strong>Soporte Audífonos Pro</strong>
+              <span class="mono org">₡12 900 <small>($25.20)</small></span>
+            </div>
+            <div class="prod-c">
+              <img src="../../../assets/photos/pieza-maceta.webp" alt="Maceta" />
+              <span class="pill p-pla">PLA+</span>
+              <strong>Maceta Geométrica</strong>
+              <span class="mono org">₡9 200 <small>($17.97)</small></span>
+            </div>
+            <div class="prod-c">
+              <img src="../../../assets/photos/pieza-cables.webp" alt="Organizador cables" />
+              <span class="pill p-petg">PETG</span>
+              <strong>Organizador de Cables</strong>
+              <span class="mono org">₡7 500 <small>($14.65)</small></span>
+            </div>
+            <div class="prod-c">
+              <img src="../../../assets/photos/pieza-organizador.webp" alt="Organizador taller" />
+              <span class="pill p-pla">PLA+</span>
+              <strong>Organizador Taller</strong>
+              <span class="mono org">₡11 500 <small>($22.46)</small></span>
+            </div>
+            <div class="prod-c">
+              <img src="../../../assets/photos/pieza-torre.webp" alt="Torre hexagonal" />
+              <span class="pill p-pla">PLA+</span>
+              <strong>Torre Hexagonal</strong>
+              <span class="mono org">₡10 800 <small>($21.09)</small></span>
+            </div>
+          </div>
+          <div class="mc detail-pane">
+            <div class="row-gap"><img src="../../../assets/photos/pieza-estuche-beyblade-cerrado.jpg" class="d-mini" /><img src="../../../assets/photos/pieza-estuche-beyblade-abierto.jpg" class="d-mini" /></div>
+            <h4>Estuche Beyblade X 3-Slot Bicolor</h4>
+            <p>Fabricación bajo pedido (~6.5 h). Bisagras reforzadas y 3 espacios numerados.</p>
+            <div class="kv"><span>Precio base</span><strong class="mono org">₡18 500 / $36.13</strong></div>
+            <div class="kv"><span>Material</span><span class="pill p-pla">PLA+ Morado/Negro</span></div>
+            <span class="btn-p full">Agregar estándar al carrito</span>
+            <span class="btn-s full">Pedir con otra medida (cotizar)</span>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="inp-sm full">Buscar entre 65 piezas 3D...</div>
+      <div class="tabs-sm"><span class="on">Todas</span><span>Gaming</span><span>Escritorio</span></div>
+      <div class="ph-card">
+        <img src="../../../assets/photos/pieza-estuche-beyblade-cerrado.jpg" class="ph-img" />
+        <strong>Estuche Beyblade X 3-Slot</strong>
+        <p class="xs">PLA+ · Bajo pedido · 6.5 h</p>
+        <div class="kv"><span class="mono org">₡18 500</span><span class="btn-p xs-b">Ver detalle</span></div>
+      </div>
+      <div class="ph-card">
+        <img src="../../../assets/photos/pieza-audifonos.webp" class="ph-img" />
+        <strong>Soporte Audífonos Pro</strong>
+        <div class="kv"><span class="mono org">₡12 900</span><span class="btn-s xs-b">Ver detalle</span></div>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Inicio</span><span class="on">Piezas 3D</span><span class="">Foto</span><span class="">Insumos</span><span class="">Cuenta</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Catálogo de 65 diseños reales alojados en Supabase Storage. Sin stock ficticio; si el cliente cambia medidas pasa a cotización humana.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 04 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 03 / 18 · Cliente autenticado</span>
+        <h2 class="s-title">Solicitud a medida con fotos + Guía IA cautelosa</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-07 · RF-15 · HU-03</span>
+        <span class="badge b-blue">Agente 01 (Gemini Visión) · Storage privado</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/pedir-con-foto</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      
+    <div class="m-nav">
+      <div class="m-nav-l">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo" alt="Vértice" />
+        <div class="m-links">
+          <span class="">Inicio</span><span class="">Piezas 3D</span><span class="on">Pedir con foto</span><span class="">Filamentos</span>
+        </div>
+      </div>
+      <div class="m-nav-r">
+        <span class="m-rate mono">TC ₡512.00</span>
+        <span class="m-btn-s">Carrito (2)</span>
+        <span class="m-btn-p">Mi cuenta</span>
+      </div>
+    </div>
+      <div class="pad-sm">
+        <div class="steps-bar">
+          <span class="on">1. Fotos y descripción</span>
+          <span class="on">2. Revisión con Guía IA</span>
+          <span>3. Enviar al taller</span>
+        </div>
+        <div class="split-55-45">
+          <div class="mc">
+            <h4>Contanos qué pieza necesitás</h4>
+            <div class="tip-box">Consejo clave: <strong>Poné una regla o moneda a la par</strong> para ayudarnos a entender la escala real.</div>
+            <div class="dropzone">
+              <strong>Subí hasta 4 fotos (JPG/PNG/WEBP · máx. 5 MB) + 1 archivo .STL/.3MF opcional</strong>
+              <div class="row-gap" style="margin-top:6px;">
+                <img src="../../../assets/photos/pieza-estuche-beyblade-abierto.jpg" class="dz-img" />
+                <div class="dz-add">+ Foto 2</div>
+                <div class="dz-add">+ .STL opcional</div>
+              </div>
+            </div>
+            <div class="g-3" style="margin-top:7px;">
+              <div class="unit-inp"><span>Largo</span><strong>18.5</strong><em>cm</em></div>
+              <div class="unit-inp"><span>Ancho</span><strong>7.2</strong><em>cm</em></div>
+              <div class="unit-inp"><span>Uso</span><strong>Exterior / Sol</strong><em>▾</em></div>
+            </div>
+            <div class="row-gap" style="margin-top:8px;">
+              <span class="btn-s">Pedir revisión al Agente 01</span>
+              <span class="btn-p">Enviar solicitud al taller</span>
+            </div>
+          </div>
+          <div class="mc">
+            <span class="pill p-pur">Agente 01 · Guía de pedidos a medida</span>
+            <h4 style="margin-top:5px;">Observaciones cautelosas (borrador editable)</h4>
+            <p>Vemos una caja con 3 cavidades circulares y bisagras articuladas. <strong>No confirmamos medidas ni precio automático</strong> hasta revisión del taller.</p>
+            <div class="mc-in">
+              <strong>Preguntas rápidas para afinar tu cotización:</strong>
+              <ul>
+                <li>¿Va a quedar expuesta al sol o dentro de un carro? (Sugerimos PETG/ASA).</li>
+                <li>¿Necesitás el texto en relieve en la tapa?</li>
+              </ul>
+            </div>
+            <p class="xs muted">Si falla el análisis visual, tus fotos se conservan y podés enviar igual. Cero PII enviada al LLM.</p>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="tabs-sm"><span class="on">1. Fotos</span><span>2. Guía IA</span><span>3. Enviar</span></div>
+      <div class="tip-box xs"><strong>Poné una regla o moneda a la par</strong></div>
+      <div class="ph-card">
+        <img src="../../../assets/photos/pieza-estuche-beyblade-abierto.jpg" class="ph-img" />
+        <span class="btn-s full">+ Agregar foto o .STL</span>
+      </div>
+      <div class="g-2">
+        <div class="unit-inp"><span>Largo</span><strong>18.5</strong><em>cm</em></div>
+        <div class="unit-inp"><span>Ancho</span><strong>7.2</strong><em>cm</em></div>
+      </div>
+      <div class="ph-card">
+        <span class="pill p-pur">Guía IA</span>
+        <p class="xs">¿Va a estar al sol? Te sugerimos PETG. Precio final lo define el taller.</p>
+      </div>
+      <span class="btn-p full">Enviar al taller</span></div>
+        
+    <div class="ph-bottom">
+      <span class="">Inicio</span><span class="">Piezas 3D</span><span class="on">Foto</span><span class="">Insumos</span><span class="">Cuenta</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Casillas numéricas con unidad fija (cm), límite 4 fotos ≤5 MB + .STL/.3MF en bucket privado `quote-attachments`. Sin precio automático.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 05 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 04 / 18 · Público / Cliente</span>
+        <h2 class="s-title">Tienda de Filamentos e Insumos con stock real</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-08 · RF-17 · HU-04</span>
+        <span class="badge b-blue">Hacienda CR (₡→$) · Agente 02</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/filamentos</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      
+    <div class="m-nav">
+      <div class="m-nav-l">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo" alt="Vértice" />
+        <div class="m-links">
+          <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Pedir con foto</span><span class="on">Filamentos</span>
+        </div>
+      </div>
+      <div class="m-nav-r">
+        <span class="m-rate mono">TC ₡512.00</span>
+        <span class="m-btn-s">Carrito (2)</span>
+        <span class="m-btn-p">Mi cuenta</span>
+      </div>
+    </div>
+      <div class="pad-sm">
+        <div class="toolbar">
+          <span class="inp-sm">Buscar por color, SKU o polímero...</span>
+          <span class="chip on">Todos (45)</span>
+          <span class="chip p-pla">PLA+</span>
+          <span class="chip p-petg">PETG</span>
+          <span class="chip p-asa">ASA</span>
+          <span class="chip p-tpu">TPU</span>
+          <span class="chip">Boquillas / PEI</span>
+        </div>
+        <div class="split-65-35" style="align-items:start;">
+          <div class="g-3" style="align-content:start;">
+            <div class="mc s-card on">
+              <div class="kv"><span class="pill p-pla">PLA+ · 1.75 mm</span><span class="stock-ok">14 en stock</span></div>
+              <strong>PLA+ Negro Mate 1 kg</strong>
+              <p class="xs">205–220 °C · ±0.02 mm</p>
+              <span class="mono org">₡13 900 <small>($27.15)</small></span>
+            </div>
+            <div class="mc s-card">
+              <div class="kv"><span class="pill p-pla">PLA+ · 1.75 mm</span><span class="stock-ok">9 en stock</span></div>
+              <strong>PLA+ Morado Eléctrico 1 kg</strong>
+              <p class="xs">205–220 °C · ±0.02 mm</p>
+              <span class="mono org">₡14 500 <small>($28.32)</small></span>
+            </div>
+            <div class="mc s-card">
+              <div class="kv"><span class="pill p-petg">PETG · 1.75 mm</span><span class="stock-low">Quedan 2</span></div>
+              <strong>PETG Naranja Seguridad 1 kg</strong>
+              <p class="xs">230–245 °C · Resistente</p>
+              <span class="mono org">₡15 800 <small>($30.86)</small></span>
+            </div>
+            <div class="mc s-card">
+              <div class="kv"><span class="pill p-asa">ASA · UV</span><span class="stock-ok">6 en stock</span></div>
+              <strong>ASA Negro Exterior 1 kg</strong>
+              <p class="xs">245–260 °C · Uso solar</p>
+              <span class="mono org">₡18 900 <small>($36.91)</small></span>
+            </div>
+            <div class="mc s-card">
+              <div class="kv"><span class="pill p-tpu">TPU 95A</span><span class="stock-ok">5 en stock</span></div>
+              <strong>TPU Flexible Negro 500 g</strong>
+              <p class="xs">215–230 °C · Flexible</p>
+              <span class="mono org">₡14 200 <small>($27.73)</small></span>
+            </div>
+            <div class="mc s-card">
+              <div class="kv"><span class="pill">Cama PEI</span><span class="stock-ok">6 en stock</span></div>
+              <strong>Lámina PEI 256×256 mm</strong>
+              <p class="xs">Texturizada doble cara</p>
+              <span class="mono org">₡16 500 <small>($32.23)</small></span>
+            </div>
+          </div>
+          <div class="mc detail-pane">
+            <span class="pill p-pla">SKU FIL-PLA-BLK-1KG</span>
+            <h4>Filamento PLA+ Negro Mate 1 kg</h4>
+            <p>Tolerancia ±0.02 mm · Temp. 205–220 °C · Cama 60 °C.</p>
+            <div class="kv"><span>Precio hoy</span><strong class="mono org">₡13 900 ($27.15)</strong></div>
+            <div class="kv"><span>Existencias reales</span><strong class="grn">14 bobinas</strong></div>
+            <div class="unit-inp"><span>Cantidad</span><strong>2</strong><em>unid.</em></div>
+            <span class="btn-p full">Agregar al carrito</span>
+            <p class="xs muted">Tipo de cambio Hacienda CR: ₡512.00 (hoy 07:00 a. m.)</p>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="inp-sm full">Filtrar filamento o repuesto...</div>
+      <div class="tabs-sm"><span class="on">PLA+</span><span>PETG</span><span>ASA</span><span>TPU</span></div>
+      <div class="ph-card">
+        <div class="kv"><span class="pill p-pla">PLA+</span><span class="stock-ok">14 disp.</span></div>
+        <strong>PLA+ Negro Mate 1 kg</strong>
+        <div class="kv"><span class="mono org">₡13 900 · $27.15</span><span class="btn-p xs-b">+ Carrito</span></div>
+      </div>
+      <div class="ph-card">
+        <div class="kv"><span class="pill p-petg">PETG</span><span class="stock-low">Quedan 2</span></div>
+        <strong>PETG Naranja Seguridad 1 kg</strong>
+        <div class="kv"><span class="mono org">₡15 800 · $30.86</span><span class="btn-p xs-b">+ Carrito</span></div>
+      </div>
+      <p class="xs muted">Tasa oficial Hacienda CR: ₡512.00</p></div>
+        
+    <div class="ph-bottom">
+      <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Foto</span><span class="on">Insumos</span><span class="">Cuenta</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">45 insumos reales en Supabase. Bloquea agregar más unidades que el stock real; muestra equivalencia USD con fecha de Hacienda CR.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 06 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 05 / 18 · Cliente autenticado</span>
+        <h2 class="s-title">Carrito, entrega en CR y Pago (PayPal Sandbox + SINPE)</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-09 · RF-10 · HU-05</span>
+        <span class="badge b-blue">PayPal Orders v2 · Hacienda CR · WF-01</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/checkout</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      
+    <div class="m-nav">
+      <div class="m-nav-l">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo" alt="Vértice" />
+        <div class="m-links">
+          <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Pedir con foto</span><span class="on">Filamentos</span>
+        </div>
+      </div>
+      <div class="m-nav-r">
+        <span class="m-rate mono">TC ₡512.00</span>
+        <span class="m-btn-s">Carrito (2)</span>
+        <span class="m-btn-p">Mi cuenta</span>
+      </div>
+    </div>
+      <div class="pad-sm">
+        <div class="split-60-40">
+          <div class="mc">
+            <h4>1. Método de entrega</h4>
+            <div class="g-3" style="margin-bottom:8px;">
+              <div class="opt on"><strong>Retiro en taller</strong><span>₡0 · Desamparados</span></div>
+              <div class="opt"><strong>Mensajería GAM</strong><span>₡2 800</span></div>
+              <div class="opt"><strong>Correos de CR</strong><span>₡3 200</span></div>
+            </div>
+            <h4>2. Método de pago</h4>
+            <div class="g-2" style="margin-bottom:8px;">
+              <div class="opt on">
+                <span class="pill p-blu">PayPal Sandbox</span>
+                <strong>Pagar en USD ($90.43)</strong>
+                <span>Captura inmediata desde backend</span>
+              </div>
+              <div class="opt">
+                <span class="pill p-grn">SINPE Móvil</span>
+                <strong>Adjuntar comprobante</strong>
+                <span>Validación del taller · Bucket privado</span>
+              </div>
+            </div>
+            <div class="mc-in">
+              <strong>Seguridad de compra activa:</strong> el total en colones y USD se recalcula en el servidor (idempotencia anti-doble cobro y descuento ACID de stock).
+            </div>
+          </div>
+          <div class="mc detail-pane">
+            <h4>Resumen del pedido</h4>
+            <div class="kv"><span>1× Estuche Beyblade X</span><span class="mono">₡18 500</span></div>
+            <div class="kv"><span>2× PLA+ Negro Mate 1 kg</span><span class="mono">₡27 800</span></div>
+            <div class="kv"><span>Envío (Retiro en taller)</span><span class="mono">₡0</span></div>
+            <div class="kv total"><span>Total colones</span><strong class="mono org">₡46 300</strong></div>
+            <div class="kv"><span>Equivalente PayPal</span><strong class="mono blu">$90.43 USD</strong></div>
+            <span class="btn-p full">Confirmar y pagar con PayPal Sandbox</span>
+            <p class="xs muted">Al confirmar, WF-01 envía correo de confirmación y recibo.</p>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="ph-card">
+        <strong>Resumen (3 ítems)</strong>
+        <div class="kv"><span>Total ₡</span><strong class="mono org">₡46 300</strong></div>
+        <div class="kv"><span>PayPal USD</span><strong class="mono blu">$90.43</strong></div>
+      </div>
+      <div class="ph-card">
+        <strong class="xs">Entrega</strong>
+        <div class="tabs-sm"><span class="on">Taller ₡0</span><span>GAM</span><span>Correos</span></div>
+      </div>
+      <div class="ph-card">
+        <strong class="xs">Pago</strong>
+        <div class="tabs-sm"><span class="on">PayPal Sandbox</span><span>SINPE Móvil</span></div>
+      </div>
+      <span class="btn-p full">Pagar $90.43 (Sandbox)</span></div>
+        
+    <div class="ph-bottom">
+      <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Foto</span><span class="">Insumos</span><span class="on">Cuenta</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Reutilizable para insumos, piezas estándar y cotizaciones 3D aprobadas. PayPal via OAuth Client Credentials server-side; SINPE sube comprobante a `payment-proofs`.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 07 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 06 / 18 · Público / Todos los roles</span>
+        <h2 class="s-title">Acceso: Login, Registro, Google PKCE y MFA</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-01 · RF-02 · RF-03 · HU-01</span>
+        <span class="badge b-blue">Google OAuth PKCE · MFA TOTP · WF-01</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/acceso</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      
+    <div class="m-nav">
+      <div class="m-nav-l">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo" alt="Vértice" />
+        <div class="m-links">
+          <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Pedir con foto</span><span class="">Filamentos</span>
+        </div>
+      </div>
+      <div class="m-nav-r">
+        <span class="m-rate mono">TC ₡512.00</span>
+        <span class="m-btn-s">Carrito (2)</span>
+        <span class="m-btn-p">Mi cuenta</span>
+      </div>
+    </div>
+      <div class="pad-sm">
+        <div class="g-2">
+          <div class="mc">
+            <div class="tabs-sm"><span class="on">Iniciar sesión</span><span>Crear cuenta</span><span>Recuperar clave</span></div>
+            <h4 style="margin-top:8px;">Ingresá a tu cuenta Vértice</h4>
+            <div class="inp-sm full">Correo: cliente@ejemplo.cr</div>
+            <div class="inp-sm full" style="margin-top:5px;">Contraseña: ••••••••••••</div>
+            <div class="row-gap" style="margin-top:8px;">
+              <span class="btn-p">Entrar seguro</span>
+              <span class="btn-s">Continuar con Google (PKCE)</span>
+            </div>
+            <div class="mc-in" style="margin-top:8px;">
+              <strong>Paso MFA TOTP (solo Admin y Taller):</strong> código de 6 dígitos desde app autenticadora <span class="mono">[ 4 8 2 · 9 1 0 ]</span>.
+            </div>
+          </div>
+          <div class="mc">
+            <span class="pill p-grn">Pestaña: Crear cuenta (Ley N.° 8968)</span>
+            <h4 style="margin-top:6px;">Registro con consentimiento auditable</h4>
+            <div class="inp-sm full">Nombre completo</div>
+            <div class="inp-sm full" style="margin-top:5px;">Correo electrónico</div>
+            <div class="inp-sm full" style="margin-top:5px;">Contraseña segura (mín. 8 caracteres)</div>
+            <div class="check-row">☑ Acepto la <strong>Política de Privacidad</strong> y los <strong>Términos de Uso</strong> (Ley N.° 8968).</div>
+            <span class="btn-p full">Crear cuenta y recibir bienvenida</span>
+            <p class="xs muted">Cookies HttpOnly + SameSite + X-CSRF-Token. Cero tokens en localStorage.</p>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="tabs-sm"><span class="on">Entrar</span><span>Registro</span><span>Clave</span></div>
+      <div class="ph-card">
+        <div class="inp-sm full">correo@ejemplo.cr</div>
+        <div class="inp-sm full">••••••••••••</div>
+        <span class="btn-p full">Iniciar sesión</span>
+        <span class="btn-s full">Continuar con Google</span>
+      </div>
+      <div class="ph-card">
+        <span class="pill p-org">Admin / Taller</span>
+        <strong class="xs">Verificación 2FA (6 dígitos)</strong>
+        <div class="inp-sm full mono">482 910</div>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Foto</span><span class="">Insumos</span><span class="on">Cuenta</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Pestañas en su mismo lugar sin recargas. Bloquea registro sin consentimiento explícito; guarda bcrypt y dispara WF-01 de bienvenida.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 08 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 07 / 18 · Público / Todos los roles</span>
+        <h2 class="s-title">Información legal — Privacidad y Términos (Ley N.° 8968)</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-21 · RNF-04</span>
+        <span class="badge b-blue">Agente 08 (Guía de privacidad)</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/legal</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      
+    <div class="m-nav">
+      <div class="m-nav-l">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo" alt="Vértice" />
+        <div class="m-links">
+          <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Pedir con foto</span><span class="">Filamentos</span>
+        </div>
+      </div>
+      <div class="m-nav-r">
+        <span class="m-rate mono">TC ₡512.00</span>
+        <span class="m-btn-s">Carrito (2)</span>
+        <span class="m-btn-p">Mi cuenta</span>
+      </div>
+    </div>
+      <div class="pad-sm">
+        <div class="tabs-sm" style="margin-bottom:8px;"><span class="on">Política de Privacidad (v1.0)</span><span>Términos y Condiciones</span><span>Consultar Guía de Privacidad (Agente 08)</span></div>
+        <div class="split-65-35">
+          <div class="mc">
+            <h4>Tratamiento de datos personales — Vértice CR (Costa Rica)</h4>
+            <div class="g-2" style="margin-top:6px;">
+              <div class="mc-in">
+                <strong>Qué datos guardamos</strong>
+                <p>Nombre, correo, historial de pedidos, fotos/.STL de tus solicitudes y registro de consentimiento versionado en <span class="mono">legal_consents</span>.</p>
+              </div>
+              <div class="mc-in">
+                <strong>Transparencia con terceros</strong>
+                <p>Indicamos qué viaja a Supabase Storage, PayPal Sandbox y proveedores de IA (con minimización estricta de PII antes de cada prompt).</p>
+              </div>
+            </div>
+            <div class="mc-in" style="margin-top:6px;">
+              <strong>Tus derechos ARCO y eliminación de cuenta:</strong> podés solicitar desde tu perfil la anonimización de tus datos personales conservando únicamente el respaldo contable exigido por ley tributaria.
+            </div>
+          </div>
+          <div class="mc">
+            <span class="pill p-pur">Agente 08 · Guía de privacidad</span>
+            <h4 style="margin-top:5px;">¿Dudas sobre tus datos?</h4>
+            <p>Consultá en español sencillo qué datos se conservan y cómo ejercer la baja de tu cuenta.</p>
+            <div class="inp-sm full">Ej. ¿Si borro mi cuenta se borran mis fotos?</div>
+            <span class="btn-p full" style="margin-top:6px;">Preguntar al Guía</span>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="tabs-sm"><span class="on">Privacidad</span><span>Términos</span></div>
+      <div class="ph-card">
+        <strong>Ley N.° 8968 · Versión 1.0</strong>
+        <p class="xs">Tus datos se protegen con cifrado, cookies HttpOnly y minimización hacia IA.</p>
+      </div>
+      <div class="ph-card">
+        <span class="pill p-pur">Agente 08</span>
+        <p class="xs">¿Qué pasa con mis facturas si elimino mi cuenta?</p>
+        <span class="btn-s full">Ver pasos oficiales</span>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Foto</span><span class="">Insumos</span><span class="on">Cuenta</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Versionado de políticas de privacidad y términos + acceso directo al Agente 08 sin emitir asesoría legal vinculante ni ejecutar borrados solos.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 09 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 08 / 18 · Cliente (ABAC ownership)</span>
+        <h2 class="s-title">Mi cuenta — Solicitudes 3D y Compras</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-04 · RF-11 · HU-06</span>
+        <span class="badge b-blue">PayPal Sandbox · WF-01 · Anti-IDOR</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/mi-cuenta</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      
+    <div class="m-nav">
+      <div class="m-nav-l">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo" alt="Vértice" />
+        <div class="m-links">
+          <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Pedir con foto</span><span class="">Filamentos</span>
+        </div>
+      </div>
+      <div class="m-nav-r">
+        <span class="m-rate mono">TC ₡512.00</span>
+        <span class="m-btn-s">Carrito (2)</span>
+        <span class="m-btn-p">Mi cuenta</span>
+      </div>
+    </div>
+      <div class="pad-sm">
+        <div class="tabs-sm" style="margin-bottom:8px;">
+          <span class="on">Mis solicitudes 3D y cotizaciones (2)</span>
+          <span>Mis compras de insumos (3)</span>
+          <span>Mi perfil y privacidad</span>
+        </div>
+        <div class="split-55-45">
+          <div class="stack">
+            <div class="mc on-l">
+              <div class="kv"><strong class="mono">#SOL-014</strong><span class="pill p-org">Cotización lista #v1</span></div>
+              <strong>Soporte a medida para monitor (PETG)</strong>
+              <p class="xs">Enviada ayer · 3 fotos adjuntas · Cotización válida por 7 días</p>
+            </div>
+            <div class="mc">
+              <div class="kv"><strong class="mono">#SOL-011</strong><span class="pill p-grn">En producción</span></div>
+              <strong>Estuche Beyblade X personalizado</strong>
+              <p class="xs">Pagado vía PayPal Sandbox · Entrega estimada: jueves</p>
+            </div>
+          </div>
+          <div class="mc detail-pane">
+            <span class="pill p-org">Cotización formal #v1 · Aprobada por taller</span>
+            <h4 style="margin-top:5px;">Detalle de #SOL-014</h4>
+            <div class="kv"><span>Material (PETG Gris)</span><span class="mono">₡4 200</span></div>
+            <div class="kv"><span>Tiempo de máquina y acabado</span><span class="mono">₡8 800</span></div>
+            <div class="kv total"><span>Total cotizado</span><strong class="mono org">₡13 000 ($25.39)</strong></div>
+            <span class="btn-p full">Aprobar y pasar a pago</span>
+            <span class="btn-s full">Pedir ajuste al taller</span>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="tabs-sm"><span class="on">Solicitudes 3D</span><span>Compras</span></div>
+      <div class="ph-card on-l">
+        <div class="kv"><strong class="mono">#SOL-014</strong><span class="pill p-org">Cotizada</span></div>
+        <strong class="xs">Soporte monitor PETG</strong>
+        <div class="kv"><span class="mono org">₡13 000</span><span class="btn-p xs-b">Aprobar</span></div>
+      </div>
+      <div class="ph-card">
+        <div class="kv"><strong class="mono">#SOL-011</strong><span class="pill p-grn">En taller</span></div>
+        <strong class="xs">Estuche Beyblade X</strong>
+        <p class="xs">Pagado · Retiro en Desamparados</p>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Foto</span><span class="">Insumos</span><span class="on">Cuenta</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Dos pestañas en su mismo lugar sin mezclar cotizaciones con compras. Verificación ownership en backend: jamás permite abrir pedidos ajenos.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 10 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 09 / 18 · Cliente / Todos los roles</span>
+        <h2 class="s-title">Perfil, Consentimientos, 2FA y Eliminación de Cuenta</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-21 · HU-13</span>
+        <span class="badge b-blue">WF-03 (n8n Baja Ley 8968) · MFA TOTP</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/perfil</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      
+    <div class="m-nav">
+      <div class="m-nav-l">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo" alt="Vértice" />
+        <div class="m-links">
+          <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Pedir con foto</span><span class="">Filamentos</span>
+        </div>
+      </div>
+      <div class="m-nav-r">
+        <span class="m-rate mono">TC ₡512.00</span>
+        <span class="m-btn-s">Carrito (2)</span>
+        <span class="m-btn-p">Mi cuenta</span>
+      </div>
+    </div>
+      <div class="pad-sm">
+        <div class="g-2">
+          <div class="mc">
+            <h4>Datos de mi cuenta</h4>
+            <div class="kv"><span>Nombre</span><strong>Ariana Rojas Esquivel</strong></div>
+            <div class="kv"><span>Correo</span><span class="mono">ariana@ejemplo.cr</span></div>
+            <div class="kv"><span>Autenticación</span><span class="pill p-blu">Local (bcrypt)</span></div>
+            <div class="kv"><span>Privacidad aceptada</span><span class="mono grn">v1.0 · 24/11/2026</span></div>
+            <div class="mc-in" style="margin-top:8px;">
+              <strong>Seguridad 2FA (TOTP):</strong> disponible para proteger tu cuenta (obligatorio en cuentas de Admin y Taller).
+              <span class="btn-s" style="margin-top:5px; display:inline-block;">Configurar código QR 2FA</span>
+            </div>
+          </div>
+          <div class="mc danger-box">
+            <span class="pill p-red">Ley N.° 8968 · Derecho de supresión</span>
+            <h4 style="margin-top:5px;">Solicitar eliminación y anonimización</h4>
+            <p>Tus datos personales (nombre, correo y sesiones) se anonimizarán tras revisión contable. Los montos históricos de facturas se conservan sin identificarte.</p>
+            <div class="inp-sm full">Confirmá tu contraseña actual: ••••••••••</div>
+            <span class="btn-d full" style="margin-top:7px;">Confirmar solicitud de eliminación (WF-03)</span>
+            <p class="xs muted">Recibirás correo de confirmación final al completarse el proceso.</p>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="ph-card">
+        <strong>Ariana Rojas Esquivel</strong>
+        <p class="xs mono">ariana@ejemplo.cr</p>
+        <span class="pill p-grn">Consentimiento v1.0 registrado</span>
+      </div>
+      <div class="ph-card danger-box">
+        <strong class="xs">Eliminar mi cuenta (Ley 8968)</strong>
+        <p class="xs">Anonimiza tus datos personales conservando respaldo contable legal.</p>
+        <div class="inp-sm full">Contraseña actual</div>
+        <span class="btn-d full">Solicitar eliminación</span>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Inicio</span><span class="">Piezas 3D</span><span class="">Foto</span><span class="">Insumos</span><span class="on">Cuenta</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Exige contraseña antes de registrar la baja en `account_deletion_requests` y disparar `WF-03` de n8n con aviso al Admin y correo final.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 11 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 10 / 18 · Taller / Administrador</span>
+        <h2 class="s-title">Inicio del Taller y Administración — «Qué atender hoy»</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-12 · HU-07</span>
+        <span class="badge b-blue">Hacienda CR · WF-01 · WF-02</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/panel</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      <div class="admin-shell">
+        
+    <aside class="m-side">
+      <div class="m-side-top">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo-sm" alt="Vértice" />
+        <span class="m-collapse">«</span>
+      </div>
+      <div class="m-side-role">Admin · Dueño</div>
+      <div class="m-side-list">
+        <div class="m-side-item on">Qué atender hoy</div><div class="m-side-item ">Solicitudes y prod.</div><div class="m-side-item ">Catálogo y stock</div><div class="m-side-item ">Facturas prov.</div><div class="m-side-item ">Costos y reportes</div><div class="m-side-item ">Campañas redes</div><div class="m-side-item ">Centro de Agentes</div><div class="m-side-item ">Configuración</div><div class="m-side-item ">Auditoría</div>
+      </div>
+    </aside>
+        <div class="admin-main">
+          <div class="admin-top">
+            <h4>Qué atender hoy · Martes 24 de noviembre</h4>
+            <span class="pill p-grn mono">Hacienda CR: ₡512.00 (07:00 a. m.)</span>
+          </div>
+          <div class="g-4">
+            <div class="kpi"><span class="mono org">06</span><small>Solicitudes nuevas</small></div>
+            <div class="kpi"><span class="mono blu">04</span><small>Cotizaciones pend.</small></div>
+            <div class="kpi"><span class="mono amb">05</span><small>Insumos stock bajo</small></div>
+            <div class="kpi"><span class="mono grn">₡512</span><small>Dólar Hacienda hoy</small></div>
+          </div>
+          <div class="mc" style="margin-top:8px;">
+            <h4>Cola prioritaria (resolver en 1 o 2 toques)</h4>
+            <div class="task-row"><span><span class="pill p-org">Solicitud</span> <strong>#SOL-014</strong> · Soporte monitor con 3 fotos (PETG)</span><span class="btn-p xs-b">Cotizar →</span></div>
+            <div class="task-row"><span><span class="pill p-pur">Correo WF-02</span> Respuesta de cliente sobre #SOL-012 + comprobante SINPE</span><span class="btn-s xs-b">Revisar →</span></div>
+            <div class="task-row"><span><span class="pill p-amb">Stock bajo</span> PLA+ Verde Esmeralda 1 kg (quedan 2 / mín. 3)</span><span class="btn-s xs-b">Reponer →</span></div>
+            <div class="task-row"><span><span class="pill p-blu">Factura WF-02</span> XML proveedor Filamentos CR pre-extraído por Agente 04</span><span class="btn-s xs-b">Validar →</span></div>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="g-2">
+        <div class="kpi"><span class="mono org">06</span><small>Solicitudes</small></div>
+        <div class="kpi"><span class="mono amb">05</span><small>Stock bajo</small></div>
+      </div>
+      <div class="ph-card on-l">
+        <span class="pill p-org">Urgente</span>
+        <strong class="xs">#SOL-014 · 3 fotos (PETG)</strong>
+        <span class="btn-p xs-b full">Preparar cotización</span>
+      </div>
+      <div class="ph-card">
+        <span class="pill p-pur">Correo entrante</span>
+        <strong class="xs">Comprobante SINPE #VCR-088</strong>
+        <span class="btn-s xs-b full">Validar pago</span>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="on">Hoy</span><span class="">Casos</span><span class="">Stock</span><span class="">IA</span><span class="">Más</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Menú lateral contraíble en PC; barra inferior fija en móvil. Muestra exactamente 4 cifras arriba y cola accionable inmediata.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 12 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 11 / 18 · Taller / Administrador</span>
+        <h2 class="s-title">Solicitudes, Cotizaciones IA y Producción</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-11 · RF-15 · HU-08 · HU-10</span>
+        <span class="badge b-blue">Agente 03 (Cotizador) · Agente 05 (Seguimiento)</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/panel/solicitudes</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      <div class="admin-shell">
+        
+    <aside class="m-side">
+      <div class="m-side-top">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo-sm" alt="Vértice" />
+        <span class="m-collapse">«</span>
+      </div>
+      <div class="m-side-role">Operación Taller</div>
+      <div class="m-side-list">
+        <div class="m-side-item ">Qué atender hoy</div><div class="m-side-item on">Solicitudes y prod.</div><div class="m-side-item ">Catálogo y stock</div><div class="m-side-item ">Facturas prov.</div><div class="m-side-item ">Costos y reportes</div><div class="m-side-item ">Campañas redes</div><div class="m-side-item ">Centro de Agentes</div><div class="m-side-item ">Configuración</div><div class="m-side-item ">Auditoría</div>
+      </div>
+    </aside>
+        <div class="admin-main">
+          <div class="tabs-sm"><span class="on">Nuevas (6)</span><span>Cotizadas (4)</span><span>Pagos SINPE (2)</span><span>En impresión (5)</span></div>
+          <div class="split-55-45" style="margin-top:7px;">
+            <div class="mc">
+              <div class="kv"><strong class="mono">#SOL-014 · Estuche a medida 3 espacios</strong><span class="pill p-org">Nueva</span></div>
+              <div class="row-gap" style="margin:5px 0;"><img src="../../../assets/photos/pieza-estuche-beyblade-cerrado.jpg" class="d-mini" /><img src="../../../assets/photos/pieza-estuche-beyblade-abierto.jpg" class="d-mini" /></div>
+              <p class="xs">Cliente pide estuche rígido en PETG con 3 cavidades. Peso estimado: 180 g · 4.5 h.</p>
+              <div class="g-2">
+                <div class="unit-inp"><span>Material</span><strong>4 200</strong><em>₡</em></div>
+                <div class="unit-inp"><span>Máquina/mano</span><strong>8 800</strong><em>₡</em></div>
+              </div>
+              <div class="kv total" style="margin-top:6px;"><span>Total editable #v1</span><strong class="mono org">₡13 000 ($25.39)</strong></div>
+              <span class="btn-p full">Aprobar y enviar cotización (WF-01)</span>
+            </div>
+            <div class="stack">
+              <div class="mc">
+                <span class="pill p-pur">Agente 03 · Preparador de cotizaciones</span>
+                <p class="xs" style="margin-top:4px;">Propuesta calculada con tasa Hacienda ₡512 y margen 35 %. <strong>Editable antes de enviar.</strong></p>
+              </div>
+              <div class="mc">
+                <span class="pill p-blu">Agente 05 · Borrador de seguimiento</span>
+                <p class="xs" style="margin-top:4px;">«Hola Ariana, revisamos tus fotos y ya tenés lista la cotización #v1 en tu cuenta...»</p>
+                <span class="btn-s xs-b">Copiar mensaje (no envía solo)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="tabs-sm"><span class="on">Nuevas</span><span>SINPE</span><span>Taller</span></div>
+      <div class="ph-card on-l">
+        <strong class="xs mono">#SOL-014 · PETG Gris</strong>
+        <div class="unit-inp"><span>Total</span><strong>13 000</strong><em>₡</em></div>
+        <span class="btn-p full">Enviar cotización #v1</span>
+      </div>
+      <div class="ph-card">
+        <span class="pill p-blu">Agente 05 · Borrador</span>
+        <p class="xs">Mensaje listo para copiar y revisar antes de enviar.</p>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Hoy</span><span class="on">Casos</span><span class="">Stock</span><span class="">IA</span><span class="">Más</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Agente 03 propone costos editables y Agente 05 redacta seguimiento; jamás se envía precio ni mensaje sin confirmación humana.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 13 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 12 / 18 · Taller / Administrador</span>
+        <h2 class="s-title">Gestión de Catálogo 3D, Stock Real y Kardex</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-13 · RF-06 · RF-08</span>
+        <span class="badge b-blue">Supabase Storage (catalog-media) · Kardex SQL</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/panel/inventario</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      <div class="admin-shell">
+        
+    <aside class="m-side">
+      <div class="m-side-top">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo-sm" alt="Vértice" />
+        <span class="m-collapse">«</span>
+      </div>
+      <div class="m-side-role">Admin · Inventario</div>
+      <div class="m-side-list">
+        <div class="m-side-item ">Qué atender hoy</div><div class="m-side-item ">Solicitudes y prod.</div><div class="m-side-item on">Catálogo y stock</div><div class="m-side-item ">Facturas prov.</div><div class="m-side-item ">Costos y reportes</div><div class="m-side-item ">Campañas redes</div><div class="m-side-item ">Centro de Agentes</div><div class="m-side-item ">Configuración</div><div class="m-side-item ">Auditoría</div>
+      </div>
+    </aside>
+        <div class="admin-main">
+          <div class="admin-top">
+            <div class="tabs-sm"><span class="on">Insumos y stock (45)</span><span>Piezas 3D (65)</span><span>Movimientos Kardex</span></div>
+            <span class="btn-p xs-b">+ Nuevo producto</span>
+          </div>
+          <div class="mc" style="margin-top:7px;">
+            <table class="m-tbl">
+              <thead><tr><th>SKU</th><th>Insumo</th><th>Polímero</th><th>Precio ₡</th><th>Stock</th><th>Estado</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">FIL-PLA-BLK</td><td>PLA+ Negro Mate 1 kg</td><td><span class="pill p-pla">PLA+</span></td><td class="mono">₡13 900</td><td class="mono">14</td><td><span class="stock-ok">Óptimo</span></td></tr>
+                <tr><td class="mono">FIL-PLA-GRN</td><td>PLA+ Verde Esmeralda 1 kg</td><td><span class="pill p-pla">PLA+</span></td><td class="mono">₡14 200</td><td class="mono">2</td><td><span class="stock-low">Stock bajo</span></td></tr>
+                <tr><td class="mono">FIL-PETG-ORG</td><td>PETG Naranja Seguridad 1 kg</td><td><span class="pill p-petg">PETG</span></td><td class="mono">₡15 800</td><td class="mono">2</td><td><span class="stock-low">Stock bajo</span></td></tr>
+                <tr><td class="mono">CAM-PEI-256</td><td>Lámina PEI 256×256 mm</td><td><span class="pill">PEI</span></td><td class="mono">₡16 500</td><td class="mono">6</td><td><span class="stock-ok">Óptimo</span></td></tr>
+              </tbody>
+            </table>
+            <div class="mc-in" style="margin-top:7px;">
+              <strong>Ajuste rápido de stock:</strong> cada entrada, salida por venta o ajuste manual queda registrado con usuario y fecha en <span class="mono">inventory_movements</span>.
+            </div>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="tabs-sm"><span class="on">Stock (45)</span><span>3D (65)</span><span>Kardex</span></div>
+      <div class="ph-card">
+        <div class="kv"><strong class="xs">PLA+ Verde 1 kg</strong><span class="stock-low">Quedan 2</span></div>
+        <div class="kv"><span class="mono xs">₡14 200</span><span class="btn-s xs-b">Registrar entrada</span></div>
+      </div>
+      <div class="ph-card">
+        <div class="kv"><strong class="xs">PETG Naranja 1 kg</strong><span class="stock-low">Quedan 2</span></div>
+        <div class="kv"><span class="mono xs">₡15 800</span><span class="btn-s xs-b">Registrar entrada</span></div>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Hoy</span><span class="">Casos</span><span class="on">Stock</span><span class="">IA</span><span class="">Más</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Tablas limpias en escritorio convertidas en tarjetas apiladas en móvil 390 px. Dispara alerta WF-01 cuando un insumo baja del mínimo.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 14 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 13 / 18 · Taller / Administrador</span>
+        <h2 class="s-title">Facturas de Proveedores (Agente 04 + Hacienda)</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-14 · RF-15 · HU-09</span>
+        <span class="badge b-blue">Agente 04 (Gemini + XML) · Hacienda Contribuyentes · WF-02</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/panel/facturas</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      <div class="admin-shell">
+        
+    <aside class="m-side">
+      <div class="m-side-top">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo-sm" alt="Vértice" />
+        <span class="m-collapse">«</span>
+      </div>
+      <div class="m-side-role">Admin · Finanzas</div>
+      <div class="m-side-list">
+        <div class="m-side-item ">Qué atender hoy</div><div class="m-side-item ">Solicitudes y prod.</div><div class="m-side-item ">Catálogo y stock</div><div class="m-side-item on">Facturas prov.</div><div class="m-side-item ">Costos y reportes</div><div class="m-side-item ">Campañas redes</div><div class="m-side-item ">Centro de Agentes</div><div class="m-side-item ">Configuración</div><div class="m-side-item ">Auditoría</div>
+      </div>
+    </aside>
+        <div class="admin-main">
+          <div class="admin-top">
+            <h4>Compras de proveedores (borradores por validar)</h4>
+            <span class="btn-p xs-b">+ Subir PDF / XML / Foto</span>
+          </div>
+          <div class="split-55-45">
+            <div class="mc">
+              <span class="pill p-pur">Agente 04 · Lector de facturas (recibida por WF-02)</span>
+              <h4 style="margin-top:5px;">Borrador extraído — Filamentos CR S.A.</h4>
+              <div class="kv"><span>Cédula jurídica</span><strong class="mono">3-101-842190 <span class="pill p-grn">Validada Hacienda ✓</span></strong></div>
+              <div class="kv"><span>Fecha factura</span><span class="mono">24/11/2026</span></div>
+              <div class="kv"><span>10× PLA+ Negro 1 kg</span><span class="mono">₡89 000</span></div>
+              <div class="kv"><span>5× PETG Gris 1 kg</span><span class="mono">₡51 500</span></div>
+              <div class="kv total"><span>Total con IVA (13 %)</span><strong class="mono org">₡158 765</strong></div>
+              <span class="btn-p full">Aprobar factura y sumar al inventario</span>
+            </div>
+            <div class="mc">
+              <h4>Facturas recientes</h4>
+              <div class="task-row"><span><strong>Filamentos CR</strong> · #FE-8812</span><span class="pill p-amb">Borrador</span></div>
+              <div class="task-row"><span><strong>Insumos 3D GAM</strong> · #FE-8701</span><span class="pill p-grn">Contabilizada</span></div>
+              <div class="task-row"><span><strong>Electrónica Oeste</strong> · #FE-8640</span><span class="pill p-grn">Contabilizada</span></div>
+              <p class="xs muted" style="margin-top:6px;">Ninguna factura modifica stock ni costos hasta confirmación humana explícita.</p>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <span class="btn-p full">+ Subir XML / PDF / Foto</span>
+      <div class="ph-card on-l">
+        <span class="pill p-pur">Borrador Agente 04</span>
+        <strong class="xs">Filamentos CR S.A.</strong>
+        <span class="pill p-grn">Hacienda ✓</span>
+        <div class="kv"><span>Total IVA inc.</span><strong class="mono org">₡158 765</strong></div>
+        <span class="btn-p full">Aprobar y sumar stock</span>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Hoy</span><span class="">Casos</span><span class="">Stock</span><span class="">IA</span><span class="on">Más</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Acepta facturas subidas manualmente o llegadas al correo vía WF-02. Consulta cédula real en `api.hacienda.go.cr/fe/ae`.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 15 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 14 / 18 · Administrador</span>
+        <h2 class="s-title">Costos, Márgenes y Analista del Negocio (IA sobre SQL)</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-14 · RF-15 · HU-12</span>
+        <span class="badge b-blue">Agente 07 (DeepSeek sobre SQL agregado)</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/panel/reportes</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      <div class="admin-shell">
+        
+    <aside class="m-side">
+      <div class="m-side-top">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo-sm" alt="Vértice" />
+        <span class="m-collapse">«</span>
+      </div>
+      <div class="m-side-role">Admin · Finanzas</div>
+      <div class="m-side-list">
+        <div class="m-side-item ">Qué atender hoy</div><div class="m-side-item ">Solicitudes y prod.</div><div class="m-side-item ">Catálogo y stock</div><div class="m-side-item ">Facturas prov.</div><div class="m-side-item on">Costos y reportes</div><div class="m-side-item ">Campañas redes</div><div class="m-side-item ">Centro de Agentes</div><div class="m-side-item ">Configuración</div><div class="m-side-item ">Auditoría</div>
+      </div>
+    </aside>
+        <div class="admin-main">
+          <div class="g-4">
+            <div class="kpi"><span class="mono grn">₡1.42M</span><small>Ventas del mes</small></div>
+            <div class="kpi"><span class="mono org">₡610k</span><small>Compras insumos</small></div>
+            <div class="kpi"><span class="mono blu">57 %</span><small>Margen bruto est.</small></div>
+            <div class="kpi"><span class="mono pur">34</span><small>Pedidos cerrados</small></div>
+          </div>
+          <div class="split-55-45" style="margin-top:8px;">
+            <div class="mc">
+              <h4>Ventas por línea de negocio</h4>
+              <div class="bar-row"><span>Filamentos e insumos</span><div class="bar"><i style="width:72%; background:#38bdf8;"></i></div><strong class="mono">₡680k</strong></div>
+              <div class="bar-row"><span>Piezas 3D estándar</span><div class="bar"><i style="width:52%; background:#ff6a1f;"></i></div><strong class="mono">₡460k</strong></div>
+              <div class="bar-row"><span>A medida (cotizaciones)</span><div class="bar"><i style="width:36%; background:#c084fc;"></i></div><strong class="mono">₡280k</strong></div>
+            </div>
+            <div class="mc">
+              <span class="pill p-pur">Agente 07 · Analista del negocio</span>
+              <div class="inp-sm full" style="margin-top:5px;">¿Qué filamentos rotaron más este mes?</div>
+              <div class="mc-in" style="margin-top:6px;">
+                <p class="xs"><strong>Resumen basado en SQL agregado (sin PII):</strong> PLA+ Negro Mate (18 rollos) y PETG Gris (11 rollos) generan el 61 % de la rotación. Se recomienda reponer PLA+ Verde y PETG Naranja esta semana.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="g-2">
+        <div class="kpi"><span class="mono grn">₡1.42M</span><small>Ventas mes</small></div>
+        <div class="kpi"><span class="mono blu">57 %</span><small>Margen</small></div>
+      </div>
+      <div class="ph-card">
+        <span class="pill p-pur">Agente 07 · Analista</span>
+        <div class="inp-sm full">¿Qué se vendió más?</div>
+        <p class="xs">PLA+ Negro (18) y Estuche Beyblade X lideran el mes.</p>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Hoy</span><span class="">Casos</span><span class="">Stock</span><span class="">IA</span><span class="on">Más</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Agente 07 consulta únicamente métricas agregadas de PostgreSQL; jamás expone nombres ni correos de clientes al LLM.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 16 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 15 / 18 · Administrador</span>
+        <h2 class="s-title">Campañas y Publicaciones para Redes (Borrador Humano)</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-19 · RF-15 · HU-11</span>
+        <span class="badge b-blue">Agente 06 (Generador de contenido)</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/panel/campanas</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      <div class="admin-shell">
+        
+    <aside class="m-side">
+      <div class="m-side-top">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo-sm" alt="Vértice" />
+        <span class="m-collapse">«</span>
+      </div>
+      <div class="m-side-role">Admin · Mercadeo</div>
+      <div class="m-side-list">
+        <div class="m-side-item ">Qué atender hoy</div><div class="m-side-item ">Solicitudes y prod.</div><div class="m-side-item ">Catálogo y stock</div><div class="m-side-item ">Facturas prov.</div><div class="m-side-item ">Costos y reportes</div><div class="m-side-item on">Campañas redes</div><div class="m-side-item ">Centro de Agentes</div><div class="m-side-item ">Configuración</div><div class="m-side-item ">Auditoría</div>
+      </div>
+    </aside>
+        <div class="admin-main">
+          <div class="admin-top">
+            <h4>Generador de campañas sobre catálogo aprobado</h4>
+            <span class="pill p-amb">Pendiente de aprobación humana</span>
+          </div>
+          <div class="toolbar">
+            <span class="inp-sm">Producto: Estuche Beyblade X 3-Slot Bicolor ▾</span>
+            <span class="inp-sm">Objetivo: Lanzamiento torneo fin de semana</span>
+            <span class="btn-p xs-b">Generar 3 borradores (Agente 06)</span>
+          </div>
+          <div class="g-3" style="margin-top:7px;">
+            <div class="mc">
+              <span class="pill p-org">1. Post Instagram / FB</span>
+              <p class="xs" style="margin-top:5px;">«Llevá tus 3 Beyblades protegidos a torneo. Impreso en PLA+ bicolor con broches numerados. Pedilo hoy en Vértice CR por ₡18 500.»</p>
+              <span class="btn-s xs-b">Copiar texto</span>
+            </div>
+            <div class="mc">
+              <span class="pill p-blu">2. Copy para pauta</span>
+              <p class="xs" style="margin-top:5px;">«¿Tu estuche genérico raya tus piezas? Diseño rígido a medida hecho en Costa Rica. Envíos a todo el país.»</p>
+              <span class="btn-s xs-b">Copiar texto</span>
+            </div>
+            <div class="mc">
+              <span class="pill p-pur">3. Guion Historia 15 s</span>
+              <p class="xs" style="margin-top:5px;">«Toma 1: Estuche cerrado sobre cama PEI. Toma 2: Apertura revelando los 3 espacios 1-2-3. CTA: Link en bio.»</p>
+              <span class="btn-p xs-b">Aprobar borrador</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="ph-card">
+        <strong class="xs">Estuche Beyblade X 3-Slot</strong>
+        <span class="btn-p full">Generar borradores</span>
+      </div>
+      <div class="ph-card">
+        <span class="pill p-org">Post IG · Borrador</span>
+        <p class="xs">«Llevá tus 3 Beyblades protegidos a torneo... ₡18 500 en Vértice CR.»</p>
+        <span class="btn-s full">Copiar · Aprobar</span>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Hoy</span><span class="">Casos</span><span class="">Stock</span><span class="">IA</span><span class="on">Más</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Agente 06 opera solo sobre catálogo aprobado sin PII; guarda en tabla `campaigns` como `DRAFT` y nunca publica automáticamente.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 17 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 16 / 18 · Cliente / Taller / Admin / Auditor</span>
+        <h2 class="s-title">Centro de los 8 Agentes de IA</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-15 · RF-16</span>
+        <span class="badge b-blue">8 Agentes en backend/services/agents/</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/panel/agentes</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      <div class="admin-shell">
+        
+    <aside class="m-side">
+      <div class="m-side-top">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo-sm" alt="Vértice" />
+        <span class="m-collapse">«</span>
+      </div>
+      <div class="m-side-role">Centro IA · 8 Agentes</div>
+      <div class="m-side-list">
+        <div class="m-side-item ">Qué atender hoy</div><div class="m-side-item ">Solicitudes y prod.</div><div class="m-side-item ">Catálogo y stock</div><div class="m-side-item ">Facturas prov.</div><div class="m-side-item ">Costos y reportes</div><div class="m-side-item ">Campañas redes</div><div class="m-side-item on">Centro de Agentes</div><div class="m-side-item ">Configuración</div><div class="m-side-item ">Auditoría</div>
+      </div>
+    </aside>
+        <div class="admin-main">
+          <div class="admin-top">
+            <h4>Los 8 agentes especializados de Vértice CR</h4>
+            <span class="pill p-grn">Human-in-the-loop activo · Registro SQL</span>
+          </div>
+          <div class="g-4">
+            <div class="mc ag-c"><span class="mono org">01</span><strong>Guía pedidos foto</strong><small>Gemini Visión · Cliente</small></div>
+            <div class="mc ag-c"><span class="mono org">02</span><strong>Asesor materiales</strong><small>DeepSeek RAG · Todos</small></div>
+            <div class="mc ag-c"><span class="mono org">03</span><strong>Cotizador taller</strong><small>DeepSeek + Node · Taller</small></div>
+            <div class="mc ag-c"><span class="mono org">04</span><strong>Lector facturas</strong><small>Gemini + XML · Taller</small></div>
+            <div class="mc ag-c"><span class="mono org">05</span><strong>Seguimiento</strong><small>DeepSeek · Taller</small></div>
+            <div class="mc ag-c"><span class="mono org">06</span><strong>Campañas redes</strong><small>DeepSeek · Admin</small></div>
+            <div class="mc ag-c"><span class="mono org">07</span><strong>Analista negocio</strong><small>SQL agregado · Admin</small></div>
+            <div class="mc ag-c"><span class="mono org">08</span><strong>Guía privacidad</strong><small>Ley 8968 · Todos</small></div>
+          </div>
+          <div class="mc-in" style="margin-top:8px;">
+            <strong>Prueba controlada del agente seleccionado:</strong> cada ejecución valida rol en Express, registra latencia y estado en <span class="mono">ai_agent_logs</span> y bloquea cualquier acción destructiva autónoma.
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="ph-card"><strong class="xs">01 · Guía de pedidos (Visión)</strong><span class="pill p-grn">Activo</span></div>
+      <div class="ph-card"><strong class="xs">02 · Asesor de materiales</strong><span class="pill p-grn">Activo</span></div>
+      <div class="ph-card"><strong class="xs">03 · Preparador de cotizaciones</strong><span class="pill p-blu">Taller</span></div>
+      <div class="ph-card"><strong class="xs">04–08 · Facturas, Redes, Analista, Legal</strong><span class="pill p-pur">Por rol</span></div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Hoy</span><span class="">Casos</span><span class="">Stock</span><span class="on">IA</span><span class="">Más</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Muestra los 8 agentes con su proveedor/modelo, rol autorizado y botón de prueba controlada; se filtra automáticamente según permisos.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 18 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 17 / 18 · Administrador</span>
+        <h2 class="s-title">Configuración: Roles, Hacienda, PayPal y 3 Workflows n8n</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-17 · RF-18 · RF-20</span>
+        <span class="badge b-blue">Hacienda CR · PayPal Sandbox · WF-01/02/03</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/panel/configuracion</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      <div class="admin-shell">
+        
+    <aside class="m-side">
+      <div class="m-side-top">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo-sm" alt="Vértice" />
+        <span class="m-collapse">«</span>
+      </div>
+      <div class="m-side-role">Admin · Configuración</div>
+      <div class="m-side-list">
+        <div class="m-side-item ">Qué atender hoy</div><div class="m-side-item ">Solicitudes y prod.</div><div class="m-side-item ">Catálogo y stock</div><div class="m-side-item ">Facturas prov.</div><div class="m-side-item ">Costos y reportes</div><div class="m-side-item ">Campañas redes</div><div class="m-side-item ">Centro de Agentes</div><div class="m-side-item on">Configuración</div><div class="m-side-item ">Auditoría</div>
+      </div>
+    </aside>
+        <div class="admin-main">
+          <div class="tabs-sm"><span class="on">Integraciones y n8n</span><span>Usuarios y 4 roles</span><span>Seguridad y MFA</span></div>
+          <div class="g-2" style="margin-top:7px;">
+            <div class="mc">
+              <h4>APIs externas reales (solo backend)</h4>
+              <div class="kv"><span>Hacienda CR · Dólar (cron 7:00 a. m.)</span><span class="pill p-grn">₡512.00 · OK</span></div>
+              <div class="kv"><span>Hacienda CR · Contribuyentes</span><span class="pill p-grn">Operativo</span></div>
+              <div class="kv"><span>PayPal Orders v2 Sandbox</span><span class="pill p-blu">OAuth activo</span></div>
+              <div class="kv"><span>Supabase Storage (3 buckets)</span><span class="pill p-grn">45 archivos</span></div>
+              <span class="btn-s xs-b" style="margin-top:5px;">Actualizar tasa de Hacienda ahora</span>
+            </div>
+            <div class="mc">
+              <h4>Los 3 workflows de n8n (correo bidireccional)</h4>
+              <div class="task-row"><span><strong>WF-01</strong> · Envío correos y alertas (Gmail/SMTP)</span><span class="pill p-grn">Activo</span></div>
+              <div class="task-row"><span><strong>WF-02</strong> · Recepción correos (clientes + XML/PDF)</span><span class="pill p-grn">Activo</span></div>
+              <div class="task-row"><span><strong>WF-03</strong> · Eliminación de cuenta (Ley 8968)</span><span class="pill p-grn">Activo</span></div>
+              <p class="xs muted" style="margin-top:5px;">Webhooks firmados con secreto compartido. Cero claves expuestas al cliente.</p>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <div class="tabs-sm"><span class="on">n8n / APIs</span><span>Roles</span></div>
+      <div class="ph-card">
+        <div class="kv"><strong class="xs">Hacienda CR</strong><span class="pill p-grn">₡512.00</span></div>
+        <div class="kv"><strong class="xs">PayPal Sandbox</strong><span class="pill p-blu">OK</span></div>
+      </div>
+      <div class="ph-card">
+        <strong class="xs">Workflows n8n (3 activos)</strong>
+        <p class="xs">WF-01 Envío · WF-02 Recepción · WF-03 Ley 8968</p>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Hoy</span><span class="">Casos</span><span class="">Stock</span><span class="">IA</span><span class="on">Más</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">Centraliza los 4 roles, actualización manual/automática de Hacienda, estado PayPal Sandbox y los 3 workflows de n8n (Opción 2).</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 19 / 20</div>
+    </footer>
+  </section>
+
+  <section class="slide">
+    <header class="s-head">
+      <div class="s-head-l">
+        <span class="s-bar"></span>
+        <span class="s-kicker">PANTALLA 18 / 18 · Auditor / Administrador</span>
+        <h2 class="s-title">Panel de Auditoría y Cumplimiento (Solo Lectura)</h2>
+      </div>
+      <div class="s-head-r">
+        <span class="badge b-orange mono">RF-16 · RF-22 · HU-14</span>
+        <span class="badge b-blue">ai_agent_logs · n8n_webhook_logs · Ley 8968</span>
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="s-logo" alt="Vértice" />
+      </div>
+    </header>
+
+    <div class="s-stage">
+      <div class="browser">
+        <div class="b-bar">
+          <div class="b-dots"><i></i><i></i><i></i></div>
+          <div class="b-url mono">https://verticecr.app/panel/auditoria</div>
+          <span class="b-vp mono">Escritorio · 1440 px</span>
+        </div>
+        <div class="b-body">
+      <div class="admin-shell">
+        
+    <aside class="m-side">
+      <div class="m-side-top">
+        <img src="../../../assets/brand/vertice-logo-flat.png" class="m-logo-sm" alt="Vértice" />
+        <span class="m-collapse">«</span>
+      </div>
+      <div class="m-side-role">Auditor · Solo lectura</div>
+      <div class="m-side-list">
+        <div class="m-side-item ">Qué atender hoy</div><div class="m-side-item ">Solicitudes y prod.</div><div class="m-side-item ">Catálogo y stock</div><div class="m-side-item ">Facturas prov.</div><div class="m-side-item ">Costos y reportes</div><div class="m-side-item ">Campañas redes</div><div class="m-side-item ">Centro de Agentes</div><div class="m-side-item ">Configuración</div><div class="m-side-item on">Auditoría</div>
+      </div>
+    </aside>
+        <div class="admin-main">
+          <div class="admin-top">
+            <div class="tabs-sm"><span class="on">Bitácora IA</span><span>Webhooks n8n</span><span>Consentimientos</span><span>Bajas Ley 8968</span></div>
+            <span class="pill p-blu">Modo solo lectura (HTTP 403 en escritura)</span>
+          </div>
+          <div class="mc" style="margin-top:7px;">
+            <table class="m-tbl">
+              <thead><tr><th>Fecha UTC</th><th>Agente / Flujo</th><th>Rol</th><th>Resumen sanitizado (sin PII)</th><th>Estado</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">24/11 14:12</td><td>Agente 01 (Gemini)</td><td>cliente</td><td>Análisis 2 fotos soporte monitor · sin precio</td><td><span class="pill p-grn">OK · 1.4s</span></td></tr>
+                <tr><td class="mono">24/11 14:05</td><td>WF-02 (n8n IMAP)</td><td>sistema</td><td>Factura XML proveedor → borrador Agente 04</td><td><span class="pill p-grn">200 OK</span></td></tr>
+                <tr><td class="mono">24/11 13:48</td><td>WF-01 (n8n SMTP)</td><td>sistema</td><td>Correo confirmación cotización #SOL-014</td><td><span class="pill p-grn">200 OK</span></td></tr>
+                <tr><td class="mono">24/11 12:20</td><td>WF-03 (Ley 8968)</td><td>admin</td><td>Anonimización cuenta confirmada · respaldo contable</td><td><span class="pill p-pur">Completada</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div></div>
+      </div>
+
+      <div class="phone">
+        <div class="ph-top">
+          <span class="mono">9:41</span>
+          <span class="ph-notch"></span>
+          <span class="mono">390 px</span>
+        </div>
+        <div class="ph-head">
+          <img src="../../../assets/brand/vertice-logo-flat.png" class="ph-logo" alt="Vértice" />
+          <span class="ph-menu">☰</span>
+        </div>
+        <div class="ph-body">
+      <span class="pill p-blu full">Modo solo lectura · Auditor</span>
+      <div class="ph-card">
+        <div class="kv"><strong class="xs">Agente 01 · Gemini</strong><span class="pill p-grn">OK</span></div>
+        <p class="xs">Análisis de 2 fotos sin PII · 1.4 s</p>
+      </div>
+      <div class="ph-card">
+        <div class="kv"><strong class="xs">WF-02 · Correo entrante</strong><span class="pill p-grn">200</span></div>
+        <p class="xs">Factura XML enviada a borrador</p>
+      </div></div>
+        
+    <div class="ph-bottom">
+      <span class="">Hoy</span><span class="">Casos</span><span class="">Stock</span><span class="">IA</span><span class="on">Más</span>
+    </div>
+      </div>
+    </div>
+
+    <footer class="s-foot">
+      <div class="s-notes">El rol Auditor inspecciona bitácoras de los 8 agentes, 3 workflows n8n, consentimientos y bajas; cualquier intento de editar/borrar devuelve HTTP 403.</div>
+      <div class="s-meta mono">Anexo de Mockups · Vértice CR · Lámina 20 / 20</div>
+    </footer>
+  </section>
+
+</body>
+</html>

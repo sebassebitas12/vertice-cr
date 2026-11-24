@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparativa Hero Interactivo — Opción B vs Opción C (Vértice CR)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --stage: #08080a;
+      --bg: #161618;
+      --surf: #1e1e22;
+      --ctrl: #2a2a34;
+      --ink: #f5f4f1;
+      --ink-2: #c9c7c2;
+      --ink-3: #8d8b87;
+      --orange: #ff6a1f;
+      --petg: #38bdf8;
+      --pla: #a3e635;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    html, body {
+      width: 1552px;
+      background: var(--stage);
+      color: var(--ink);
+      font-family: 'Chakra Petch', 'Segoe UI', sans-serif;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stage {
+      width: 1552px;
+      padding: 44px 56px 56px;
+      background:
+        radial-gradient(960px 560px at 24% 8%, rgba(255, 106, 31, 0.14), transparent 65%),
+        radial-gradient(860px 520px at 78% 82%, rgba(56, 189, 248, 0.08), transparent 68%),
+        #08080a;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+    }
+
+    .top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .top-header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .top-header h1 span { color: var(--orange); }
+    .top-header p {
+      font-size: 13.5px;
+      color: var(--ink-2);
+      margin-top: 4px;
+    }
+    .top-brand { height: 22px; }
+
+    .option-block {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .option-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 0 4px;
+    }
+    .option-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .opt-tag {
+      background: rgba(255, 106, 31, 0.16);
+      color: var(--orange);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+    .opt-tag.cool {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--petg);
+    }
+    .option-title h2 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .option-stack {
+      font-size: 12.5px;
+      color: var(--ink-3);
+      font-weight: 600;
+    }
+
+    /* Desktop 1440px Hero Frame (REAL FULL WIDTH — NO SQUISHING!) */
+    .hero-frame {
+      width: 1440px;
+      background: var(--bg);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow:
+        0 34px 90px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    /* Clean Locked Navbar */
+    .nav {
+      position: relative;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 56px;
+      background: rgba(18, 18, 22, 0.84);
+    }
+    .nav-logo { height: 34px; display: block; }
+    .nav-capsule {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #1d1d22;
+      padding: 5px 6px;
+      border-radius: 999px;
+    }
+    .nav-item {
+      position: relative;
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+    .nav-item.active {
+      background: #292932;
+      color: #fff;
+      font-weight: 700;
+    }
+    .nav-item.active::after {
+      content: '';
+      position: absolute;
+      left: 22px; right: 22px; bottom: 3px;
+      height: 2px; border-radius: 99px;
+      background: var(--orange);
+    }
+    .nav-quote {
+      padding: 8px 22px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: #161618;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cart-btn {
+      position: relative;
+      width: 40px; height: 40px;
+      border-radius: 999px;
+      background: var(--surf);
+      color: #f5f4f1;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .cart-badge {
+      position: absolute; top: -3px; right: -3px;
+      width: 19px; height: 19px; border-radius: 50%;
+      background: var(--orange); color: #161618;
+      font-size: 10.5px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .menu-trigger {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25252c; color: #f5f4f1;
+      padding: 6px 15px 6px 7px; border-radius: 999px;
+      font-size: 13px; font-weight: 600;
+    }
+    .avatar-dot {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #32323c; color: #f5f4f1;
+      font-size: 11.5px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Full-width balanced Hero Grid */
+    .hero {
+      position: relative;
+      min-height: 516px;
+      padding: 46px 56px 56px;
+      display: grid;
+      grid-template-columns: 1fr 560px;
+      gap: 54px;
+      align-items: center;
+      overflow: hidden;
+    }
+    .ps3-canvas {
+      position: absolute;
+      inset: -60px 0 0 0;
+      width: 1440px;
+      height: 580px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .kicker {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 13.5px; font-weight: 600; color: var(--ink-2);
+    }
+    .kicker-bar { width: 34px; height: 3px; background: var(--orange); border-radius: 2px; }
+    .hero h3 {
+      font-size: 50px;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      font-weight: 700;
+      color: #fff;
+    }
+    .hero h3 em { font-style: normal; color: var(--orange); }
+    .hero-sub {
+      font-size: 16.5px;
+      line-height: 1.52;
+      color: #d6d4ce;
+      max-width: 560px;
+    }
+    .hero-actions {
+      display: flex; align-items: center; gap: 14px; padding-top: 6px;
+    }
+    .btn-p {
+      background: var(--orange); color: #161618;
+      padding: 14px 26px; border-radius: 999px;
+      font-size: 14.5px; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 9px;
+    }
+    .btn-s {
+      background: var(--ctrl); color: #fff;
+      padding: 14px 24px; border-radius: 999px;
+      font-size: 14.5px; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 9px;
+    }
+
+    /* ============================================================
+       OPCIÓN B: COMPARADOR INTERACTIVO «TU FOTO / MEDIDA ⇄ PIEZA IMPRESA»
+       ============================================================ */
+    .compare-wrap {
+      position: relative;
+      z-index: 6;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .compare-card {
+      position: relative;
+      width: 560px;
+      height: 392px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #121216;
+      cursor: ew-resize;
+      user-select: none;
+      box-shadow:
+        0 32px 76px rgba(0, 0, 0, 0.78),
+        0 0 0 1px rgba(255, 255, 255, 0.10);
+    }
+    .cmp-layer {
+      position: absolute;
+      inset: 0;
+    }
+    .cmp-real img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 48%;
+      display: block;
+    }
+    /* Left blueprint / client photo with real scale overlay */
+    .cmp-before {
+      clip-path: inset(0 54% 0 0);
+      background: #13161d;
+    }
+    .cmp-before img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 48%;
+      display: block;
+      filter: grayscale(100%) contrast(1.22) brightness(0.72) sepia(24%) hue-rotate(175deg) saturate(1.4);
+      opacity: 0.78;
+    }
+    .cmp-grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(56, 189, 248, 0.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.13) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    /* Scale ruler & dimension callouts on BEFORE side */
+    .cmp-dims {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .dim-box {
+      position: absolute;
+      left: 36px;
+      top: 124px;
+      width: 488px;
+      height: 158px;
+      border: 1.5px dashed rgba(56, 189, 248, 0.72);
+      border-radius: 10px;
+    }
+    .dim-top-tag {
+      position: absolute;
+      top: -28px;
+      left: 0;
+      background: rgba(15, 23, 34, 0.92);
+      color: #7dd3fc;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+    .dim-ruler {
+      position: absolute;
+      left: 20px;
+      bottom: 84px;
+      width: 210px;
+      height: 22px;
+      background: rgba(15, 23, 34, 0.88);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #bae6fd;
+    }
+
+    .cmp-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 14, 17, 0.94) 0%, rgba(14, 14, 17, 0.14) 44%, rgba(14, 14, 17, 0.20) 100%);
+      pointer-events: none;
+    }
+
+    .cmp-badge {
+      position: absolute;
+      top: 16px;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      pointer-events: none;
+    }
+    .cmp-badge.left {
+      left: 16px;
+      background: rgba(15, 23, 34, 0.86);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+    .cmp-badge.right {
+      right: 16px;
+      background: rgba(20, 20, 24, 0.86);
+      color: #fff;
+      border: 1px solid rgba(255, 106, 31, 0.45);
+    }
+    .cmp-badge.right i {
+      display: inline-block;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--orange);
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    /* Vertical Handle */
+    .cmp-line {
+      position: absolute;
+      top: 0; bottom: 82px;
+      left: 46%;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--orange) 0%, var(--orange) 86%, transparent 100%);
+      box-shadow: 0 0 18px rgba(255, 106, 31, 0.65);
+      pointer-events: none;
+      z-index: 4;
+    }
+    .cmp-knob {
+      position: absolute;
+      top: 44%;
+      left: 46%;
+      transform: translate(-50%, -50%);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #161618;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 15px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65), 0 0 0 4px rgba(22, 22, 24, 0.72);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .cmp-footer {
+      position: absolute;
+      left: 20px; right: 20px; bottom: 16px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      pointer-events: none;
+      z-index: 6;
+    }
+    .cmp-footer h4 { font-size: 20px; font-weight: 700; color: #fff; }
+    .cmp-footer span { font-size: 12.5px; color: var(--ink-2); }
+    .cmp-price { text-align: right; }
+    .cmp-price strong { display: block; font-size: 22px; color: var(--orange); line-height: 1.05; }
+    .cmp-price small { font-size: 12px; color: var(--ink-2); }
+
+    .cmp-hint-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ink-3);
+      padding: 0 6px;
+    }
+    .cmp-hint-bar strong { color: var(--ink-2); }
+
+    /* ============================================================
+       OPCIÓN C: ESCENARIO TILTED-CARD 3D + CICLO DE 3 CASOS REALES
+       ============================================================ */
+    .tilt-stage {
+      position: relative;
+      z-index: 6;
+      width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      perspective: 1100px;
+    }
+    .tilt-deck {
+      position: relative;
+      width: 560px;
+      height: 360px;
+    }
+    /* Subtle depth ghost card behind to show live motion / stack */
+    .tilt-ghost {
+      position: absolute;
+      top: 14px;
+      left: 22px;
+      width: 526px;
+      height: 342px;
+      border-radius: 24px;
+      overflow: hidden;
+      transform: rotate(2.4deg) translateY(8px);
+      opacity: 0.42;
+      filter: brightness(0.65);
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.65);
+      transition: transform 0.35s ease;
+    }
+    .tilt-ghost img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .tilt-card {
+      position: relative;
+      width: 538px;
+      height: 350px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #121216;
+      transform: rotateY(-5deg) rotateX(2.5deg);
+      transform-style: preserve-3d;
+      transition: transform 0.18s ease-out;
+      box-shadow:
+        0 34px 76px rgba(0, 0, 0, 0.80),
+        0 0 0 1px rgba(255, 106, 31, 0.28);
+      cursor: pointer;
+    }
+    .tilt-card img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 48%;
+      display: block;
+    }
+    .tilt-sheen {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(380px 260px at 26% 18%, rgba(255, 150, 88, 0.22), transparent 64%);
+      pointer-events: none;
+    }
+    .tilt-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 14, 17, 0.95) 0%, rgba(14, 14, 17, 0.15) 48%, rgba(14, 14, 17, 0.12) 100%);
+      pointer-events: none;
+    }
+    .tilt-top-row {
+      position: absolute;
+      top: 16px; left: 18px; right: 18px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .tilt-cat {
+      background: rgba(18, 18, 22, 0.82);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 7px;
+    }
+    .tilt-cat i {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--pla); display: inline-block;
+    }
+    .tilt-cta-mini {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11.5px; font-weight: 700;
+    }
+    .tilt-bottom {
+      position: absolute;
+      left: 20px; right: 20px; bottom: 18px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    .tilt-bottom h4 { font-size: 21px; font-weight: 700; color: #fff; }
+    .tilt-bottom span { font-size: 12.5px; color: var(--ink-2); }
+
+    /* Clean 3-case selector bar below TiltedCard (with auto-progress bar) */
+    .case-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      width: 538px;
+    }
+    .case-tab {
+      background: #1c1c22;
+      border-radius: 13px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .case-tab.active {
+      background: #25252e;
+      border-color: rgba(255, 106, 31, 0.32);
+    }
+    .case-tab small { font-size: 10.5px; color: var(--ink-3); font-weight: 700; }
+    .case-tab.active small { color: var(--orange); }
+    .case-tab strong { font-size: 12.5px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .case-tab.active strong { color: #fff; }
+    .case-bar {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 2.5px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .case-tab.active .case-bar::after {
+      content: '';
+      display: block;
+      width: 62%;
+      height: 100%;
+      background: var(--orange);
+    }
+
+    .pros-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .pros-card {
+      background: #121216;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pros-card h4 { font-size: 15px; color: #fff; }
+    .pros-card p { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="top-header">
+      <div>
+        <h1>Comparativa visual del Hero: <span>Opción B vs Opción C</span></h1>
+        <p>Mismo Hero real a ancho completo (1440 px) con Navbar definitivo — abrí este archivo en el navegador para arrastrar el comparador y mover el cursor sobre el TiltedCard.</p>
+      </div>
+      <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-flat.png" class="top-brand" alt="Vértice CR" />
+    </div>
+
+    <!-- ==================== OPCIÓN B ==================== -->
+    <section class="option-block">
+      <div class="option-meta">
+        <div class="option-title">
+          <span class="opt-tag">OPCIÓN B</span>
+          <h2>Comparador interactivo «Tu foto con regla / .STL ⇄ Pieza impresa en Vértice»</h2>
+        </div>
+        <span class="option-stack">Motor en React: Motion (drag con física spring) · Se congela en 50 % con «Menos movimiento»</span>
+      </div>
+
+      <div class="hero-frame">
+        <header class="nav">
+          <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-3d.png" class="nav-logo" alt="Vértice CR" />
+          <nav class="nav-capsule">
+            <span class="nav-item active">Inicio</span>
+            <span class="nav-item">Tienda</span>
+            <span class="nav-quote">Cotizar pieza</span>
+          </nav>
+          <div class="nav-right">
+            <span class="cart-btn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              <span class="cart-badge">2</span>
+            </span>
+            <span class="menu-trigger">
+              <span class="avatar-dot">SF</span>
+              <span>Mi cuenta</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </div>
+        </header>
+
+        <section class="hero">
+          <canvas id="waveB" class="ps3-canvas" width="2880" height="1160"></canvas>
+
+          <div class="hero-copy">
+            <div class="kicker"><span class="kicker-bar"></span><span>Taller de impresión 3D y tienda de filamentos en Costa Rica</span></div>
+            <h3>Piezas diseñadas para<br /><em>cumplir una función real.</em></h3>
+            <p class="hero-sub">
+              Elegí modelos probados en planta, subí fotos de un repuesto quebrado con una regla a la par para recibir guía clara sin tecnicismos, o comprá filamentos en stock real.
+            </p>
+            <div class="hero-actions">
+              <span class="btn-p">Cotizar una pieza →</span>
+              <span class="btn-s">Explorar tienda completa</span>
+            </div>
+          </div>
+
+          <div class="compare-wrap">
+            <div class="compare-card" id="compareCard">
+              <!-- Right side: Real printed piece -->
+              <div class="cmp-layer cmp-real">
+                <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg" alt="Pieza impresa real" />
+              </div>
+
+              <!-- Left side: Technical reference / scale blueprint -->
+              <div class="cmp-layer cmp-before" id="cmpBefore">
+                <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg" alt="Referencia con medidas" />
+                <div class="cmp-grid-overlay"></div>
+                <div class="cmp-dims">
+                  <div class="dim-box">
+                    <span class="dim-top-tag">18.4 × 7.6 cm · Escala</span>
+                  </div>
+                  <div class="dim-ruler">
+                    <span>0 cm</span><span>| | | |</span><span>10 cm</span><span>| | | |</span><span>20 cm</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cmp-scrim"></div>
+              <span class="cmp-badge left">Tu foto / .STL</span>
+              <span class="cmp-badge right"><i></i>Impreso en Vértice</span>
+
+              <div class="cmp-line" id="cmpLine"></div>
+              <div class="cmp-knob" id="cmpKnob">‹ ›</div>
+
+              <div class="cmp-footer">
+                <div>
+                  <h4>Estuche Beyblade X 3-Slot</h4>
+                  <span>De referencia con escala a pieza en PLA+ bicolor · 180 g</span>
+                </div>
+                <div class="cmp-price">
+                  <strong>₡18 500</strong>
+                  <small>Bajo pedido</small>
+                </div>
+              </div>
+            </div>
+            <div class="cmp-hint-bar">
+              <span><strong>Interacción:</strong> arrastrá el divisor o se desliza suave al entrar</span>
+              <span>Explica el servicio a medida en 1 segundo</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ==================== OPCIÓN C ==================== -->
+    <section class="option-block">
+      <div class="option-meta">
+        <div class="option-title">
+          <span class="opt-tag cool">OPCIÓN C</span>
+          <h2>Escenario interactivo TiltedCard 3D + ciclo fluido de 3 casos reales del taller</h2>
+        </div>
+        <span class="option-stack">Motor en React: React Bits TiltedCard + Motion (AnimatePresence) · Pausa al pasar el cursor</span>
+      </div>
+
+      <div class="hero-frame">
+        <header class="nav">
+          <img src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/brand/vertice-logo-3d.png" class="nav-logo" alt="Vértice CR" />
+          <nav class="nav-capsule">
+            <span class="nav-item active">Inicio</span>
+            <span class="nav-item">Tienda</span>
+            <span class="nav-quote">Cotizar pieza</span>
+          </nav>
+          <div class="nav-right">
+            <span class="cart-btn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              <span class="cart-badge">2</span>
+            </span>
+            <span class="menu-trigger">
+              <span class="avatar-dot">SF</span>
+              <span>Mi cuenta</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9c7c2" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </div>
+        </header>
+
+        <section class="hero">
+          <canvas id="waveC" class="ps3-canvas" width="2880" height="1160"></canvas>
+
+          <div class="hero-copy">
+            <div class="kicker"><span class="kicker-bar"></span><span>Taller de impresión 3D y tienda de filamentos en Costa Rica</span></div>
+            <h3>Piezas diseñadas para<br /><em>cumplir una función real.</em></h3>
+            <p class="hero-sub">
+              Elegí modelos probados en planta, subí fotos de un repuesto quebrado con una regla a la par para recibir guía clara sin tecnicismos, o comprá filamentos en stock real.
+            </p>
+            <div class="hero-actions">
+              <span class="btn-p">Cotizar una pieza →</span>
+              <span class="btn-s">Explorar tienda completa</span>
+            </div>
+          </div>
+
+          <div class="tilt-stage">
+            <div class="tilt-deck">
+              <div class="tilt-ghost">
+                <img id="tiltGhostImg" src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-audifonos.webp" alt="Siguiente pieza" />
+              </div>
+
+              <div class="tilt-card" id="tiltCard">
+                <img id="tiltMainImg" src="file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg" alt="Estuche Beyblade X" />
+                <div class="tilt-sheen" id="tiltSheen"></div>
+                <div class="tilt-scrim"></div>
+
+                <div class="tilt-top-row">
+                  <span class="tilt-cat" id="tiltCat"><i></i>PLA+ · Pieza de línea</span>
+                  <span class="tilt-cta-mini">Ver ficha →</span>
+                </div>
+
+                <div class="tilt-bottom">
+                  <div>
+                    <h4 id="tiltTitle">Estuche Beyblade X 3-Slot</h4>
+                    <span id="tiltMeta">180 g · 6.5 h de impresión · Tolerancia probada</span>
+                  </div>
+                  <div class="cmp-price">
+                    <strong id="tiltPrice">₡18 500</strong>
+                    <small id="tiltSub">Bajo pedido</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-tabs" id="caseTabs">
+              <div class="case-tab active" data-idx="0">
+                <small>01 · Pieza de línea</small>
+                <strong>Estuche Beyblade X</strong>
+                <div class="case-bar"></div>
+              </div>
+              <div class="case-tab" data-idx="1">
+                <small>02 · Uso diario</small>
+                <strong>Soporte Audífonos Pro</strong>
+                <div class="case-bar"></div>
+              </div>
+              <div class="case-tab" data-idx="2">
+                <small>03 · A medida</small>
+                <strong>Torre Hexagonal</strong>
+                <div class="case-bar"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <div class="pros-strip">
+      <div class="pros-card">
+        <h4>Cuándo conviene elegir Opción B (Comparador)</h4>
+        <p>Si querés que el Hero explique <strong>de un solo vistazo</strong> la magia de pasar de una foto/medida o archivo <code>.STL</code> a una pieza física real. Además evita tener otro carrusel en el Hero, dejando la rotación de productos únicamente en el <code>CardSwap 3D</code> de abajo.</p>
+      </div>
+      <div class="pros-card">
+        <h4>Cuándo conviene elegir Opción C (TiltedCard + 3 casos)</h4>
+        <p>Si preferís mostrar <strong>variedad del taller desde el primer segundo</strong> con inclinación 3D reactiva al mouse y brillo de estudio. Eso sí: conviene que los 3 casos del Hero sean distintos a las piezas de la galería inmediatamente debajo para no repetir fotos.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function drawWave(id) {
+      const canvas = document.getElementById(id);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+      const bgGlow = ctx.createRadialGradient(W * 0.42, H * 0.48, 20, W * 0.42, H * 0.48, W * 0.56);
+      bgGlow.addColorStop(0, 'rgba(255, 106, 31, 0.22)');
+      bgGlow.addColorStop(0.5, 'rgba(224, 85, 16, 0.08)');
+      bgGlow.addColorStop(1, 'rgba(22, 22, 24, 0)');
+      ctx.fillStyle = bgGlow;
+      ctx.fillRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter';
+      const ribbons = [
+        { seed: 0.0, yOff: 0.50, amp: 0.16, spread: 0.22, col: [255, 106, 31], edge: [255, 212, 178], alpha: 0.25 },
+        { seed: 1.2, yOff: 0.54, amp: 0.14, spread: 0.19, col: [224, 85, 16],  edge: [255, 238, 224], alpha: 0.21 },
+        { seed: 2.5, yOff: 0.47, amp: 0.13, spread: 0.16, col: [255, 128, 58], edge: [255, 255, 255], alpha: 0.17 },
+      ];
+      ribbons.forEach((r) => {
+        for (let s = 0; s < 24; s++) {
+          const v = s / 23;
+          const edgeDist = Math.abs(v - 0.5) * 2;
+          const fresnel = Math.pow(edgeDist, 2.2) * 1.15 + Math.pow(Math.sin(v * Math.PI), 1.4) * 0.25;
+          const fadeEdge = edgeDist > 0.92 ? (1 - edgeDist) / 0.08 : 1;
+          const a = r.alpha * fresnel * fadeEdge * 0.72;
+          const mix = Math.min(1, Math.pow(edgeDist, 1.5));
+          const cr = Math.round(r.col[0] * (1 - mix) + r.edge[0] * mix);
+          const cg = Math.round(r.col[1] * (1 - mix) + r.edge[1] * mix);
+          const cb = Math.round(r.col[2] * (1 - mix) + r.edge[2] * mix);
+          ctx.beginPath();
+          for (let i = 0; i <= 240; i++) {
+            const u = i / 240;
+            const x = u * W;
+            const arch = -Math.cos(u * Math.PI * 0.94 - 0.18) * H * 0.11;
+            const wave = Math.sin(u * 5.2 + r.seed) * H * r.amp * 0.55 + Math.sin(u * 9.4 + v * 3.1 + r.seed * 1.6) * H * r.amp * 0.26;
+            const rw = (0.68 + 0.65 * Math.pow(Math.abs(u - 0.48) * 2, 1.35)) * H * r.spread;
+            const y = H * r.yOff + arch + wave + (v - 0.5) * rw;
+            if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+          }
+          ctx.strokeStyle = `rgba(${cr},${cg},${cb},${a.toFixed(4)})`;
+          ctx.lineWidth = 3;
+          ctx.stroke();
+        }
+      });
+      ctx.globalCompositeOperation = 'source-over';
+    }
+    drawWave('waveB');
+    drawWave('waveC');
+
+    // Interactive Slider for Option B (works when opened in browser!)
+    const cmpCard = document.getElementById('compareCard');
+    const cmpBefore = document.getElementById('cmpBefore');
+    const cmpLine = document.getElementById('cmpLine');
+    const cmpKnob = document.getElementById('cmpKnob');
+    let dragging = false;
+    function setSplit(clientX) {
+      const rect = cmpCard.getBoundingClientRect();
+      const pct = Math.max(12, Math.min(88, ((clientX - rect.left) / rect.width) * 100));
+      cmpBefore.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      cmpLine.style.left = pct + '%';
+      cmpKnob.style.left = pct + '%';
+    }
+    cmpCard.addEventListener('pointerdown', (e) => { dragging = true; setSplit(e.clientX); });
+    window.addEventListener('pointermove', (e) => { if (dragging) setSplit(e.clientX); });
+    window.addEventListener('pointerup', () => { dragging = false; });
+
+    // Interactive 3D Tilt + Case Switcher for Option C
+    const cases = [
+      {
+        img: 'file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg',
+        ghost: 'file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-audifonos.webp',
+        cat: 'PLA+ · Pieza de línea',
+        title: 'Estuche Beyblade X 3-Slot',
+        meta: '180 g · 6.5 h de impresión · Tolerancia probada',
+        price: '₡18 500',
+        sub: 'Bajo pedido',
+        dot: '#a3e635'
+      },
+      {
+        img: 'file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-audifonos.webp',
+        ghost: 'file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-torre.webp',
+        cat: 'PETG · Uso diario',
+        title: 'Soporte Audífonos Pro',
+        meta: 'Base con contrapeso · Canal posterior para cable',
+        price: '₡12 900',
+        sub: 'Bajo pedido',
+        dot: '#38bdf8'
+      },
+      {
+        img: 'file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-torre.webp',
+        ghost: 'file:///C:/Documentos/vertice-cr-base/VerticeCR-Definitivo/assets/photos/pieza-estuche-beyblade-cerrado.jpg',
+        cat: 'PLA+ · Personalizado',
+        title: 'Torre de Dados Hexagonal',
+        meta: 'Paredes reforzadas · Color a elección del cliente',
+        price: '₡14 200',
+        sub: 'A medida',
+        dot: '#ff6a1f'
+      }
+    ];
+    const tiltCard = document.getElementById('tiltCard');
+    const tiltSheen = document.getElementById('tiltSheen');
+    tiltCard.addEventListener('mousemove', (e) => {
+      const r = tiltCard.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      const rotY = (x - 0.5) * 18;
+      const rotX = (0.5 - y) * 14;
+      tiltCard.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg)`;
+      tiltSheen.style.background = `radial-gradient(380px 260px at ${x*100}% ${y*100}%, rgba(255,150,88,0.26), transparent 64%)`;
+    });
+    tiltCard.addEventListener('mouseleave', () => {
+      tiltCard.style.transform = 'rotateY(-5deg) rotateX(2.5deg)';
+    });
+    document.querySelectorAll('.case-tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.case-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const c = cases[Number(tab.dataset.idx)];
+        document.getElementById('tiltMainImg').src = c.img;
+        document.getElementById('tiltGhostImg').src = c.ghost;
+        document.getElementById('tiltCat').innerHTML = `<i style="background:${c.dot}"></i>${c.cat}`;
+        document.getElementById('tiltTitle').textContent = c.title;
+        document.getElementById('tiltMeta').textContent = c.meta;
+        document.getElementById('tiltPrice').textContent = c.price;
+        document.getElementById('tiltSub').textContent = c.sub;
+      });
+    });
+  </script>
+</body>
+</html>
